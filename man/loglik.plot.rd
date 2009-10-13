@@ -54,16 +54,18 @@ log-likelihood function, and binary responses (0,1) for the binomial log likelih
 }
 
 \details{These plots are helpful in explaining the workings of ML estimation for parameters.  Animation is included as an option to further clarify processes.  
-When specifying \code{poss} be sure to include the estimate that you "want" the log-likelihood function to maximize in the vector of possibilities, e.g. \code{mean(X)} for estimation of \eqn{\mu}. 
+When specifying \code{poss} be sure to include the estimate that you "want" the log-likelihood function to maximize in the vector of possibilities, e.g. \code{mean(X)} for estimation of \eqn{\mu}.  Animation in the second (pdf) plot will be sped up, using a primitive routine, for large datasets with many densities.   
 }
 
 \value{
-A plot of the normal, Poisson, exponential, binomial, or a custom log-likelihood function is returned along with a plot of the pdf with ML estimates for paramters.  On this second graph densities of observations are plotted.  The second graph is not created for custom likelihood functions.
+A plot of the normal, Poisson, exponential, binomial, or a custom log-likelihood function is returned along with a plot of the pdf with ML estimates for parameters.  On this second graph densities of observations are plotted.  The second graph is not created for custom likelihood functions.
 }
 
 \author{Ken Aho}
 \seealso{\code{\link{dnorm}}, \code{\link{dpois}}, \code{\link{dexp}}, \code{\link{dbinom}}}
 \examples{
+
+##Not run
 
 ##Normal log likelihood estimation of mu.
 X<-c(11.2,10.8,9.0,12.4,12.1,10.3,10.4,10.6,9.3,11.8)

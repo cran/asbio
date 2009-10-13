@@ -9,7 +9,7 @@ specialization of insects with potential host plants.
 ES.May(mat, digs = 3)
 }
 \arguments{
-  \item{mat}{A symmetic matrix with potential specialist hosts in rows and 
+  \item{mat}{A symmetric matrix with potential specialist hosts in rows and 
   and the number species specializing on each of the host species in columns 
   (see details below).}
   \item{digs}{The number of significant digits in output.}
@@ -23,18 +23,18 @@ ES.May(mat, digs = 3)
   only beetle species found on host 1.  The second element (row 1, column 2) contained 
   the number of beetle species found on host 1 and one other host. The third element 
   (row 1, column 3) contained the number of beetle species found on host 1 and two 
-  other hosts.  The fourth element (row 1, colomn 4) contained the number of beetle 
+  other hosts.  The fourth element (row 1, column 4) contained the number of beetle 
   species occurring on all four hosts.     
 }
 \value{
 Output is a list 
-  \item{E.S_coefficents}{}
+  \item{E.S_coefficients}{}
   \item{Nk}{The number of distinct specialists.}
-  \item{Pki.matrix}{The proportion of potential specialists on the kth host}
+  \item{Pki.matrix}{The proportion of potential specialists on the \emph{k}th host}
   \item{N.matrix}{The raw data.}
   \item{fk.matrix}{}
-  \item{fk.vector}{For the kth host, the proportion of species which are effectively specialized.}
-  \item{Nk.vector}{The number of species which are effectively specialized on the kth host.}
+  \item{fk.vector}{For the \emph{k}th host, the proportion of species which are effectively specialized.}
+  \item{Nk.vector}{The number of species which are effectively specialized on the \emph{k}th host.}
 }
 \references{May, R. M. and Beverton, R. J. H. (1990)  How many species [and discussion].  
 \emph{Philosophical Transactions: Biological Sciences}.  330 (1257) 293-304.}

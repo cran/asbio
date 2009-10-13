@@ -23,7 +23,7 @@ PI.col = 4, reg.lty = 1, CI.lty = 2, PI.lty = 3, reg.lwd = 1, CI.lwd = 1, ...)
   \item{CI.lty}{Line type for the confidence interval.}
   \item{PI.lty}{Line type for the confidence interval.}
   \item{reg.lwd}{Line width for the regression line.}
-  \item{CI.lwd}{Line widths for the connfidence and prediction intervals.}
+  \item{CI.lwd}{Line widths for the confidence and prediction intervals.}
   \item{\dots}{Additional arguments from \code{\link{plot}}}
   }
 

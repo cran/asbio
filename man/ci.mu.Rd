@@ -29,7 +29,7 @@ fpc = FALSE, N = NULL, n = NULL)
 dataset provided in \code{data}.  Finite population corrections are made if a user specifies \code{fpc=TRUE} and 
 specifies some value for \code{N}.} 
 
-\value{Returns a list of \code{class = "ci"}.  Default printed results are the paramter estimate and confidence bounds.  Other \code{invisible} objects include:
+\value{Returns a list of \code{class = "ci"}.  Default printed results are the parameter estimate and confidence bounds.  Other \code{invisible} objects include:
   \item{Margin}{the confidence margin.}
 }
 \references{Lohr, S. L. (1999)  \emph{Stampling: design and analysis}.  Duxbury Press.  Pacific Grove, USA.}

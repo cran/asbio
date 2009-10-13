@@ -4,7 +4,7 @@
 Confidence interval estimation for the binomial parameter p.
 }
 \description{
-Confidence interval formulae for \eqn{\mu} are only appropriate for quantitative continuous variables.  This of course excludes a large number of biologically important variables which describe binary outcomes or counts.  The function \code{p.conf} calculates confidence intervals for the binomial paramter \emph{p} (probability of success) using raw or summarized data.  By default Wilson point estimators are used to estimate \eqn{p} and \eqn{\sigma_{\hat{p}}}.  If raw data are to be used (the default) then successes should be indicated as ones and failures as zeroes in the \code{data} vector.  Finite population corrections can also be specified. Three methods for confidence intervals can be implemented: the normal approximation, Wilson estimators i.e. the adjusted Wald method (Wilson 1927), and the Clopper-Pearson exact method (Clopper and Pearson 1934).  Agresti and Coull (1998) reccomend the Wilson estimation method.
+Confidence interval formulae for \eqn{\mu} are only appropriate for quantitative continuous variables.  This of course excludes a large number of biologically important variables which describe binary outcomes or counts.  The function \code{p.conf} calculates confidence intervals for the binomial parameter \emph{p} (probability of success) using raw or summarized data.  By default Wilson point estimators are used to estimate \eqn{p} and \eqn{\sigma_{\hat{p}}}.  If raw data are to be used (the default) then successes should be indicated as ones and failures as zeros in the \code{data} vector.  Finite population corrections can also be specified. Three methods for confidence intervals can be implemented: the normal approximation, Wilson estimators i.e. the adjusted Wald method (Wilson 1927), and the Clopper-Pearson exact method (Clopper and Pearson 1934).  Agresti and Coull (1998) reccomend the Wilson estimation method.
 }
 \usage{
 
@@ -37,7 +37,7 @@ Sample size.  Required if \code{summarized = TRUE}.
 Population size.  Required if \code{fpc = TRUE}.
 }
   \item{method}{
-Type of method to be used in confidence interval calculations, \code{method ="wilson"} is the default, although there are two other options, \code{method="approximation"} provides the conventional normal approximation.  \code{methode="exact"}) provides the Clopper Pearson (1934) method.  The \code{exact} method cannot be implemented if \code{summarized=TRUE}.
+Type of method to be used in confidence interval calculations, \code{method ="wilson"} is the default, although there are two other options, \code{method="approximation"} provides the conventional normal approximation.  \code{method="exact"}) provides the Clopper Pearson (1934) method.  The \code{exact} method cannot be implemented if \code{summarized=TRUE}.
 }
 }
 \details{
@@ -63,12 +63,12 @@ where \eqn{F^{*}\sim F(2n-2x+2,2x)}
 where \eqn{F^{*}\sim F(2x-2,2n-2x)}.
 }
 
-\value{Returns a list of \code{class = "ci"}.  Default printed results are the paramter estimate and confidence bounds.  Other objects are \code{invisible}.  In particular, if \code{method = "wilson" or "approximation"} returns a list with four items:
+\value{Returns a list of \code{class = "ci"}.  Default printed results are the parameter estimate and confidence bounds.  Other objects are \code{invisible}.  In particular, if \code{method = "wilson" or "approximation"} returns a list with four items:
   \item{p.hat}{Estimate for \emph{p}.}
   \item{S.p.hat}{Estimate for \eqn{S_{\hat{p}}}.}
   \item{margin}{Confidence margin.}
   \item{ci}{Confidence interval.}
-If \code{method = "wilson"} the function returns the confidence interval, \code{ci}, only, i.e. no other \code{invsible} components exist.
+If \code{method = "wilson"} the function returns the confidence interval, \code{ci}, only, i.e. no other \code{invisible} components exist.
 }
 \references{
 Agresti, A., and Coull, B . A. (1998) Approximate is better than 'exact' for interval 

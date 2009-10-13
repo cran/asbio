@@ -1,7 +1,7 @@
 \name{bound.angle}
 \alias{bound.angle}
 \title{
-Angle of azimuith to a boundary.
+Angle of azimuth to a boundary.
 }
 \description{
 The function calculates the angle of azimuth from a Cartesian coordination given in \code{X} and \code{Y} to a nearest neighbor coordinate 
@@ -15,12 +15,12 @@ given by \code{nX} and \code{nY}.  The nearest neighbor coordinates can be obtai
 }
   \item{nX}{Cartesian \emph{X} coordinate of nearest neighbor point on a boundary.
 }
-  \item{nY}{Cartesian \emph{Y} coordiante of nearest neighbor point on a boundary. 
+  \item{nY}{Cartesian \emph{Y} coordinate of nearest neighbor point on a boundary. 
 }
 }
 \details{The function returns the nearest neighbor angles (in degrees) with respect to a four coordinate system ala ARC-GIS Near(Analysis).  
-Output angles range from -180 to 180 degrees: zero degrees to the East, ninety degrees to the North, 180 (or -180) degrees to the West,
-and -90 degrees to the South.  
+Output angles range from \eqn{-180^{\circ}} to \eqn{180^{\circ}}: \eqn{0^{\circ}} to the East, \eqn{90^{\circ}} to the North, \eqn{180^{\circ}} (or \eqn{-180^{\circ}}) to the West,
+and \eqn{-90^{\circ}} to the South.  
 }
 \value{Returns a vector of nearest neighbor angles.}
 

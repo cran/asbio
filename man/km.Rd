@@ -24,7 +24,7 @@ ylab="Pr(survivorship from 1st age class)",xlab="Age class", ...)
 Details for this index are given in Pollock et al. (1989).
 }
 \value{
-Returns a list with the follwoing components
+Returns a list with the following components
   \item{s.hat}{A vector of estimated survivorship probabilities from the 1st age class onward.}
   \item{Greenwood.Var}{The estimated Greenwood variance for each age class.}
   \item{Oakes.Var}{The estimated Oakes variance for each age class.}
@@ -32,7 +32,7 @@ Returns a list with the follwoing components
 }
 \references{Pollock, K. H., Winterstein, S. R., and Curtis, P. D. (1989) Survival 
 analysis in telemetry studies: the staggered entry design.  \emph{Journal of wildlife 
-managment}.  53(1):7-1.}
+Management}.  53(1):7-1.}
 \author{Ken Aho}
 \examples{
 ##Example from Pollock (1989)

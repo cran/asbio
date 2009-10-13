@@ -5,7 +5,7 @@
 Rat glycogen data from Sokal and Rohlf (1995).
 }
 \description{
-This dataset from Sokal and Rohlf (1995) is often used to demonstrate psuedoreplication. Six rats were randomly given one of three treatments: "control", "compound 217", and "compound 217 + sugar".  After a short period of time the rats were euthanatized and the glycogen content of their livers was measured.  Two glycogen measurements were made for three different preparations of each liver.  Clearly the liver preparations and measurements on those preparations are nested in each rat, and are not independent. 
+This dataset from Sokal and Rohlf (1995) is often used to demonstrate psuedoreplication. Six rats were randomly given one of three treatments: "control", "compound 217", and "compound 217 + sugar".  After a short period of time the rats were euthanized and the glycogen content of their livers was measured.  Two glycogen measurements were made for three different preparations of each liver.  Clearly the liver preparations and measurements on those preparations are nested in each rat, and are not independent. 
 }
 \usage{data(rat)}
 \format{

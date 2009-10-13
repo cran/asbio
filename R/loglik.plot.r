@@ -46,7 +46,7 @@ if(plot.likfunc==TRUE){
             expression(paste("Estimates for ",sigma^2))),xlab),...)
         arrows(possibilities[i],logl[i],possibilities[i+1],logl[i+1],col=2,length=.15,lwd=1)
         points(possibilities[1:i],logl[1:i],lty=2,col=2,lwd=1,type="l")
-        Sys.sleep=interval
+        Sys.sleep(interval)
     }
     points(possibilities,logl,type="l")
     }
@@ -76,7 +76,7 @@ if(plot.likfunc==TRUE){
         legend("topright",legend=c(paste("X~N(",bquote(.(round(mean(X),1))),", ",bquote(.(round(Var.MLE(X),1))),")",sep=""),
         paste("Loglik = ", bquote(.(round(cumlik[i],2))))),bty="n",cex=.9)
         segments(x0[1:i],y0[1:i],x0[1:i],y1[1:i],col=2,lty=2)
-        Sys.sleep=interval
+        Sys.sleep(interval)
       }
     }
   }
@@ -112,7 +112,7 @@ max.p<-ifelse(is.null(poss),mean(X),possibilities[logl==max(logl)][1])
         xlab=ifelse(is.null(xlab),expression(paste("Estimates for ", lambda)),xlab),...)
         arrows(possibilities[i],logl[i],possibilities[i+1],logl[i+1],col=2,length=.15,lwd=1)
         points(possibilities[1:i],logl[1:i],lty=2,col=2,lwd=1,type="l")
-        Sys.sleep=interval
+        Sys.sleep(interval)
         }
     points(possibilities,logl,type="l")
       }
@@ -143,7 +143,7 @@ max.p<-ifelse(is.null(poss),mean(X),possibilities[logl==max(logl)][1])
       paste("Loglik = ", bquote(.(round(cumlik[i],2))))),bty="n",cex=.9)
       segments(x0[1:i],y0[1:i],x0[1:i],y1[1:i],col=2,lty=2)
       points(x0[1:i],y1[1:i],pch=16)
-      Sys.sleep=interval
+      Sys.sleep(interval)
       }
     }
   }
@@ -177,7 +177,7 @@ max.p<-ifelse(is.null(poss),mean(X),possibilities[logl==max(logl)][1])
         xlab=ifelse(is.null(xlab),"Estimates for p",xlab),...)
         arrows(possibilities[i],logl[i],possibilities[i+1],logl[i+1],col=2,length=.15,lwd=1)
         points(possibilities[1:i],logl[1:i],lty=2,col=2,lwd=1,type="l")
-        Sys.sleep=interval
+        Sys.sleep(interval)
         }
     points(possibilities,logl,type="l")
       }
@@ -210,7 +210,7 @@ max.p<-ifelse(is.null(poss),mean(X),possibilities[logl==max(logl)][1])
         paste("Loglik = ", bquote(.(round(cumlik[i],2))))),bty="n",cex=.9)
         segments(x0[1:i],y0[1:i],x0[1:i],y1[1:i],col=2,lty=2)
         points(x0[1:i],y1[1:i],pch=16)
-        Sys.sleep=interval
+        Sys.sleep(interval)
         }
     }
   }
@@ -242,7 +242,7 @@ possibilities<-poss
           xlab=ifelse(is.null(xlab),expression(paste("Estimates for ", theta)),xlab),...)
           arrows(possibilities[i],logl[i],possibilities[i+1],logl[i+1],col=2,length=.15,lwd=1)
           points(possibilities[1:i],logl[1:i],lty=2,col=2,lwd=1,type="l")
-          Sys.sleep=interval
+          Sys.sleep(interval)
       }
       points(possibilities,logl,type="l")
     }
@@ -272,7 +272,7 @@ possibilities<-poss
           legend("topright",legend=c(paste("X~EXP(1/",bquote(.(round(mean(X),4))),")"),
           paste("Loglik = ", bquote(.(round(cumlik[i],2))))),bty="n",cex=.9)
           segments(x0[1:i],y0[1:i],x0[1:i],y1[1:i],col=2,lty=2)
-          Sys.sleep=interval
+          Sys.sleep(interval)
       }
     }
   }
@@ -296,7 +296,7 @@ nm<-which(logl==max(logl))[1]
           plot(poss,logl,type="n",xlab=xlab,ylab=ylab,...)
           arrows(poss[i],logl[i],poss[i+1],logl[i+1],col=2,length=.15,lwd=1)
           points(poss[1:i],logl[1:i],lty=2,col=2,lwd=1,type="l")
-          Sys.sleep=interval
+          Sys.sleep(interval)
       }
       points(poss,logl,type="l")
       }

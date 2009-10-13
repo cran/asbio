@@ -12,7 +12,7 @@ LS.est<-mean(X)
       plot(poss,sq.res,type="n",ylab="Sum of squares",...)
       arrows(poss[i],sq.res[i],poss[i+1],sq.res[i+1],col=2,length=.15,lwd=1)
       points(poss[1:i],sq.res[1:i],lty=2,col=2,lwd=1,type="l")
-      Sys.sleep=interval
+      Sys.sleep(interval)
       }
    points(poss,sq.res,type="l")
     }

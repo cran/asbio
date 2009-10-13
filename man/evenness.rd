@@ -14,7 +14,7 @@ evenness(x)
   function assumes that species are in columns and sites are in rows.}
 }
 \details{
-Many diveristy indices incoporate evenness (e.g. Simpson's diversity, Shannon-
+Many diversity indices incorporate evenness (e.g. Simpson's diversity, Shannon-
 Weiner diversity).  Diversity indices which concentrate totally on evenness are 
 fraught with problems including dependence on species counts (McCune and Grace 
 2002).  A particular problem with Pielou's index is that it is a ratio of a

@@ -3,7 +3,7 @@
 \alias{print.Mrpp}
 \title{Multi-response permutation procedure.  A wrapper for mrpp from vegan.}
 \description{
-While \code{\link[vegan]{mrpp}} in library \code{vegan} directly tests the hypothesis of identical multivariate disributions using a permutation procedure, PC-ORD approximates the distribution of  using a Pearson type III distribution which accommodates the fact that the permutation distribution is often significantly skewed (McCune and Grace 2002).  The Pearson type III distribution is similar to the binomial distribution when \emph{p} \eqn{\neq} \emph{q} (Abramowitz and Stegun 1972). 
+While \code{\link[vegan]{mrpp}} in library \code{vegan} directly tests the hypothesis of identical multivariate distributions using a permutation procedure, PC-ORD approximates the distribution of  using a Pearson type III distribution which accommodates the fact that the permutation distribution is often significantly skewed (McCune and Grace 2002).  The Pearson type III distribution is similar to the binomial distribution when \emph{p} \eqn{\neq} \emph{q} (Abramowitz and Stegun 1972). 
 }
 \usage{
 

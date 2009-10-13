@@ -17,11 +17,12 @@ of size 400.  For stratified random sampling the population is subdivided into f
 and \code{n}/4 samples are taken within each strata.  For cluster sampling the population is subdivided into four
 equally sized clusters and a census is taken from two clusters (regardless of specification of \code{n}).}
 \value{
-A plot is returned with four subplots.  (a) shows the populaution before sampling, (b) shows simple random sampling, (c) shows stratified random sampling, (d) shows cluster sampling.
+A plot is returned with four subplots.  (a) shows the population before sampling, (b) shows simple random sampling, (c) shows stratified random sampling, (d) shows cluster sampling.
 }
 \author{Ken Aho}
 \examples{
 runSampDesign(20)
+#Not run
 #Animated demonstration
 r<-rep(20,100)
 for(i in 1:100){ 

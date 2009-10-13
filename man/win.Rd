@@ -2,7 +2,7 @@
 \alias{win}
 \title{Winsorize data}
 \description{
-Winsorizes the proportion of ordered data given by \code{lamba} from each tail.
+Winsorizes the proportion of ordered data given by \code{lambda} from each tail.
 }
 \usage{
 
