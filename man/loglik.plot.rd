@@ -1,4 +1,5 @@
 \name{loglik.norm.plot}
+\alias{loglik.plot}
 \alias{loglik.norm.plot}
 \alias{loglik.exp.plot}
 \alias{loglik.pois.plot}
@@ -9,7 +10,8 @@ Plots the normal, exponential, Poisson and binomial log likelihood functions.  I
 }
 \usage{
 
-loglik.norm.plot(X, parameter = c("mu", "sigma.sq"), possibilities, plot.density=TRUE)
+loglik.norm.plot(X, parameter = c("mu", "sigma.sq"), possibilities, 
+plot.density=TRUE)
 
 loglik.pois.plot(X, possibilities)
 
@@ -47,7 +49,8 @@ possibilities.var<-seq(1,1.45,.001)
 loglik.norm.plot(X,parameter="sigma.sq",possibilities.var)
 
 ##Exponential log likelihood estimation of theta
-X<-c(0.82,0.32,0.14,0.41,0.09,0.32,0.74,4.17,0.36,1.80,0.74,0.07,0.45,2.33,0.21,0.79,0.29,0.75,3.45)
+X<-c(0.82,0.32,0.14,0.41,0.09,0.32,0.74,4.17,0.36,1.80,0.74,0.07,0.45,2.33,0.21,
+0.79,0.29,0.75,3.45)
 possibilities.exp<-seq(.7,1.3,.0001)
 loglik.exp.plot(X,possibilities.exp)
 

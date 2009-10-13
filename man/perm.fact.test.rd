@@ -29,7 +29,9 @@ Chapman and Hall, London.
 \author{Ken Aho}
 \seealso{\code{\link{MC.test}}}
 \examples{
-lizard<-data.frame(ants=c(13,242,105,8,59,20,515,488,88,18,44,21,182,21,7,24,312,68,460,1223,990,140,40,27),size=factor(c(rep(1,12),rep(2,12))),month=factor(rep(rep(c(1,2,3,4),each=3),2)))
+lizard<-data.frame(ants=c(13,242,105,8,59,20,515,488,88,18,44,21,182,21,7,24,312,68,
+460,1223,990,140,40,27),size=factor(c(rep(1,12),rep(2,12))),
+month=factor(rep(rep(c(1,2,3,4),each=3),2)))
 attach(lizard)
 perm.fact.test(ants,month,size,perm=100)
 }

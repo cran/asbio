@@ -5,7 +5,9 @@
 Samples from a parent distribution without replacement with sample size = \code{s.size} \code{R} times.  At each iteration a statistic requested in \code{stat} is calculated. Thus a distribution of \code{R} statistic estimates is created. This distribution is shown as a relative frequency histogram. Sampling distributions for up to four different statistics utilizing two different parent distributions.  Statistic conceptual sampling distributions can be combined in various way by specifying a function in func (see below). 
 }
 \usage{
-samp.dist(parent, parent2 = parent, s.size = 1, s.size2 = s.size,R = 1000, breaks = 30, stat = mean, stat2 = NULL, stat3 = NULL, stat4 = NULL, xlab = expression(bar(X)),ylab="Relative frequency",func=NULL)
+samp.dist(parent, parent2 = parent, s.size = 1, s.size2 = s.size,R = 1000, 
+breaks = 30, stat = mean, stat2 = NULL, stat3 = NULL, stat4 = NULL, 
+xlab = expression(bar(X)),ylab="Relative frequency",func=NULL)
 }
 \arguments{
   \item{parent}{A vector containing observations from a parental distribution.}
@@ -43,7 +45,8 @@ MSE<-(((s.size-1)*s.dist3)+((s.size2-1)*s.dist4))/(s.size+s.size2-2)
 func.res<-(s.dist1-s.dist2)/(sqrt(MSE)*sqrt((1/s.size)+(1/s.size2)))
 func.res}
 
-samp.dist(parent, parent2=parent, s.size=6, R=1000, breaks=35,stat=mean,stat2=mean,stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star)
+samp.dist(parent, parent2=parent, s.size=6, R=1000, breaks=35,stat=mean,stat2=mean,
+stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star)
 curve(dt(x,10),from=-6,to=6,add=TRUE,lwd=2)
 legend("topleft",lwd=2,col=1,legend="t(10)")
 
@@ -51,7 +54,8 @@ legend("topleft",lwd=2,col=1,legend="t(10)")
 parent<-runif(100000, min=0,max=2)
 parent2<-rexp(100000)
 
-samp.dist(parent, parent2=parent2, s.size=6, R=1000, breaks=35,stat=mean,stat2=mean,stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star)
+samp.dist(parent, parent2=parent2, s.size=6, R=1000, breaks=35,stat=mean,stat2=mean,
+stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star)
 curve(dt(x,10),from=-6,to=6,add=TRUE,lwd=2)
 legend("topleft",lwd=2,col=1,legend="t(10)")
 }

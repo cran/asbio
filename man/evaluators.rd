@@ -4,13 +4,14 @@
 \alias{morisita.eval}
 \alias{biserial.eval}
 \alias{evaluators}
+\alias{print.eval}
 \title{Cluster analysis evaluators.}
 \description{
 A collection of classification evaluators are included here; \code{McR.eval} provides both the McClain & Rao evaluator (W/B) (McClain and Rao 1975) and the PARTANA ratio (Roberts 2005); \code{Cindex.eval} = The \emph{C}-index (Hubert and Levin 1976); \code{morisita.eval} = the Morisita index (adapted from Horn 1966); \code{biserial.eval} = point biserial correlation evaluator (Brogden 1949).
 }
 \usage{
 
-McR.eval(cat, dist)
+McR.eval(cat, dist, method = "McR")
 
 Cindex.eval(cat, Y, index = "steinhaus")
 
@@ -21,15 +22,16 @@ biserial.eval(cat, dist)
 \arguments{
 
   \item{cat}{Classification solution, a categorical vector.}
-  \item{dist}{A dissimilarity or distance matrix.}
+  \item{dist}{A dissimilarity or distance matrix, i.e. an object of \code{class="dist"}.}
+  \item{method}{The method used in \code{McR.eval}.  Options are \code{method="partana"} and \code{method="McR"}.}
   \item{Y}{A matrix of raw data, e.g. a community matrix.}
-  \item{index}{Type of dissimilarity or distance metric to use.  Any measure from \code{get.dist} is allowed.}
+  \item{index}{Type of dissimilarity or distance metric to use.  Any measure from \code{get.dist} is allowed}
 }
 \details{
 More to come.  Note that the function \code{McR.eval} is essentially the \code{partana} function from library \code{labdsv} with only a few minor adjustments. 
 }
 \value{
-Returns an evaluator score for a classification solution.
+Returns an list of \code{class="eval"}. Printed will be the evaluator score for a classification solution; \code{invisible} objects will vary with method.
 }
 \note{The Morisita evaluator has been tested on a few datasets and appears to respond in a strongly linear fashion to the number of clusters.}
 \seealso{\code{\link{get.dist}}}
@@ -52,4 +54,13 @@ Roberts, D. (2005)  \emph{Vegetation classification in R, for labdsv ver. 1.1-1,
 
 }
 \author{David Roberts and Ken Aho}
+\examples{
+library(vegan)
+data(dune)
+data(dune.env)
 
+McR.eval(dune.env[,3],get.dist(dune,"steinhaus"))
+Cindex.eval(dune.env[,3],dune)
+biserial.eval(dune.env[,3],get.dist(dune,"steinhaus"))
+}
+\keyword{multivariate}

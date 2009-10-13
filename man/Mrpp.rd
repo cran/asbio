@@ -7,7 +7,8 @@ While \code{\link[vegan]{mrpp}} in library \code{vegan} directly tests the hypot
 }
 \usage{
 
-Mrpp(dat, grouping, permutations = 1000, distance = "euclidean", weight.type = 1, strata)
+Mrpp(dat, grouping, permutations = 1000, distance = "euclidean", 
+weight.type = 1, strata)
 }
 \arguments{
   \item{dat}{data matrix or data frame in which rows are samples and columns are response variable(s), or a dissimilarity object or a symmetric square matrix of dissimilarities.}
