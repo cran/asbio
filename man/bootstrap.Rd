@@ -13,7 +13,7 @@ bootstrap(data, statistic, R, matrix = FALSE)
   \item{R}{The number of bootstrap iterations.}
   \item{matrix}{A logical statement.  If \code{matrix = TRUE} then rows in the matrix are sampled as multivariate observations.}
 }
-\details{With bootstrapping we sample with replacement from a dataset of size n with n samples \code{R} times. At each of the \code{R} iterations a statistical summary can be created resulting in a bootstrap distribution of statistics.}   
+\details{With bootstrapping we sample with replacement from a dataset of size \emph{n} with n samples \code{R} times. At each of the \code{R} iterations a statistical summary can be created resulting in a bootstrap distribution of statistics.}   
 \value{
   Returns a bootstrap distribution of a statistic.  
 }

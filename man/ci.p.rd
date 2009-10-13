@@ -57,8 +57,10 @@ A 100(1 - \eqn{\alpha})percent confidence interval for the binomial parameter \e
 
 The "exact" method of Clopper and Pearson (1934) is bounded at the nominal limits, but actual coverage may greatly exceed nominal coverage.  Confidence bounds for the Clopper and Pearson (1934) method are derived (in part) using quantiles from the \emph{F}-distribution.  
 
-\deqn{C_L=frac{x}(x+(n-x+1)F*_{1-\alpha/2}  F*~F(2n-2x+2,2x)}
-\deqn{C_U=frac{(x+1)F*_{1-\alpha/2}}{n-x+(x+1)F*_{1-\alpha/2}}  F*~F(2x-2,2n-2x).}
+\deqn{C_L=\frac{x}{(x+(n-x+1)F^{*}_{1-\alpha/2}}}
+where \eqn{F^{*}\sim F(2n-2x+2,2x)}
+\deqn{C_U=\frac{(x+1)F^{*}_{1-\alpha/2}}{n-x+(x+1)F^{*}_{1-\alpha/2}}}  
+where \eqn{F^{*}\sim F(2x-2,2n-2x)}.
 }
 
 \value{Returns a list of \code{class = "ci"}.  Default printed results are the paramter estimate and confidence bounds.  Other objects are \code{invisible}.  In particular, if \code{method = "wilson" or "approximation"} returns a list with four items:

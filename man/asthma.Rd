@@ -3,7 +3,7 @@
 \docType{data}
 \title{Asthma repeated measures dataset from Littell et al. (2002)}
 \description{
-This dataset was used by Littell (2002) to demonstrate repeated measures analyses.  The effect of two asthma drugs and a placebo were measured on 24 asthmatic patients.  Each patient was randomly given each drug using an approach to minimizet carry-over effects (Section 15.6) Forced expiratory volume (FEV1), the volume of air that can be expired after taking a deep breath in one second, was measured.  FEV1 was measured hourly for eight hours following application of the drug.  A baseline measure of FEV1 was also taken 11 hours before application of the treatment.  
+This dataset was used by Littell (2002) to demonstrate repeated measures analyses.  The effect of two asthma drugs and a placebo were measured on 24 asthmatic patients.  Each patient was randomly given each drug using an approach to minimize carry-over effects (Section 15.6) Forced expiratory volume (FEV1), the volume of air that can be expired after taking a deep breath in one second, was measured.  FEV1 was measured hourly for eight hours following application of the drug.  A baseline measure of FEV1 was also taken 11 hours before application of the treatment.  
 }
 \usage{data(asthma)}
 \format{

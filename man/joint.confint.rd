@@ -9,7 +9,7 @@ joint.confint(model, conf = 0.95)
 }
 \arguments{
 
-  \item{model}{A linear model created by lm}
+  \item{model}{A linear model created by \code{\link{lm}}}
   \item{conf}{level of confidence 1 - \emph{P}(type I error)}
 }
 \details{

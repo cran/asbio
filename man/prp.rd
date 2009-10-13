@@ -25,7 +25,7 @@ A numeric vector containing the times when spatial coordinates were recorded.
 \emph{X}-coordinate of nearest point on boundary.  These data are easily obtained from function \code{\link{near.bound}} or from ARCGIS Near output.
 }
   \item{N.Y}{
-\emph{Y}-coordinate of nearest point on boundary.  These data are easily obtained from function \code{\link{near.bound}}or from ARCGIS Near output.
+\emph{Y}-coordinate of nearest point on boundary.  These data are easily obtained from function \code{\link{near.bound}} or from ARCGIS Near output.
 }
   \item{habitat}{
 A character vector of habitat categories.

@@ -10,8 +10,8 @@ Conducts all possible pairwise tests with adjustments to \emph{p}-values using o
 }
 \usage{
 
-Pairw.test(y, x, conf.level = 0.95, method = c("LSD", "Bonf", "Tukey", "Sheffe"), 
-MSE = NULL, df.err = NULL)
+Pairw.test(y, x, conf.level = 0.95, method = c("LSD", "Bonf", "Tukey",
+"Sheffe"), MSE = NULL, df.err = NULL)
 
 LSD.test(y, x, conf.level = 0.95, MSE = NULL, df.err = NULL)
 

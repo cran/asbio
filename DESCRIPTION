@@ -1,7 +1,7 @@
 Package: asbio
 Type: Package
 Title: A collection of statistical tools for biologists
-Version: 0.2-1
+Version: 0.3
 Depends: plotrix, vegan, MASS, lmomco, cluster, boot, akima
 Date: 2009-10-13
 Author: Ken Aho; many thanks to V. Winston and D. Roberts
@@ -10,6 +10,6 @@ Description: Contains functions from the book: "Applied Statistics for
         Biologists"
 License: GPL (>= 2)
 LazyLoad: yes
-Packaged: 2010-03-18 20:58:46 UTC; ken
+Packaged: 2010-05-28 22:28:15 UTC; ken
 Repository: CRAN
-Date/Publication: 2010-03-19 07:31:22
+Date/Publication: 2010-05-29 08:01:52

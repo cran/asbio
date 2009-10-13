@@ -4,10 +4,13 @@
 \description{
 Describes random treatment allocation for nine experimental designs.}
 \usage{
-runExpDesign(method = c("CRD", "factorial2by2", "factorial2by2by2", "nested", "RCBD", "RIBD", "split", "split.split", "SPRB", "strip.split", "latin", "pairs"), titles = TRUE, ...)
+runExpDesign(method = c("CRD", "factorial2by2", "factorial2by2by2", "nested", 
+"RCBD", "RIBD", "split", "split.split", "SPRB", "strip.split", "latin", 
+"pairs"), titles = TRUE, ...)
 }
 \arguments{
-  \item{method}{A vector listing the experimental methods to be demonstrated.  Any subset of the character string \code{c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split","SPRB","strip.split","latin","pairs")}.}
+  \item{method}{A vector listing the experimental methods to be demonstrated.  Any subset of the character string \code{c("CRD","factorial2by2","factorial2by2by2",
+"nested","RCBD","RIBD","split","split.split","SPRB","strip.split","latin","pairs")}.}
   \item{titles}{A logical argument specifying whether or not plot should have a \code{main} titles.}
   \item{\dots}{Additional arguments from \code{\link{plot}}.}
 }
@@ -20,6 +23,15 @@ The function returns a plot or series of plots illustrating the workings of expe
 }
 \examples{
 runExpDesign()
+## Animation for side by side comparisons of how EUs are assigned to treatments 
+## for 12 different experimental designs.
+method = matrix(nrow=100,ncol=12,rep(c("CRD", "factorial2by2", "factorial2by2by2", 
+"nested", "RCBD", "RIBD", "split", "split.split", "SPRB", "strip.split", "latin", 
+"pairs"),100),byrow=TRUE)
+for(i in 1:nrow(method)){
+runExpDesign(method[i,])
+Sys.sleep=0.1
+}
 }
 \keyword{design}
 \keyword{graphs}

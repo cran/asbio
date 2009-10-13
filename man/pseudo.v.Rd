@@ -2,7 +2,7 @@
 \alias{pseudo.v}
 \title{Jacknife pseudo-values}
 \description{
-The function returns first-order jackknife pseudovalues which can be used to create jackknife summaries, e.g. the jackknife parameter estimate, and the jackknife standard error.  The function can be run on univariate data \code{(matrix = FALSE)} or multivariate data \code{(matrix =TRUE)}.  In the later case matrix rows are treated as multivariate observations.   
+The function returns first-order jackknife pseudovalues which can then be used to create statistical summaries, e.g. the jackknife parameter estimate, and the jackknife standard error.  The function can be run on univariate data \code{(matrix = FALSE)} or multivariate data \code{(matrix =TRUE)}.  In the later case matrix rows are treated as multivariate observations.   
 }
 \usage{
 pseudo.v(data, statistic, matrix = FALSE)
@@ -26,7 +26,8 @@ Chapman and Hall, London.}
 \examples{
 library(vegan)
 data(varespec)
-# A partial set of observations from a single plot for a Scandinavian moss/vascular plant/lichen survey.
+# A partial set of observations from a single plot for a Scandinavian 
+# moss/vascular plant/lichen survey.
 site18<-data.frame(t(varespec[1,][1:20]))
 
 #Shannon-Weiner diversity

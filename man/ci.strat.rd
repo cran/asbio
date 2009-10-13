@@ -31,7 +31,7 @@ For a stratified random sampling design let \emph{N} be the known total number o
 We estimate the variance in the \emph{h}th stratum as:
 \deqn{S^{2}_{h}=\frac{1}{n_h-1}\sum_{i=1}^{n_k}(X_{hi}-\bar{X}_h)^2}
 
-where \eqn{X_{hi}} is the \emph{i}th observation from the \emph{h}th strata and \eqn{\bar{X}_h} is the \emph{h}th sample mean.  We estimate the true population total,\emph{T}, with:
+where \eqn{X_{hi}} is the \emph{i}th observation from the \emph{h}th strata and \eqn{\bar{X}_h} is the \emph{h}th sample mean.  We estimate the true population total, \emph{T}, with:
 \deqn{\hat{T}=\sum_{h=i}^{k}N_h\bar{X}_h}
 
 We estimate the population mean, \eqn{\mu}, with:

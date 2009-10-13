@@ -16,7 +16,7 @@ line.type = 1, scale = TRUE, duplicate = "error", expand = 0.5, ...)
 
   \item{Y}{A numeric response vector.}
   \item{X}{A numeric explanatory vector or a two column matrix for 3D smooths.}
-  \item{span}{Span paramter, i.e. the size of the local neighborhood.}
+  \item{span}{Span parameter, i.e. the size of the local neighborhood.}
   \item{degree}{
 Indicates whether linear \code{degree = 1} or quadratic models \code{degree = 2} are to be applied to each local neighborhood.
 }

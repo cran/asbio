@@ -31,7 +31,7 @@ Returns Cartesian \emph{X,Y} coordinates of nearest neighbor locations on a boun
 Ken Aho
 }
 \seealso{
-\code{\link{prp}},\code{\link{bound.angle}}}
+\code{\link{prp}}, \code{\link{bound.angle}}}
 \examples{
 bX<-seq(0,49)/46
 bY<-c(4.89000,4.88200,4.87400,4.87300,4.88000,4.87900,4.87900,4.90100,4.90800,
