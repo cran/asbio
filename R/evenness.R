@@ -1,0 +1,11 @@
+evenness<-function(x){
+if(ncol(as.matrix(x))==1){
+S<-length(x[x!=0])
+J<-SW.index(x)/log(S)
+}
+if(ncol(as.matrix(x))>1){
+S<-apply(x>1,1,sum)
+J<-SW.index(x)/log(S)
+}
+J
+}
