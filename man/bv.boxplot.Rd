@@ -19,7 +19,7 @@ bv.boxplot(X, Y, robust = TRUE, D = 7, xlab = "X", ylab = "Y")
 }
 \details{
 Two ellipses are drawn.  The inner is the "hinge" which contains 50 percent of the data.  The outer is the "fence".  
-Observations outside of the "fence" constitute possible troublesome outliers.  The function bivariate from Everitt (2004) is used calculate the biweight \emph{M}-estimators of location, scale and correlation if \code{robust = TRUE} (the default). 
+Observations outside of the "fence" constitute possible troublesome outliers.  The function \code{bivariate} from Everitt (2004) is used calculate the biweight \emph{M}-estimators of location, scale and correlation if \code{robust = TRUE} (the default). 
 }
 \value{
 A diagnostic plot is returned
