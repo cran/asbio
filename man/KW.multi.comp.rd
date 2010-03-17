@@ -34,7 +34,8 @@ Returns a six column dataframe containing:
 \references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston.}
 \author{Ken Aho}
 \examples{
-rye.data<-data.frame(rye=c(50,49.8,52.3,44.5,62.3,74.8,72.5,80.2,47.6,39.5,47.7,50.7),nutrient=factor(c(rep(1,4),rep(2,4),rep(3,4))))
+rye.data<-data.frame(rye=c(50,49.8,52.3,44.5,62.3,74.8,72.5,80.2,47.6,39.5,47.7,50.7),
+nutrient=factor(c(rep(1,4),rep(2,4),rep(3,4))))
 attach(rye.data)
 KW.multi.comp(Y=rye,X=nutrient,conf=.95)
 }

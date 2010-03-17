@@ -5,7 +5,10 @@
 Creates barplots displaying treatment means with standard error or confidence interval error bars.  Can also display letters indicating if results were significant after adjustment for simultaneous inference.
 }
 \usage{
-bplot(y, x, int = c("SE", "CI"), conf = 0.95, plot.ci = TRUE, bar = TRUE, simlett = FALSE, bar.col = "gray", lett = NULL, exp.fact = 2, xlab = "x", ylab = "y", err = "y", sfrac = 0.01, gap = 0, slty = par("lty"), scol = NULL, pt.bg = par("bg"), ...)
+bplot(y, x, int = c("SE", "CI"), conf = 0.95, plot.ci = TRUE, bar = TRUE,
+ simlett = FALSE, bar.col = "gray", lett = NULL, exp.fact = 2, xlab = "x",
+ ylab = "y", err = "y", sfrac = 0.01, gap = 0, slty = par("lty"), scol = NULL,
+ pt.bg = par("bg"), ...)
 }
 \arguments{
 
@@ -40,7 +43,8 @@ A plot is returned.
 \examples{
 eggs<-c(11,17,16,14,15,12,10,15,19,11,23,20,18,17,27,33,22,26,28)
 trt<-c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,4,4,4,4,4)
-bplot(y=eggs, x=trt,int="SE",xlab="Treatment",ylab="Mean number of eggs",names.arg=c(1,2,3,4),simlett=TRUE,lett=c("b","b","b","a"))
+bplot(y=eggs, x=trt,int="SE",xlab="Treatment",ylab="Mean number of eggs",names.arg=c(1,2,3,4),simlett=TRUE,
+lett=c("b","b","b","a"))
 }
 \keyword{graphs}
 \keyword{univar}

@@ -5,7 +5,8 @@
 }
 \usage{
 
-polar.ord(data, index = "steinhaus", endpoint = c("BC.original","PC_ORD.original", "var.reg"), get.resid.dist = FALSE)
+polar.ord(data, index = "steinhaus", endpoint = c("BC.original",
+"PC_ORD.original", "var.reg"), get.resid.dist = FALSE)
 }
 
 \arguments{

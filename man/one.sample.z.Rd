@@ -4,7 +4,8 @@
 \description{
 Provides a one-sample hypothesis test.  The test assumes that the underlying population is normal and furthermore that \eqn{\sigma} is known.}
 \usage{
-one.sample.z(data = NULL, null.mu, xbar = NULL, sigma, n = NULL, test = c("two.sided", "lower.tail", "upper.tail"))
+one.sample.z(data = NULL, null.mu, xbar = NULL, sigma, n = NULL, 
+test = c("two.sided", "lower.tail", "upper.tail"))
 }
 \arguments{
   \item{data}{A vector of quantitative data.  Not required if \code{xbar} and \code{n} are supplied by the user.}

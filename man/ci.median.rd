@@ -15,6 +15,9 @@ ci.median(x, conf = 0.95)
 The desired level of confidence 1 - \emph{P}(type I error).
 }
 }
+\value{Returns a list of \code{class = "ci"}.  Default printed results are the paramter estimate and confidence bounds.  Other \code{invisible} objects include:
+  \item{coverage}{The true coverage of the interval}.
+}
 \references{
 Ott, R. L., and M. T. Longnecker (2004) \emph{A first course in statistical methods}.  
 Thompson.

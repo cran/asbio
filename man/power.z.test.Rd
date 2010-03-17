@@ -9,7 +9,8 @@ if one provides power, but not \emph{n}, then n is calculated.
 }
 \usage{
 
-power.z.test(sigma = 1, n = NULL, power = NULL, alpha = 0.05, effect = NULL, test = c("two.tail", "one.tail"))
+power.z.test(sigma = 1, n = NULL, power = NULL, alpha = 0.05, effect = NULL, 
+test = c("two.tail", "one.tail"))
 }
 \arguments{
   \item{sigma}{The population variance}

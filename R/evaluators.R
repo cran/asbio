@@ -1,5 +1,5 @@
 ####################################################################################
-McR.eval<-function (cat, dist) 
+McR.eval<-function (cat, dist, method="McR") 
 {
     if (is.factor(cat)) 
         cat <- as.numeric(cat)
@@ -62,12 +62,12 @@ McR.eval<-function (cat, dist)
             }
         }
     }
-    out <- list(ptc = simptc, ctc = simctc, ratio = (sumnum/num)/(sumden/den), 
-        clustering = cat,McLain.Rao=(1-sumnum/num)/(1-sumden/den))
-    
-    attr(out, "call") <- call
-    attr(out, "class") <- "partana"
-    invisible(out)
+    if(method=="partana")out <- list(ptc = simptc, ctc = simctc, evaluator = (sumnum/num)/(sumden/den), 
+        clustering = cat,eval.name="PARTANA.ratio")
+    if(method=="McR")out <- list(ptc = simptc, ctc = simctc,  
+        clustering = cat,evaluator=(1-sumnum/num)/(1-sumden/den),eval.name="McLain-Rao Ratio")
+    class(out) <- "eval"
+    out
 }
 
 ###########################C.index######################################
@@ -92,16 +92,18 @@ Cindex.eval <- function(cat,Y,index='steinhaus')
     S.min <- sum(asc[1:psum])
     S.max <- sum(desc[1:psum])
     C <- (S - S.min)/(S.max-S.min)
-    result<-list()
-    result$vd <- as.matrix(vd)
-    result$p <- as.matrix(cd)
-    result$psum <- psum
-    result$P <- length(all)
-    result$S <- S
-    result$S.min <- S.min
-    result$S.max <- S.max
-    result$C.index <- C
-    result
+    res<-list()
+    res$vd <- as.matrix(vd)
+    res$p <- as.matrix(cd)
+    res$psum <- psum
+    res$P <- length(all)
+    res$S <- S
+    res$S.min <- S.min
+    res$S.max <- S.max
+    res$evaluator <- 1-C
+    res$eval.name<-"1-C-index"
+    class(res)<-"eval"
+    res
 }
 
 
@@ -142,9 +144,11 @@ auto.morisita <- function(z)
 }
 
 ap<-proc(Y=Y,cat=cat)
-am<-1-(auto.morisita(ap)$mean.res)
-names(am)<-"1-Morisita"
-am
+res<-list()
+res$evaluator<-1-(auto.morisita(ap)$mean.res)
+res$eval.name<-"1-Morisita"
+class(res)<-"eval"
+res
 }
 
 ################################point.biserial###########################
@@ -158,13 +162,15 @@ biserial.eval<-function (cat,dist)
             if (cat[i] == cat[j]) newmat[j,i] <- 0
         }
     }
-    result<-list()
+    res<-list()
     fv<-as.vector(as.dist(newmat))
     dv<-as.vector(dist)
     corr<-cor(fv,dv)
-    result$fv<-fv
-    result$dv<-dv
-    result$rbis<-corr
-    result
+    res$fv<-fv
+    res$dv<-dv
+    res$evaluator<-corr
+    res$eval.name<-"Point Biserial Correlation"
+    class(res)<-"eval"
+    res
 }
 

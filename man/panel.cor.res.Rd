@@ -12,7 +12,8 @@ smoother fit.
 }
 \usage{
 panel.cor.res(x, y, digits = 2, meth = "pearson", cex.cor=1)
-panel.lm(x, y, col = par("col"), bg = NA, pch = par("pch"), cex = 1,col.line = 2,lty = par("lty"))
+panel.lm(x, y, col = par("col"), bg = NA, pch = par("pch"), cex = 1,
+col.line = 2,lty = par("lty"))
 }
 \arguments{
   \item{x}{variable 1 in  correlation}
