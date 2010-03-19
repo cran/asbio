@@ -4,7 +4,7 @@
 \alias{print.ci}
 \title{Z and t confidence intervals for mu.}
 \description{
-These functions calculate \emph{t} and \emph{z} confidence intervals for \eqn{\mu}. \emph{Z} confidence intervals require specification (and thus knowledge) of \eqn{\sigma}. Both methods assume underlying normal distributions. Finite population corrections are provided if requested.
+These functions calculate \emph{t} and \emph{z} confidence intervals for \eqn{\mu}. \emph{Z} confidence intervals require specification (and thus knowledge) of \eqn{\sigma}. Both methods assume underlying normal distributions although this assumption becomes irrelevant for large sample sizes. Finite population corrections are provided if requested.
 }
 \usage{
 
