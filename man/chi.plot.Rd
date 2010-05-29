@@ -3,13 +3,13 @@
 \title{Chi plots for diagnosing multivariate independence.}
 \description{
 Chi-plots (Fisher and Switzer 1983, 2001) provide a method to diagnose multivariate 
-non-independence among Y variables.
+non-independence among \emph{Y} variables.
 }
 \usage{chi.plot(Y1, Y2)
 }
 \arguments{
-  \item{Y1}{A Y variable of interest.  Must be quantitative vector.}
-  \item{Y2}{A second Y variable of interest.  Must also be a quantitative vector.}}
+  \item{Y1}{A \emph{Y} variable of interest.  Must be quantitative vector.}
+  \item{Y2}{A second \emph{Y} variable of interest.  Must also be a quantitative vector.}}
 
 \details{The method relies on calculating all possible pairwise differences within \bold{y}\eqn{_1} and within \bold{y}\eqn{_2}. Let pairwise differences associated with the first observation in \bold{y}\eqn{_1} that are greater than zero be transformed to ones and all other differences be zeroes.  Take the sum of the transformed values, and let this sum divided by (1 - \emph{n}) be be the first element in the 1 x \emph{n} vector \bold{z}.
 Find the rest of the elements (2,..,\emph{n}) in \bold{z} using the same process. 

@@ -2,7 +2,7 @@
 \alias{modlevenes.test}
 \title{Modified Levene's test}
 \description{
-Conducts the modifies Levene's test for homoscedastic populations.
+Conducts the modified Levene's test for homoscedastic populations.
 }
 \usage{
 

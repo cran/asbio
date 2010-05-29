@@ -7,7 +7,7 @@
 \alias{print.eval}
 \title{Cluster analysis evaluators.}
 \description{
-A collection of classification evaluators are included here; \code{McR.eval} provides both the McClain & Rao evaluator (W/B) (McClain and Rao 1975) and the PARTANA ratio (Roberts 2005); \code{Cindex.eval} = The \emph{C}-index (Hubert and Levin 1976); \code{morisita.eval} = the Morisita index (adapted from Horn 1966); \code{biserial.eval} = point biserial correlation evaluator (Brogden 1949).
+A collection of classification evaluators. \code{McR.eval} provides both the McClain & Rao evaluator (W/B) (McClain and Rao 1975) and the PARTANA ratio (Roberts 2005); \code{Cindex.eval} = The \emph{C}-index (Hubert and Levin 1976); \code{morisita.eval} = the Morisita index (adapted from Horn 1966); \code{biserial.eval} = point biserial correlation evaluator (Brogden 1949).
 }
 \usage{
 

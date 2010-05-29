@@ -34,7 +34,7 @@ Logical.  Indicates whether summary statistics instead of raw data should be use
 Population size.  Required if \code{summarized=TRUE}.
 }
   \item{fpc}{
-Logica.  Indicating whether finite population corrections should be made.
+Logical.  Indicating whether finite population corrections should be made.
 }
   \item{tail}{
 Indicates what side the one sided confidence limit should be calculated for.  Choices are \code{"upper"} or \code{"lower"}.

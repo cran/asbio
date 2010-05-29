@@ -3,7 +3,7 @@
 \docType{data}
 \title{Plant traits for 136 species}
 \description{
-This dataset, from the library \code{cluster}, constitutes a description of 136 plant species
+This dataset, from the library \code{cluster}, describes 136 plant species
 according to biological attributes (morphological or reproductive).
 }
 \usage{data(plantTraits)}

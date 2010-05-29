@@ -4,7 +4,7 @@
 Angle of azimuith to a boundary.
 }
 \description{
-The function calculates the angle of azimuth from a Cartesian coordination ginven in \code{X} and \code{Y} to a nearest neighbor coordinate 
+The function calculates the angle of azimuth from a Cartesian coordination given in \code{X} and \code{Y} to a nearest neighbor coordinate 
 given by \code{nX} and \code{nY}.  The nearest neighbor coordinates can be obtained using the function \code{\link{near.bound}}.  
 }
 \usage{bound.angle(X, Y, nX, nY)}

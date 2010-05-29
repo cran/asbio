@@ -12,17 +12,18 @@ Creates plots with lower, upper, two-tailed, and middle of the distribution shad
 }
 \usage{
 
-shade.norm(x = NULL, from = NULL, to = NULL, sigma = 1, mu = 0, tail = "lower", 
+shade.norm(x = NULL, from = NULL, to = NULL, sigma = 1, mu = 0,
+tail = "lower", show.p = TRUE, show.dist = TRUE)
+
+shade.t(x = NULL, from = NULL, to = NULL, nu = 3, tail = "lower", 
 show.p = TRUE, show.dist = TRUE)
 
-shade.t(x = NULL, from = NULL, to = NULL, nu = 3, tail = "lower", show.p = TRUE, 
-show.dist = TRUE)
+shade.F(x = NULL, from = NULL, to = NULL, nu1 = 1, nu2 = 5, 
+tail = "lower", show.p = TRUE, show.dist = TRUE, 
+prob.to.each.tail = 0.025)
 
-shade.F(x = NULL, from = NULL, to = NULL, nu1 = 1, nu2 = 5, tail = "lower", 
+shade.chi(x = NULL, from = NULL, to = NULL, nu = 1, tail = "lower", 
 show.p = TRUE, show.dist = TRUE, prob.to.each.tail = 0.025)
-
-shade.chi(x = NULL, from = NULL, to = NULL, nu = 1, tail = "lower", show.p = TRUE, 
-show.dist = TRUE, prob.to.each.tail = 0.025)
 }
 \arguments{
   \item{x}{

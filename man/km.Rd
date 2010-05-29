@@ -6,15 +6,19 @@ Calculates survivorship for individuals in a population over time based on the
 method of Kaplan-Meier; cf. Pollock et al. (1989).
 }
 \usage{
-km(s, d, c, var = c("O", "G"), conf = 0.95)
+km(r, d, var = "O", conf = 0.95,age.seq=seq(1,length(r)),
+ylab="Pr(survivorship from 1st age class)",xlab="Age class", ...)
 }
 \arguments{
 
-  \item{s}{Vector of numbers of survivors in each age or time class.}
+  \item{r}{Numbers of individuals at risk in each age or time class.}
   \item{d}{Vector of the number of deaths in each age or time class.}
-  \item{c}{Vector describing the number of censored individuals in each age or time class.}
   \item{var}{Type of procedure used to calculate variance in confidence intervals \code{"O"} = Oakes, \code{"G"} = Greenwood.}
   \item{conf}{Level of confidence for confidence interval calculations; 1 - \emph{P}(type I error)}
+  \item{age.seq}{A sequence of numbers indicating the age classes used.}
+  \item{ylab}{\emph{Y}-axis label.}
+  \item{xlab}{\emph{X}-axis label.}
+  \item{\dots}{Additional arguments from \code{\link{plot}}.}
 }
 \details{
 Details for this index are given in Pollock et al. (1989).
@@ -34,9 +38,8 @@ managment}.  53(1):7-1.}
 ##Example from Pollock (1989)
 r<-c(18,18,18,16,16,16,15,15,13,10,8,8,7)
 d<-c(0,0,2,0,0,1,0,1,1,1,0,0,0)
-c<-c(0,0,0,0,0,0,0,1,2,1,0,1,0)
-s<-r+d+c
-km(s,d,c)
+
+km(r,d)
 }
 \keyword{univar}
 \keyword{htest}

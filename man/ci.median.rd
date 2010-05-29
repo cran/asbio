@@ -3,7 +3,7 @@
 \title{Confidence interval for the median
 }
 \description{
-Function calculates the upper and lower confidence bounds for the true median, and calculates true coverage of the interval.}
+Calculates the upper and lower confidence bounds for the true median, and calculates true coverage of the interval.}
 \usage{
 
 ci.median(x, conf = 0.95)

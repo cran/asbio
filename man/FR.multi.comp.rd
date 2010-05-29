@@ -18,6 +18,7 @@ FR.multi.comp(Y, X, blocks, nblocks, conf = 0.95)
 
 \value{
 Returns a six column dataframe containing: 
+
 1) the type of contrast (names are taken from levels in \code{x}),
 
 2) the mean rank difference,
