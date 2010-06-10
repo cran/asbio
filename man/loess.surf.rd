@@ -27,7 +27,7 @@ Type of error distribution to be optimized in fitting.  The default, \code{"gaus
 Parameter from \code{\link{persp}},\code{phi} provides the colatitude viewing angle.
 }
   \item{theta}{
-Parameter from \code{\link{persp}} \code{theta} gives the azimuthmal direction .
+Parameter from \code{\link{persp}} \code{theta} gives the azimuthmal direction.
 }
   \item{xlab}{\emph{X}-axis label.
 }

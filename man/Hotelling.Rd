@@ -2,7 +2,7 @@
 \alias{Hotelling}
 \title{Hotelling T-squared test}
 \description{
-The Hotelling \emph{T}-sqaured test provides a multivariate analog for a univariate test of two populations. 
+The Hotelling \emph{T}-squared test provides a multivariate analog for a univariate test of two populations. 
 }
 \usage{
 Hotelling(Y, X)

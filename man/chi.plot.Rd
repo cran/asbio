@@ -11,13 +11,13 @@ non-independence among \emph{Y} variables.
   \item{Y1}{A \emph{Y} variable of interest.  Must be quantitative vector.}
   \item{Y2}{A second \emph{Y} variable of interest.  Must also be a quantitative vector.}}
 
-\details{The method relies on calculating all possible pairwise differences within \bold{y}\eqn{_1} and within \bold{y}\eqn{_2}. Let pairwise differences associated with the first observation in \bold{y}\eqn{_1} that are greater than zero be transformed to ones and all other differences be zeroes.  Take the sum of the transformed values, and let this sum divided by (1 - \emph{n}) be be the first element in the 1 x \emph{n} vector \bold{z}.
+\details{The method relies on calculating all possible pairwise differences within \bold{y}\eqn{_1} and within \bold{y}\eqn{_2}. Let pairwise differences associated with the first observation in \bold{y}\eqn{_1} that are greater than zero be transformed to ones and all other differences be zeros.  Take the sum of the transformed values, and let this sum divided by (1 - \emph{n}) be be the first element in the 1 x \emph{n} vector \bold{z}.
 Find the rest of the elements (2,..,\emph{n}) in \bold{z} using the same process. 
 
-Perform the same transformation for the pairwise differences associated with the first observation in \bold{y}\eqn{_2}.  Let pairwise differences associated with the first observation in \bold{y}\eqn{_2} that are greater than zero be transformed to ones and all other differences be zeroes.  Take the sum of the transformed values, and let this sum divided by (1 - \emph{n}) be be the first element in the 1 x \emph{n} vector \bold{g}.
+Perform the same transformation for the pairwise differences associated with the first observation in \bold{y}\eqn{_2}.  Let pairwise differences associated with the first observation in \bold{y}\eqn{_2} that are greater than zero be transformed to ones and all other differences be zeros.  Take the sum of the transformed values, and let this sum divided by (1 - \emph{n}) be be the first element in the 1 x \emph{n} vector \bold{g}.
 Find the rest of the elements (2,..,\emph{n}) in \bold{g} using the same process. 
 
-Let pairwise differences associated with the first observation in \bold{y}\eqn{_1} and the first obsevation in \bold{y}\eqn{_2} that are both greater than zero be transformed to ones and all other differences be zeroes. Take the sum of the transformed values, and let this sum divided by (1 - \emph{n}) be be the first element in the 1 x \emph{n} vector \bold{h}.  Find the rest of the elements (2,..,\emph{n}) in \bold{h} using the same process.  We let:
+Let pairwise differences associated with the first observation in \bold{y}\eqn{_1} and the first observation in \bold{y}\eqn{_2} that are both greater than zero be transformed to ones and all other differences be zeros. Take the sum of the transformed values, and let this sum divided by (1 - \emph{n}) be be the first element in the 1 x \emph{n} vector \bold{h}.  Find the rest of the elements (2,..,\emph{n}) in \bold{h} using the same process.  We let:
       
 \deqn{S = sign((\bold{z} - 0.5)(\bold{g} - 0.5))}{%
 S = sign((z - 0.5)(g - 0.5))}

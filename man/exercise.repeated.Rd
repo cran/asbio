@@ -14,7 +14,7 @@ became stronger. An index measuring strength was created and recorded at day
 }
 \usage{data(exercise.repeated)}
 \format{
-The dataframe contains a repeated measures dataset describing the srength of 37 subjects with respect to two weightlifting programs.  There are four columns:
+The dataframe contains a repeated measures dataset describing the strength of 37 subjects with respect to two weightlifting programs.  There are four columns:
   \describe{
     \item{ID}{Subject ID.}
     \item{TRT}{The type of weightlifting treatment (a factor with two levels, \code{1} and \code{2}).}

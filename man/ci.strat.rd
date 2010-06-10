@@ -53,7 +53,7 @@ In situations where sample sizes or the number of strata are small, a \eqn{t(n -
 \value{
 Returns a list with two items:
 \item{strat.summary}{A matrix with columns: \code{N.h,n.h,x.bar.h} and \code{var.h}}
-\item{CI}{Confidence intervlas for \eqn{\mu} and \emph{T}}
+\item{CI}{Confidence intervals for \eqn{\mu} and \emph{T}}
 
 }
 \references{

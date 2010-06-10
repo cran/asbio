@@ -4,7 +4,7 @@
 \title{
 Plot of least squares function.
 }
-\description{Depicts the process of least squares estimation by ploting the least squares function with respect to a vector of estimate possibilities.
+\description{Depicts the process of least squares estimation by plotting the least squares function with respect to a vector of estimate possibilities.
 }
 \usage{
 
@@ -14,7 +14,7 @@ conv=0.01, anim=TRUE, interval=0.01,...)
 \arguments{
 
   \item{X}{
-A numericeric veector containing sample data.
+A numeric vector containing sample data.
 }
   \item{poss}{
 An ordered numeric sequence of possible parameter estimates.  Inclusion of the least squares estimate in the vector (e.g. \eqn{bar{X}} for \eqn{mu} will cause the least squares function be minimized at this value.
@@ -36,7 +36,7 @@ Additional arguments to \code{\link{plot}}
 }
 
 \value{
-A plot of the least squares function is reurned along with the least squares estimate for E(\emph{X}) given a set of possibilities.
+A plot of the least squares function is returned along with the least squares estimate for E(\emph{X}) given a set of possibilities.
 }
 \author{
 Ken Aho

@@ -16,7 +16,7 @@ ci.sigma(data, conf = 0.95, S.sq = NULL, n = NULL, summarized = FALSE)
   \item{summarized}{Logical.  If \code{summarized=TRUE} then the user must supply \code{S.sq} and \code{n}
 }
 }
-\value{Returns a list of \code{class = "ci"}.  Default printed results are the paramter estimate and confidence bounds.  Other objects are \code{invisible}.}
+\value{Returns a list of \code{class = "ci"}.  Default printed results are the parameter estimate and confidence bounds.  Other objects are \code{invisible}.}
 \references{Bain, L. J., and M. Engelhardt.  1992.  \emph{Introduction to probability and mathematical 
 statistics}.  Duxbury press.  Belmont, CA, USA.
 

@@ -2,9 +2,9 @@
 \alias{prp}
 \alias{print.prp.index}
 \title{
-Perpindicularity}
+Perpendicularity}
 \description{
-Calculates a perpindicularity index, \eqn{\eta}, for animal spatial movements.  The index has a [0, 1] range with 0 indicating a perfectly parallel movement with repsect to boundary or edge and 1 indicating perfectly perpindicular movement.  Other summaries are also provided.
+Calculates a perpendicularity index, \eqn{\eta}, for animal spatial movements.  The index has a [0, 1] range with 0 indicating a perfectly parallel movement with respect to boundary or edge and 1 indicating perfectly perpendicular movement.  Other summaries are also provided.
 }
 \usage{
 
@@ -31,14 +31,14 @@ A numeric vector containing the times when spatial coordinates were recorded.
 A character vector of habitat categories.
 }
   \item{near.angle}{
-A numeric vector containing the angle of azimuth to the nearest point on the boundary with respect to a four quadrant system.  NE = \eqn{0^o} to \eqn{90^o}, NW is > \eqn{90^o} and \eqn{\le 180^o}, SE is < \eqn{0^o} and \eqn{\le - 90^o} is > \eqn{-90^o} and \eqn{\le -180^o}.  This output readily obtained from function \code{\link{bound.angle}} or from ARCGIS Near output.
+A numeric vector containing the angle of azimuth to the nearest point on the boundary with respect to a four quadrant system.  NE = \eqn{0^{\circ}} to \eqn{90^{\circ}}, NW is > \eqn{90^{\circ}} and \eqn{\le 180^{\circ}}, SE is < \eqn{0^{\circ}} and \eqn{\le - 90^{\circ}} is > \eqn{-90^{\circ}} and \eqn{\le -180^{\circ}}.  This output readily obtained from function \code{\link{bound.angle}} or from ARCGIS Near output.
 }
   \item{F.0.NA}{
 A logical argument specifying whether or not a time interval in which F = 0 should be made \code{NA} (see Figure from examples)
 }
 }
 \details{
-This index for perpindicularity, \eqn{\eta} is based on the following rules:
+This index for perpendicularity, \eqn{\eta} is based on the following rules:
 
 if \eqn{\delta \le 90^o} then \eqn{\eta} = \eqn{\delta/90^o}; if \eqn{90^o < \delta \le 135^o} then \eqn{\eta} = \eqn{[90^o - (\delta - 90^o)]/90^o}; if \eqn{135^o < \delta \le 180^o} then \eqn{\eta} = \eqn{(\delta - 90^o)/90^o} 
 

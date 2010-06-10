@@ -1,7 +1,7 @@
 \name{V.mat}
 \alias{V.mat}
 \title{Pooled covariance matrices for multivariate procedures.}
-\description{Calculates a pooled covariances matrix ala legendre and Legendre (1998).  This is required for a number of multivariate procedures including the Kullback statistic for multivariate homoscedasticity, and Hotelling's test.
+\description{Calculates a pooled covariances matrix ala Legendre and Legendre (1998).  This is required for a number of multivariate procedures including the Kullback statistic for multivariate homoscedasticity, and Hotelling's test.
 }
 \usage{
 
@@ -9,7 +9,7 @@ V.mat(Y, X)
 }
 \arguments{
 
-  \item{Y}{An \emph{n} x \emph{p} matrix of quantative dependent variables.}
+  \item{Y}{An \emph{n} x \emph{p} matrix of quantitative dependent variables.}
   \item{X}{A \emph{n} x 1 of categorical groups (e.g. factor levels).}
 }
 \references{Legendre, P, and L. Legendre (1998) \emph{Numerical ecology, 2nd English edition}.  Elsevier, 

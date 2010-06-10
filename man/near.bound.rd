@@ -11,10 +11,10 @@ Finds nearest neighbor boundary Cartesian coordinates for use as arguments in fu
 near.bound(X, Y, bX, bY)
 }
 \arguments{
-  \item{X}{A vector of Cartesian \emph{X}-coordinates (e.g. UTMs) describing an animal's locatations (e.g. telemetry data).
+  \item{X}{A vector of Cartesian \emph{X}-coordinates (e.g. UTMs) describing an animal's locations (e.g. telemetry data).
 }
   \item{Y}{
-A vector of Cartesian \emph{Y} coordinates (e.g. UTMs) describing an animal's locatations (e.g. telemetry data).
+A vector of Cartesian \emph{Y} coordinates (e.g. UTMs) describing an animal's locations (e.g. telemetry data).
 }
   \item{bX}{
 A vector of boundary \emph{X}-coordinates.

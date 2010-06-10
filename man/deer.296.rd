@@ -16,7 +16,7 @@ Telemetry data for mule deer #296 from the Starkey Experimental Forest in Northe
     \item{\code{NEAR_X}}{Nearest boundary location \emph{X} coordinate}
     \item{\code{NEAR_Y}}{Nearest boundary location \emph{Y} coordinate}
     \item{\code{Hab_Type}}{Type of habitat}
-    \item{\code{NEAR_ANGLE}}{A numeric vector containing the angle of azimuth to the nearest point on the boundary with respect to a four quadrant system.  NE = \eqn{0^o} to \eqn{90^o}, NW is > \eqn{90^o} and \eqn{\le 180^o}, SE is < \eqn{0^o} and \eqn{\le -90^o} is > \eqn{-90^o} and \eqn{\le -180^o}.}
+    \item{\code{NEAR_ANGLE}}{A numeric vector containing the angle of azimuth to the nearest point on the boundary with respect to a four quadrant system.  NE = \eqn{0^{\circ}} to \eqn{90^{\circ}}, NW is > \eqn{90^{\circ}} and \eqn{\le 180^{\circ}}, SE is < \eqn{0^{\circ}} and \eqn{\le -90^{\circ}} is > \eqn{-90^{\circ}} and \eqn{\le -180^{\circ}}.}
   }
 }
 \keyword{datasets}

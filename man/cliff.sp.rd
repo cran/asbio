@@ -3,7 +3,7 @@
 \docType{data}
 \title{Yellowstone NP cliff community data}
 \description{
-A subset of a dataset collected by Aho (2006) which describes  the distribution of communities of lichens and vascular and avascular plant spcies on montane cliffs in Northeast Yellowstone National Park.  Of particular interest was whether substrate (limestone or andesitic conglomerate) or water supply influenced community composition. 
+A subset of a dataset collected by Aho (2006) which describes  the distribution of communities of lichens and vascular and avascular plant species on montane cliffs in Northeast Yellowstone National Park.  Of particular interest was whether substrate (limestone or andesitic conglomerate) or water supply influenced community composition. 
 }
 \usage{data(cliff.sp)}
 \details{

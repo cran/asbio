@@ -3,7 +3,7 @@
 
 \title{Summarized constancy/cover vegetation tables (not vegetables)}
 \description{
-Calcutes vegetation cover and constancy within groups (factor) for species at a defined minimum constancy,then converts constancy and cover to codes.  Three different cover classes systems can be specified.  A method developed by Aho (2006), Daubenmire cover classes, and Braun-Blanquet cover classes.
+Calculates vegetation cover and constancy within groups (factor) for species at a defined minimum constancy,then converts constancy and cover to codes.  Three different cover classes systems can be specified.  A method developed by Aho (2006), Daubenmire cover classes, and Braun-Blanquet cover classes.
 }
 \usage{
 
