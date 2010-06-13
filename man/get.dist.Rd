@@ -20,7 +20,8 @@ get.dist(data, method, minkowski.power = 2)
   are: \code{"matching", "rogers", "jaccard.pa", "sorenson", "kulkczynski.pa", "ochiai",
   "gower", "steinhaus", "kulkczynski.q", "jaccard.q", "euclidean", "rel.euclidean",
   "manhattan", "czekanowski", "whittaker", "canberra", "chi.metric","chi.dist",
-  "morisita", "morisita.horn", "minkowski", "mountford", "raup.crick","binomial",}
+  "morisita", "morisita.horn", "minkowski", "mountford", "raup.crick",
+  "binomial",}
    or \code{"chao"}.  A method may also be specified by its equation number from Ch. 29. 
    i.e. Steinhaus dissimilarity = \code{"D8"}.}
   \item{minkowski.power}{Minkowski's distance requires a specification for power.  
@@ -37,7 +38,8 @@ Legendre, P, and Legendre, L. (1998)  \emph{Numerical ecology, 2nd English editi
 Amsterdam, The Netherlands. 
 
 Oksanen, J., Kindt, R., Legendre, P., O'Hara, B., Simpson, G. L., and Stevens, M. H. H.   
-(2008) \emph{vegan: community ecology package. R package version 1.13-0}.  \url{http://vegan.r-forge.r-project.org}}
+(2008) \emph{vegan: community ecology package. R package version 1.13-0}.  \url{http://vegan.r-forge.r-project.org}
+}
 \author{Ken Aho}
 \examples{
 library(vegan)

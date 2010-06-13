@@ -8,21 +8,25 @@
 Samples from a parent distribution without replacement with sample size = \code{s.size} \code{R} times.  At each iteration a statistic requested in \code{stat} is calculated. Thus a distribution of \code{R} statistic estimates is created. This distribution is shown as an animated relative frequency histogram. Sampling distributions for up to four different statistics utilizing two different parent distributions are possible.  Sampling distributions can be combined in various ways by specifying a function in \code{func} (see below). 
 }
 \usage{
-samp.dist(parent, parent2 = parent, s.size = 1, s.size2 = s.size, n.seq = seq(1, 30), 
+samp.dist(parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
+n.seq = seq(1, 30),R = 1000, breaks = 30, stat = mean, stat2 = NULL, 
+stat3 = NULL, stat4 = NULL, fix.n = TRUE, xlab = expression(bar(x)), 
+ylab = "Relative frequency", ylim = NULL, func = NULL, show.n = TRUE, 
+show.SE = FALSE, est.density = TRUE, col.density = 4, lwd.density = 2, 
+est.ylim = TRUE, anim = TRUE, interval = 0.01, col.anim = "rainbow", 
+digits = 3,...)
+
+samp.dist.fixn(parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
 R = 1000, breaks = 30, stat = mean, stat2 = NULL, stat3 = NULL, stat4 = NULL, 
-fix.n = TRUE, xlab = expression(bar(x)), ylab = "Relative frequency", ylim = NULL, 
-func = NULL, nlegend = TRUE, est.density = TRUE, col.density = 4, lwd.density = 2, 
-est.ylim = TRUE, anim = TRUE, interval = 0.01, col.anim = "rainbow", ...)
+xlab = expression(bar(x)), ylab = "Relative frequency", func = NULL, 
+show.n = TRUE, show.SE = FALSE, anim = TRUE, interval = 0.01, 
+col.anim = "rainbow", digits = 3,...)
 
-samp.dist.fixn(parent, parent2 = parent, s.size = 1, s.size2 = s.size, R = 1000, 
-breaks = 30, stat = mean, stat2 = NULL, stat3 = NULL, stat4 = NULL, xlab = expression(bar(x)), 
-ylab = "Relative frequency", func = NULL, nlegend = TRUE, anim = TRUE, interval = 0.01, 
-col.anim = "rainbow", ...)
-
-samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = expression(bar(x)), 
-ylab = "Relative frequency", breaks = 30, func = NULL, nlegend = TRUE, est.density = TRUE, 
-col.density = 4, lwd.density = 2, est.ylim = TRUE, ylim = NULL, interval = 0.5, 
-col.anim = NULL, ...)
+samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, 
+xlab = expression(bar(x)), ylab = "Relative frequency", breaks = 30, func = NULL, 
+show.n = TRUE, show.SE = FALSE, est.density = TRUE, col.density = 4, 
+lwd.density = 2, est.ylim = TRUE, ylim = NULL, anim = TRUE, interval = 0.5, 
+col.anim = NULL, digits = 3,...)
 
 }
 \arguments{
@@ -42,7 +46,8 @@ col.anim = NULL, ...)
   \item{ylab}{\emph{Y}-axis label.}
   \item{ylim}{Limits for \emph{Y}-axis.  Specify using a two element vector.}
   \item{func}{An optional function used to compare the sampling distributions of two statistics.  The function must have only sampling distributions, i.e. \code{s.dist1}, \code{s.dist2}, \code{s.dist3}, and/or \code{s.dist} as non-fixed arguments (see example below).}
-  \item{nlegend}{A logical command, \code{TRUE} indicates that sample size for \code{parent} will be displayed.}
+  \item{show.n}{A logical command, \code{TRUE} indicates that sample size for \code{parent} will be displayed.}
+  \item{show.SE}{A logical command, \code{TRUE} indicates that bootstrap standard error for the statistic will be displayed.}
   \item{est.density}{A logical command, if \code{TRUE} then a density line is plotted over the histogram.  Only used if \code{fix.n = true}.}
   \item{col.density}{The color of the density line.  See \code{est.density} above.}
   \item{lwd.density}{The width of the density line.  See \code{est.density} above.} 
@@ -50,6 +55,7 @@ col.anim = NULL, ...)
   \item{anim}{A logical command indicating whether or not animation should be used.}
   \item{interval}{Animation speed.  Decreasing \code{interval} increases speed.}
   \item{col.anim}{Color to be used in animation.  Three changing color palettes: \code{\link{rainbow}}, \code{\link{gray}}, \code{\link{heat.colors}}, or "fixed" color types can be used.}
+  \item{digits}{The number of digits to be displayed in the bootstrap standard error.}
   \item{\dots}{Additional arguments from \code{\link{plot.histogram}}.}
 }
 \value{Returns a representation of a statistic's sampling distribution in the form of a histogram.
@@ -60,10 +66,10 @@ col.anim = NULL, ...)
 
 Two general uses of the function are possible.
 
-1) One can demonstrate the accumulation of statistics for a single size with or without animation.  This is useful because as more and more statistics are acquired the frequentist paradigm associated with sampling distributions becomes better represented (i.e the number of estimates is closer to infinity).  This is elucidated by allowing the default \code{fix.n = TRUE}.  Animation will be provided with the default \code{anim = TRUE}.  This approach also allows specification of up two parent distributions, up to two sample sizes, and up to four distinct statistics (i.e. four distinct sampling distributions, representing four distinct estimators can be created).  The arguments \code{stat} and \code{stat3} will be drawn from \code{parent}, while \code{stat3} and \code{stat4} will be drawn from \code{parent2}.  These distributions can be manipulated and combined in an infinite number of ways by with an auxiliary function called in the argument \code{func} (see examples below).  This allows depiction of sampling distributions made up of multiple estimators, e.g. test statistics.  
+1) One can demonstrate the accumulation of statistics for a single size with or without animation.  This is useful because as more and more statistics are acquired the frequentist paradigm associated with sampling distributions becomes better represented (i.e the number of estimates is closer to infinity).  This is elucidated by allowing the default \code{fix.n = TRUE}.  Animation will be provided with the default \code{anim = TRUE}.  This approach also allows specification of up two parent distributions, up to two sample sizes, and up to four distinct statistics (i.e. four distinct sampling distributions, representing four distinct estimators can be created).  The arguments \code{stat} and \code{stat3} will be drawn from \code{parent}, while \code{stat3} and \code{stat4} will be drawn from \code{parent2}.  These distributions can be manipulated and combined in an infinite number of ways with an auxiliary function called in the argument \code{func} (see examples below).  This allows depiction of sampling distributions made up of multiple estimators, e.g. test statistics.  
 
 
-2) One can provide a seamless animated demonstration of the effect of varying sample size on a sampling distribution by specify \code{n.fixed = FALSE}   If \code{n.fixed = FALSE} is used then a range of sample sizes (integers) must also be specified as a two element vector in \code{n.seq}.  \code{n.fixed = FALSE} then the arguments \code{s.size} and \code{s.size2} will be superfluous and animation will always be used. Multiple statistics and parent populations are not supported if \code{n.fixed = FALSE}.
+2) One can provide a seamless animated demonstration of the effect of varying sample size on a sampling distribution by specifying \code{n.fixed = FALSE}.   If \code{n.fixed = FALSE} is used, then a range of sample sizes (integers) must also be specified as a two element vector in \code{n.seq}.  Note if \code{n.fixed = FALSE} then the arguments \code{s.size} and \code{s.size2} will be superfluous. In addition, multiple statistics and parent populations are not supported if \code{n.fixed = FALSE}, although auxilary functions can still be called with \code{func}.
 } 
    
 \seealso{\code{\link{plot.histogram}}, \code{\link{hist}}, \code{\link{bootstrap}}.}
@@ -89,17 +95,28 @@ samp.dist(parent=exp.parent, s.size=50, R=300,anim=FALSE) ## n = 50
 
 ##n not fixed -- sample mean
 exp.parent<-rexp(10000)
-samp.dist(parent=exp.parent, R=300,col.anim="heat.colors",fix.n=FALSE,interval=.3)
+samp.dist(parent=exp.parent, col.anim="heat.colors",fix.n=FALSE,interval=.3)
 
-##n not fixed -- sample mean and sample median (both are consistent and unbiased
+##n not fixed -- sample mean and sample median (both are consistent and unbiased,
 # but which is more efficient for mu?).  
 # This will take a few seconds.
-parent<-rnorm(10000)
+parent<-rnorm(10000,sd=3)
 dev.new()
-samp.dist(parent, R=1000,col.anim="heat.colors",fix.n=FALSE,interval=.3,xlim=c(-1,1),ylim=c(0,2.5),est.ylim=FALSE,breaks=50)
+samp.dist(parent, R=1000,col.anim="heat.colors",fix.n=FALSE,interval=.1,
+n.seq=seq(1,100),breaks=50,show.SE=TRUE)
 dev.new()
-samp.dist(parent, R=1000,col.anim="heat.colors",fix.n=FALSE,interval=.3,stat=median,
-xlab="Median",xlim=c(-1,1),ylim=c(0,2.5),est.ylim=FALSE,breaks=50)
+samp.dist(parent, R=1000,col.anim="heat.colors",fix.n=FALSE,interval=.1,stat=median,
+n.seq=seq(1,100),xlab="Median",show.SE=TRUE,breaks=50)
+
+#How do the efficiency of the median and mean compare in a distribution with 10% 
+#contamination?
+parent<-c(rnorm(9000),rnorm(1000,mean=10))
+samp.dist(parent, col.anim="heat.colors",fix.n=FALSE,interval=.3,
+breaks=50,show.SE=TRUE)
+dev.new()
+samp.dist(parent, col.anim="heat.colors",fix.n=FALSE,interval=.3,stat=median,
+xlab="Median",est.ylim=TRUE,show.SE=TRUE,breaks=50)
+
 
 ##Distribution of t-statistics under valid and invalid assumptions
 #valid
@@ -110,17 +127,18 @@ func.res<-(s.dist1-s.dist2)/(sqrt(MSE)*sqrt((1/s.size)+(1/s.size2)))
 func.res}
 
 samp.dist(parent, parent2=parent, s.size=6, R=1000, breaks=35,stat=mean,stat2=mean,
-stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star,nlegend=FALSE)
+stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star,show.n=FALSE)
 
 curve(dt(x,10),from=-6,to=6,add=TRUE,lwd=2)
 legend("topleft",lwd=2,col=1,legend="t(10)")
 
-#invalid; same means (null true) but different variances and other distributional characteristics.
+#invalid; same means (null true) but different variances and other distributional 
+#characteristics.
 parent<-runif(100000, min=0,max=2)
 parent2<-rexp(100000)
 
 samp.dist(parent, parent2=parent2, s.size=6, R=1000, breaks=35,stat=mean,stat2=mean,
-stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star,nlegend=FALSE)
+stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star,show.n=FALSE)
 curve(dt(x,10),from=-6,to=6,add=TRUE,lwd=2)
 legend("topleft",lwd=2,col=1,legend="t(10)")
 }
