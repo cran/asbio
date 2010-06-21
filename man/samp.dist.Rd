@@ -45,7 +45,7 @@ col.anim = NULL, digits = 3,...)
   \item{xlab}{\emph{X}-axis label.}
   \item{ylab}{\emph{Y}-axis label.}
   \item{ylim}{Limits for \emph{Y}-axis.  Specify using a two element vector.}
-  \item{func}{An optional function used to compare the sampling distributions of two statistics.  The function must have only sampling distributions, i.e. \code{s.dist1}, \code{s.dist2}, \code{s.dist3}, and/or \code{s.dist} as non-fixed arguments (see example below).}
+  \item{func}{An optional function used to manipulate a sampling distribution or to combine the sampling distributions of two or more statistics.  The function must have only sampling distributions, i.e. \code{s.dist1}, \code{s.dist2}, \code{s.dist3}, and/or \code{s.dist} as non-fixed arguments (see example below).}
   \item{show.n}{A logical command, \code{TRUE} indicates that sample size for \code{parent} will be displayed.}
   \item{show.SE}{A logical command, \code{TRUE} indicates that bootstrap standard error for the statistic will be displayed.}
   \item{est.density}{A logical command, if \code{TRUE} then a density line is plotted over the histogram.  Only used if \code{fix.n = true}.}

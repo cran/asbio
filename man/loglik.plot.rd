@@ -5,9 +5,9 @@
 \alias{loglik.binom.plot}
 \alias{loglik.exp.plot}
 \alias{loglik.custom.plot}
-\title{Plots of log-likelihood functions}
+\title{Animated plots of log-likelihood functions}
 \description{
-Plots the normal, exponential, Poisson, binomial and "custom" log likelihood functions.  Likelihoods for parameter estimates are calculated from the pdfs given a particular dataset.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLE.  It is actually irrelevant how how the other parameter is estimated so long as it is held constant when maximizing likelihood for the parameter of interest.
+Plots the normal, exponential, Poisson, binomial and "custom" log likelihood functions.  Likelihoods for parameter estimates are calculated from the pdfs given a particular dataset.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using the MLE.  
 }
 \usage{
 loglik.plot(X, dist = c("norm", "poi", "bin", "exp", "custom"), 
@@ -68,8 +68,7 @@ A plot of the normal, Poisson, exponential, binomial, or a custom log-likelihood
 ##Not run
 
 ##Normal log likelihood estimation of mu.
-X<-c(11.2,10.8,9.0,12.4,12.1,10.3,10.4,10.6,9.3,11.8)
-loglik.plot(X,dist="norm",parameter="mu")
+
 
 ##Normal log likelihood estimation of sigma squared.
 X<-c(11.2,10.8,9.0,12.4,12.1,10.3,10.4,10.6,9.3,11.8)

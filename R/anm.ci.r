@@ -1,4 +1,4 @@
-ci.plot<-function(parent, par.val, conf =.95, sigma = NULL, par.type=c("mu","median","sigma.sq","p"),n.est=100,n=50,interval=0.1,...){
+anm.ci<-function(parent, par.val, conf =.95, sigma = NULL, par.type=c("mu","median","sigma.sq","p"),n.est=100,n=50,interval=0.1,...){
 ci<-matrix(ncol=3,nrow=n.est)
 names<-c(expression(mu),"Pop. Median",expression(sigma^2),"p")
 for(i in 1:n.est){
