@@ -1,4 +1,5 @@
 boot.ci.M<-function(X1,X2,alpha=0.05,est=huber.one.step,R=1000,type="perc"){
+require(boot)||stop("This function requires the library 'boot'")
 data<-data.frame(cbind(X1,X2))
 boot.M<-function(data,i){
 X1<-data$X1

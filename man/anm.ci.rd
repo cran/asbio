@@ -33,12 +33,13 @@ Returns a plot.
 \seealso{Additional documentation for methods provided in: \code{link{ci.mu}}, \code{\link{ci.median}}, \code{\link{ci.sigma}}, and \code{\link{ci.p}}.
 }
 \examples{
-##Not run
+\dontrun{
 parent<-rnorm(100000)
 anm.ci(parent, par.val=0, conf =.95, sigma =1, par.type="mu")
 anm.ci(parent, par.val=1, conf =.95, par.type="sigma.sq")
 anm.ci(parent, par.val=0, conf =.95, par.type="median")
 parent<-rbinom(100000,1,p=.65)
 anm.ci(parent, par.val=0.65, conf =.95, par.type="p")
+}
 }
 \keyword{graphs}

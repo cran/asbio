@@ -27,9 +27,9 @@ A plot is returned with four subplots.  (a) shows the population before sampling
 \author{Ken Aho}
 \examples{
 samp.design(20)
-#Not run
+
 #Animated demonstration
-anm.samp.design(20)
+\dontrun{anm.samp.design(20)}
 }
 \keyword{design}
 \keyword{graphs}

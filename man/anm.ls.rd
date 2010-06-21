@@ -48,8 +48,7 @@ Ken Aho
 \code{\link{loglik.plot}}
 }
 \examples{
-X<-c(11.2,10.8,9.0,12.4,12.1,10.3,10.4,10.6,9.3,11.8)
-anm.ls(X,xlab=expression(paste("Estimates for ", mu)))
-
+\dontrun{X<-c(11.2,10.8,9.0,12.4,12.1,10.3,10.4,10.6,9.3,11.8)
+anm.ls(X,xlab=expression(paste("Estimates for ", mu)))}
 }
 \keyword{graphs}

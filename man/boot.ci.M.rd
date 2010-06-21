@@ -38,9 +38,11 @@ Chapman and Hall, London.
 \author{Ken Aho}
 \seealso{\code{\link{bootstrap}}, \code{\link{boot}}}
 \examples{
+\dontrun{
 X1<-rnorm(100,2,2.5)
 X2<-rnorm(100,3,3)
 boot.ci.M(X1,X2)
+}
 }
 \keyword{manip}
 \keyword{htest}
