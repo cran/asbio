@@ -17,16 +17,16 @@ est.ylim = TRUE, anim = TRUE, interval = 0.01, col.anim = "rainbow",
 digits = 3,...)
 
 samp.dist.fixn(parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
-R = 1000, breaks = 30, stat = mean, stat2 = NULL, stat3 = NULL, stat4 = NULL, 
-xlab = expression(bar(x)), ylab = "Relative frequency", func = NULL, 
-show.n = TRUE, show.SE = FALSE, anim = TRUE, interval = 0.01, 
-col.anim = "rainbow", digits = 3,...)
+R = 1000, breaks = 30, stat = mean, stat2 = NULL, stat3 = NULL, 
+stat4 = NULL, xlab = expression(bar(x)), ylab = "Relative frequency", 
+func = NULL, show.n = TRUE, show.SE = FALSE, anim = TRUE, 
+interval = 0.01, col.anim = "rainbow", digits = 3,...)
 
 samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, 
-xlab = expression(bar(x)), ylab = "Relative frequency", breaks = 30, func = NULL, 
-show.n = TRUE, show.SE = FALSE, est.density = TRUE, col.density = 4, 
-lwd.density = 2, est.ylim = TRUE, ylim = NULL, anim = TRUE, interval = 0.5, 
-col.anim = NULL, digits = 3,...)
+xlab = expression(bar(x)), ylab = "Relative frequency", breaks = 30, 
+func = NULL, show.n = TRUE, show.SE = FALSE, est.density = TRUE, 
+col.density = 4, lwd.density = 2, est.ylim = TRUE, ylim = NULL, 
+anim = TRUE, interval = 0.5, col.anim = NULL, digits = 3,...)
 
 }
 \arguments{

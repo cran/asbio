@@ -66,9 +66,9 @@ A plot of the normal, Poisson, exponential, binomial, or a custom log-likelihood
 \examples{
 
 ##Not run
-
 ##Normal log likelihood estimation of mu.
-
+X<-c(11.2,10.8,9.0,12.4,12.1,10.3,10.4,10.6,9.3,11.8)
+loglik.plot(X,dist="norm",parameter="mu")
 
 ##Normal log likelihood estimation of sigma squared.
 X<-c(11.2,10.8,9.0,12.4,12.1,10.3,10.4,10.6,9.3,11.8)

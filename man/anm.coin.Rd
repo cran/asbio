@@ -19,7 +19,7 @@ anm.coin(flips = 1000, p.head = 0.5, interval = 0.01, show.coin = TRUE, ...)
   \item{\dots}{Additional arguments from \code{link{plot}}.}
 }
 \value{
-Id \code{show.coin=TRUE}, returns two plots configured as a single graphical object.  The first plot shows convergence in estimated \emph{P}(Head), i.e. number of heads/number of trials, as the number of trials grows large.  The second plot shows individual outcomes of coin flips.  The second plot is not returned if \code{show.coin=TRUE} is specified.  
+If \code{show.coin=TRUE}, returns two plots configured as a single graphical object.  The first plot shows convergence in estimated \emph{P}(Head), i.e. number of heads/number of trials, as the number of trials grows large.  The second plot shows individual outcomes of coin flips.  The second plot is not returned if \code{show.coin=TRUE} is specified.  
 }
 \author{Ken Aho
 }

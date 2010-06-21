@@ -9,7 +9,8 @@ Animated plot of least squares function.
 \usage{
 
 anm.ls(X, poss=NULL, parameter = "mu", est.lty = 2, est.col = 2,
-conv=0.01, anim=TRUE, plot.lsfunc = TRUE, plot.res = TRUE, interval=0.01, ...)
+conv=0.01, anim=TRUE, plot.lsfunc = TRUE, plot.res = TRUE, 
+interval=0.01, ...)
 }
 \arguments{
 

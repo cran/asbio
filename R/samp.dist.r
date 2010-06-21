@@ -101,7 +101,7 @@ samp.dist.fixn<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size
         if (anim == TRUE) {
             for (i in 1:R) {
                 hist(func.res, xlab = xlab, ylab = "Relative frequency", 
-                  main = "", freq = FALSE, breaks = breaks, border = "white")
+                  main = "", freq = FALSE, breaks = breaks, border = "white",...)
                 points(suppressWarnings(hist(func.res[1:i], plot = FALSE, 
                   breaks = breaks, freq = FALSE)$mids), suppressWarnings(hist(func.res[1:i], 
                   plot = FALSE, breaks = breaks, freq = FALSE)$density), 
@@ -195,7 +195,7 @@ samp.dist.n<-function (parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = 
         }
         for (i in 1:length(n.seq)) {
             hist(s.dist[, i], xlab = xlab, ylab = ylab, ylim = ylim, 
-                main = "", breaks = breaks, freq = FALSE, col = clr[i])
+                main = "", breaks = breaks, freq = FALSE, col = clr[i],...)
             if (show.n == TRUE & show.SE == FALSE) {
                 legend("topright", legend = paste("n = ", n.seq[i]), 
                   bty = "n")
