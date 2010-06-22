@@ -1,4 +1,12 @@
-runSampDesign<-function(n=20){
+anm.samp.design<-function(n=20, interval = 0.5 ,iter = 30){
+r<-rep(n,iter)
+for(i in 1:iter){ 
+samp.design(r[i])
+Sys.sleep(interval)
+}
+}
+                                                                                                                   
+samp.design<-function(n=20){
 plotSamp<-function(n=n,type=c("SRS","strat","clust")){
 plot(seq(1,19),seq(1,19),xaxt="n",yaxt="n",xlab="",ylab="",type="n",xlim=c(1,19),ylim=c(1,19))
 segments(seq(0,19),rep(0,19),seq(0,19),rep(20,10),col="gray")

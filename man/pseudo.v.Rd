@@ -39,4 +39,4 @@ p<-d/sum(d)
 
 pv<-pseudo.v(site18,SW)
 }
-
+\keyword{manip}

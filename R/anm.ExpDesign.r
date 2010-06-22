@@ -1,4 +1,12 @@
-runExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip.split","latin","pairs"),titles=TRUE, ...){
+anm.ExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip.split","latin","pairs"),titles =  TRUE, interval = 0.5, iter = 30){
+    m<-matrix(nrow=iter,ncol=length(method),rep(method,iter),byrow=TRUE)
+    for(i in 1:nrow(m)){
+	    ExpDesign(method=m[i,],titles=titles)
+	    Sys.sleep(interval)
+    }
+}
+
+ExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip.split","latin","pairs"),titles=TRUE, ...){
 
 L<-length(method)
 if(L==2) {par(mfrow=c(2,1),mar=c(0.1,1.5,2,1.5))} else

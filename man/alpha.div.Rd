@@ -41,5 +41,5 @@ library(vegan)
 data(varespec)
 alpha.div(varespec,"simp")
 }
-\keyword{manip}
+
 

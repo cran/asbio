@@ -1,5 +1,5 @@
-\name{ci.plot}
-\alias{ci.plot}
+\name{anm.ci}
+\alias{anm.ci}
 \title{
 Animation demonstrations of confidence intervals.
 }
@@ -8,7 +8,7 @@ Provides animated depictions of confidence intervals for \eqn{\mu}, \eqn{\sigma^
 }
 \usage{
 
-ci.plot(parent, par.val, conf = 0.95, sigma = NULL, par.type = c("mu", "median", "sigma.sq", "p"), n.est = 100, n = 50, interval = 0.1, ...)
+anm.ci(parent, par.val, conf = 0.95, sigma = NULL, par.type = c("mu", "median", "sigma.sq", "p"), n.est = 100, n = 50, interval = 0.1, ...)
 }
 
 \arguments{
@@ -34,10 +34,10 @@ Returns a plot.
 \examples{
 ##Not run
 parent<-rnorm(100000)
-ci.plot(parent, par.val=0, conf =.95, sigma =1, par.type="mu")
-ci.plot(parent, par.val=1, conf =.95, par.type="sigma.sq")
-ci.plot(parent, par.val=0, conf =.95, par.type="median")
+anm.ci(parent, par.val=0, conf =.95, sigma =1, par.type="mu")
+anm.ci(parent, par.val=1, conf =.95, par.type="sigma.sq")
+anm.ci(parent, par.val=0, conf =.95, par.type="median")
 parent<-rbinom(100000,1,p=.65)
-ci.plot(parent, par.val=0.65, conf =.95, par.type="p")
+anm.ci(parent, par.val=0.65, conf =.95, par.type="p")
 }
 \keyword{graphs}
