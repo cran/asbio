@@ -5,11 +5,12 @@
 Creates barplots displaying treatment measures of location (e.g. means, or medians) along with error bars (i.e. standard errors or confidence intervals or IQRs).  Can also display letters indicating if results were significant after adjustment for simultaneous inference.
 }
 \usage{
-bplot(y, x, int = c("SE","CI","IQR","IQR.CI"), conf = 0.95, plot.ci = TRUE, bar = TRUE,
- simlett = FALSE, bar.col = "gray", lett = NULL, exp.fact = 2, xlab = "x",
- ylab = "y", err = "y", sfrac = 0.01, gap = 0, slty = par("lty"), scol = NULL,
- pt.bg = par("bg"),order=FALSE,names.arg=NULL, width=1, loc.meas=mean, 
- cex.lab=1, cex.axis=1, cex.names=1, las=par("las"), horiz = FALSE, ...)
+bplot(y, x, int = c("SE","CI","IQR","IQR.CI"), conf = 0.95, plot.ci = TRUE, 
+bar = TRUE, simlett = FALSE, bar.col = "gray", lett = NULL, exp.fact = 2, 
+xlab = "x", ylab = "y", err = "y", sfrac = 0.01, gap = 0, slty = par("lty"), 
+scol = NULL,  pt.bg = par("bg"),order=FALSE,names.arg=NULL, width=1, 
+loc.meas=mean, cex.lab=1, cex.axis=1, cex.names=1, las=par("las"), 
+horiz = FALSE, ...)
 }
 \arguments{
 
@@ -55,8 +56,8 @@ McGill, R., Tukey, J. W. and Larsen, W. A. (1978) Variations of box plots. \emph
 \examples{
 eggs<-c(11,17,16,14,15,12,10,15,19,11,23,20,18,17,27,33,22,26,28)
 trt<-c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,4,4,4,4,4)
-bplot(y=eggs, x=factor(trt),int="SE",xlab="Treatment",ylab="Mean number of eggs",simlett=TRUE,
-lett=c("b","b","b","a"),pch=NA)
+bplot(y=eggs, x=factor(trt),int="SE",xlab="Treatment",ylab="Mean number of eggs",
+simlett=TRUE, lett=c("b","b","b","a"),pch=NA)
 }
 \keyword{graphs}
 \keyword{univar}

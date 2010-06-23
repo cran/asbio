@@ -27,7 +27,8 @@ Chapman and Hall, London.
 
 library(vegan)
 data(varespec)
-# A partial set of observations from a single plot for a Scandinavian moss/vascular plant/lichen survey.
+# A partial set of observations from a single plot for a Scandinavian 
+# moss/vascular plant/lichen survey.
 site18<-data.frame(t(varespec[1,][1:20]))
 
 #Shannon-Weiner diversity

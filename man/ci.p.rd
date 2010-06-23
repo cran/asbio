@@ -90,7 +90,9 @@ Wilson, E. B.(1927) Probable inference, the law of succession, and statistical i
 }
 \seealso{\code{\link{ci.mu.z}}, \code{\link{ci.p}}}
 \examples{
-#In 2001, it was estimated that 56,200 Americans would be diagnosed with non-Hodgkin's lymphoma and that 26,300 would die from it (Cernan et al. 2002).  Here we find the 95% confidence interval for the probability of diagnosis \emph{p}. 
+#In 2001, it was estimated that 56,200 Americans would be diagnosed with 
+# non-Hodgkin's lymphoma and that 26,300 would die from it (Cernan et al. 2002).  
+# Here we find the 95% confidence interval for the probability of diagnosis, p. 
 ci.p(c(rep(0, 56200-26300),rep(1,26300)))
 } 
 \keyword{univar}

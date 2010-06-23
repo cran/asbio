@@ -6,7 +6,9 @@
 Describes random treatment allocation for twelve experimental designs.}
 \usage{
 
-anm.ExpDesign(method=c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip.split","latin","pairs"),titles =  TRUE, interval = 0.5, iter = 30)
+anm.ExpDesign(method=c("CRD","factorial2by2","factorial2by2by2","nested",
+"RCBD","RIBD","split","split.split", "SPRB","strip.split","latin","pairs"),
+titles =  TRUE, interval = 0.5, iter = 30)
 
 
 ExpDesign(method = c("CRD", "factorial2by2", "factorial2by2by2", "nested", 
@@ -15,7 +17,8 @@ ExpDesign(method = c("CRD", "factorial2by2", "factorial2by2by2", "nested",
 }
 \arguments{
   \item{method}{A vector listing the experimental methods to be demonstrated.  Any subset of the character string \code{c("CRD","factorial2by2","factorial2by2by2",
-"nested","RCBD","RIBD","split","split.split","SPRB","strip.split","latin","pairs")}.}
+"nested","RCBD","RIBD","split","split.split","SPRB",
+"strip.split","latin","pairs")}.}
   \item{titles}{A logical argument specifying whether or not plots should have \code{main} titles.}
   \item{interval}{Time length spent on each frame in animation (in seconds).}
   \item{iter}{Number of random iterations in animation.}

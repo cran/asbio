@@ -9,7 +9,8 @@ with the calculated confidence intervals.  The default method for bootstrap conf
 method which is recommended by Wilcox (2005) for \emph{M}-estimators.
 }
 \usage{
-boot.ci.M(X1, X2, alpha = 0.05, est = huber.one.step, R = 1000, type = "perc")
+boot.ci.M(X1, X2, alpha = 0.05, est = huber.one.step, R = 1000, 
+type = "perc")
 }
 \arguments{
   \item{X1}{Sample from population one.}

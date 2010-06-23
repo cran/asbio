@@ -42,7 +42,7 @@ if(plot.likfunc==TRUE){
   if(anim==TRUE){
     nm<-which(logl==max(logl))[1]
       if(plot.density==TRUE){
-          dev.new(width=4,height=4,xpos=550)
+          dev.new(width=4,height=4,xpos=250)
           par(mar=c(4.4,4.5,1,0.5),cex=.9)}  
       for(i in 1:(nm-1)){
             plot(possibilities,logl,type="n",ylab=ifelse(is.null(ylab),"Normal log-likelihood function",ylab), 
@@ -69,7 +69,7 @@ if(plot.likfunc==TRUE){
       }
     if(anim==TRUE){
       if(plot.likfunc==TRUE){
-          dev.new(width=4,height=4,xpos=950)
+          dev.new(width=4,height=4,xpos=650)
           par(mar=c(4.4,4.5,1,0.5),cex=.9)} 
       X<-sort(X)
       c<-ifelse(length(X)<200,round(200/length(X),0),1)
@@ -116,7 +116,7 @@ max.p<-ifelse(is.null(poss),mean(X),possibilities[logl==max(logl)][1])
     if(anim==TRUE){
     nm<-which(logl==max(logl))[1]
       if(plot.density==TRUE){
-          dev.new(width=4,height=4,xpos=550)
+          dev.new(width=4,height=4,xpos=250)
           par(mar=c(4.4,4.5,1,0.5),cex=.9)}  
       for(i in 1:(nm-1)){
         plot(possibilities,logl,type="n",ylab=ifelse(is.null(ylab),"Poisson Log-likelihood function",ylab), 
@@ -142,7 +142,7 @@ max.p<-ifelse(is.null(poss),mean(X),possibilities[logl==max(logl)][1])
         }
       if(anim==TRUE){
         if(plot.likfunc==TRUE){
-              dev.new(width=4,height=4,xpos=950)
+              dev.new(width=4,height=4,xpos=650)
               par(mar=c(4.4,4.5,1,0.5),cex=.9)} 
         X<-sort(X)
         c<-ifelse(length(X)<200,round(200/length(X),0),1)
@@ -186,7 +186,7 @@ max.p<-ifelse(is.null(poss),mean(X),possibilities[logl==max(logl)][1])
                   }
     if(anim==TRUE){
       if(plot.density==TRUE){
-          dev.new(width=4,height=4,xpos=550)
+          dev.new(width=4,height=4,xpos=250)
           par(mar=c(4.4,4.5,1,0.5),cex=.9)}  
       nm<-which(logl==max(logl))[1]
       for(i in 1:(nm-1)){
@@ -215,7 +215,7 @@ max.p<-ifelse(is.null(poss),mean(X),possibilities[logl==max(logl)][1])
       }
     if(anim==TRUE){
        if(plot.likfunc==TRUE){
-              dev.new(width=4,height=4,xpos=950)
+              dev.new(width=4,height=4,xpos=650)
               par(mar=c(4.4,4.5,1,0.5),cex=.9)}
       X<-sort(X)
       c<-ifelse(length(X)<200,round(200/length(X),0),1)
@@ -257,7 +257,7 @@ possibilities<-poss
       }
     if(anim==TRUE){
       if(plot.density==TRUE){
-          dev.new(width=4,height=4,xpos=550)
+          dev.new(width=4,height=4,xpos=250)
           par(mar=c(4.4,4.5,1,0.5),cex=.9)}  
       nm<-which(logl==max(logl))[1]
         for(i in 1:(nm-1)){
@@ -284,7 +284,7 @@ possibilities<-poss
       }
      if(anim==TRUE){
        if(plot.likfunc==TRUE){
-            dev.new(width=4,height=4,xpos=950)
+            dev.new(width=4,height=4,xpos=650)
             par(mar=c(4.4,4.5,1,0.5),cex=.9)}
         X<-sort(X)
         c<-ifelse(length(X)<200,round(200/length(X),0),1)
