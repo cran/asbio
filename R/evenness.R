@@ -4,8 +4,9 @@ S<-length(x[x!=0])
 J<-SW.index(x)/log(S)
 }
 if(ncol(as.matrix(x))>1){
-S<-apply(x>1,1,sum)
-J<-SW.index(x)/log(S)
+Hs<-SW.index(x)
+Hmax<-max(Hs[!is.na(Hs)&!is.nan(Hs)])
+J<-Hs/Hmax
 }
 J
 }

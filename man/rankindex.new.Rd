@@ -46,7 +46,7 @@ distances used for finding community distances or dissimilarities by how well
 these indices agree with gradient differences.  The gradient separation between 
 each point is expressed as Euclidean distance for continuous variables  and as 
 Gower's metric for mixed data (i.e. when at least some environmental variables 
-are categorical or ordinal).  In the later case the library cluster is required.  
+are categorical or ordinal).  In the later case the library \pkg{cluster} is required.  
 The association of community and environmental distance matrices is simply the 
 correlation of the community and environmental distance ranks and can be 
 measured with any of the conventional measures described in Ch. 11.  The 
@@ -62,9 +62,10 @@ The function returns  a table of ranked Pearson's correlations (default) and a b
 \author{Ken Aho}
 \seealso{\code{\link{get.dist}}}
 \examples{
+\dontrun{
 library(vegan)
 data(varechem)
 data(varespec)
-r<-rankindex.new(scale(varechem),varespec)
+r<-rankindex.new(scale(varechem),varespec)}
 }
 \keyword{multivariate}

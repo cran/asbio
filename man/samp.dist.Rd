@@ -76,8 +76,7 @@ Two general uses of the function are possible.
 \author{Ken Aho}
 \examples{
 
-###Not run
-
+\dontrun{
 ##Central limit theorem
 #Four sample sizes, one at a time
 exp.parent<-rexp(100000)
@@ -142,3 +141,4 @@ stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star,show.n=FALS
 curve(dt(x,10),from=-6,to=6,add=TRUE,lwd=2)
 legend("topleft",lwd=2,col=1,legend="t(10)")
 }
+}\keyword{graphs}

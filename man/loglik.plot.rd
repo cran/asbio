@@ -65,7 +65,7 @@ A plot of the normal, Poisson, exponential, binomial, or a custom log-likelihood
 \seealso{\code{\link{dnorm}}, \code{\link{dpois}}, \code{\link{dexp}}, \code{\link{dbinom}}}
 \examples{
 
-##Not run
+\dontrun{
 ##Normal log likelihood estimation of mu.
 X<-c(11.2,10.8,9.0,12.4,12.1,10.3,10.4,10.6,9.3,11.8)
 loglik.plot(X,dist="norm",parameter="mu")
@@ -91,6 +91,7 @@ loglik.plot(X,dist="bin")
 func<-function(X=NULL,theta)theta^5*(1-theta)^10
 loglik.plot(X=NULL,func=func,dist="custom",poss=seq(0,1,0.01),
 xlab="Possibilities",ylab="Log-likelihood")             
+}
 }
 \keyword{univar}
 \keyword{graphs}

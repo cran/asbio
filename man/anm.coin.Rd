@@ -26,6 +26,6 @@ If \code{show.coin=TRUE}, returns two plots configured as a single graphical obj
 \seealso{\code{\link{rbinom}}
 }
 \examples{
-anm.coin(1000)
+\dontrun{anm.coin()}
 }
 \keyword{graphs}

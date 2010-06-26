@@ -25,5 +25,5 @@ statistics}.  Duxbury press.  Belmont, CA, USA.
 \examples{
 Venn(A=.3,B=.2,AandB=.06)
 }
-
+\keyword{graphs}
 

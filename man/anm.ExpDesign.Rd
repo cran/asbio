@@ -33,6 +33,7 @@ The function returns a plot or series of plots illustrating the workings of expe
 }
 \examples{
 ExpDesign()
+\dontrun{anm.ExpDesign()}
 }
 \keyword{design}
 \keyword{graphs}

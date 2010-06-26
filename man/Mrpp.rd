@@ -46,10 +46,11 @@ Van Sickle, J. (1997) Using mean similarity dendrograms to evaluate classificati
 }
 \author{M. Herny H. Stevens \email{HStevens@muohio.edu} and Jari Oksanen.  Wrapper created by Ken Aho}
 \examples{
+\dontrun{
 library(vegan)
 data(dune)
 data(dune.env)
-Mrpp(dune, dune.env$Management)
+Mrpp(dune, dune.env$Management)}
 }
 \keyword{htest}
 \keyword{multivariate}
