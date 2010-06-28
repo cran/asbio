@@ -7,29 +7,29 @@
 \alias{loglik.custom.plot}
 \title{Animated plots of log-likelihood functions}
 \description{
-Plots the normal, exponential, Poisson, binomial and "custom" log likelihood functions.  Likelihoods for parameter estimates are calculated from the pdfs given a particular dataset.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using the MLE.  
+Plots the normal, exponential, Poisson, binomial and "custom" log likelihood functions.  Likelihoods for parameter estimates are calculated by holding data constant and varying estimates.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLEs.  
 }
 \usage{
 loglik.plot(X, dist = c("norm", "poi", "bin", "exp", "custom"), 
 plot.likfunc = TRUE, parameter = NULL, func = NULL, poss = NULL, 
-plot.density = TRUE, xlab = NULL, ylab = NULL, conv = 0.01, anim = TRUE, 
-interval = 0.01, ...)
-
-loglik.norm.plot(X, parameter = c("mu", "sigma.sq"), poss = NULL, 
-plot.likfunc = TRUE, plot.density = TRUE, xlab = NULL, ylab = NULL, 
+plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
 conv = 0.01, anim = TRUE, interval = 0.01, ...)
 
-loglik.pois.plot(X, poss = NULL, plot.likfunc = TRUE, 
-plot.density = TRUE, xlab = NULL, ylab = NULL, conv = 0.01, 
-anim = TRUE, interval = 0.01, ...)
+loglik.norm.plot(X, parameter = c("mu", "sigma.sq"), poss = NULL, 
+plot.likfunc = TRUE, plot.density = TRUE, plot.calc = FALSE, 
+xlab = NULL, ylab = NULL, conv = 0.01, anim = TRUE, 
+interval = 0.01, ...)
 
-loglik.binom.plot(X, poss = NULL, plot.likfunc = TRUE, 
-plot.density = TRUE, xlab = NULL, ylab = NULL, anim = TRUE, 
-interval = 0.01, conv = 0.01, ...)
+loglik.pois.plot(X, poss = NULL, plot.likfunc = TRUE, 
+plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
+conv = 0.01, anim = TRUE, interval = 0.01, ...)
+
+loglik.binom.plot(X, poss = NULL, xlab = NULL, ylab = NULL, 
+anim = TRUE, interval = 0.01, conv = 0.01, ...)
 
 loglik.exp.plot(X, poss = NULL, plot.likfunc = TRUE, 
-plot.density = TRUE, xlab = NULL, ylab = NULL, conv = 0.01, 
-anim = TRUE, interval = 0.01, ...)
+plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
+conv = 0.01, anim = TRUE, interval = 0.01, ...)
 
 loglik.custom.plot(X, func, poss, anim = TRUE, interval = 0.01, 
 xlab, ylab, ...)
@@ -40,25 +40,26 @@ xlab, ylab, ...)
   \item{X}{A vector of quantitative data.  The function does not currently handle extremely large datasets, n > 500. Data should be integers (counts) for the Poisson 
 log-likelihood function, and binary responses (0,1) for the binomial log likelihood function.  Data elements for the exponential log likelihood function must be greater than zero.}
   \item{parameter}{The parameter for which ML estimation is desired in \code{loglik.norm.plot}  Specification of either \code{"mu"} or \code{"sigma.sq"} is required for the normal log likelihood function.  No specification is required for exponential, Poisson, and binomial log likelihood functions since these distributions are generally specified with a single parameter, i.e. \eqn{\theta} for the exponential, \eqn{\lambda} for the Poisson distribution, and \emph{p} (the probability of a success) for the binomial distribution.}
-  \item{poss}{An optional vector containing a sequence of possible parameter estimates.  Elements in the vector must be distinct.  The likelihood functions will choose one of these as the ML estimate.  If \code{poss} is not specified a vector of appropriate possibilities is provided by the function.}
+  \item{poss}{An optional vector containing a sequence of possible parameter estimates.  Elements in the vector must be distinct.  If \code{poss} is not specified a vector of appropriate possibilities is provided by the function.  This argument can be used to set \code{xlim} in the likelihood function and density plots.}
   \item{dist}{The type of assumed distribution there are currently five possibilities: \code{"norm", "poi", "binom", "exp",} and \code{"custom"}.  Use of custom distributions requires specification of a custom likelihood function in the argument \code{func}.}
-  \item{plot.likfunc}{A logical command for indicating whether a graph in which the log-likelihood function is plotted should be created.}
-  \item{plot.density}{A logical command for indicating whether a second graph in which densities are plotted on the pdf should be created.}
+  \item{plot.likfunc}{A logical command for indicating whether a graph of the log-likelihood function should be created.}
+  \item{plot.density}{A logical command for indicating whether a second graph, in which densities are plotted on the pdf, should be created.}
+  \item{plot.calc}{A logical command for indicating whether a third graph, in which log-densities are added to one another, should be created.}
   \item{xlab}{Optional \emph{X}-axis label.}
   \item{ylab}{Optional \emph{Y}-axis label.}
-  \item{conv}{Precision of likelihood function, decreasing \code{conv} increases the smoothness and precision of the ML function.}
+  \item{conv}{Precision of likelihood function.  Decreasing \code{conv} increases the smoothness and precision of the ML function.  Decreasing \code{conv} will also slow the animation.}
   \item{anim}{A logical command indicating whether animation should be used in plots.}
-  \item{interval}{Speed of animation.  A smaller interval decreases speed.  May not work in all systems; see \code{\link{Sys.sleep}}.} 
+  \item{interval}{Speed of animation, in seconds per frame.  May not work in all systems; see \code{\link{Sys.sleep}}.} 
   \item{func}{Custom likelihood function to be specified when using \code{loglik.custom.plot}.  The function should have two arguments.  An optional call to data, and the likelihood function parameter (see example below).} 
   \item{\dots}{Additional arguments from \code{\link{plot}} can be specified for likelihood function plots.}
 }
 
 \details{These plots are helpful in explaining the workings of ML estimation for parameters.  Animation is included as an option to further clarify processes.  
-When specifying \code{poss} be sure to include the estimate that you "want" the log-likelihood function to maximize in the vector of possibilities, e.g. \code{mean(X)} for estimation of \eqn{\mu}.  Animation in the second (pdf) plot will be sped up, using a primitive routine, for large datasets with many densities.   
+When specifying \code{poss} be sure to include the estimate that you "want" the log-likelihood function to maximize in the vector of possibilities, e.g. \code{mean(X)} for estimation of \eqn{\mu}.    
 }
 
 \value{
-A plot of the normal, Poisson, exponential, binomial, or a custom log-likelihood function is returned along with a plot of the pdf with ML estimates for parameters.  On this second graph densities of observations are plotted.  The second graph is not created for custom likelihood functions.
+Three animated plots can be created simultaneously.  The first plot shows the normal, Poisson, exponential, binomial, or custom log-likelihood functions.  The second plot shows the pdf with ML estimates for parameters.  On this graph densities of observations are plotted as pdf paramters are varied.  By default these two graphs will be created on a single graphics device.  By specifying \code{plot.calc = TRUE} a third plot can also be created which shows that aslog-likelihood is the sum of the log-densities. Animation in this third plot will be automatically sped up, using a primitive routine, for large datasets, and slowed for small datasets.  The second and third plots will not be created for binomial and custom likelihood functions.
 }
 
 \author{Ken Aho}
@@ -69,6 +70,9 @@ A plot of the normal, Poisson, exponential, binomial, or a custom log-likelihood
 ##Normal log likelihood estimation of mu.
 X<-c(11.2,10.8,9.0,12.4,12.1,10.3,10.4,10.6,9.3,11.8)
 loglik.plot(X,dist="norm",parameter="mu")
+
+##Add a plot describing log-likelihood calculation.
+loglik.plot(X,dist="norm",parameter="mu",plot.calc=TRUE)
 
 ##Normal log likelihood estimation of sigma squared.
 X<-c(11.2,10.8,9.0,12.4,12.1,10.3,10.4,10.6,9.3,11.8)
