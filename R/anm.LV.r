@@ -68,7 +68,7 @@ for(i in min(time):max(time)){
     legend("center",legend=c(as.expression(rh.lab),as.expression(p.lab),as.expression(c.lab),as.expression(dp.lab)),
     cex=1.5,ncol=2,bty="n",title="Parameters")
     par(mar=c(5,4,2,2))
-    plot(out$time,out$nh,type="n",xlab=xlab,ylab=ylab,ylim=c(min(out$nh,out$np),max(out$nh,out$np)),main="Lotka-Volterra exploitation",...)
+    plot(out$time,out$nh,type="n",xlab=xlab,ylab=ylab,ylim=c(min(out$nh,out$np),max(out$nh,out$np)),main="Lotka-Volterra Exploitation",...)
     grid()
     points(out$time[1:i+1],out$nh[1:i+1],type="l",lty=1,col=2)
     points(out$time[1:i+1],out$np[1:i+1],type="l",lty=2,col=4)
