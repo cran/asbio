@@ -1,7 +1,8 @@
 #--------------------------- Lotka-Volterra Competition -------------------------#
 
 anm.LVcomp<-function(n1,n2,r1,r2,K1,K2,a2.1,a1.2,time=seq(0,200),ylab="Abundance",xlab="Time",interval=0.1,...){
-xstart=c(n1,n2);y=xstart;pars=c(r1,r2,K1,K2,a2.1,a1.2) 
+y<-xstart<-c(n1=n1,n2=n2)
+pars<-c(r1=r1,r2=r2,K1=K1,K2=K2,a2.1=a2.1,a1.2=a1.2) 
 require(odesolve)||stop("This function requires package 'odesolve'")
 pr<-as.list(pars)
 func<-function(time=time,xstart=xstart,pars=pars){
@@ -43,7 +44,7 @@ for(i in min(time):max(time)){
 #----------------------Lotka-Volterra exploitation------------------------#
 
 anm.LVexp<-function(nh,np,rh,con,p,d.p,time=seq(0,200),ylab="Abundance",xlab="Time",interval=0.1,...){
-xstart=c(nh,np);y=xstart;pars=c(rh,con,p,d.p)
+y=xstart=c(nh=nh,np=np);pars=c(rh=rh,con=con,p=p,d.p=d.p)
 require(odesolve)||stop("This function requires package 'odesolve'")
 pr<-as.list(pars)
 func<-function(time=time,x=xstart,pars=pars){

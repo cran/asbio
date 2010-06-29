@@ -58,7 +58,7 @@ The exploitation model is based on:
 
 where \eqn{N_h} is the number of individuals from the host (prey) species, \eqn{N_p} is the number of individuals from the predator species, \eqn{r_h} is the intrinsic rate of increase for the host (prey) species, \eqn{p} is the rate of predation, \eqn{c} is a conversion factor which describes the rate at which prey are converted to new predators, and \eqn{d_p} is the death rate of the predators.  
 
-The term \eqn{r_hN_h} describes exponential growth for the host (prey) species.  This will be opposed by deaths due to predation, the term \eqn{pN_hN_p}.  The term \eqn{cpN_hN_p} is the rate at which predators destroy prey. This in turn will be opposed \eqn{d_pN_p} by predator deaths. 
+The term \eqn{r_hN_h} describes exponential growth for the host (prey) species.  This will be opposed by deaths due to predation, i.e. the term \eqn{pN_hN_p}.  The term \eqn{cpN_hN_p} is the rate at which predators destroy prey. This in turn will be opposed by \eqn{d_pN_p}, i.e. predator deaths. 
 }
 
 \value{The functions return descriptive animated plots}

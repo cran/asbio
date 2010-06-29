@@ -27,7 +27,7 @@ fpc = FALSE, N = NULL, n = NULL)
 }
 \details{\code{ci.mu.z} and \code{ci.mu.t} calculate confidence intervals for either summarized data or a 
 dataset provided in \code{data}.  Finite population corrections are made if a user specifies \code{fpc=TRUE} and 
-specifies some value for \code{N}.} 
+provides some value for \code{N}.} 
 
 \value{Returns a list of \code{class = "ci"}.  Default printed results are the parameter estimate and confidence bounds.  Other \code{invisible} objects include:
   \item{Margin}{the confidence margin.}
