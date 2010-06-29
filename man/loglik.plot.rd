@@ -7,7 +7,7 @@
 \alias{loglik.custom.plot}
 \title{Animated plots of log-likelihood functions}
 \description{
-Plots the normal, exponential, Poisson, binomial and "custom" log likelihood functions.  Likelihoods for parameter estimates are calculated by holding data constant and varying estimates.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLEs.  
+Plots the normal, exponential, Poisson, binomial and "custom" log-likelihood functions.  Likelihoods for parameter estimates are calculated by holding data constant and varying estimates.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLEs.  
 }
 \usage{
 loglik.plot(X, dist = c("norm", "poi", "bin", "exp", "custom"), 
@@ -25,7 +25,8 @@ plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL,
 conv = 0.01, anim = TRUE, interval = 0.01, ...)
 
 loglik.binom.plot(X, poss = NULL, xlab = NULL, ylab = NULL, 
-anim = TRUE, interval = 0.01, conv = 0.01, ...)
+plot.likfunc = TRUE, plot.density = TRUE, conv = 0.01, anim = TRUE, 
+interval = 0.01, ...)
 
 loglik.exp.plot(X, poss = NULL, plot.likfunc = TRUE, 
 plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
@@ -37,9 +38,9 @@ xlab, ylab, ...)
 
 \arguments{
 
-  \item{X}{A vector of quantitative data.  The function does not currently handle extremely large datasets, n > 500. Data should be integers (counts) for the Poisson 
+  \item{X}{A vector of quantitative data.  The function does not currently handle extremely large datasets, n > 500. Data should be integers (counts) for the Poisson
 log-likelihood function, and binary responses (0,1) for the binomial log likelihood function.  Data elements for the exponential log likelihood function must be greater than zero.}
-  \item{parameter}{The parameter for which ML estimation is desired in \code{loglik.norm.plot}  Specification of either \code{"mu"} or \code{"sigma.sq"} is required for the normal log likelihood function.  No specification is required for exponential, Poisson, and binomial log likelihood functions since these distributions are generally specified with a single parameter, i.e. \eqn{\theta} for the exponential, \eqn{\lambda} for the Poisson distribution, and \emph{p} (the probability of a success) for the binomial distribution.}
+  \item{parameter}{The parameter for which ML estimation is desired in \code{loglik.norm.plot}  Specification of either \code{"mu"} or \code{"sigma.sq"} is required for the normal log-likelihood function.  No specification is required for exponential, Poisson, and binomial log-likelihood functions since these distributions are generally specified with a single parameter, i.e. \eqn{\theta} for the exponential, \eqn{\lambda} for the Poisson distribution, and \emph{p} (the probability of a success) for the binomial distribution.}
   \item{poss}{An optional vector containing a sequence of possible parameter estimates.  Elements in the vector must be distinct.  If \code{poss} is not specified a vector of appropriate possibilities is provided by the function.  This argument can be used to set \code{xlim} in the likelihood function and density plots.}
   \item{dist}{The type of assumed distribution there are currently five possibilities: \code{"norm", "poi", "binom", "exp",} and \code{"custom"}.  Use of custom distributions requires specification of a custom likelihood function in the argument \code{func}.}
   \item{plot.likfunc}{A logical command for indicating whether a graph of the log-likelihood function should be created.}
@@ -59,7 +60,7 @@ When specifying \code{poss} be sure to include the estimate that you "want" the 
 }
 
 \value{
-Three animated plots can be created simultaneously.  The first plot shows the normal, Poisson, exponential, binomial, or custom log-likelihood functions.  The second plot shows the pdf with ML estimates for parameters.  On this graph densities of observations are plotted as pdf paramters are varied.  By default these two graphs will be created on a single graphics device.  By specifying \code{plot.calc = TRUE} a third plot can also be created which shows that aslog-likelihood is the sum of the log-densities. Animation in this third plot will be automatically sped up, using a primitive routine, for large datasets, and slowed for small datasets.  The second and third plots will not be created for binomial and custom likelihood functions.
+Three animated plots can be created simultaneously.  The first plot shows the normal, Poisson, exponential, binomial, or custom log-likelihood functions.  The second plot shows the pdf with ML estimates for parameters.  On this graph densities of observations are plotted as pdf parameters are varied.  By default these two graphs will be created simultaneously on a single graphics device.  By specifying \code{plot.calc = TRUE} a third plot can also be created which shows that log-likelihood is the sum of the log-densities. Animation in this third plot will be automatically sped up, using a primitive routine, for large datasets, and slowed for small datasets.  The third plot will not be created for the binomial pdf becasue there will only be a single outcome from the perspective of likelihood (e.g. 10 successes out of 22 trials).  The second and third plots will not be created for custom likelihood functions.
 }
 
 \author{Ken Aho}
@@ -88,8 +89,8 @@ X<-c(1,3,4,0,2,3,4,3,5)
 loglik.plot(X,dist="poi")
 
 ##Binomial log likelihood estimation of p.
-X<-c(1,1,0,0,0,1,0,0,0,0)
-loglik.plot(X,dist="bin")
+X<-c(1,1,0,0,0,1,0,0,0,0)#where 1 = a success
+loglik.plot(X,dist="bin",interval=.2)
 
 ##Custom log-likelihood function
 func<-function(X=NULL,theta)theta^5*(1-theta)^10
