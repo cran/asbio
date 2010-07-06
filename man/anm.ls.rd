@@ -28,11 +28,11 @@ Line type to be used to indicate the least squares estimate.
   \item{est.col}{
 Line color to be used to indicate the least squares estimate.
 }
-  \item{conv}{Precision of LS function, decreasing \code{conv} increases the smoothness and precision of the function.}
+  \item{conv}{Precision of LS function.  Decreasing \code{conv} increases the smoothness and precision of the function.}
   \item{anim}{A logical command indicating whether animation should be used in plots.}  
   \item{plot.lsfunc}{A logical command indicating whether the least-squares function should be plotted.}
   \item{plot.res}{A logical command indicating whether a plot of residuals should be created.}
-  \item{interval}{Speed of animation.  A smaller interval decreases speed.  May not work in all systems; see \code{\link{Sys.sleep}}.} 
+  \item{interval}{Speed of animation (in frames per second).  A smaller interval decreases speed.  May not work in all systems; see \code{\link{Sys.sleep}}.} 
   \item{\dots}{
 Additional arguments to \code{\link{plot}}
 }

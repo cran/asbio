@@ -5,6 +5,7 @@
 \alias{loglik.binom.plot}
 \alias{loglik.exp.plot}
 \alias{loglik.custom.plot}
+\alias{loglik.tck}
 \title{Animated plots of log-likelihood functions}
 \description{
 Plots the normal, exponential, Poisson, binomial and "custom" log-likelihood functions.  Likelihoods for parameter estimates are calculated by holding data constant and varying estimates.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLEs.  
@@ -34,6 +35,8 @@ conv = 0.01, anim = TRUE, interval = 0.01, ...)
 
 loglik.custom.plot(X, func, poss, anim = TRUE, interval = 0.01, 
 xlab, ylab, ...)
+
+loglik.tck()
 }
 
 \arguments{
@@ -60,7 +63,7 @@ When specifying \code{poss} be sure to include the estimate that you "want" the 
 }
 
 \value{
-Three animated plots can be created simultaneously.  The first plot shows the normal, Poisson, exponential, binomial, or custom log-likelihood functions.  The second plot shows the pdf with ML estimates for parameters.  On this graph densities of observations are plotted as pdf parameters are varied.  By default these two graphs will be created simultaneously on a single graphics device.  By specifying \code{plot.calc = TRUE} a third plot can also be created which shows that log-likelihood is the sum of the log-densities. Animation in this third plot will be automatically sped up, using a primitive routine, for large datasets, and slowed for small datasets.  The third plot will not be created for the binomial pdf becasue there will only be a single outcome from the perspective of likelihood (e.g. 10 successes out of 22 trials).  The second and third plots will not be created for custom likelihood functions.
+Three animated plots can be created simultaneously.  The first plot shows the normal, Poisson, exponential, binomial, or custom log-likelihood functions.  The second plot shows the pdf with ML estimates for parameters.  On this graph densities of observations are plotted as pdf parameters are varied.  By default these two graphs will be created simultaneously on a single graphics device.  By specifying \code{plot.calc = TRUE} a third plot can also be created which shows that log-likelihood is the sum of the log-densities. Animation in this third plot will be automatically sped up, using a primitive routine, for large datasets, and slowed for small datasets.  The third plot will not be created for the binomial pdf becasue there will only be a single outcome from the perspective of likelihood (e.g. 10 successes out of 22 trials).  The second and third plots will not be created for custom likelihood functions.  Loading package \pkg{tcltk} allows use of the function \code{loglik.tck} which provides an interactive GUI to run \code{loglik.plot}.
 }
 
 \author{Ken Aho}
@@ -96,6 +99,9 @@ loglik.plot(X,dist="bin",interval=.2)
 func<-function(X=NULL,theta)theta^5*(1-theta)^10
 loglik.plot(X=NULL,func=func,dist="custom",poss=seq(0,1,0.01),
 xlab="Possibilities",ylab="Log-likelihood")             
+
+##Interactive GUI, requires package 'tcltk'
+loglik.tck()
 }
 }
 \keyword{univar}
