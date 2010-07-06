@@ -2,7 +2,8 @@ veg.table<-function(Y,cat,min.const=.3,method="aho",cover.only=FALSE)
 {
       ####cover of species within groups
 	cover <- function(Y,cat) 
-	{  maxf<-as.numeric(cat)
+	{cat<-as.matrix(cat)
+   maxf<-as.matrix(as.numeric(as.factor(cat)))
     	cat<-as.factor(cat)
         cvr<-matrix(0,nrow=ncol(Y),ncol=max(maxf), dimnames = list(c(colnames(Y)), c(levels(cat))))
         for (i in levels(cat)) {
@@ -14,11 +15,14 @@ veg.table<-function(Y,cat,min.const=.3,method="aho",cover.only=FALSE)
   cvr1<-cover(Y,cat)
   con1<-const(Y,cat,digits=4)
   con2<-as.matrix(apply(con1,1,function(x){max(x)>=min.const}))
+  if(all(con2==FALSE))stop("No data; Decrease min.val")
   cvr2<-cvr1[con2==TRUE,]
   con3<-con1[con2==TRUE,]
   con2.1<-as.matrix(apply(con1,1,function(x){max(x)<min.const}))
+  if(all(con2.1==FALSE))cvr2.1=NULL
+  if(any(con2.1==TRUE)){
   cvr2.1<-cvr1[con2.1==TRUE,]
-  con3.1<-con1[con2.1==TRUE,]
+  con3.1<-con1[con2.1==TRUE,]}
 
       ####constancy matrix
        diag.const<-function(con)
@@ -96,8 +100,9 @@ cover
 }
   dcn<-diag.const(con3)
   dcv<-diag.cov(cvr2,method)
+  if(!is.null(cvr2.1)){
   dcn.1<-diag.const(con3.1)
-  dcv.1<-diag.cov(cvr2.1,method)
+  dcv.1<-diag.cov(cvr2.1,method)}
 
   pst<-function(x,y){
 	x<-as.matrix(x)
@@ -114,12 +119,17 @@ cover
 
   result<-list()
   const.cov<-pst(dcn,dcv)
-  const.cov.other<-pst(dcn.1,dcv.1)
+  if(!is.null(cvr2.1)){
+  const.cov.other<-pst(dcn.1,dcv.1)}
+  if(is.null(cvr2.1)){
+  const.cov.other<-"No data"}
 if(cover.only==FALSE){
   result$const.cover<-const.cov
   result$const.cover_less.than.min.const<-const.cov.other}
 if(cover.only==TRUE){
   result$cover<-as.data.frame(dcv)
-  result$cover_less.than.min.const<-as.data.frame(dcv.1)}
+  if(is.null(cvr2.1))  result$cover_less.than.min.const<-"No data" else
+  result$cover_less.than.min.const<-as.data.frame(dcv.1)
+  }
   result
 }

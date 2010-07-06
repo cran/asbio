@@ -10,7 +10,7 @@ bar = TRUE, simlett = FALSE, bar.col = "gray", lett = NULL, exp.fact = 2,
 xlab = "x", ylab = "y", err = "y", sfrac = 0.01, gap = 0, slty = par("lty"), 
 scol = NULL,  pt.bg = par("bg"),order=FALSE,names.arg=NULL, width=1, 
 loc.meas=mean, cex.lab=1, cex.axis=1, cex.names=1, las=par("las"), 
-horiz = FALSE, ...)
+horiz = FALSE, ylim = NULL,...)
 }
 \arguments{
 
@@ -41,6 +41,7 @@ horiz = FALSE, ...)
   \item{cex.names}{Expansion factor for axis names (bar labels).}
   \item{las}{Style of axis labels.  See \code{\link{par}}.}
   \item{horiz}{Logical value. If \code{FALSE}, then bars are drawn vertically with the first bar to the left. If \code{TRUE}, then bars are drawn horizontally with the first at the bottom.}
+  \item{ylim}{Limits for Y-axis.}
   \item{\dots}{Additional arguments from \code{\link[plotrix]{plotCI}}.}
 }
 \details{

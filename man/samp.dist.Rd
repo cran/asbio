@@ -111,7 +111,7 @@ dev.new()
 samp.dist(parent, R=1000,col.anim="heat.colors",fix.n=FALSE,interval=.1,stat=median,
 n.seq=seq(1,100),xlab="Median",show.SE=TRUE,breaks=50)
 
-#How do the efficiency of the median and mean compare in a distribution with 10% 
+#How do the efficiency of the median and mean compare in a distribution with 10\% 
 #contamination?
 parent<-c(rnorm(9000),rnorm(1000,mean=10))
 samp.dist(parent, col.anim="heat.colors",fix.n=FALSE,interval=.3,

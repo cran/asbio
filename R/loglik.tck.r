@@ -72,9 +72,6 @@ local({
 
         tkdestroy(tt)
         cmd <- build()
-        cat("### Command executed via Tk ###\n")
-        cat(deparse(build()),sep="\n")
-        cat("### -----\n")
         eval.parent(cmd)
     }                            
       X<-tclVar("rnorm(100)")

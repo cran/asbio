@@ -25,6 +25,9 @@ local({
         R.entry<-tkentry(tt, textvariable=Rep)
         x.entry<-tkentry(tt, textvariable=Xlab)
         int.entry<-tkentry(tt, textvariable=Int)
+        nseq.entry<-tkentry(tt, textvariable=Ne)
+        
+        
   x.lab<- tclVar("Mean")              
 	done <- tclVar(0)
   fixn<-tclVar(1)
@@ -45,6 +48,8 @@ local({
             tclvalue(Int)<-"0.1"
             tclvalue(fixn)<-"1"
             tclvalue(show.SE)<-"0"
+            tclvalue(Ne)<-"seq(1,30)"
+            
         }
         reset.but <- tkbutton(tt, text="Reset", command=reset)
         submit.but <- tkbutton(tt, text="Submit",command=function()tclvalue(done)<-1)
@@ -65,27 +70,29 @@ local({
             f <- as.logical(tclObj(fixn))
             se <- as.logical(tclObj(show.SE))
             interval<-tclvalue(Int)
-           substitute(samp.dist(parent=parent,parent2=parent2,s.size=as.numeric(s.size),s.size2=as.numeric(s.size2),stat=stat,stat2=stat2,stat3=stat3,stat4=stat4, func=func,R=as.numeric(R),fix.n=f,xlab=x,interval=as.numeric(interval),show.SE=se))
+            n.seq<-parse(text=tclvalue(Ne))[[1]]
+            
+           substitute(samp.dist(parent=parent,parent2=parent2,s.size=as.numeric(s.size),s.size2=as.numeric(s.size2),stat=stat,stat2=stat2,stat3=stat3,stat4=stat4, func=func,R=as.numeric(R),fix.n=f,xlab=x,interval=as.numeric(interval),n.seq=n.seq,show.SE=se))
         }
         n.cbut <- tkcheckbutton(tt, text="Fix n", variable=fixn)
         se.cbut <- tkcheckbutton(tt, text="Show SE", variable=show.SE)
-        tkgrid(tklabel(tt,text="Sampling distributions"),columnspan=2)
-        tkgrid(tklabel(tt,text="Parent 1"), parent.entry1)
-        tkgrid(tklabel(tt,text="Parent 2"), parent.entry2)
-        tkgrid(tklabel(tt,text="Samp size 1"), s.size1.entry)
-        tkgrid(tklabel(tt,text="Samp size 2"), s.size2.entry)
-        tkgrid(tklabel(tt,text="Stat"), stat.entry1)
-        tkgrid(tklabel(tt,text="Stat 2"), stat.entry2)
-        tkgrid(tklabel(tt,text="Stat 3"), stat.entry3)
-        tkgrid(tklabel(tt,text="Stat 4"), stat.entry4)
-        tkgrid(tklabel(tt,text="Iterations"), R.entry)
-        tkgrid(tklabel(tt,text="Function"), func.entry)
-        tkgrid(tklabel(tt,text="Interval"), int.entry)
-        tkgrid(tklabel(tt,text="X-axis label"), x.entry)
-        
-        tkgrid(n.cbut,se.cbut)
-        tkgrid(submit.but, reset.but)
-
+        tkgrid(tklabel(tt,text="Sampling distributions"),columnspan=4)
+        tkgrid(tklabel(tt,text=""))
+        tkgrid(tklabel(tt,text="Parent 1"), parent.entry1,tklabel(tt,text="Parent 2"), parent.entry2)
+        tkgrid(tklabel(tt,text="Samp size 1"), s.size1.entry,tklabel(tt,text="Samp size 2"), s.size2.entry)
+        tkgrid(tklabel(tt,text="Stat"), stat.entry1,tklabel(tt,text="Stat 2"), stat.entry2)
+        tkgrid(tklabel(tt,text="Stat 3"), stat.entry3, tklabel(tt,text="Stat 4"), stat.entry4)
+        tkgrid(tklabel(tt,text=""))
+        tkgrid(tklabel(tt,text=""),tklabel(tt,text="Iterations"), R.entry)
+        tkgrid(tklabel(tt,text=""),tklabel(tt,text="Function"), func.entry)
+        tkgrid(tklabel(tt,text=""),tklabel(tt,text="Anim. interval"), int.entry)
+        tkgrid(tklabel(tt,text=""),tklabel(tt,text="X-axis label"), x.entry)
+        tkgrid(tklabel(tt,text=""))
+        tkgrid(tklabel(tt,text=""),se.cbut,sticky="w")
+        tkgrid(tklabel(tt,text=""),n.cbut,tklabel(tt,text="N sequence"), nseq.entry, sticky="w")
+        tkgrid(tklabel(tt,text=""))
+        tkgrid(tklabel(tt,text=""),submit.but, reset.but)
+        tkgrid(tklabel(tt,text=""))
         if (tclvalue(x.lab)=="") tclvalue(x.lab)<-"Mean"
 
         tkbind(tt, "<Destroy>", function()tclvalue(done)<-2)
@@ -96,9 +103,6 @@ local({
 
         tkdestroy(tt)
         cmd <- build()
-        cat("### Command executed via Tk ###\n")
-        cat(deparse(build()),sep="\n")
-        cat("### -----\n")
         eval.parent(cmd)
     }                            
       Parent1<-tclVar("rexp(100)")
@@ -111,6 +115,7 @@ local({
       Stat4<-tclVar("NULL")
       Func<-tclVar("NULL")
       Rep<-tclVar("1000")
+      Ne<-tclVar("seq(1,30)")
       Xlab<- tclVar("Mean")
       Int<-tclVar("0.1")
       dialog.sd()

@@ -32,7 +32,7 @@ local({
         }
         reset.but <- tkbutton(tt, text="Reset", command=reset)
         submit.but <- tkbutton(tt, text="Submit",
-                               command=function()tclvalue(done)<-1)
+                               command=function()tclvalue(done)<-0)
 
         build <- function()
         {
@@ -47,12 +47,12 @@ local({
         }
         alt.rbuts <- tkframe(tt)
 
-        tkpack(tklabel(alt.rbuts, text="Paramter"))
+        tkpack(tklabel(alt.rbuts, text="Parameter"))
         for ( i in c("mu", "median","sigma.sq", "p")){
             tmp <- tkradiobutton(alt.rbuts, text=i, variable=Par, value=i)
             tkpack(tmp,anchor="w")
         }
-
+        
         tkgrid(tklabel(tt,text="Confidence interval"),columnspan=2)
         tkgrid(tklabel(tt,text="Parent"), parent.entry)
         tkgrid(tklabel(tt,text="True value"), para.entry)
@@ -62,19 +62,15 @@ local({
         tkgrid(alt.rbuts)
         tkgrid(submit.but, reset.but)
 
-        if (tclvalue(Parent)=="") tclvalue(Par)<-tclVar("rnorm(1000)")
-
         tkbind(tt, "<Destroy>", function()tclvalue(done)<-2)
 
         tkwait.variable(done)
 
         if(tclvalue(done)=="2") stop("aborted")
-
-        tkdestroy(tt)
+      
+        tkdestroy(tt) 
+        
         cmd <- build()
-        cat("### Command executed via Tk ###\n")
-        cat(deparse(build()),sep="\n")
-        cat("### -----\n")
         eval.parent(cmd)
     }                            
       Parent<-tclVar("rnorm(1000)")

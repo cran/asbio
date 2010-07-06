@@ -1,4 +1,5 @@
 const<-function(Y,cat,digits=4){
+cat<-as.matrix(cat)
 p.a <- ifelse(Y>0,1,0)
 cat1<-as.matrix(as.numeric(as.factor(cat)))
 res <-matrix(0, nrow = ncol(Y),ncol=max(cat1))
