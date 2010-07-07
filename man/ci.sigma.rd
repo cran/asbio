@@ -1,7 +1,7 @@
 \name{ci.sigma}
 \alias{ci.sigma}
 \title{
-Confidence interval for the sample variance.
+Confidence interval for sigma squared.
 }
 \description{
 The function calculates confidence intervals for \eqn{\sigma^2}.  We assume that the parent population is normal.}

@@ -3,7 +3,7 @@
 \title{Compares the efficacy of resemblance measures for a particular data 
 scenario.}  
 \description{
-This function is a wrapper for \code{\link[vegan]{rankindex}} from \code{vegan}.
+This function is a wrapper for \code{\link[vegan]{rankindex}} from package \pkg{vegan}.
 }
 \usage{
 

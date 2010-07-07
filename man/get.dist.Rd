@@ -3,7 +3,7 @@
 \title{Calculates 26 possible resemblance measures.}
 \description{This function allows users access to all 26 resemblance measures 
 shown in Table 29.10.  This includes five not previously available in R.  
-Many of the measures are programmed with the function \code{\link[vegan]{designdist}} from library \code{vegan}.  
+Many of the measures are programmed with the function \code{\link[vegan]{designdist}} from library \pkg{vegan}.  
 The methods can be specified by name or by the distance measure number they were 
 given in Table 29.10; e.g. Steinhaus index = \code{"D8"}.  
  Minkowski's distance requires an additional specification for power.  

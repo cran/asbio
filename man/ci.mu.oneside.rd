@@ -1,7 +1,7 @@
 \name{ci.mu.oneside}
 \alias{ci.mu.oneside}
 \title{
-One sided confidence intervlas for mu.
+One sided confidence interval for mu.
 }
 \description{
 In some situations we may wish to quantify confidence in the region above or below a mean estimate.  For instance, a biologist working with an endangered species may be interested in saying: "I am 95 percent confident that the true mean number of offspring is above a particular threshold".  In a one-sided situation, we essentially let our confidence be 1- 2\eqn{\alpha} (instead of 1 - \eqn{\alpha}).  Thus, if our significance level for a two-tailed test is \eqn{\alpha}, our one-tailed significance level will be 2\eqn{\alpha}.

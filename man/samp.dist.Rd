@@ -2,6 +2,7 @@
 \alias{samp.dist}
 \alias{samp.dist.fixn}
 \alias{samp.dist.n}
+\alias{samp.dist.tck}
 
 \title{Animated representations of a statistic's sampling distribution}
 \description{
@@ -28,10 +29,11 @@ func = NULL, show.n = TRUE, show.SE = FALSE, est.density = TRUE,
 col.density = 4, lwd.density = 2, est.ylim = TRUE, ylim = NULL, 
 anim = TRUE, interval = 0.5, col.anim = NULL, digits = 3,...)
 
+samp.dist.tck()
 }
 \arguments{
   \item{parent}{A vector containing observations from a parental distribution.  For computational efficiency datasets exceeding 100000 observations are not recommended.}
-  \item{parent2}{An optional second parental distribution, useful for construction sampling distributions of test statistics.}
+  \item{parent2}{An optional second parental distribution, useful for the construction of sampling distributions of test statistics.}
   \item{s.size}{Sample size to be taken at each of \code{R} iterations from the parental distribution.}
   \item{s.size2}{An optional second sample size if a second statistic is to be calculated.}
   \item{n.seq}{A two element vector specifying the smallest and largest in a range of demonstrated sample sizes.  Requires \code{fix.n=FALSE}.}
@@ -70,6 +72,8 @@ Two general uses of the function are possible.
 
 
 2) One can provide a seamless animated demonstration of the effect of varying sample size on a sampling distribution by specifying \code{n.fixed = FALSE}.   If \code{n.fixed = FALSE} is used, then a range of sample sizes (integers) must also be specified as a two element vector in \code{n.seq}.  Note if \code{n.fixed = FALSE} then the arguments \code{s.size} and \code{s.size2} will be superfluous. In addition, multiple statistics and parent populations are not supported if \code{n.fixed = FALSE}, although auxilary functions can still be called with \code{func}.
+
+Loading the package \pkg{tcltk} allows use of the function \code{samp.dist.tck} which provides an interactive GUI that runs \code{samp.dist}.
 } 
    
 \seealso{\code{\link{plot.histogram}}, \code{\link{hist}}, \code{\link{bootstrap}}.}
@@ -140,5 +144,9 @@ samp.dist(parent, parent2=parent2, s.size=6, R=1000, breaks=35,stat=mean,stat2=m
 stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star,show.n=FALSE)
 curve(dt(x,10),from=-6,to=6,add=TRUE,lwd=2)
 legend("topleft",lwd=2,col=1,legend="t(10)")
+
+#Interactive GUI, require package 'tcltk'
+samp.dist.tck()
 }
-}\keyword{graphs}
+}
+\keyword{graphs}
