@@ -51,7 +51,7 @@ Agresti and Coull (1998) reported that these estimators can create extremely ina
 \deqn{\hat{p}=\frac{x+2}{n+4},}
 \deqn{S_{\hat{p}}=\sqrt{\frac{\hat{p}(1-\hat{p})}{n+4}}}
 
-A 100(1 - \eqn{\alpha})percent confidence interval for the binomial parameter \emph{p} is found using:
+A 100(1 - \eqn{\alpha})\% confidence interval for the binomial parameter \emph{p} is found using:
 
 \deqn{\hat{p}\pm z_{1-(\alpha/2)}.}
 
@@ -86,7 +86,7 @@ Wilson, E. B.(1927) Probable inference, the law of succession, and statistical i
 }
 \author{Ken Aho
 }
-\note{This is merely one of many methods that have been proposed for confidence interval estimation for \emph{p}.
+\note{This function contains only a few of the many methods that have been proposed for confidence interval estimation for \emph{p}.
 }
 \seealso{\code{\link{ci.mu.z}}, \code{\link{ci.p}}}
 \examples{

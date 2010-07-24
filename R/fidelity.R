@@ -1,5 +1,6 @@
 fidelity<-function(Y,cat,digits=4){
- cat1<-as.numeric(as.factor(cat))
+ cat<-as.matrix(cat)
+ cat1<-as.matrix(as.numeric(as.factor(cat)))
  p.a<-ifelse(Y>0,1,0)
  eval<-matrix(nrow=ncol(Y),ncol=max(cat1))
      for(i in 1:max(cat1)){

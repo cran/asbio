@@ -1,0 +1,16 @@
+demos<-function(){
+tt <- tktoplevel()
+tkwm.title(tt, "'asbio' Graphical Demos")
+topMenu <- tkmenu(tt)
+tkconfigure(tt, menu = topMenu)
+fileMenu <- tkmenu(topMenu, tearoff = FALSE)
+dists <- tkmenu(topMenu, tearoff = FALSE)
+tkadd(dists,"command",label="Normal",command=substitute(see.norm.tck()))
+tkadd(fileMenu,"cascade",label="Pdfs",menu=dists)
+tkadd(fileMenu, "command", label = "Confidence intervals", command = substitute(anm.ci.tck()))
+tkadd(fileMenu, "command", label = "Experimental designs", command = substitute(anm.ExpDesign.tck()))
+tkadd(fileMenu, "command", label = "Log-likelihood", command = substitute(loglik.tck()))
+tkadd(fileMenu, "command", label = "Sampling designs", command = substitute(anm.samp.design.tck()))
+tkadd(fileMenu, "command", label = "Sampling distributions", command = substitute(samp.dist.tck()))
+tkadd(topMenu, "cascade", label = "Statistical demos", menu = fileMenu)
+}
