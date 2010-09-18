@@ -17,11 +17,11 @@ anm.ci.tck()
 }
 
 \arguments{
-  \item{parent}{A parental distribution; ideally a distribution with known parameters}
-  \item{par.val}{True parameter value which is being estimated}
+  \item{parent}{A parental distribution; ideally a distribution with known parameters.}
+  \item{par.val}{True parameter value which is being estimated.}
   \item{conf}{Confidence level: 1-\emph{P}(type I error).}
   \item{sigma}{Sigma from the normal pdf, if known.}
-  \item{par.type}{The parameter whose confidence intervals to be estimated. There are four choices.  The normal pdf parameters \eqn{\mu} and \eqn{\sigma^{2}}, the population median, and the binomial parameter, \emph{p}.}
+  \item{par.type}{The parameter whose confidence intervals to be estimated. There are currently four choices.  These are the normal pdf parameters \eqn{\mu} and \eqn{\sigma^{2}}, the population median, and the binomial parameter, \emph{p}.}
   \item{n.est}{The number of confidence intervals to be created.}
   \item{n}{The sample size used for each confidence interval.}
   \item{interval}{The time interval for animation (in seconds).  Smaller intervals speed up animation}

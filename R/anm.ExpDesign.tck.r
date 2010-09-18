@@ -14,8 +14,8 @@ local({
         tt <- tktoplevel()
         tkwm.title(tt,"Experimental designs")
       
-        int.entry <- tkentry(tt, textvariable=Int)
-        iter.entry<-tkentry(tt, textvariable=Iter)
+        int.entry <- tkentry(tt, textvariable=Int, width = 10)
+        iter.entry<-tkentry(tt, textvariable=Iter, width = 10)
        
                 
 	done <- tclVar(0)
@@ -40,10 +40,11 @@ local({
         
         tkgrid(tklabel(tt,text="Experimental designs"),columnspan=2)
         tkgrid(tklabel(tt,text=""))
-        tkgrid(tklabel(tt,text="Animation interval"),int.entry)
-        tkgrid(tklabel(tt,text="Iterations"), iter.entry)
-        tkgrid(submit.but, reset.but)
+        tkgrid(tklabel(tt,text="Anim. int."),int.entry)
+        tkgrid(tklabel(tt,text="Iterations "), iter.entry)
         tkgrid(tklabel(tt,text=""))
+        tkgrid(submit.but, reset.but, sticky="w")
+   
         
 
         tkbind(tt, "<Destroy>", function()tclvalue(done)<-2)

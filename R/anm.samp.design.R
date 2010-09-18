@@ -7,8 +7,8 @@ Sys.sleep(interval)
 }
                                                                                                                    
 samp.design<-function(n=20){
-plotSamp<-function(n=n,type=c("SRS","strat","clust")){
-plot(seq(1,19),seq(1,19),xaxt="n",yaxt="n",xlab="",ylab="",type="n",xlim=c(1,19),ylim=c(1,19))
+plotSamp<-function(n=n,type=c("SRS","strat","clust"),main=""){
+plot(seq(1,19),seq(1,19),xaxt="n",yaxt="n",xlab="",ylab="",type="n",xlim=c(1,19),ylim=c(1,19),main=main)
 segments(seq(0,19),rep(0,19),seq(0,19),rep(20,10),col="gray")
 segments(rep(0,19),seq(0,19),rep(20,19),seq(0,19),col="gray")
 
@@ -69,13 +69,10 @@ segments(0,10,20,10,col="red",lwd=2)}
 
 ##random sampling using all three designs
 par(mfrow=c(2,2),mar=c(0.5,1.5,2,0.5))
-plot(seq(1,19),seq(1,19),xaxt="n",yaxt="n",xlab="",ylab="",type="n",xlim=c(1,19),ylim=c(1,19))
-mtext(side=3,at=-0.5,line=1,"(a)")
+plot(seq(1,19),seq(1,19),xaxt="n",yaxt="n",xlab="",ylab="",type="n",xlim=c(1,19),ylim=c(1,19),main="Sample population")
 segments(seq(0,19),rep(0,19),seq(0,19),rep(20,10),col="gray")
 segments(rep(0,19),seq(0,19),rep(20,19),seq(0,19),col="gray")
-plotSamp(n,"SRS")
-mtext(side=3,at=-0.5,line=1,"(b)")
-plotSamp(n,"strat")
-mtext(side=3,at=-0.5,line=1,"(c)")
-plotSamp(n,"clust")
-mtext(side=3,at=-0.5,line=1,"(d)")}
+plotSamp(n,"SRS",main="Simple random sampling")
+plotSamp(n,"strat",main="Stratified random sampling")
+plotSamp(n,"clust",main="Cluster sampling")
+}

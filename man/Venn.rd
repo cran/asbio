@@ -1,13 +1,16 @@
 \name{Venn}
 \alias{Venn}
+\alias{Venn.tck}
+
 \title{Venn probability diagrams for an event with two outcomes}
 \description{
 The user specifies the probabilities of two outcomes, and if applicable, their intersection.  A Venn diagram is returned. The universe, S, will generally not have unit area, but in many applications will be a good approximation.  The area of the intersection will also be an approximation.   
 }
 \usage{
 Venn(A, B, AandB = 0, labA = "A", labB = "B")
-}
 
+Venn.tck()
+}
 \arguments{
   \item{A}{probability of event A}
   \item{B}{probability of event B}

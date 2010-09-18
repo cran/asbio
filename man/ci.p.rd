@@ -65,7 +65,7 @@ where \eqn{F^{*}\sim F(2x-2,2n-2x)}.
 
 \value{Returns a list of \code{class = "ci"}.  Default printed results are the parameter estimate and confidence bounds.  Other objects are \code{invisible}.  In particular, if \code{method = "wilson" or "approximation"} returns a list with four items:
   \item{p.hat}{Estimate for \emph{p}.}
-  \item{S.p.hat}{Estimate for \eqn{S_{\hat{p}}}.}
+  \item{S.p.hat}{Estimate for \eqn{\sigma_{\hat{p}}}.}
   \item{margin}{Confidence margin.}
   \item{ci}{Confidence interval.}
 If \code{method = "wilson"} the function returns the confidence interval, \code{ci}, only, i.e. no other \code{invisible} components exist.

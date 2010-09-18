@@ -1,30 +1,45 @@
 Venn<-function(A,B,AandB=0,labA="A",labB="B"){
-if(A>1|B>1|AandB>1|A+B-AandB>1|A<0|B<0|AandB<0){
-stop("Violation of probability rules!")
-}
-if(AandB>A|AandB>B){
-stop("Violation of probability rules!")
-}
+if(A>1|B>1|AandB>1|(A+B)-AandB>1|A<0|B<0|AandB<0|AandB>A|AandB>B){
+stop("Violation of probability rules!")}
 require(plotrix)
+
+if(A==0&B==0){
+S<-plot(seq(0,1),seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="")
+text(0.5,0.6,"P(A) = 0");text(0.5,0.4,"P(B) = 0")
+}
+
 if(A+B==1&AandB==0){
 S<-plot(seq(0,1),seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
 rect(c(0,A),c(0,0), c(A,1),c(1,1),col=c(rgb(0.7,0.7,0.7,0.8),rgb(0.3,0.3,0.3,0.8)))
-text(A/2,.5,paste("P(",bquote(.(labA))," = ",bquote(.(A)),")"),cex=.95)
-text(A+((1-A)/2),.5,paste("P(",bquote(.(labB))," = ",bquote(.(B)),")"),cex=.95)
+text(A/2,.5,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
+text(A+((1-A)/2),.5,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
 }
 
-if(A+B!=1&AandB==0){
+if((AandB==A|AandB==B)&(A!=0|B!=0)){##subset
+S<-plot(seq(-.55,.55,length=3),seq(-.55,.55,length=3),type="n",xaxt="n",yaxt="n",xlab="",ylab="")
+r.A<-sqrt(A/pi)
+r.B<-sqrt(B/pi)
+draw.circle(0,0,r=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
+draw.circle(0,0,r=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
+if(A>=B){text(-0.5,0.5,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
+text(0,0,paste("P(",bquote(.(labB)),") = P(A \u2229 B) = ",bquote(.(B)),sep=""),cex=.95)}
+if(B>A){text(-0.5,0.5,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
+text(0,0,paste("P(",bquote(.(labA)),") = P(A \u2229 B) =",bquote(.(A)),sep=""),cex=.95)}
+arrows(-0.5,.46,-mean(c(r.A,r.B)),0,length=.05)
+}
+
+if(A+B!=1&AandB==0&(A!=0|B!=0)){
 S<-plot(seq(0,2),seq(0,2),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
 r.A<-sqrt(A/pi)
 r.B<-sqrt(B/pi)
 draw.circle(0.5,1,r=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
 draw.circle(1.25,1,r=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
-text(0.5,1,paste("P(",bquote(.(labA))," = ",bquote(.(A)),")"),cex=.95)
-text(1.25,1,paste("P(",bquote(.(labB))," = ",bquote(.(B)),")"),cex=.95)
+text(0.5,1,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
+text(1.25,1,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
 rect(0.5-sqrt(1/pi),1-sqrt(1/pi),1.25+sqrt(1/pi),1+sqrt(1/pi))
 }
 
-if(A+B!=1&AandB!=0){
+if((A+B!=1&AandB!=0)&(A!=AandB)&(B!=AandB)){
 S<-plot(seq(-1,1),seq(-1,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
 r.A<-sqrt(A/pi)
 r.B<-sqrt(B/pi)
@@ -32,11 +47,81 @@ r.diff<-r.A-r.B
 d<-2*((1-AandB)*r.A)-r.diff
 draw.circle(-.5,0,r=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
 draw.circle(d-.5,0,r=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
-text(-.5,0,paste("P(A = ",bquote(.(A)),")"),cex=.95)
-text(d-.5,0,paste("P(B = ",bquote(.(B)),")"),cex=.95)
+text(-.5,0,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
+text(d-.5,0,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
 x<-((d+r.diff)/2)-.5
 arrows(x,.6,x,0,length=.05)
-text(x,.65,substitute(paste("P(A",intersect(),"B)")==list(x),list(x=AandB)),cex=.8)
+text(x,.65,paste("P(",bquote(.(labA)),' \u2229 ',bquote(.(labB)),") = ",bquote(.(AandB)),sep=""),cex=.8)
 rect(-0.5-sqrt(1/pi),sqrt(1/pi),(d-.5)+sqrt(1/pi),-sqrt(1/pi))
 }
 }
+
+Venn.tck<-function()
+{
+    require(tcltk) || stop("tcltk support is absent")
+    local({
+        have_ttk <- as.character(tcl("info", "tclversion")) >= 
+            "8.5"
+        if (have_ttk) {
+            tkbutton <- ttkbutton
+            tkcheckbutton <- ttkcheckbutton
+            tkentry <- ttkentry
+            tkframe <- ttkframe
+            tklabel <- ttklabel
+            tkradiobutton <- ttkradiobutton
+        }
+        dialog.sd <- function() {
+            tt <- tktoplevel()
+            tkwm.title(tt, "Venn diagrams")
+            A.entry <- tkentry(tt, textvariable = Ae, width =10)
+            B.entry <- tkentry(tt, textvariable = Be, width =10)
+            AandB.entry <- tkentry(tt, textvariable = AandBe, width =10)
+            A.label.entry <- tkentry(tt, textvariable = Alabel, width =10)
+            B.label.entry <- tkentry(tt, textvariable = Blabel, width =10)
+            
+            done <- tclVar(0)
+ 
+            reset <- function() {
+                tclvalue(Ae) <- ""
+                tclvalue(Be) <- ""
+                tclvalue(AandBe) <- ""
+                tclvalue(Alabel)<-"A"
+                tclvalue(Blabel)<-"B"
+            }
+            reset.but <- tkbutton(tt, text = "Reset", command = reset)
+            submit.but <- tkbutton(tt, text = "Submit", command = function() tclvalue(done) <- 1)
+            build <- function() {
+                A <-tclvalue(Ae)
+                B <- tclvalue(Be)
+                AandB <- tclvalue(AandBe)
+                labA <- tclvalue(Alabel)
+                labB <- tclvalue(Blabel)
+                substitute(Venn(A=as.numeric(A),B=as.numeric(B),AandB=as.numeric(AandB),labA=labA,labB=labB))
+            }
+            
+            tkgrid(tklabel(tt, text = "Venn probability diagrams"), 
+                columnspan = 2)
+            tkgrid(tklabel(tt, text = ""))
+            tkgrid(tklabel(tt, text = "    P(A)"), A.entry, sticky = "w")
+            tkgrid(tklabel(tt, text = "    P(B)"), B.entry, sticky = "w")
+            tkgrid(tklabel(tt, text = "    P(A\u2229B)"), AandB.entry, sticky = "w")
+            tkgrid(tklabel(tt, text = "    A label"), A.label.entry,  sticky = "w")
+            tkgrid(tklabel(tt, text = "    B label"), B.label.entry, sticky = "w")
+            tkgrid(tklabel(tt, text = ""))
+            tkgrid(submit.but, reset.but,sticky="w")
+            tkbind(tt, "<Destroy>", function() tclvalue(done) <- 2)
+            tkwait.variable(done)
+            if (tclvalue(done) == "2") 
+                stop("aborted")
+            tkdestroy(tt)
+            cmd <- build()
+            eval.parent(cmd)
+        }
+        Ae <- tclVar("0.4")
+        Be <- tclVar("0.3")
+        AandBe <- tclVar("0.1")
+        Alabel <- tclVar("A")
+        Blabel <-tclVar("B")
+        dialog.sd()
+    })
+    }

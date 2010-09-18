@@ -1,11 +1,11 @@
 \name{get.dist}
 \alias{get.dist}
 \title{Calculates 26 possible resemblance measures.}
-\description{This function allows users access to all 26 resemblance measures 
-shown in Table 29.10.  This includes five not previously available in R.  
+\description{This function allows users access to 26 resemblance measures 
+.  This includes five not previously available in R.  
 Many of the measures are programmed with the function \code{\link[vegan]{designdist}} from library \pkg{vegan}.  
 The methods can be specified by name or by the distance measure number they were 
-given in Table 29.10; e.g. Steinhaus index = \code{"D8"}.  
+given in Table 29.10 in (Aho; in prep); e.g. Steinhaus index = \code{"D8"}.  
  Minkowski's distance requires an additional specification for power.  
  The default is power = 2 which makes the measure equivalent to Euclidean distance. 
 }
@@ -34,6 +34,8 @@ Returns a matrix of \code{class(dist)}.
 }
 \seealso{\code{\link{dist}}}
 \references{
+Aho, K.  In prep.  \emph{Applied statistics for biologists, a textbook using R}.
+ 
 Legendre, P, and Legendre, L. (1998)  \emph{Numerical ecology, 2nd English edition}.  Elsevier, 
 Amsterdam, The Netherlands. 
 

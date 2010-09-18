@@ -1,7 +1,8 @@
 \name{anm.LV}
 \alias{anm.LVcomp}
 \alias{anm.LVexp}
-
+\alias{anm.LVc.tck}
+\alias{anm.LVe.tck}
 \title{Animated depictions of Lotka-Volterra competition and exploitation models
 }
 \description{
@@ -12,7 +13,11 @@ anm.LVcomp(n1, n2, r1, r2, K1, K2, a2.1, a1.2, time = seq(0, 200), ylab =
 "Abundance", xlab = "Time", interval = 0.1, ...)
 
 anm.LVexp(nh, np, rh, con, p, d.p, time = seq(0, 200), ylab = "Abundance", 
-xlab = "Time", interval = 0.1, ...)
+xlab = "Time", interval = 0.1, circle = FALSE, ...)
+
+anm.LVc.tck()
+
+anm.LVe.tck()
 }
 
 \arguments{
@@ -38,6 +43,7 @@ xlab = "Time", interval = 0.1, ...)
 \item{ylab}{\emph{Y}-axis label.}
 \item{xlab}{\emph{X}-axis label.}
 \item{interval}{Animation speed per frame (in seconds).}
+\item{circle}{Logical, if \code{TRUE} a circular representation of the relation of prey and predator numbers is drawn.}
 \item{\dots}{Additional arguments from \code{\link{plot}}.}
 }
 
@@ -58,7 +64,7 @@ The exploitation model is based on:
 
 where \eqn{N_h} is the number of individuals from the host (prey) species, \eqn{N_p} is the number of individuals from the predator species, \eqn{r_h} is the intrinsic rate of increase for the host (prey) species, \eqn{p} is the rate of predation, \eqn{c} is a conversion factor which describes the rate at which prey are converted to new predators, and \eqn{d_p} is the death rate of the predators.  
 
-The term \eqn{r_hN_h} describes exponential growth for the host (prey) species.  This will be opposed by deaths due to predation, i.e. the term \eqn{pN_hN_p}.  The term \eqn{cpN_hN_p} is the rate at which predators destroy prey. This in turn will be opposed by \eqn{d_pN_p}, i.e. predator deaths. 
+The term \eqn{r_hN_h} describes exponential growth for the host (prey) species.  This will be opposed by deaths due to predation, i.e. the term \eqn{pN_hN_p}.  The term \eqn{cpN_hN_p} is the rate at which predators destroy prey. This in turn will be opposed by \eqn{d_pN_p}, i.e. predator deaths.  Loading package \pkg{tcltk} allows one to run the GUIs in \code{anm.LVe.tck} and \code{anm.LVc.tck}.
 }
 
 \value{The functions return descriptive animated plots}

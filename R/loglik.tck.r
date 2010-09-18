@@ -58,9 +58,9 @@ local({
 
         tkgrid(tklabel(tt,text="Log-likelihood"),columnspan=2)
         tkgrid(tklabel(tt,text="Data"), X.entry)
-        tkgrid(tklabel(tt,text="Custom function"), custom.ent)
+        tkgrid(tklabel(tt,text="Custom func."), custom.ent)
         tkgrid(alt.rbuts, alt.rbuts1)
-        tkgrid(submit.but, reset.but)
+        tkgrid(submit.but, reset.but, sticky = "e")
 
         if (tclvalue(Cust)=="") tclvalue(Cust)<-"NULL"
 
@@ -74,7 +74,7 @@ local({
         cmd <- build()
         eval.parent(cmd)
     }                            
-      X<-tclVar("rnorm(100)")
+      X<-tclVar("rnorm(20)")
       Dist<-tclVar("norm")
       Norm.Par<-tclVar("mu")
       Cust<-tclVar("NULL")

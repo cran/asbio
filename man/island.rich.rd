@@ -21,7 +21,7 @@ This data frame contains the following columns:
       a numeric vector providing the the number of mammal species identified per island.
          }
     \item{Area_km2}{
-      Montane island area in (in km^2).
+      Montane island area in (in km\eqn{^2}).
     }
   }
 }

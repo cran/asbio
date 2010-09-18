@@ -1,7 +1,7 @@
 \name{V.mat}
 \alias{V.mat}
 \title{Pooled covariance matrices for multivariate procedures.}
-\description{Calculates a pooled covariances matrix ala Legendre and Legendre (1998).  This is required for a number of multivariate procedures including the Kullback statistic for multivariate homoscedasticity, and Hotelling's test.
+\description{Calculates a pooled covariance matrix ala Legendre and Legendre (1998).  This is required for a number of multivariate procedures including the Kullback statistic for multivariate homoscedasticity, and Hotelling's test.
 }
 \usage{
 

@@ -13,11 +13,12 @@ local({
     dialog.ci <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Confidence intervals")
-        parent.entry <- tkentry(tt, textvariable=Parent)
-        para.entry<-tkentry(tt, textvariable=True.val)
-        conf.entry <- tkentry(tt, textvariable=Conf)
-        sigma.entry <- tkentry(tt, textvariable=Sigma)
-        n.est.entry<-tkentry(tt, textvariable=N.est)
+        parent.entry <- tkentry(tt, textvariable=Parent, width =10)
+        para.entry<-tkentry(tt, textvariable=True.val, width = 10)
+        conf.entry <- tkentry(tt, textvariable=Conf, width = 10)
+        sigma.entry <- tkentry(tt, textvariable=Sigma, width = 10)
+        n.est.entry<-tkentry(tt, textvariable=N.est, width = 10)
+        int.entry<-tkentry(tt, textvariable=Int, width = 10)
 	done <- tclVar(0)
   Par<- tclVar("mu")
 
@@ -29,6 +30,7 @@ local({
             tclvalue(Conf)<-".95"
             tclvalue(Sigma)<-"1"
             tclvalue(N.est)<-"100"
+            tclvalue(Int)<-"0.1"
         }
         reset.but <- tkbutton(tt, text="Reset", command=reset)
         submit.but <- tkbutton(tt, text="Submit",
@@ -42,8 +44,9 @@ local({
             sigma <- tclvalue(Sigma)
             conf<-tclvalue(Conf)
             n.est<-tclvalue(N.est)
+            interval<-tclvalue(Int)
             
-           substitute(anm.ci(parent,par.type=par.type,par.val=as.numeric(par.val),conf=as.numeric(conf),n.est=as.numeric(n.est),sigma=as.numeric(sigma)))
+           substitute(anm.ci(parent,par.type=par.type,par.val=as.numeric(par.val),conf=as.numeric(conf),n.est=as.numeric(n.est),sigma=as.numeric(sigma), interval = as.numeric(interval)))
         }
         alt.rbuts <- tkframe(tt)
 
@@ -53,14 +56,18 @@ local({
             tkpack(tmp,anchor="w")
         }
         
-        tkgrid(tklabel(tt,text="Confidence interval"),columnspan=2)
+        tkgrid(tklabel(tt,text="Confidence intervals"),columnspan=2)
+        tkgrid(tklabel(tt,text=""))
         tkgrid(tklabel(tt,text="Parent"), parent.entry)
         tkgrid(tklabel(tt,text="True value"), para.entry)
         tkgrid(tklabel(tt,text="Conf"), conf.entry)
+        tkgrid(tklabel(tt,text='\u03c3',font=c("Helvetica","9","italic")), sigma.entry)
         tkgrid(tklabel(tt,text="Iterations"),n.est.entry)
-        tkgrid(tklabel(tt,text="Sigma"), sigma.entry)
+        tkgrid(tklabel(tt,text="Animation interval"),int.entry)
+        tkgrid(tklabel(tt,text=""))
         tkgrid(alt.rbuts)
-        tkgrid(submit.but, reset.but)
+        tkgrid(tklabel(tt,text=""))
+        tkgrid(submit.but,reset.but, sticky="w")
 
         tkbind(tt, "<Destroy>", function()tclvalue(done)<-2)
 
@@ -78,6 +85,7 @@ local({
       Conf<-tclVar(".95")
       N.est<-tclVar("100")
       Sigma<-tclVar("1")
+      Int<-tclVar("0.1")
       dialog.ci()
    
 })

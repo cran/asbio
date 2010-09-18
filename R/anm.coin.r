@@ -1,6 +1,6 @@
 
 anm.coin<-function(flips=1000,p.head=.5,interval=0.01,show.coin=TRUE,...){
-  
+  if(p.head>1|p.head<0)stop("p.head must be in the interval [0,1]")
   res<-rbinom(n=flips,size=1,p=p.head)
   n.trials<-seq(1,flips)
   cum.s<-cumsum(res)
