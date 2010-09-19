@@ -3,10 +3,13 @@
 \alias{samp.dist.fixn}
 \alias{samp.dist.n}
 \alias{samp.dist.tck}
+\alias{samp.dist.method.tck}
+\alias{samp.dist.snap}
+\alias{samp.dist.snap.tck}
 
-\title{Animated representations of a statistic's sampling distribution}
+\title{Animated and/or snapshot representations of a statistic's sampling distribution}
 \description{
-Samples from a parent distribution without replacement with sample size = \code{s.size} \code{R} times.  At each iteration a statistic requested in \code{stat} is calculated. Thus a distribution of \code{R} statistic estimates is created. This distribution is shown as an animated relative frequency histogram. Sampling distributions for up to four different statistics utilizing two different parent distributions are possible.  Sampling distributions can be combined in various ways by specifying a function in \code{func} (see below). 
+This help page describes a series of \pkg{asbio} functions for depicting sampling distributions.  The function \code{samp.dist} samples from a parent distribution without replacement with sample size = \code{s.size}, \code{R} times.  At each iteration a statistic requested in \code{stat} is calculated. Thus a distribution of \code{R} statistic estimates is created. This distribution is shown as an animated relative frequency histogram. Sampling distributions for up to four different statistics utilizing two different parent distributions are possible.  Sampling distributions can be combined in various ways by specifying a function in \code{func} (see below).  The function \code{samp.dist.samp} creates snapshots, i.e. simultaneous views of a sampling distribution at particular sample sizes. 
 }
 \usage{
 samp.dist(parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
@@ -30,13 +33,24 @@ col.density = 4, lwd.density = 2, est.ylim = TRUE, ylim = NULL,
 anim = TRUE, interval = 0.5, col.anim = NULL, digits = 3,...)
 
 samp.dist.tck()
+
+samp.dist.method.tck()
+
+samp.dist.snap(parent,parent2 = NULL,stat = mean,stat2 = NULL, stat3 = 
+NULL, stat4 = NULL,s.sizes=c(1,3,6,10,20,50),s.sizes2 = NULL,R = 1000,L = 6,
+xlab = expression(bar(x)),show.SE = TRUE)
+
+samp.dist.snap.tck()
 }
 \arguments{
   \item{parent}{A vector containing observations from a parental distribution.  For computational efficiency datasets exceeding 100000 observations are not recommended.}
   \item{parent2}{An optional second parental distribution, useful for the construction of sampling distributions of test statistics.}
   \item{s.size}{Sample size to be taken at each of \code{R} iterations from the parental distribution.}
   \item{s.size2}{An optional second sample size if a second statistic is to be calculated.}
+ \item{s.sizes}{An argument from \code{samp.dist.snap}.  This will be a vector of maximum length twelve indicating which sample sizes (taken from \code{parent}) should be simultaneously depicted.}
+  \item{s.sizes2}{An optional argument from \code{samp.dist.snap}.  This will be a vector of maximum length twelve indicating which sample sizes (taken from \code{parent2}) should be simultaneously depicted.  Must be the same length as \code{s.sizes}.} 
   \item{n.seq}{A two element vector specifying the smallest and largest in a range of demonstrated sample sizes.  Requires \code{fix.n=FALSE}.}
+  \item{L}{An argument from \code{samp.dist.snap}.  Will be a single integer indicating the length of \code{s.sizes} (i.e. the number of desired snapshots), and ,if specifified, the length of \code{s.sizes2}.} 
   \item{R}{The number of samples to be taken from parent distribution(s).}
   \item{breaks}{Number of breaks in the histogram.}
   \item{stat}{The statistic whose sampling distribution is to be represented.  Will work for any summary statistic; e.g. \code{\link{mean}}, \code{\link{var}}, \code{\link{median}}, etc.}
@@ -66,35 +80,27 @@ samp.dist.tck()
 \details{Sampling distributions of individual statistics can be created, or the function can be used in more sophisticated ways, e.g. to create sampling distributions of ratios of statistics, i.e. \emph{t}*, \emph{F}* etc. (see examples below). To provide pedagogical clarity animation for figures is provided.  
 
 
-Two general uses of the function are possible.
+Three general uses of the function \code{samp.dist} are possible.
 
-1) One can demonstrate the accumulation of statistics for a single size with or without animation.  This is useful because as more and more statistics are acquired the frequentist paradigm associated with sampling distributions becomes better represented (i.e the number of estimates is closer to infinity).  This is elucidated by allowing the default \code{fix.n = TRUE}.  Animation will be provided with the default \code{anim = TRUE}.  This approach also allows specification of up two parent distributions, up to two sample sizes, and up to four distinct statistics (i.e. four distinct sampling distributions, representing four distinct estimators can be created).  The arguments \code{stat} and \code{stat3} will be drawn from \code{parent}, while \code{stat3} and \code{stat4} will be drawn from \code{parent2}.  These distributions can be manipulated and combined in an infinite number of ways with an auxiliary function called in the argument \code{func} (see examples below).  This allows depiction of sampling distributions made up of multiple estimators, e.g. test statistics.  
+1) One can demonstrate the accumulation of statistics for a single sample size using animation.  This is useful because as more and more statistics are acquired the frequentist paradigm associated with sampling distributions becomes better represented (i.e the number of estimates is closer to infinity).  This is elucidated by allowing the default \code{fix.n = TRUE}.  Animation will be provided with the default \code{anim = TRUE}.  This approach also allows specification of up two parent distributions, up to two sample sizes, and up to four distinct statistics (i.e. four distinct sampling distributions, representing four distinct estimators can be created).  The arguments \code{stat} and \code{stat3} will be drawn from \code{parent}, while \code{stat3} and \code{stat4} will be drawn from \code{parent2}.  These distributions can be manipulated and combined in an infinite number of ways with an auxiliary function called in the argument \code{func} (see examples below).  This allows depiction of sampling distributions made up of multiple estimators, e.g. test statistics.  
 
 
 2) One can provide a seamless animated demonstration of the effect of varying sample size on a sampling distribution by specifying \code{n.fixed = FALSE}.   If \code{n.fixed = FALSE} is used, then a range of sample sizes (integers) must also be specified as a two element vector in \code{n.seq}.  Note if \code{n.fixed = FALSE} then the arguments \code{s.size} and \code{s.size2} will be superfluous. In addition, multiple statistics and parent populations are not supported if \code{n.fixed = FALSE}, although auxilary functions can still be called with \code{func}.
 
-Loading the package \pkg{tcltk} allows use of the function \code{samp.dist.tck} which provides an interactive GUI that runs \code{samp.dist}.
+3) One can provide simultaneous snapshots of a sampling distribution at a particular sample size with the function \code{samp.dist.snap}. 
+
+Loading the package \pkg{tcltk} allows use of the functions \code{samp.dist.tck}, \code{samp.dist.method.tck}, and \code{samp.dist.snap.tck}, which provide interactive GUIs that run \code{samp.dist}.
+
 } 
    
 \seealso{\code{\link{plot.histogram}}, \code{\link{hist}}, \code{\link{bootstrap}}.}
 \author{Ken Aho}
 \examples{
-
 \dontrun{
 ##Central limit theorem
-#Four sample sizes, one at a time
+#Snapshots of four sample sizes.
 exp.parent<-rexp(100000)
-samp.dist(parent=exp.parent, s.size=1, R=1000) ## n = 1
-samp.dist(parent=exp.parent, s.size=5, R=1000) ## n = 5
-samp.dist(parent=exp.parent, s.size=10, R=1000) ## n = 10
-samp.dist(parent=exp.parent, s.size=50, R=1000)## n = 50 
-
-#All four at once
-par(mfrow=c(2,2),mar=c(4.4,4.5,1,0.5))
-samp.dist(parent=exp.parent, s.size=1, R=300,anim=FALSE) ## n = 1
-samp.dist(parent=exp.parent, s.size=5, R=300,anim=FALSE) ## n = 5
-samp.dist(parent=exp.parent, s.size=10, R=300,anim=FALSE) ## n = 10
-samp.dist(parent=exp.parent, s.size=50, R=300,anim=FALSE) ## n = 50 
+samp.dist.snap(parent=exp.parent, s.sizes=c(1,5,10,50), R=1000)
 
 ##n not fixed -- sample mean
 exp.parent<-rexp(10000)
@@ -147,6 +153,7 @@ legend("topleft",lwd=2,col=1,legend="t(10)")
 
 #Interactive GUI, require package 'tcltk'
 samp.dist.tck()
+samp.dist.snap.tck()
 }
 }
 \keyword{graphs}

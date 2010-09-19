@@ -10,7 +10,7 @@ if one provides power, but not \emph{n}, then n is calculated.
 \usage{
 
 power.z.test(sigma = 1, n = NULL, power = NULL, alpha = 0.05, effect = NULL, 
-test = c("two.tail", "one.tail"))
+test = c("two.tail", "one.tail"), strict = FALSE)
 }
 \arguments{
   \item{sigma}{The population variance}
@@ -19,6 +19,7 @@ test = c("two.tail", "one.tail"))
   \item{alpha}{Probability of type I error.}
   \item{effect}{Effect size.}
   \item{test}{One of two choices: \code{"two.tail"} or \code{"one.tail"}.}
+  \item{strict}{Causes the function to use a strict interpretation of power in a two-sided test.  If strict = TRUE then power for a two sided test will include the probability of rejection in the opposite tail of the true effect. If strict = FALSE (the default) power will be half the value of \eqn{\alpha} if the true effect size is zero.}
 }
 \value{
   Returns a list

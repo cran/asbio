@@ -10,7 +10,7 @@ The US department of energy has compiled data since 1980 detailing total carbon 
 The dataframe contains 16 columns
 \describe{
 \item{Year}{The year of CO\eqn{_2} measure (1980-2006)}.   
-\item{Afghanistan}{CO\eqn{_2} emissions in Afghanistan from 1980-2006 (\eqn{1x10^6} metric tons).}         
+\item{Afghanistan}{CO\eqn{_2} emissions in Afghanistan from 1980-2006 (1x\eqn{10^6} metric tons).}         
 \item{Belgium}{CO\eqn{_2} emissions in Belgium...}        
 \item{Brazil}{CO\eqn{_2} emissions in Brazil...}
 \item{Canada}{CO\eqn{_2} emissions in Canada...}

@@ -21,7 +21,7 @@ a21.lab<-bquote(paste(alpha[21],"=",.(pr$a2.1)));a12.lab<-bquote(paste(alpha[12]
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){
     par(mar=c(0,0,0,0))
-    N1.lab<-bquote(paste(N[1],"=",.(round(out$n1[i],0))));N2.lab<-bquote(paste(N[2],"=",.(round(out$n2[i],0))));t.lab<-bquote(paste("Time = ",.(i)))
+    N1.lab<-bquote(paste(N[1],"=",.(round(out$n1[i+1],0))));N2.lab<-bquote(paste(N[2],"=",.(round(out$n2[i+1],0))));t.lab<-bquote(paste("Time = ",.(i)))
     plot(seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
     legend("center", legend=c(as.expression(N1.lab),as.expression(N2.lab)),cex=1.75,title=as.expression(t.lab),ncol=2,bty="n")
     plot(seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n",cex=1.65)
@@ -30,8 +30,8 @@ for(i in min(time):max(time)){
     par(mar=c(5,4,2,2))
     plot(out$time,out$n1,type="n",xlab=xlab,ylab=ylab,ylim=c(min(out$n1,out$n2),max(out$n1,out$n2)),main="Lotka-Volterra Competition",...)
     grid()
-    points(out$time[1:i+1],out$n1[1:i+1],type="l",lty=1,col=2)
-    points(out$time[1:i+1],out$n2[1:i+1],type="l",lty=2,col=4)
+    points(out$time[0:i+1],out$n1[0:i+1],type="l",lty=1,col=2)
+    points(out$time[0:i+1],out$n2[0:i+1],type="l",lty=2,col=4)
     legend("topright",col=c(2,4),lty=c(1,2), legend=c("Sp. 1","Sp. 2"),bg="white")
  Sys.sleep(interval)
 }
@@ -43,7 +43,7 @@ for(i in min(time):max(time)){
 
 #----------------------Lotka-Volterra exploitation------------------------#
 
-anm.LVexp<-function(nh,np,rh,con,p,d.p,time=seq(0,200),ylab="Abundance",xlab="Time",interval=0.1,...){
+anm.LVexp<-function(nh,np,rh,con,p,d.p,time=seq(0,200),ylab="Abundance",xlab="Time",interval=0.1,circle=FALSE,...){
 y=xstart=c(nh=nh,np=np);pars=c(rh=rh,con=con,p=p,d.p=d.p)
 require(odesolve)||stop("This function requires package 'odesolve'")
 pr<-as.list(pars)
@@ -58,21 +58,30 @@ res<-list(c(dnh,dnp))
 out<-as.data.frame(rk4(xstart,time,func,pars))
 rh.lab<-bquote(paste(r[h],"=",.(pr$rh)));c.lab<-bquote(paste(c,"=",.(pr$con)));p.lab<-bquote(paste(p,"=",.(pr$con)))
 p.lab<-bquote(paste(p,"=",.(pr$p)));dp.lab<-bquote(paste(d[p],"=",.(pr$d.p)))
+ccol<-rainbow(max(time)-min(time)+1)
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){
     par(mar=c(0,0,0,0))
-    Nh.lab<-bquote(paste(Prey,"=",.(round(out$nh[i],0))));Np.lab<-bquote(paste(Pred,"=",.(round(out$np[i],0))));t.lab<-bquote(paste("Time = ",.(i)))
+    Nh.lab<-bquote(paste(Prey,"=",.(round(out$nh[i+1],0))));Np.lab<-bquote(paste(Pred,"=",.(round(out$np[i+1],0))));t.lab<-bquote(paste("Time = ",.(i)))
     plot(seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
     legend("center", legend=c(as.expression(Nh.lab),as.expression(Np.lab)),cex=1.7,title=as.expression(t.lab),ncol=2,bty="n")
     plot(seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n",cex=1.65)
     legend("center",legend=c(as.expression(rh.lab),as.expression(p.lab),as.expression(c.lab),as.expression(dp.lab)),
     cex=1.5,ncol=2,bty="n",title="Parameters")
     par(mar=c(5,4,2,2))
+    if(circle==FALSE){
     plot(out$time,out$nh,type="n",xlab=xlab,ylab=ylab,ylim=c(min(out$nh,out$np),max(out$nh,out$np)),main="Lotka-Volterra Exploitation",...)
     grid()
-    points(out$time[1:i+1],out$nh[1:i+1],type="l",lty=1,col=2)
-    points(out$time[1:i+1],out$np[1:i+1],type="l",lty=2,col=4)
+    points(out$time[0:i+1],out$nh[0:i+1],type="l",lty=1,col=2)
+    points(out$time[0:i+1],out$np[0:i+1],type="l",lty=2,col=4)
     legend("topright",col=c(2,4),lty=c(1,2), legend=c("Prey","Pred"),bg="white")
+    }
+    if(circle==TRUE){
+    plot(out$nh,out$np,type="n",xlab="Prey",ylab="Predator",main="Lotka-Volterra Exploitation",...)
+    grid()
+    points(out$nh[0:i+1],out$np[0:i+1],type="l",lwd=1.5,col=ccol[i+1])
+    points(out$nh[i+1],out$np[i+1],pch=19)
+        }
     Sys.sleep(interval)
 }
 }

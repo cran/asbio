@@ -1,7 +1,7 @@
 \name{trim.ranef.test}
 \alias{trim.ranef.test}
 \title{Robust test for random factors using trimmed means.}
-\description{Provides a robust hypothesis test of factor level population var = 0 for random factor levels. 
+\description{Provides a robust hypothesis test for the null: Var(\emph{X} = 0), for a population of random factor levels. 
 }
 \usage{
 trim.ranef.test(Y, X, tr = 0.2)

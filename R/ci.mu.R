@@ -1,7 +1,6 @@
 ci.mu.t<-function(data,conf=.95,summarized=FALSE,xbar=NULL,st.dev=NULL,fpc=FALSE,N=NULL,n=NULL){
 
 if(summarized==FALSE){
-data<-rnorm(10)
 n<-nrow(as.matrix(data))
 t.star<-qt((1-((1-conf)/2)),n-1)
 Var.Xbar<-ifelse(fpc==FALSE,var(data)/n,(1-(n/N))*(var(data)/n))

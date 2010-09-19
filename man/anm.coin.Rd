@@ -1,5 +1,6 @@
 \name{anm.coin}
 \alias{anm.coin}
+\alias{anm.coin.tck}
 \title{
 Animated demonstration of frequentist binomial convergence of probability using a coin flip.
 }
@@ -9,6 +10,9 @@ Creates an animated plot showing the results from coin flips, and the resulting 
 \usage{
 
 anm.coin(flips = 1000, p.head = 0.5, interval = 0.01, show.coin = TRUE, ...)
+
+anm.coin.tck()
+
 }
 
 \arguments{
@@ -19,7 +23,7 @@ anm.coin(flips = 1000, p.head = 0.5, interval = 0.01, show.coin = TRUE, ...)
   \item{\dots}{Additional arguments from \code{link{plot}}.}
 }
 \value{
-If \code{show.coin=TRUE}, returns two plots configured as a single graphical object.  The first plot shows convergence in estimated \emph{P}(Head), i.e. number of heads/number of trials, as the number of trials grows large.  The second plot shows individual outcomes of coin flips.  The second plot is not returned if \code{show.coin=TRUE} is specified.  
+If \code{show.coin=TRUE}, returns two plots configured as a single graphical object.  The first plot shows convergence in estimated \emph{P}(Head), i.e. number of heads/number of trials, as the number of trials grows large.  The second plot shows individual outcomes of coin flips.  The second plot is not returned if \code{show.coin=TRUE} is specified.  Loading \pkg{tcltk} allows use of the function \code{anm.coin.tck}, which in turn allows an interactive GUI to run \code{anm.coin}.  
 }
 \author{Ken Aho
 }

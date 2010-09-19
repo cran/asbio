@@ -1,7 +1,7 @@
 
 anm.ls<-function (X, poss = NULL, parameter = "mu", est.lty = 2, est.col = 2, 
     conv = 0.01, anim = TRUE, plot.lsfunc = TRUE, plot.res = TRUE, 
-    interval = 0.01, ...) 
+    interval = 0.01, xlab=expression(paste("Estimates for ", mu)),...) 
 {
     if (is.null(poss)) 
         poss <- seq(mean(X) - 3 * sd(X), mean(X) + 3 * sd(X), 
@@ -22,7 +22,7 @@ anm.ls<-function (X, poss = NULL, parameter = "mu", est.lty = 2, est.col = 2,
             par(mfrow = c(1, 2), mar = c(4.4, 4.5, 1, 0.5), cex = 0.9)
         }
         if (anim == FALSE) {
-            plot(poss, ss.res, type = "l", ylab = "Sum of squares", 
+            plot(poss, ss.res, type = "l", ylab = "Sum of squares", xlab= xlab, 
                 ...)
             abline(v = mean(X), lty = est.lty, 
                 col = est.col)
@@ -32,7 +32,7 @@ anm.ls<-function (X, poss = NULL, parameter = "mu", est.lty = 2, est.col = 2,
             
             if (plot.res == TRUE) {
                 plot(X, sq.res[, nm], ylab = expression(e_i^2), 
-                  type = "h", col = est.col,lty=2)
+                  type = "h", col = est.col,lty=2, xlab = "x")
                 points(X, sq.res[, nm], pch=19,cex=.7)
                 legend("topright", legend = bquote(paste("SS = ", 
                   .(ss.res[nm]))), cex = 0.9, bty = "n")
@@ -40,7 +40,7 @@ anm.ls<-function (X, poss = NULL, parameter = "mu", est.lty = 2, est.col = 2,
         }
         if (anim == TRUE) {
             for (i in 1:nm) {
-                plot(poss, ss.res, type = "n", ylab = "Sum of squares", 
+                plot(poss, ss.res, type = "n", ylab = "Sum of squares", xlab= xlab, 
                   ...)
                 arrows(poss[i], ss.res[i], poss[i + 1], ss.res[i + 
                   1], col = 2, length = 0.15, lwd = 1)
@@ -55,7 +55,7 @@ anm.ls<-function (X, poss = NULL, parameter = "mu", est.lty = 2, est.col = 2,
                 }
                 if (plot.res == TRUE) {
                   plot(X, sq.res[, i], ylab = expression(e[i]^2), 
-                    type = "h", col = est.col,lty=2)
+                    type = "h", col = est.col,lty=2, xlab = "x")
                   points(X, sq.res[, i], pch=19,cex=.7)
                   legend("topright", legend = bquote(paste("SS = ", 
                     .(ss.res[i]))), cex = 0.9, bty = "n")

@@ -1,26 +1,37 @@
 \name{transM}
 \alias{transM}
+\alias{anm.transM}
+\alias{anm.TM.tck}
 \title{Transition matrix analysis}
 \description{
-Creates a plot showing expected numbers in organism specified age classes or life stages given survivorship probabilities from a transition matrix (cf. Caswell ). 
+Creates a plot showing expected numbers of individuals in specified age classes or life stages given survivorship probabilities from a transition matrix (cf. Caswell 2000).  The function \code{anm.transM} provides an animated view of the population growth curves.  The function \code{anm.TM.tck} provides a \pkg{tcltk} GUI to run \code{anm.TM.tck}. 
 }
 \usage{
-transM(A, init, inter = 100, stage.names = seq(1, ncol(A)), leg.room = 1.5, ...)
+transM(A, init, inter = 100, stage.names = c("All grps",1:(ncol(A))), 
+leg.room = 1.5, ...)
+
+anm.transM(A,init,inter=100,stage.names =c("All grps",1:(ncol(A))),
+leg.room = 1.5, anim.interval=0.1,...)
+
+anm.TM.tck()
 }
 \arguments{
-  \item{A}{Transition matrix containing survivorship probabilities and fecundities see Caswell (2001).
+  \item{A}{Transition matrix containing survivorship probabilities and fecundities see Caswell (2000).
 }
   \item{init}{
 A numeric vector containing initial numbers in each age class of interest. 
 }
   \item{inter}{
-Number of time intervals for which population numbers are to be calculated.
+Number of time intervals for which population numbers are to be calculated.  
 }
   \item{stage.names}{
 A character vector giving life stage names.
 }
   \item{leg.room}{
 A \emph{Y}-axis multiplier intended to create room for a legend.
+}
+  \item{anim.interval}{
+Speed of animation in frames per second.
 }
   \item{\dots}{
 Additional arguments for \code{\link{plot}}
@@ -31,7 +42,7 @@ Additional arguments for \code{\link{plot}}
 Returns a plot and proportions of the population in each age class for the number of time intervals in \code{inter}.
 }
 \references{
-Caswell, H. 2001. \emph{Matrix population models: Construction, analysis and interpretation, 2nd Edition}. Sinauer Associates, Sunderland, Massachusetts.
+Caswell, H. 2000. \emph{Matrix population models: Construction, analysis and interpretation, 2nd Edition}. Sinauer Associates, Sunderland, Massachusetts.
 
 Gurevitch, J., Scheiner, S. M., and G. A. Fox.  2006.  The ecology of Plants.  Sinauer.
 }
@@ -43,6 +54,13 @@ Ken Aho
 A<-matrix(nrow=3,ncol=3,data=c(.672,0,.561,0.018,0.849,0,0,0.138,0.969),
 byrow=TRUE)
 init<-c(10,2,1)
-transM(A,init,inter=100,stage.names=c("Sm. Juv.","Lg. Juv.","Adults"),
+transM(A,init,inter=100,stage.names=c("All","Sm. Juv.","Lg. Juv.","Adults"),
+xlab="Years from present",ylab="n")
+#animated version
+\dontrun{
+anm.transM(A,init,inter=100,stage.names=c("All","Sm. Juv.","Lg. Juv.","Adults"),
 xlab="Years from present",ylab="n")
 }
+}
+\keyword{graphs}
+

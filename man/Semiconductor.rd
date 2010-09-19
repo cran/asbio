@@ -20,7 +20,7 @@ The dataframe contains four columns:
 \item{Resistance}{The response variable of interest.  Measured in ohms.}
 \item{Process}{The explanatory variable of interest.  The type of process used to create the computer chips.  A factor with 4 levels.}
 \item{Wafer}{The whole plot containing four chips.  There were four wafers tested, i.e. four levels, \code{1,2,3,4}.}
-item{Chip}{Position on the wafer.  The split plots within the whole plots.  Four levels: \code{1,2,3,4}.}   
+\item{Chip}{Position on the wafer.  These are split plots within the whole plots.  Four levels: \code{1,2,3,4}.}   
   }
 }
 \source{
