@@ -15,6 +15,16 @@ text(A/2,.5,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
 text(A+((1-A)/2),.5,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
 }
 
+if(A+B==1&AandB>0){
+S<-plot(seq(0,1),seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
+rect(c(0,A-AandB),c(0,0), c(A,1),c(1,1),col=c(rgb(0.7,0.7,0.7,0.8),rgb(0.3,0.3,0.3,0.8)))
+text(A/2,.5,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
+text(A+((1-A)/2),.5,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
+mtext(paste("P(",bquote(.(labA)),' \u2229 ',bquote(.(labB)),") = ",bquote(.(AandB)),sep=""), side = 3, at = A-(AandB/2),cex = 0.95)
+arrows(A-(AandB/2),1.01,A-(AandB/2),0.75,length=.05)
+}
+
+
 if((AandB==A|AandB==B)&(A!=0|B!=0)){##subset
 S<-plot(seq(-.55,.55,length=3),seq(-.55,.55,length=3),type="n",xaxt="n",yaxt="n",xlab="",ylab="")
 r.A<-sqrt(A/pi)

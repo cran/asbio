@@ -37,7 +37,7 @@ local({
            substitute(anm.ls(X=as.numeric(X),interval=as.numeric(interval)))
         }
         
-        tkgrid(tklabel(tt,text='Least squares estimation of \u03bc '),columnspan=2)
+        tkgrid(tklabel(tt,text='Least squares estimation of E(X)'),columnspan=2)
         tkgrid(tklabel(tt,text=""))
         tkgrid(tklabel(tt,text="Data"), data.entry)
         tkgrid(tklabel(tt,text="Anim. int."),int.entry)

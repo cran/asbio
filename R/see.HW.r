@@ -22,6 +22,7 @@ if (!exists("slider.env"))
 slider.env <<- new.env()
 p <- 0.5
 assign("p", tclVar(p), env = slider.env)
+
 refresh <- function(...) {
 p <- as.numeric(evalq(tclvalue(p), env = slider.env))
 see.HW(p)
@@ -37,8 +38,5 @@ tkpack(sc <- tkscale(fr, command = refresh, from = 0,
     side = "left", anchor="n")
 assign("sc", sc, env = slider.env)
 evalq(tkconfigure(sc, variable = p), env = slider.env)
-tkpack(tkbutton(m, text = "Refresh", command = refresh), 
-    side = "left")
-tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
-    side = "right")
+tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)))
  }

@@ -22,8 +22,13 @@ demos<-function(){
                 tkadd(dists1, "command", label = "t", command = substitute(shade.t.tck()))
         
             questions <- tkmenu(topMenu, tearoff = FALSE)
+                tkadd(questions, "command", label = "Confidence intervals", command = substitute(selftest.conf.tck1()))
                 tkadd(questions, "command", label = "Experimental and sampling design", command = substitute(selftest.se.tck1()))
-                tkadd(questions, "command", label = "Pdfs", command = substitute(selftest.pdfs.tck1()))        
+                tkadd(questions, "command", label = "Probability", command = substitute(selftest.prob.tck1()))
+                tkadd(questions, "command", label = "Pdfs", command = substitute(selftest.pdfs.tck1()))
+                tkadd(questions, "command", label = "Sampling distributions", command = substitute(selftest.sampd.tck1()))        
+                
+
             tkadd(fileS, "command", label = "Coin flips", 
                 command = substitute(anm.coin.tck()))
             tkadd(fileS, "command", label = "Confidence intervals", 
@@ -35,7 +40,9 @@ demos<-function(){
             tkadd(fileS, "command", label = "Exponential power function", 
                 command = substitute(see.exppower.tck()))    
             tkadd(fileS, "command", label = "Least squares", command = substitute(anm.ls.tck()))
+            tkadd(fileS, "command", label = "Logic", command = substitute(see.logic()))
             tkadd(fileS, "command", label = "Log-likelihood", command = substitute(loglik.tck()))
+            tkadd(fileS, "command", label = "M-estimation", command = substitute(see.M()))
             tkadd(fileS, "command", label = "Pdf depiction", 
                 command = substitute(see.pdfdriver.tck()))
             tkadd(fileS, "cascade", label = "Pdf probability", menu = dists1)
@@ -45,18 +52,26 @@ demos<-function(){
             tkadd(fileS, "command", label = "Sampling distributions", 
                 command = substitute(samp.dist.method.tck()))
             tkadd(fileS, "cascade", label = "Self-test questions", menu = questions)
+             tkadd(fileS, "command", label = "Type I and II error", 
+                command = substitute(see.typeI_II()))
             tkadd(fileS, "command", label = "Venn diagrams", 
                 command = substitute(Venn.tck()))
             tkadd(topMenu, "cascade", label = "Stats (Foundations)", menu = fileS)
             
 #-------Statistical Analyses--------#
             
+            tkadd(fileA, "command", label = "Bayesian analysis of discrete data", 
+                command = substitute(print(Bayes.disc.tck())))
+                        tkadd(fileA, "command", label = "Linear models",    
+                command=function()tkmessageBox(message="Under construction"))  
+            tkadd(fileA, "command", label = "Non-linear models",    
+                command=function()tkmessageBox(message="Under construction"))
             tkadd(fileA, "command", label = "Regression (Move points)", 
                 command = substitute(see.regression()))
             tkadd(fileA, "command", label = "Regression (Add/delete points)", 
                 command = substitute(see.adddel()))    
-            tkadd(fileA, "command", label = "Bayesian analysis of discrete data", 
-                command = substitute(print(Bayes.disc.tck())))
+            tkadd(fileA, "command", label = "Type I, II, III sums of squares",    
+                command=function()tkmessageBox(message="Under construction"))  
             tkadd(topMenu, "cascade", label = "Stats (Analyses)", menu = fileA)
 
 #-------------Biological-------------#            

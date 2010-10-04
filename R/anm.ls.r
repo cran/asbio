@@ -1,7 +1,7 @@
 
 anm.ls<-function (X, poss = NULL, parameter = "mu", est.lty = 2, est.col = 2, 
     conv = 0.01, anim = TRUE, plot.lsfunc = TRUE, plot.res = TRUE, 
-    interval = 0.01, xlab=expression(paste("Estimates for ", mu)),...) 
+    interval = 0.01, xlab=expression(paste("Estimates for E(X)")),...) 
 {
     if (is.null(poss)) 
         poss <- seq(mean(X) - 3 * sd(X), mean(X) + 3 * sd(X), 
