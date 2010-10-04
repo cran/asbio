@@ -29,14 +29,14 @@ require(tcltk) || stop("tcltk support is absent")
     tkpack(tklabel(m,text="      Visualizing the F Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = '\u03b7\u2081',width = "20"), side = "right")
+    tkpack(tklabel(fr, text = '\u03bd\u2081',width = "20"), side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
         to = 30, orient = "horiz", resolution = 1, showvalue = TRUE), 
         side = "left")
     assign("sc", sc, env = slider.env)
     evalq(tkconfigure(sc, variable = nu1), env = slider.env)
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = '\u03b7\u2082',width = "20"), side = "right")
+    tkpack(tklabel(fr, text = '\u03bd\u2082',width = "20"), side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
         to = 30, orient = "horiz", resolution = 1, showvalue = TRUE), 
         side = "left")

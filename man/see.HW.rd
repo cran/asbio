@@ -15,7 +15,7 @@ see.HW.tck()
 
 \arguments{
 
-  \item{parg}{Proportion of the allele \emph{p} in the population a number between 0 and 1
+  \item{parg}{Proportion of the allele \emph{p} in the population, i.e. a number between 0 and 1.
 
 }
 
