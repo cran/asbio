@@ -128,7 +128,7 @@ local({
     slope<-slope.func()    
     
     pre.func0 <- function(){
-     tkcreate(canvas, "text", 460, 80, text= "slope = ",
+     tkcreate(canvas, "text", 460, 80, text= "Slope = ",
              font=plotFont)}
              
     pre0 <-pre.func0()
@@ -148,7 +148,7 @@ local({
     yint<-yint.func()    
     
     pre.func01 <- function(){
-     tkcreate(canvas, "text", 460, 105, text= "y int. = ",
+     tkcreate(canvas, "text", 460, 105, text= "Y int. = ",
              font=plotFont)}
              
     pre01 <-pre.func01()
