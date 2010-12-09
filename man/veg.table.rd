@@ -44,7 +44,7 @@ Aho, K. (2006)  \emph{Alpine ecology and subalpine cliff ecology in the Northern
 Mountains}.  Doctoral dissertation, Montana State University, 458 pgs.
 
 Gurevitch, J., Scheiner, S. M., and Fox, G. A. (2006)  \emph{The ecology of Plants}.  Sinauer.}
-\author{Ken Aho}
+\author{Ken Aho; Tad Weaver contributed many of the ideas for cover/constancy ciphers and code ranges.}
 \seealso{\code{\link{const}}}
 \examples{
 data(dune)

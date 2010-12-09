@@ -292,7 +292,7 @@ possibilities<-poss
             for(i in 1:(nm-1)){
                 if(plot.likfunc==TRUE){
                     plot(possibilities,logl,type="n",ylab=ifelse(is.null(ylab),"Exponential Log-likelihood function",ylab), 
-                    xlab=ifelse(is.null(xlab),expression(paste("Estimates for ", lambda)),xlab),...)
+                    xlab=ifelse(is.null(xlab),expression(paste("Estimates for ", theta)),xlab),...)
                     arrows(possibilities[i],logl[i],possibilities[i+1],logl[i+1],col=2,length=.15,lwd=1)
                     points(possibilities[1:i],logl[1:i],lty=2,col=2,lwd=1,type="l")
                         if(i == (nm-1)){points(possibilities,logl,type="l")

@@ -1,7 +1,7 @@
 \name{see.logic}
 \alias{see.logic}
 \title{
-Interactive workssheet for logical and fallacious arguments
+Interactive worksheet for logical and fallacious arguments
 }
 \description{
 It is vital that scientists understand what logical and fallacious arguments are.  This worksheet provides a predagogical tool for logic.
