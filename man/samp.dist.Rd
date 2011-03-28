@@ -9,7 +9,7 @@
 
 \title{Animated and/or snapshot representations of a statistic's sampling distribution}
 \description{
-This help page describes a series of \pkg{asbio} functions for depicting sampling distributions.  The function \code{samp.dist} samples from a parent distribution without replacement with sample size = \code{s.size}, \code{R} times.  At each iteration a statistic requested in \code{stat} is calculated. Thus a distribution of \code{R} statistic estimates is created. This distribution is shown as an animated relative frequency histogram. Sampling distributions for up to four different statistics utilizing two different parent distributions are possible.  Sampling distributions can be combined in various ways by specifying a function in \code{func} (see below).  The function \code{samp.dist.samp} creates snapshots, i.e. simultaneous views of a sampling distribution at particular sample sizes. 
+This help page describes a series of \pkg{asbio} functions for depicting sampling distributions.  The function \code{samp.dist} samples from a parent distribution without replacement with sample size = \code{s.size}, \code{R} times.  At each iteration a statistic requested in \code{stat} is calculated. Thus a distribution of \code{R} statistic estimates is created. This distribution is shown as an animated or non-animated relative frequency histogram. Sampling distributions for up to four different statistics utilizing two different parent distributions are possible.  Sampling distributions can be combined in various ways by specifying a function in \code{func} (see below).  The function \code{samp.dist.samp} creates snapshots, i.e. simultaneous views of a sampling distribution at particular sample sizes. 
 }
 \usage{
 samp.dist(parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
@@ -127,7 +127,7 @@ samp.dist(parent, col.anim="heat.colors",fix.n=FALSE,interval=.3,stat=median,
 xlab="Median",est.ylim=TRUE,show.SE=TRUE,breaks=50)
 
 
-##Distribution of t-statistics under valid and invalid assumptions
+##Distribution of t-statistics from a pooled variance t-test under valid and invalid assumptions
 #valid
 parent<-rnorm(100000)
 t.star<-function(s.dist1,s.dist2,s.dist3,s.dist4,s.size=6,s.size2=s.size){
@@ -141,7 +141,7 @@ stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star,show.n=FALS
 curve(dt(x,10),from=-6,to=6,add=TRUE,lwd=2)
 legend("topleft",lwd=2,col=1,legend="t(10)")
 
-#invalid; same means (null true) but different variances and other distributional 
+#invalid; same population means (null true) but different variances and other distributional 
 #characteristics.
 parent<-runif(100000, min=0,max=2)
 parent2<-rexp(100000)

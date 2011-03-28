@@ -95,7 +95,7 @@ local({
         cmd <- build()
         eval.parent(cmd)
     }                            
-      X<-tclVar("-2")
+      X<-tclVar("2")
       Nu1<-tclVar("5")
       Nu2<-tclVar("5")
       Tail<-tclVar("lower")
