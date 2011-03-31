@@ -65,13 +65,13 @@ demos<-function(){
                         tkadd(fileA, "command", label = "Linear models",    
                 command=function()tkmessageBox(message="Under construction"))  
             tkadd(fileA, "command", label = "Non-linear models",    
-                command=function()tkmessageBox(message="Under construction"))
+                command=substitute(see.nlm()))
             tkadd(fileA, "command", label = "Regression (Move points)", 
                 command = substitute(see.regression()))
             tkadd(fileA, "command", label = "Regression (Add/delete points)", 
                 command = substitute(see.adddel()))    
             tkadd(fileA, "command", label = "Type I, II, III sums of squares",    
-                command=function()tkmessageBox(message="Under construction"))  
+                command=substitute(lmu.tck()))  
             tkadd(topMenu, "cascade", label = "Stats (Analyses)", menu = fileA)
 
 #-------------Biological-------------#            

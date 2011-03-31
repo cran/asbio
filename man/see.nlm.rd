@@ -2,10 +2,10 @@
 \alias{see.nlm}
 
 \title{
-Visualize important non-linear equations
+Visualize important non-linear functions
 }
 \description{
-A number of important equation forms have their paramters estimated using the non-linear least squares.  Here are six.
+A number of important equation forms require that their parameters be estimated using the non-linear least squares.  Here are six.
 }
 \usage{
 see.nlm()

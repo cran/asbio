@@ -1,5 +1,6 @@
 
 see.nlm<-function(){
+options()$device(xpos=20)
 par(mar=c(.1,.1,.1,.1))
 plot(seq(1,10),seq(1,10.5,length.out=10),type="n",xaxt="n",yaxt="n",xlab="",ylab="")
 text(5.8,10.2,"Important non-linear models",cex=1.5)
@@ -48,17 +49,17 @@ fp<-function(){
 ans <- identify(x, y, n = 1, plot = FALSE)
 yw <- y[ans]
 if(yw==7.95)
-{points(1.5,7.95,pch=21,bg="red",cex=1.5);com<<-"see.MM"}
+{points(1.5,7.95,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.MM"}
 if(yw==6.95)
-{points(1.5,6.95,pch=21,bg="red",cex=1.5);com<<-"see.2PE"}
+{points(1.5,6.95,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.2PE"}
 if(yw==5.3)
-{points(1.5,5.3,pch=21,bg="red",cex=1.5);com<<-"see.2PL"}
+{points(1.5,5.3,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.2PL"}
 if(yw==4.3)
-{points(1.5,4.3,pch=21,bg="red",cex=1.5);com<<-"see.3PL"}
+{points(1.5,4.3,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.3PL"}
 if(yw==3.3)
-{points(1.5,3.3,pch=21,bg="red",cex=1.5);com<<-"see.G"}
+{points(1.5,3.3,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.G"}
 if(yw==1.65)
-{points(1.5,1.65,pch=21,bg="red",cex=1.5);com<<-"see.R"}
+{points(1.5,1.65,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.R"}
 }
 
 fp()
@@ -91,13 +92,14 @@ require(tcltk) || stop("tcltk support is absent")
         if(com=="see.2PE"){yy<-a*exp(-b*xx);main="2 Parameter Exponential"}
         if(com=="see.2PL"){yy<-exp(a+b*xx)/(1+exp(a+b*xx));main="2 Parameter Logistic"}
         if(com=="see.3PL"){yy<-a/(1+b*exp(-c*xx));main="3 Parameter Logistic"}
-        if(com=="see.G"){yy<-exp(-b*exp(-c*xx));main="Gompertz"}
+        if(com=="see.G"){yy<-a*exp(-b*exp(-c*xx));main="Gompertz"}
         if(com=="see.R"){yy<-a*xx*exp(-b*xx);main="Ricker"}
         
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", 
             xlab = "x",main=main)
     }
     m <- tktoplevel()
+    tkwm.geometry(m, "+600+4")
     tkwm.title(m, "Visualizing Non-linear Models")
     tkpack(tklabel(m, text = "      Visualizing Non-linear Models      "))
     tkwm.geometry(m, "+0+0")
