@@ -20,4 +20,15 @@ segments(5,5,7,10,lwd=8)
 segments(5,5,10,3,lwd=8)
 segments(5,5,10,7,lwd=8)
 segments(c(2,4,6,8),c(1,1,1,1),c(2,4,6,8),c(10,10,10,10),lwd=8,col="red")
+}
+if(ill.no==3){
+#Illusion#3
+op<-par(mar = c(0,0,0,0), bg = "black")
+pn<-plot.new()
+x = seq(0, 1, length = 10)
+y = seq(0, 1, length = 10)
+abline(v = x, h = y, col = "gray", lwd = 6)
+points(rep(x, each = 10), rep(y, 10), col = "white", 
+cex = 3, pch = 20)
+par(op)
 }}
