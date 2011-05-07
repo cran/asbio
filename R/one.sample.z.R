@@ -1,4 +1,4 @@
-one.sample.z<-function(data=NULL,null.mu,xbar=NULL,sigma,n=NULL,test= c("two.sided","lower.tail","upper.tail")){
+one.sample.z<-function(data=NULL,null.mu=0,xbar=NULL,sigma,n=NULL,test= c("two.sided","lower.tail","upper.tail")){
 if(!is.null(data)){
 xbar<-mean(data)
 n<-nrow(as.matrix(data))}
@@ -10,5 +10,6 @@ else if(test== "lower")
 else if(test== "upper")
 {p.val<-pnorm(z,lower.tail=FALSE)}
 res<-list()
+res$test.statistic<-z
 res$p.val<-p.val
 res}
