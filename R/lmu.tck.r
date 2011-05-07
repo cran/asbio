@@ -23,13 +23,10 @@ legend("center",ncol=3,legend=c(X1,X2,X1X2),bty="n",cex=.9)
  SSE.noX2<-anova(lm(Y~X1+X1X2))$"Sum Sq"[3]
  SSE.X1pX2<-anova(lm(Y~X1+X2))$"Sum Sq"[3]
  SSE.X1iX2<-anova(lm(Y~X1+X2+X1X2))$"Sum Sq"[4]
+
  if(change.order==FALSE)anovaI<-anova(lm(Y~X1+X2+X1X2))
  if(change.order==TRUE)anovaI<-anova(lm(Y~X2+X1+X1X2))
- require(car)
- if(change.order==FALSE)anovaII<-Anova(lm(Y~X1+X2+X1X2))
- if(change.order==TRUE)anovaII<-Anova(lm(Y~X2+X1+X1X2))
- if(change.order==FALSE)anovaIII<-Anova(lm(Y~X1+X2+X1X2),type="III")
- if(change.order==TRUE)anovaIII<-Anova(lm(Y~X2+X1+X1X2),type="III")
+
  ##type I
  
  plot(seq(1,10),seq(1,10),type="n",xlab="",ylab="",xaxt="n",yaxt="n",bty="n")
@@ -46,8 +43,7 @@ plot(seq(1,10),seq(1,10),type="n",xlab="",ylab="",xaxt="n",yaxt="n",bty="n")
 rect(1,1,10,10,col="wheat3") 
  legend("top",inset=.2,title=ifelse(change.order==FALSE,"Type II Sum of Squares\n\nModel: Y = X1 + X2 + X1:X2","Type II Sum of Squares\n\nModel: Y = X2 + X1 + X1:X2"),legend=c(
  ifelse(change.order==FALSE,paste("SSE.X1 = ",round(SSE.X2-SSE.X1pX2,3)),paste("SSE.X2 = ",round(SSE.X1-SSE.X1pX2,3))), ifelse(change.order==FALSE,paste("SSE.X2 = ",round(SSE.X1-SSE.X1pX2,3)),paste("SSE.X1 = ",round(SSE.X2-SSE.X1pX2,3))),paste("SSE.X1:X2 = ",round(SSE.X1pX2-SSE.X1iX2,3)),paste("SSE = ",round(SSE.X1iX2,3))),bty="n")
- 
-legend("bottom",title="P-value",legend=c(ifelse(change.order==FALSE,paste("X1 = ",round(anovaII$"Pr(>F)"[1],6)),paste("X2 = ",round(anovaII$"Pr(>F)"[1],6))),ifelse(change.order==FALSE,(paste("X2 = ",round(anovaII$"Pr(>F)"[2],6))),paste("X1 = ",round(anovaII$"Pr(>F)"[2],6))),paste("X1:X2 = ",round(anovaII$"Pr(>F)"[3],6))),bty="n",inset=.2)
+
 
 #type III
 
@@ -55,8 +51,6 @@ plot(seq(1,10),seq(1,10),type="n",xlab="",ylab="",xaxt="n",yaxt="n",bty="n")
 rect(1,1,10,10,col="wheat4") 
 legend("top",inset=.2,title=ifelse(change.order==FALSE,"Type III Sum of Squares\n\nModel: Y = X1 + X2 + X1:X2","Type III Sum of Squares\n\nModel: Y = X2 + X1 + X1:X2"),legend=c(
  ifelse(change.order==FALSE,paste("SSE.X1 = ",round(SSE.noX1-SSE.X1iX2,3)),paste("SSE.X2 = ",round(SSE.noX2-SSE.X1iX2,3))), ifelse(change.order==FALSE,paste("SSE.X2 = ",round(SSE.noX2-SSE.X1iX2,3)),paste("SSE.X1 = ",round(SSE.noX1-SSE.X1iX2,3))),paste("SSE.X1:X2 = ",round(SSE.X1pX2-SSE.X1iX2,3)),paste("SSE = ",round(SSE.X1iX2,3))),bty="n")
-
-legend("bottom",title="P-value",legend=c(ifelse(change.order==FALSE,paste("X1 = ",round(anovaIII$"Pr(>F)"[2],6)),paste("X2 = ",round(anovaIII$"Pr(>F)"[2],6))),ifelse(change.order==FALSE,(paste("X2 = ",round(anovaIII$"Pr(>F)"[3],6))),paste("X1 = ",round(anovaIII$"Pr(>F)"[3],6))),paste("X1:X2 = ",round(anovaIII$"Pr(>F)"[4],6))),bty="n",inset=.2)
 
  }
 

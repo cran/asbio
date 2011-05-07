@@ -4,7 +4,7 @@
 \docType{data}
 \title{Bombus pollen data.
 }
-\description{To investigate how pollen removal varied with reproductive caste in bemblebees (Bombus sp.) Harder and Thompson (1989) recorded the proportion of pollen removed by thirty five bumblebee queens and twelve worker bees.
+\description{To investigate how pollen removal varied with reproductive caste in bemblebees (\emph{Bombus} sp.) Harder and Thompson (1989) recorded the proportion of pollen removed by thirty five bumblebee queens and twelve worker bees.
 }
 \usage{data(bombus)}
 \format{
