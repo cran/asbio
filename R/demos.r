@@ -52,7 +52,7 @@ demos<-function(){
             tkadd(fileS, "command", label = "Sampling distributions", 
                 command = substitute(samp.dist.method.tck()))
             tkadd(fileS, "cascade", label = "Self-test questions", menu = questions)
-             tkadd(fileS, "command", label = "Type I and II error", 
+            tkadd(fileS, "command", label = "Type I and II error", 
                 command = substitute(see.typeI_II()))
             tkadd(fileS, "command", label = "Venn diagrams", 
                 command = substitute(Venn.tck()))
@@ -62,8 +62,10 @@ demos<-function(){
             
             tkadd(fileA, "command", label = "Bayesian analysis of discrete data", 
                 command = substitute(print(Bayes.disc.tck())))
-                        tkadd(fileA, "command", label = "Linear models",    
-                command=function()tkmessageBox(message="Under construction"))  
+            tkadd(fileA, "command", label = "Linear models (Regression)",    
+                command=substitute(lmr.tck()))  
+            tkadd(fileA, "command", label = "Linear models (ANOVA)",    
+                command=substitute(lma.tck()))
             tkadd(fileA, "command", label = "Non-linear models",    
                 command=substitute(see.nlm()))
             tkadd(fileA, "command", label = "Regression (Move points)", 
