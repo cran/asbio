@@ -37,7 +37,8 @@ legend("center",ncol=3,legend=c(X1,X2,X1X2),bty="n",cex=.9)
  legend("top",inset=.2,title=ifelse(change.order==FALSE,"Type I Sum of Squares\n\nModel: Y = X1 + X2 + X1:X2","Type I Sum of Squares\n\nModel: Y = X2 + X1 + X1:X2"),legend=c(
  ifelse(change.order==FALSE,paste("SSE.X1 = ",round(SSE.mu-SSE.X1,3)),paste("SSE.X2 = ",round(SSE.mu-SSE.X2,3))), ifelse(change.order==FALSE,paste("SSE.X2 = ",round(SSE.X1-SSE.X1pX2,3)),paste("SSE.X1 = ",round(SSE.X2-SSE.X1pX2,3))),paste("SSE.X1:X2 = ",round(SSE.X1pX2-SSE.X1iX2,3)),paste("SSE = ",round(SSE.X1iX2,3))),bty="n")
 
-legend("bottom",title="P-value",legend=c(paste("X1 = ",round(anovaI$"Pr(>F)"[1],6)),paste("X2 = ",round(anovaI$"Pr(>F)"[2],6)),paste("X1:X2 = ",round(anovaI$"Pr(>F)"[3],6))),bty="n",inset=.2) 
+legend("bottom",title="P-value",legend=c(ifelse(change.order==FALSE,paste("X1 = ",round(anovaI$"Pr(>F)"[1],6)),paste("X2 = ",round(anovaI$"Pr(>F)"[1],6))),ifelse(change.order==FALSE,(paste("X2 = ",round(anovaI$"Pr(>F)"[2],6))),paste("X1 = ",round(anovaI$"Pr(>F)"[2],6))),paste("X1:X2 = ",round(anovaI$"Pr(>F)"[3],6))),bty="n",inset=.2)
+
  
 #type II 
  
@@ -46,7 +47,7 @@ rect(1,1,10,10,col="wheat3")
  legend("top",inset=.2,title=ifelse(change.order==FALSE,"Type II Sum of Squares\n\nModel: Y = X1 + X2 + X1:X2","Type II Sum of Squares\n\nModel: Y = X2 + X1 + X1:X2"),legend=c(
  ifelse(change.order==FALSE,paste("SSE.X1 = ",round(SSE.X2-SSE.X1pX2,3)),paste("SSE.X2 = ",round(SSE.X1-SSE.X1pX2,3))), ifelse(change.order==FALSE,paste("SSE.X2 = ",round(SSE.X1-SSE.X1pX2,3)),paste("SSE.X1 = ",round(SSE.X2-SSE.X1pX2,3))),paste("SSE.X1:X2 = ",round(SSE.X1pX2-SSE.X1iX2,3)),paste("SSE = ",round(SSE.X1iX2,3))),bty="n")
  
-legend("bottom",title="P-value",legend=c(paste("X1 = ",round(anovaII$"Pr(>F)"[1],6)),paste("X2 = ",round(anovaII$"Pr(>F)"[2],6)),paste("X1:X2 = ",round(anovaII$"Pr(>F)"[3],6))),bty="n",inset=.2) 
+legend("bottom",title="P-value",legend=c(ifelse(change.order==FALSE,paste("X1 = ",round(anovaII$"Pr(>F)"[1],6)),paste("X2 = ",round(anovaII$"Pr(>F)"[1],6))),ifelse(change.order==FALSE,(paste("X2 = ",round(anovaII$"Pr(>F)"[2],6))),paste("X1 = ",round(anovaII$"Pr(>F)"[2],6))),paste("X1:X2 = ",round(anovaII$"Pr(>F)"[3],6))),bty="n",inset=.2)
 
 #type III
 
@@ -55,7 +56,7 @@ rect(1,1,10,10,col="wheat4")
 legend("top",inset=.2,title=ifelse(change.order==FALSE,"Type III Sum of Squares\n\nModel: Y = X1 + X2 + X1:X2","Type III Sum of Squares\n\nModel: Y = X2 + X1 + X1:X2"),legend=c(
  ifelse(change.order==FALSE,paste("SSE.X1 = ",round(SSE.noX1-SSE.X1iX2,3)),paste("SSE.X2 = ",round(SSE.noX2-SSE.X1iX2,3))), ifelse(change.order==FALSE,paste("SSE.X2 = ",round(SSE.noX2-SSE.X1iX2,3)),paste("SSE.X1 = ",round(SSE.noX1-SSE.X1iX2,3))),paste("SSE.X1:X2 = ",round(SSE.X1pX2-SSE.X1iX2,3)),paste("SSE = ",round(SSE.X1iX2,3))),bty="n")
 
-legend("bottom",title="P-value",legend=c(paste("X1 = ",round(anovaIII$"Pr(>F)"[2],6)),paste("X2 = ",round(anovaIII$"Pr(>F)"[3],6)),paste("X1:X2 = ",round(anovaIII$"Pr(>F)"[4],6))),bty="n",inset=.2)
+legend("bottom",title="P-value",legend=c(ifelse(change.order==FALSE,paste("X1 = ",round(anovaIII$"Pr(>F)"[2],6)),paste("X2 = ",round(anovaIII$"Pr(>F)"[2],6))),ifelse(change.order==FALSE,(paste("X2 = ",round(anovaIII$"Pr(>F)"[3],6))),paste("X1 = ",round(anovaIII$"Pr(>F)"[3],6))),paste("X1:X2 = ",round(anovaIII$"Pr(>F)"[4],6))),bty="n",inset=.2)
 
  }
 
