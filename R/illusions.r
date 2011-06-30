@@ -28,7 +28,7 @@ pn<-plot.new()
 x = seq(0, 1, length = 10)
 y = seq(0, 1, length = 10)
 abline(v = x, h = y, col = "gray", lwd = 6)
-points(rep(x, each = 10), rep(y, 10), col = "white", 
+points(rep(x, each=10), rep(y, 10), col = "white", 
 cex = 3, pch = 20)
 par(op)
 }}

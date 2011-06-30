@@ -14,7 +14,7 @@ Plots the normal, exponential, Poisson, binomial and "custom" log-likelihood fun
 loglik.plot(X, dist = c("norm", "poi", "bin", "exp", "custom"), 
 plot.likfunc = TRUE, parameter = NULL, func = NULL, poss = NULL, 
 plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
-conv = 0.01, anim = TRUE, interval = 0.01, ...)
+conv = diff(range(X))/70, anim = TRUE, interval = 0.01, ...)
 
 loglik.norm.plot(X, parameter = c("mu", "sigma.sq"), poss = NULL, 
 plot.likfunc = TRUE, plot.density = TRUE, plot.calc = FALSE, 

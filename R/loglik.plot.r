@@ -1,4 +1,4 @@
-loglik.plot<-function(X,dist=c("norm","poi","bin","exp","custom"),plot.likfunc=TRUE,parameter=NULL,func=NULL,poss=NULL,plot.density=TRUE,plot.calc=FALSE,xlab=NULL,ylab=NULL,conv=0.01,anim=TRUE,interval=0.01,...){
+loglik.plot<-function(X,dist=c("norm","poi","bin","exp","custom"),plot.likfunc=TRUE,parameter=NULL,func=NULL,poss=NULL,plot.density=TRUE,plot.calc=FALSE,xlab=NULL,ylab=NULL,conv=diff(range(X))/70,anim=TRUE,interval=0.01,...){
 if(dist=="norm")loglik.norm.plot(X=X,parameter=parameter,poss=poss,plot.likfunc=plot.likfunc,plot.density=plot.density,plot.calc=plot.calc,xlab=xlab,ylab=ylab,conv=conv,anim=anim,interval=interval,...=...)
 if(dist=="poi")loglik.pois.plot(X=X,poss=poss,plot.likfunc=plot.likfunc,plot.density=plot.density,plot.calc=plot.calc,xlab=xlab,ylab=ylab,conv=conv,anim=anim,interval=interval,...=...)
 if(dist=="bin")loglik.binom.plot(X=X,poss=poss,plot.likfunc=plot.likfunc,plot.density=plot.density,xlab=xlab,ylab=ylab,conv=conv,anim=anim,interval=interval,...=...)

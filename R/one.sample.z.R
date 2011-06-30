@@ -9,4 +9,6 @@ else if(test== "lower")
 {p.val<-pnorm(z,lower.tail=TRUE)}
 else if(test== "upper")
 {p.val<-pnorm(z,lower.tail=FALSE)}
-p.val}
+res<-list()
+res$p.val<-p.val
+res}
