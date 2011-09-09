@@ -22,7 +22,7 @@ dialog.sd <- function() {
   x3.entry <- tkentry(tt, textvariable=X3, width =45) 
  
   nvars <- tkentry(tt, textvariable=NV, width =5) 
- 
+showXY<-tclVar(1)  
   done <- tclVar(0)
  
 reset<-function(){
@@ -33,6 +33,7 @@ X2<-"c(rep(0,10),rep(1,4),rep(0,5))"
 X3<-"c(rep(0,14),rep(1,5))"
 
 NV<-"4"
+  tclvalue(showXY)<-"1"
 }
 
 reset.but <- tkbutton(tt, text = "Reset", command = reset)
@@ -41,6 +42,7 @@ submit.but <- tkbutton(tt, text = "Submit", command = function() tclvalue(done) 
 
 
 build <- function() {
+  showXY <- as.logical(tclObj(showXY))
   Y <-parse(text=tclvalue(Y))[[1]]
   NV<-parse(text=tclvalue(NV))[[1]]
   
@@ -60,10 +62,10 @@ X2 <- parse(text=tclvalue(X2))[[1]]
 X3 <- parse(text=tclvalue(X3))[[1]]
 X<-substitute(cbind(as.numeric(X0),as.numeric(X1),as.numeric(X2),as.numeric(X3)))}
 
-substitute(pm1(as.numeric(Y),as.numeric(X),as.numeric(.8)))
+substitute(pm1(as.numeric(Y),as.numeric(X),as.numeric(.8),showXY=showXY))
 }                
 
-
+nc.cbut <- tkcheckbutton(tt, text="Show XY", variable=showXY)
   tkgrid(tklabel(tt, text = "Linear model (ANOVA)"), 
       columnspan = 2)
   tkgrid(tklabel(tt, text = ""))
@@ -74,10 +76,11 @@ substitute(pm1(as.numeric(Y),as.numeric(X),as.numeric(.8)))
   tkgrid(tklabel(tt, text = "X4"), x3.entry)
   
   tkgrid(tklabel(tt, text = "Number of factor levels"), nvars)
-  
+  tkgrid(tklabel(tt, text = ""))
+    tkgrid(nc.cbut)  
   tkgrid(tklabel(tt, text = ""))
   tkgrid(submit.but, reset.but, sticky ="e")
-  
+ 
   tkbind(tt, "<Destroy>", function() tclvalue(done) <- 2)
   tkwait.variable(done)
   if (tclvalue(done) == "2") 

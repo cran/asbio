@@ -10,7 +10,7 @@ In the early 1990s an oil refinery northeast of San Francisco agreed with local 
 The dataframe contains three columns:
   \describe{
 \item{CO}{Carbon monoxide.  Measured in ppm.}
-\item{Source}{Te source of measurements; either refinery or BAAQMD.}
+\item{Source}{The source of measurements; either refinery or BAAQMD.}
 \item{Date}{Month/Day/Year}
 }
 }

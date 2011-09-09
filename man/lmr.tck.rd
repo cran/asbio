@@ -9,7 +9,7 @@ Given Y and X matrices a regression linear model is demonstrated using matrix al
 }
 \usage{
 lmr.tck()
-pm1(Y, X, sz=1)
+pm1(Y, X, sz=1, showXY = TRUE)
 }
 
 \arguments{
@@ -23,9 +23,12 @@ Explanatory variables
   \item{sz}{
 Text expansion factor
 }
+  \item{showXY}{
+Logical, indicating whether or not \emph{X} and \emph{Y} matrices should be shown.
+}
 }
 \details{
-Newly implemented, X requires a Y intercept variable and at least one other variable.
+\emph{X} requires a \emph{Y} intercept variable (X0) and at least one other variable.
 }
 \author{Ken Aho
 }
