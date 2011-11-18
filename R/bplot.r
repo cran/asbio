@@ -1,4 +1,4 @@
-bplot<-function (y, x, int = c("SE", "CI", "IQR", "IQR.CI"), conf = 0.95, 
+bplot<-function (y, x, int = "CI", conf = 0.95, 
     plot.ci = TRUE, bar = TRUE, simlett = FALSE, bar.col = "gray", 
     lett = NULL, exp.fact = 2, xlab = "x", ylab = "y", err = "y", 
     sfrac = 0.01, gap = 0, slty = par("lty"), scol = NULL, pt.bg = par("bg"), 

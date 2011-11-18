@@ -196,7 +196,8 @@ res<-list()
   res$lines<-lines
   
   n.perp<-length(!is.na(perp))
-  SE.perp<-sd(as.data.frame(perp),na.rm=TRUE)/sqrt(n.perp)
+  SD.perp<-sapply(as.data.frame(perp),function(x)sd(x,na.rm=TRUE))
+  SE.perp<-SD.perp/sqrt(n.perp)
   
 if(!is.null(habitat))
   {res$moment.by.moment<-data.frame(matrix(nrow=pairw,ncol=5,data=c(end.time,round(perp,4),round(delta,4),hab.type,border.change),dimnames=list(seq(1,pairw),c("End.time","Eta Index","Delta","Habitat","Brdr chng"))))

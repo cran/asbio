@@ -7,7 +7,7 @@ V<-diag(S.d^(-0.5))
 C<-V%*%S%*%V
 L<-diag((eigen(C)$values)^-0.5)
 H<-eigen(C)$vectors
-y.i<-H%*%L%*%t(H)%*%V%*%t(Y-mean(Y))
+y.i<-H%*%L%*%t(H)%*%V%*%t(Y-sapply(Y,mean))
 B.1<-apply(y.i,1,function(x){skew(x,"moments")})
 B.2<-apply(y.i,1,function(x){kurt(x,"moments")})
 

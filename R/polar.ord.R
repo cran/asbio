@@ -21,8 +21,12 @@ polar.ord<-function(data,index="steinhaus",endpoint=c("BC.original","PC_ORD.orig
 if(endpoint == "BC.original"){
    get.endp<-function(mat,RD,dim=1){
      endp<-mat[mat[,3]==max(RD),]
+if(!is.null(nrow(endp))){#more than 1 max 
+     A<-as.numeric(endp[1,][1])
+     B<-as.numeric(endp[1,][2])}
+if(is.null(nrow(endp))){
      A<-as.numeric(endp[1])
-     B<-as.numeric(endp[2])
+     B<-as.numeric(endp[2])}
      C<-seq(1:nrow(D))[seq(1:nrow(D))!=B&seq(1:nrow(D))!=A]
      res<-list()
      res$A<-A
@@ -36,12 +40,16 @@ else if(endpoint == "PC_ORD.original"){
     if (dim==1){ 
     endD<-get.Dmat(mat)
      endV<-apply(endD,2,sum)
-     A<-as.numeric(which(endV==max(endV)))
-     B<-as.numeric(which(endD[,A]==max(endD[,A])))}
+     A<-as.numeric(which(endV==max(endV)))[1]
+     B<-as.numeric(which(endD[,A]==max(endD[,A])))[1]}
      if (dim>1){
      endp<-mat[mat[,3]==max(RD),]
-     A<-as.numeric(endp[2])
-     B<-as.numeric(endp[1])}
+if(!is.null(nrow(endp))){#more than 1 max 
+     A<-as.numeric(endp[1,][1])
+     B<-as.numeric(endp[1,][2])}
+if(is.null(nrow(endp))){
+     A<-as.numeric(endp[1])
+     B<-as.numeric(endp[2])}}
      C<-seq(1:nrow(D))[seq(1:nrow(D))!=B&seq(1:nrow(D))!=A]
      res<-list()
      res$A<-A
@@ -59,7 +67,7 @@ else if(endpoint == "var.reg"){
          SS
                           }
      endV<-apply(endD,2,function(x){sum.sq(x)})
-     A<-as.numeric(which(endV==max(endV)))
+     A<-as.numeric(which(endV==max(endV)))[1]
      notA<-seq(1:nrow(endD))[seq(1:nrow(endD))!=A]
      Bmat<-matrix(ncol=1,nrow=nrow(endD)-1)
      diag(endD)<-0
@@ -68,7 +76,7 @@ else if(endpoint == "var.reg"){
        D1<-endD[,A]
        Bmat[i]<-as.numeric(lm(endD[,notA[i]]~D1)$coefficients[2])
           }
-     B<-notA[Bmat==min(Bmat)]
+     B<-notA[Bmat==min(Bmat)][1]
      C<-seq(1:nrow(endD))[seq(1:nrow(endD))!=B&seq(1:nrow(endD))!=A]
      res<-list()
      res$A<-A

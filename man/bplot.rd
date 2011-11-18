@@ -5,7 +5,7 @@
 Creates barplots displaying treatment measures of location (e.g. means, or medians) along with error bars (i.e. standard errors or confidence intervals or IQRs).  Can also display letters indicating if results were significant after adjustment for simultaneous inference.
 }
 \usage{
-bplot(y, x, int = c("SE","CI","IQR","IQR.CI"), conf = 0.95, plot.ci = TRUE, 
+bplot(y, x, int = "CI", conf = 0.95, plot.ci = TRUE, 
 bar = TRUE, simlett = FALSE, bar.col = "gray", lett = NULL, exp.fact = 2, 
 xlab = "x", ylab = "y", err = "y", sfrac = 0.01, gap = 0, slty = par("lty"), 
 scol = NULL,  pt.bg = par("bg"),order=FALSE,names.arg=NULL, width=1, 
