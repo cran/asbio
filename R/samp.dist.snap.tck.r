@@ -1,4 +1,5 @@
-samp.dist.snap<-function(parent,parent2 = NULL,stat = mean,stat2 = NULL, stat3 = NULL, stat4 = NULL,s.sizes=c(1,3,6,10,20,50),s.sizes2=NULL,R=1000,L=6,xlab = expression(bar(x)),show.SE = TRUE){
+samp.dist.snap<-function(parent,parent2 = NULL,stat = mean,stat2 = NULL, stat3 = NULL, stat4 = NULL,s.sizes=c(1,3,6,10,20,50),s.sizes2=NULL,R=1000, xlab = expression(bar(x)),show.SE = TRUE){
+L <- length(s.sizes)
 if(L>12) {stop("L must be <= 12")} else
 if(L==1) {par(mfrow=c(1,1),mar=c(5,4,1,1.5))} else
 if(L==2) {par(mfrow=c(2,1),mar=c(5,4,1,1.5))} else
@@ -26,6 +27,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Sampling distributions")
@@ -33,7 +35,6 @@ local({
         parent.entry2 <- tkentry(tt, textvariable=Parent2)
         s.size.entry<-tkentry(tt, textvariable=SS)
         s.size.entry2<-tkentry(tt, textvariable=SS2)
-        l.entry<-tkentry(tt, textvariable=L)
         stat.entry1<-tkentry(tt, textvariable=Stat1)
         stat.entry2<-tkentry(tt, textvariable=Stat2)
         stat.entry3<-tkentry(tt, textvariable=Stat3)
@@ -56,7 +57,6 @@ local({
             tclvalue(Stat3)<-"NULL"
             tclvalue(Stat4)<-"NULL"
             tclvalue(Func)<-"NULL"
-            tclvalue(L)<-""
             tclvalue(Rep)<-""
             tclvalue(Xlab)<-"expression(Mean)"
             tclvalue(show.SE)<-"0"
@@ -81,8 +81,7 @@ local({
             R <-tclvalue(Rep)
             x<-parse(text=tclvalue(Xlab))[[1]]
             se <- as.logical(tclObj(show.SE))
-            L<-tclvalue(L)
-            substitute(samp.dist.snap(parent=parent,parent2=parent2,s.size=s.sizes,s.sizes2=s.sizes2,stat=stat,stat2=stat2,stat3=stat3,stat4=stat4,L=as.numeric(L),R=as.numeric(R),xlab=x,show.SE=se))
+            substitute(samp.dist.snap(parent=parent,parent2=parent2,s.size=s.sizes,s.sizes2=s.sizes2,stat=stat,stat2=stat2,stat3=stat3,stat4=stat4,R=as.numeric(R),xlab=x,show.SE=se))
              }
         
         se.cbut <- tkcheckbutton(tt, text="Show SE", variable=show.SE)
@@ -93,7 +92,6 @@ local({
         tkgrid(tklabel(tt,text="Stat",font=c("Helvetica","9","bold"),foreground="red"), stat.entry1,tklabel(tt,text="Stat 2"), stat.entry2)
         tkgrid(tklabel(tt,text="Stat 3"), stat.entry3, tklabel(tt,text="Stat 4"), stat.entry4)
         tkgrid(tklabel(tt,text=""))
-        tkgrid(tklabel(tt,text=""),tklabel(tt,text="Number of snapshots ",font=c("Helvetica","9","bold"),foreground="red"), l.entry)
         tkgrid(tklabel(tt,text=""),tklabel(tt,text="Iterations"), R.entry)
         tkgrid(tklabel(tt,text=""),tklabel(tt,text="Function"), func.entry)
         tkgrid(tklabel(tt,text=""),tklabel(tt,text="X-axis label"), x.entry)
@@ -113,6 +111,7 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+    tclServiceMode(TRUE)
     }                            
       Parent1<-tclVar("rexp(100)")
       Parent2<-tclVar("NULL")
@@ -124,7 +123,6 @@ local({
       Stat4<-tclVar("NULL")
       Func<-tclVar("NULL")
       Rep<-tclVar("1000")
-      L<-tclVar("6")
       Xlab<- tclVar("expression(bar(x))")
       dialog.sd()
 })
@@ -149,7 +147,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
-
+tclServiceMode(FALSE)
 dialog.ci <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Sampling distributions")

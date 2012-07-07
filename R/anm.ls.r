@@ -40,6 +40,7 @@ anm.ls<-function (X, poss = NULL, parameter = "mu", est.lty = 2, est.col = 2,
         }
         if (anim == TRUE) {
             for (i in 1:nm) {
+                dev.hold()
                 plot(poss, ss.res, type = "n", ylab = "Sum of squares", xlab= xlab, 
                   ...)
                 arrows(poss[i], ss.res[i], poss[i + 1], ss.res[i + 
@@ -60,6 +61,7 @@ anm.ls<-function (X, poss = NULL, parameter = "mu", est.lty = 2, est.col = 2,
                   legend("topright", legend = bquote(paste("SS = ", 
                     .(ss.res[i]))), cex = 0.9, bty = "n")
                 }
+                dev.flush()
                 Sys.sleep(interval)
             }
         }

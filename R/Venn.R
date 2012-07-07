@@ -29,8 +29,8 @@ if((AandB==A|AandB==B)&(A!=0|B!=0)){##subset
 S<-plot(seq(-.55,.55,length=3),seq(-.55,.55,length=3),type="n",xaxt="n",yaxt="n",xlab="",ylab="")
 r.A<-sqrt(A/pi)
 r.B<-sqrt(B/pi)
-draw.circle(0,0,r=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
-draw.circle(0,0,r=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
+draw.circle(0,0,radius=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
+draw.circle(0,0,radius=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
 if(A>=B){text(-0.5,0.5,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
 text(0,0,paste("P(",bquote(.(labB)),") = P(A \u2229 B) = ",bquote(.(B)),sep=""),cex=.95)}
 if(B>A){text(-0.5,0.5,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
@@ -42,8 +42,8 @@ if(A+B!=1&AandB==0&(A!=0|B!=0)){
 S<-plot(seq(0,2),seq(0,2),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
 r.A<-sqrt(A/pi)
 r.B<-sqrt(B/pi)
-draw.circle(0.5,1,r=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
-draw.circle(1.25,1,r=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
+draw.circle(0.5,1,radius=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
+draw.circle(1.25,1,radius=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
 text(0.5,1,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
 text(1.25,1,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
 rect(0.5-sqrt(1/pi),1-sqrt(1/pi),1.25+sqrt(1/pi),1+sqrt(1/pi))
@@ -55,8 +55,8 @@ r.A<-sqrt(A/pi)
 r.B<-sqrt(B/pi)
 r.diff<-r.A-r.B
 d<-2*((1-AandB)*r.A)-r.diff
-draw.circle(-.5,0,r=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
-draw.circle(d-.5,0,r=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
+draw.circle(-.5,0,radius=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
+draw.circle(d-.5,0,radius=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
 text(-.5,0,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
 text(d-.5,0,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
 x<-((d+r.diff)/2)-.5

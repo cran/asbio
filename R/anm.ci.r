@@ -28,7 +28,7 @@ for(i in 1:n.est){
  lcol<-matrix(nrow=n.est,ncol=1)
  for(i in 1:n.est){
  lcol[i]<-ifelse(ci[,2][i]<par.val&ci[,3][i]>par.val,1,2)}
- 
+ dev.hold()
  plot(ci[,1],seq(1,n.est),xlim=c(min(ci[,2]),max(ci[,3])),type="n",xlab="Point and interval estimates",ylab="Estimate number",...)
  abline(v=par.val,lty=2,col= 4)
  if(par.type=="mu")mtext(names[1],3,at=par.val,font=3,line=.1) 
@@ -39,6 +39,7 @@ for(i in 1:n.est){
  for(i in 1:n.est){
  points(ci[,1][i],i,pch=19,cex=.6,col=lcol[i])
  segments(x0=ci[,2][i],x1=ci[,3][i],y0=i,y1=i,col=lcol[i])
+ dev.flush()
  Sys.sleep(interval)
  }
  mtext(bquote(paste("Obs. cvg. = ", .(round(sum(sapply(lcol==1,sum))/n.est,2)))),3,at=max(ci[,3]),adj=1,line=1)

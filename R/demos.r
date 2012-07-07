@@ -1,10 +1,11 @@
 demos<-function(){
     require(tcltk) || stop("tcltk support is absent")
+    tclServiceMode(TRUE)
     tt <- tktoplevel()
     tkwm.title(tt, "'asbio' Graphical Demos")
     topMenu <- tkmenu(tt)
     tkconfigure(tt, menu = topMenu, width=280,height=50)
-
+    
 #---------------Menu bar-------------#
 
     fileA <- tkmenu(topMenu, tearoff = FALSE)
@@ -72,6 +73,8 @@ demos<-function(){
                 command = substitute(see.regression()))
             tkadd(fileA, "command", label = "Regression (Add/delete points)", 
                 command = substitute(see.adddel()))    
+            tkadd(fileA, "command", label = "LS estimation of regression",    
+                command=substitute(anm.ls.reg.tck()))
             tkadd(fileA, "command", label = "Type I, II, III sums of squares",    
                 command=substitute(lmu.tck()))  
             tkadd(topMenu, "cascade", label = "Stats (Analyses)", menu = fileA)
@@ -93,6 +96,6 @@ demos<-function(){
             tkadd(fileB, "command", label = "Matrix population models", 
                 command = substitute(anm.TM.tck()))       
             tkadd(topMenu, "cascade", label = "Biology", menu = fileB)
-         
-}
+    }     
+
  

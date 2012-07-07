@@ -2,24 +2,27 @@ see.exppower.tck<-function ()
 {
 require(tcltk) || stop("tcltk support is absent")
     if (!exists("slider.env")) 
-        slider.env <<- new.env()
+        slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     m <- 1
-    assign("m", tclVar(m), env = slider.env)
+    assign("m", tclVar(m), envir = slider.env)
     xmin <- -3
-    assign("xmin", tclVar(xmin), env = slider.env)
+    assign("xmin", tclVar(xmin), envir = slider.env)
     xmax <- 3
-    assign("xmax", tclVar(xmax), env = slider.env)
+    assign("xmax", tclVar(xmax), envir = slider.env)
         
     exppower<-function(x,m){exp(-abs(x)^m)}
     
     norm.refresh <- function(...) {
-        m <- as.numeric(evalq(tclvalue(m), env = slider.env))
-        xmin <- as.numeric(evalq(tclvalue(xmin), env = slider.env))
-        xmax <- as.numeric(evalq(tclvalue(xmax), env = slider.env))
+        m <- as.numeric(evalq(tclvalue(m), envir = slider.env))
+        xmin <- as.numeric(evalq(tclvalue(xmin), envir = slider.env))
+        xmax <- as.numeric(evalq(tclvalue(xmax), envir = slider.env))
         xx <- seq(xmin, xmax, length = 200)
         yy <- exppower(as.numeric(xx), m)
+        dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax),ylab = "f(x)", xlab = "x")
+        dev.flush()        
                 }
+    tclServiceMode(TRUE)
     m <- tktoplevel()
     tkwm.title(m, "Visualizing Exponential Power Distributions")
     tkwm.geometry(m, "+0+0")
@@ -35,19 +38,19 @@ require(tcltk) || stop("tcltk support is absent")
     tkpack(sc <- tkscale(fr1, command = norm.refresh, from = -10, 
         to = 10, orient = "horiz", resolution = .1, showvalue = TRUE), 
         side = "left", anchor="n")
-    assign("sc", sc, env = slider.env)
-    evalq(tkconfigure(sc, variable = m), env = slider.env)
+    assign("sc", sc, envir = slider.env)
+    evalq(tkconfigure(sc, variable = m), envir = slider.env)
     
     tkpack(tklabel(m,text=""), side = "top")
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "Xmin:", width = 6), side = "left")
     tkpack(e <- tkentry(fr, width = 8), side = "left")
-    assign("e", e, env = slider.env)
-    evalq(tkconfigure(e, textvariable = xmin), env = slider.env)
+    assign("e", e, envir = slider.env)
+    evalq(tkconfigure(e, textvariable = xmin), envir = slider.env)
     tkpack(tklabel(fr, text = "Xmax:", width = 6), side = "left")
     tkpack(e <- tkentry(fr, width = 8), side = "left")
-    assign("e", e, env = slider.env)
-    evalq(tkconfigure(e, textvariable = xmax), env = slider.env)
+    assign("e", e, envir = slider.env)
+    evalq(tkconfigure(e, textvariable = xmax), envir = slider.env)
     tkpack(tklabel(m,text=""), side = "top")
     tkpack(tkbutton(m, text = "Refresh", command = norm.refresh), 
         side = "left")

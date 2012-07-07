@@ -13,7 +13,7 @@ diffs<-dif.mat[upper.tri(dif.mat)]
 
 SE.diff<-sqrt((r*(r+1))/(6*nblocks))
 B<-qnorm(1-((1-conf)/(2*(r^2-r)/2)))
-p.val<-2*pnorm(abs(diffs)/SE.diff,lower=FALSE)
+p.val<-2*pnorm(abs(diffs)/SE.diff,lower.tail=FALSE)
 p.adj<-ifelse(p.val*((r^2-r)/2)>=1,1,round(p.val*((r^2-r)/2),6))
 hwidths<-B*SE.diff
 val<-round(cbind(diffs,diffs-hwidths,diffs+hwidths),5)

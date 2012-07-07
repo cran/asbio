@@ -24,7 +24,7 @@ diffs<-dif.mat[upper.tri(dif.mat)]
 SE.diff.mat<-sqrt(MSE*outer(1/nis,1/nis,"+"))
 SE.diff<-SE.diff.mat[upper.tri(SE.diff.mat)]
 
-p.val<- 2*pt(abs(diffs/SE.diff),df.error,lower=FALSE)
+p.val<- 2*pt(abs(diffs/SE.diff),df.error,lower.tail=FALSE)
 t<-qt(1-(1-conf.level)/2,df.error)
 hwidths<-t*SE.diff
 LSD<-round(qt(1-((1-conf.level)/2),df.error)*SE.diff,5)
@@ -52,7 +52,7 @@ diffs<-dif.mat[upper.tri(dif.mat)]
 SE.diff.mat<-sqrt(MSE*outer(1/nis,1/nis,"+"))
 L.hat.SE<-SE.diff.mat[upper.tri(SE.diff.mat)]
 
-p.val<- 2*pt(abs(diffs/L.hat.SE),df=df.error,lower=FALSE)
+p.val<- 2*pt(abs(diffs/L.hat.SE),df=df.error,lower.tail=FALSE)
 p.adj<-ifelse(p.val*((r^2-r)/2)>=1,1,round(p.val*((r^2-r)/2),6))
 t<-qt(1-(1-conf.level)/(r*(r-1)),df.error)
 hwidths<-t*L.hat.SE

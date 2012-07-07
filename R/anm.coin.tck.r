@@ -12,6 +12,7 @@ anm.coin.tck<-function ()
             tklabel <- ttklabel
             tkradiobutton <- ttkradiobutton
         }
+        tclServiceMode(FALSE)
         dialog.sd <- function() {
             tt <- tktoplevel()
             tkwm.title(tt, "Frequentist probability and coin flips")
@@ -26,6 +27,7 @@ anm.coin.tck<-function ()
                 tclvalue(Flip) <- "1000"
                 tclvalue(show.coin)<-"0"
             }
+            tclServiceMode(FALSE)
             reset.but <- tkbutton(tt, text = "Reset", command = reset)
             submit.but <- tkbutton(tt, text = "Submit", command = function() tclvalue(done) <- 1)
             build <- function() {
@@ -52,6 +54,7 @@ anm.coin.tck<-function ()
             tkdestroy(tt)
             cmd <- build()
             eval.parent(cmd)
+        invisible(tclServiceMode(TRUE))
         }
         P <- tclVar("0.5")
         Flip <- tclVar("1000")

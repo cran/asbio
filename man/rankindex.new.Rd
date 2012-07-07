@@ -21,11 +21,12 @@ rankindex.new(grad, veg, indices = c("matching", "rogers", "jaccard.pa",
   of sites and \emph{e} = the number of environmental variables.}
   \item{veg}{An \emph{s} x \emph{p} community matrix, where \emph{s} = the number 
   of sites and \emph{p} = the number of species.}
-  \item{indices}{Some subset from the character string: \code{c("matching", "rogers", 
-  "jaccard.pa", "sorenson", "kulkczynski.pa", "ochiai", "gower", "steinhaus", 
-  "kulkczynski.q", "jaccard.q", "euclidean", "rel.euclidean", "manhattan", 
-  "czekanowski", "whittaker", "canberra", "chi.metric", "chi.dist", "morisita", 
-  "morisita.horn", "minkowski", "mountford", "raup.crick", "binomial", "chao")}.}
+  \item{indices}{Some subset from the character string: \code{c("matching", "rogers", "jaccard.pa",
+ "sorenson", "kulkczynski.pa", "ochiai", "gower", "steinhaus",
+ "kulkczynski.q", "jaccard.q", "euclidean", "rel.euclidean",
+ "manhattan", "czekanowski", "whittaker", "canberra", "chi.metric",
+ "chi.dist", "morisita", "morisita.horn", "minkowski", "mountford",
+ "raup.crick", "binomial", "chao")}.}
   \item{stepacross}{Logical, specifies whether a step across transformation 
   should be applied to the resemblance matrix.}
   \item{method}{What method is used to calculate correlations between 

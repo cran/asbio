@@ -7,6 +7,7 @@ n<-n0*lambda^time
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 lambda.lab<-bquote(paste(lambda,"=",.(lambda)))
 for(i in min(time):max(time)){
+    dev.hold()
     par(mar=c(0,0,0,0))
     N.lab<-bquote(paste(N,"=",.(round(n[i+1],0))));t.lab<-bquote(paste("Time = ",.(i)))
     plot(seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
@@ -17,6 +18,7 @@ for(i in min(time):max(time)){
     plot(time,n,type="n",xlab=xlab,ylab=ylab,main="Geometric Population Growth",...)
     grid()
     points(time[0:i+1],n[0:i+1],type="l",lty=1,col=2)
+ dev.flush()
  Sys.sleep(interval)
 }
 }
@@ -26,7 +28,7 @@ for(i in min(time):max(time)){
 anm.exp.growth<-function(n,rmax,time=seq(0,20),ylab="Abundance",xlab="Time",interval=0.1,...){
 y<-xstart<-c(n=n)
 pars<-c(rmax=rmax) 
-require(odesolve)||stop("This function requires package 'odesolve'")
+require(deSolve)||stop("This function requires package 'deSolve'")
 pr<-as.list(pars)
 func<-function(time=time,xstart=xstart,pars=pars){
     n<-xstart
@@ -40,6 +42,7 @@ rmax.lab<-bquote(paste(r[max],"=",.(pr$rmax)))
 
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){
+    dev.hold()
     par(mar=c(0,0,0,0))
     N.lab<-bquote(paste(N,"=",.(round(out$n[i+1],0))));t.lab<-bquote(paste("Time = ",.(i)))
     plot(seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
@@ -50,6 +53,7 @@ for(i in min(time):max(time)){
     plot(out$time,out$n,type="n",xlab=xlab,ylab=ylab,main="Exponential Population Growth",...)
     grid()
     points(out$time[0:i+1],out$n[0:i+1],type="l",lty=1,col=2)
+ dev.flush()
  Sys.sleep(interval)
 }
 }
@@ -59,7 +63,7 @@ for(i in min(time):max(time)){
 anm.log.growth<-function(n,rmax,K,time=seq(0,60),ylab="Abundance",xlab="Time",interval=0.1,...){
 y<-xstart<-c(n=n)
 pars<-c(rmax=rmax,K=K) 
-require(odesolve)||stop("This function requires package 'odesolve'")
+require(deSolve)||stop("This function requires package 'deSolve'")
 pr<-as.list(pars)
 func<-function(time=time,xstart=xstart,pars=pars){
     n<-xstart
@@ -74,6 +78,7 @@ K.lab<-bquote(paste(K,"=",.(pr$K)))
 
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){
+    dev.hold()
     par(mar=c(0,0,0,0))
     N.lab<-bquote(paste(N,"=",.(round(out$n[i+1],0))));t.lab<-bquote(paste("Time = ",.(i)))
     plot(seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
@@ -84,6 +89,7 @@ for(i in min(time):max(time)){
     plot(out$time,out$n,type="n",xlab=xlab,ylab=ylab,main="Logistic Population Growth",...)
     grid()
     points(out$time[0:i+1],out$n[0:i+1],type="l",lty=1,col=2)
+ dev.flush()
  Sys.sleep(interval)
 }
 }

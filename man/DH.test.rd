@@ -11,7 +11,7 @@ DH.test(Y, Y.names = NULL)
 }
 \arguments{
 
-  \item{Y}{An \emph{n} x \emph{p} matrix of dependent variables.}
+  \item{Y}{An \emph{n} x \emph{p} a dataframe of dependent variables.}
   \item{Y.names}{Names of \code{Y} variables; should be a 1 x \emph{p} character string.}
 }
 \details{

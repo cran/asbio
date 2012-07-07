@@ -1,7 +1,6 @@
-
-
 selftest.se.tck1<-function(){
 require(tcltk) || stop("tcltk support is absent")
+invisible(tclServiceMode(FALSE))
 tt <- tktoplevel()
  have_ttk <- as.character(tcl("info", "tclversion")) >= 
             "8.5"
@@ -50,13 +49,14 @@ tkgrid(OK.but,columnspan=2)
 tkgrid(tklabel(tt,text=""))
 tkgrid(tkbutton(tt,text="Next question",command=substitute(selftest.se.tck2())),
 tkbutton(tt,text="Exit",command=function()tkdestroy(tt)),sticky ="w")
-tkfocus(tt)
+invisible(tclServiceMode(TRUE))
 }
 
 
 
 selftest.se.tck2<-function(){
 require(tcltk) || stop("tcltk support is absent")
+invisible(tclServiceMode(FALSE))
 tt <- tktoplevel()
  have_ttk <- as.character(tcl("info", "tclversion")) >= 
             "8.5"
@@ -104,5 +104,5 @@ OK.but <- tkbutton(tt,text="OK",command=OnOK)
 tkgrid(OK.but,columnspan=2)
 tkgrid(tklabel(tt,text=""))
 tkgrid(tkbutton(tt,text="Next question",command=function()tkmessageBox(message="No further questions.")),tkbutton(tt,text="Exit",command=function()tkdestroy(tt)),sticky ="w")
-tkfocus(tt)
+invisible(tclServiceMode(TRUE))
 }

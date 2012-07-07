@@ -10,6 +10,7 @@ p3[i]<-length(die[0:i][die[0:i]==3])/i;p4[i]<-length(die[0:i][die[0:i]==4])/i
 p5[i]<-length(die[0:i][die[0:i]==5])/i;p6[i]<-length(die[0:i][die[0:i]==6])/i}
 
 for(i in 1:reps){
+dev.hold()
 if(show.die==TRUE)layout(matrix(c(rep(1,6),0,2,0), 3, 3, byrow = TRUE))
 par(mar=c(5.1,4.1,4.1,2.1))
 plot(seq(1,reps),seq(0,reps-1)/(reps-1),type="n",xlab="Trials",ylab="Cumulative probability")
@@ -34,6 +35,7 @@ if(die[i]==5)
 {plot(seq(0,1),seq(0,1),xlab="",ylab="",xaxt="n",yaxt="n",type="n");points(c(0.1,0.1,0.5,0.9,0.9),c(0.1,0.9,0.5,0.1,0.9),pch=19,cex=8)}
 if(die[i]==6)
 {plot(seq(0,1),seq(0,1),xlab="",ylab="",xaxt="n",yaxt="n",type="n");points(c(0.1,0.5,0.9,0.1,0.5,0.9),c(0.1,0.1,0.1,0.9,0.9,0.9),pch=19,cex=8)}}
+dev.flush()
 Sys.sleep(interval)
 }
 }

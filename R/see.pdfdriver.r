@@ -48,6 +48,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Depiction of pdfs")

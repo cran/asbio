@@ -12,6 +12,7 @@ if (have_ttk) {
     tklabel <- ttklabel
     tkradiobutton <- ttkradiobutton
 }
+tclServiceMode(FALSE) 
 dialog.sd <- function() {
   tt <- tktoplevel()
   tkwm.title(tt,"Linear models")

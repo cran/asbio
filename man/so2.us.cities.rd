@@ -25,6 +25,6 @@ The dataset contains 8 variables:
   }
 }
 \source{
-Zar, J. H. (1999)  \emph{Biostatistical Analysis, 4th ed}.  Prentice-Hall.
+Sokal, R. R., and F. J. Rohlf (2012) \emph{Biometry, 4th ed}.  Freeman.
 }
 \keyword{datasets}

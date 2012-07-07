@@ -10,6 +10,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog.ci <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Confidence intervals")
@@ -79,6 +80,7 @@ local({
         
         cmd <- build()
         eval.parent(cmd)
+        invisible(tclServiceMode(TRUE))
     }                            
       Parent<-tclVar("rnorm(1000)")
       True.val<-tclVar("0")

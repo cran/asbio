@@ -12,6 +12,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Geometric population growth")       
@@ -60,12 +61,14 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+        invisible(tclServiceMode(TRUE))
     }                            
       N0<-tclVar("10")                          
       Lambda<-tclVar("1.3")
       Int<-tclVar("0.1")
       Time<-tclVar("seq(0,20)")
       dialog.sd()
+
 })
 }
 
@@ -83,6 +86,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Exponential population growth")       
@@ -131,12 +135,14 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+        invisible(tclServiceMode(TRUE))
     }                            
       N<-tclVar("10")                          
       Rmax<-tclVar("0.6")
       Int<-tclVar("0.1")
       Time<-tclVar("seq(0,20)")
       dialog.sd()
+      
 })
 }
 
@@ -155,6 +161,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Logistic population growth")       
@@ -208,6 +215,7 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+        invisible(tclServiceMode(TRUE))
     }                            
       N<-tclVar("10")                          
       Rmax<-tclVar("0.6")
@@ -215,5 +223,6 @@ local({
       Int<-tclVar("0.1")
       Time<-tclVar("seq(0,50)")
       dialog.sd()
+      
 })
 }

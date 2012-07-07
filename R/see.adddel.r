@@ -38,11 +38,13 @@ cbind(x,y)
  
 repeat{
     refresh<-function(){
+        
         action<-tclvalue(action)
         if(action=="add")m<-add.points()
         if(action=="delete")m<-delete.points()
         tkdestroy(tt)
         x<<-m[,1];y<<-m[,2]
+        dev.hold()
         par(xpd=FALSE)
         plot(x,y,xlab=expression(italic(x)),ylab=expression(italic(y)),type="n")
         pu<-par("usr")
@@ -53,9 +55,10 @@ repeat{
         par(xpd=TRUE)
         legend(pu[2]+.5,pu[4],legend=c(paste(" Y int = ",round(co[1],4)),paste(" Slope = ",round(co[2],4)),"",paste(" r = ",round(cor(y,x),4)),paste(" r\u00b2 = ",round(cor(y,x)^2,4)),"",paste(" P-value = ",round(p,4))),box.col="gray90",cex=.8,bg="white")
         box()
+        dev.flush()
         }
 
-     
+tclServiceMode(TRUE)   
 tt <- tktoplevel()
 tkwm.geometry(tt, "+50+4")
 tkwm.title(tt, "Demonstration of least squares regression -- Add/delete points")

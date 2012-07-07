@@ -10,6 +10,7 @@ if (have_ttk) {
     tklabel <- ttklabel
     tkradiobutton <- ttkradiobutton
 }
+tclServiceMode(FALSE)
 dialog.sd <- function() {
   tt <- tktoplevel()
   tkwm.title(tt,"Bayesian analysis -- discrete data and priors")
@@ -40,7 +41,7 @@ build <- function() {
   show.plot <- as.logical(tclObj(show.plot))
   c.data <-parse(text=tclvalue(C.data))[[1]]
 
-substitute(Bayes.disc(Data=Data,Prior=Prior, 
+substitute(Bayes.disc(Likelihood=Data,Prior=Prior, 
 data.name=data.name,c.data=c.data,plot=show.plot))
 }
 
@@ -48,7 +49,7 @@ nc.cbut <- tkcheckbutton(tt, text="Show plot", variable=show.plot)
   tkgrid(tklabel(tt, text = " Bayesian analysis of discrete data "), 
       columnspan = 2)
   tkgrid(tklabel(tt, text = ""))
-  tkgrid(tklabel(tt, text = 'Data; data|\u03b8 '), data.entry)
+  tkgrid(tklabel(tt, text = 'Data|\u03b8 '), data.entry)
   tkgrid(tklabel(tt, text = 'Priors; \u03b8 '), prior.entry)
   tkgrid(tklabel(tt, text = "Data name"), data.name.entry)
   tkgrid(tklabel(tt, text = "Prior names"), c.data.entry)
@@ -63,6 +64,7 @@ nc.cbut <- tkcheckbutton(tt, text="Show plot", variable=show.plot)
   tkdestroy(tt)
   cmd <- build()
   eval.parent(cmd)
+invisible(tclServiceMode(TRUE))
 }
 Prior <- tclVar("c(1/3, 1/3, 1/3)")
 Data1<-tclVar("c(1, 1/2, 0)")
