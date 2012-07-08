@@ -7,6 +7,7 @@ local({
         tkframe <- ttkframe
         tklabel <- ttklabel
     }
+   tclServiceMode(TRUE)
    top <- tktoplevel() 
    tkwm.geometry(top, "+500+4")
    tktitle(top) <- "Logical versus fallacious arguments"

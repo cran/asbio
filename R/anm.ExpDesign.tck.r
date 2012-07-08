@@ -10,6 +10,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Experimental designs")
@@ -56,6 +57,7 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+    invisible(tclServiceMode(TRUE))
     }                            
 
       Iter<-tclVar("30")

@@ -1,5 +1,5 @@
-
 see.nlm<-function(){
+if(any(dev.list()>1)) graphics.off()
 options()$device(xpos=20)
 par(mar=c(.1,.1,.1,.1))
 plot(seq(1,10),seq(1,10.5,length.out=10),type="n",xaxt="n",yaxt="n",xlab="",ylab="")
@@ -49,55 +49,65 @@ fp<-function(){
 ans <- identify(x, y, n = 1, plot = FALSE)
 yw <- y[ans]
 if(yw==7.95)
-{points(1.5,7.95,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.MM"}
+{points(1.5,7.95,pch=21,bg="red",cex=1.5);dev.new();com="see.MM"}
 if(yw==6.95)
-{points(1.5,6.95,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.2PE"}
+{points(1.5,6.95,pch=21,bg="red",cex=1.5);dev.new();com="see.2PE"}
 if(yw==5.3)
-{points(1.5,5.3,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.2PL"}
+{points(1.5,5.3,pch=21,bg="red",cex=1.5);dev.new();com="see.2PL"}
 if(yw==4.3)
-{points(1.5,4.3,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.3PL"}
+{points(1.5,4.3,pch=21,bg="red",cex=1.5);dev.new();com="see.3PL"}
 if(yw==3.3)
-{points(1.5,3.3,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.G"}
+{points(1.5,3.3,pch=21,bg="red",cex=1.5);dev.new();com="see.G"}
 if(yw==1.65)
-{points(1.5,1.65,pch=21,bg="red",cex=1.5);dev.new();com<<-"see.R"}
+{points(1.5,1.65,pch=21,bg="red",cex=1.5);dev.new();com="see.R"}
+com
 }
 
-fp()
-
+com <- fp()
 require(tcltk) || stop("tcltk support is absent")
     if (!exists("slider.env")) 
-        slider.env <<- new.env()
+        slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     a <- 1
     b <- 1
     c <- 1
-    assign("a", tclVar(a), env = slider.env)
-    assign("b", tclVar(b), env = slider.env)
-    assign("c", tclVar(c), env = slider.env)
+    assign("a", tclVar(a), envir= slider.env)
+    assign("b", tclVar(b), envir= slider.env)
+    assign("c", tclVar(c), envir= slider.env)
     xmin <- 0
-    assign("xmin", tclVar(xmin), env = slider.env)
+    assign("xmin", tclVar(xmin), envir= slider.env)
     xmax <- 10
-    assign("xmax", tclVar(xmax), env = slider.env)
+    assign("xmax", tclVar(xmax), envir= slider.env)
         
    
     
     norm.refresh <- function(...) {
-        a <- as.numeric(evalq(tclvalue(a), env = slider.env))
-        b <- as.numeric(evalq(tclvalue(b), env = slider.env))
-        c <- as.numeric(evalq(tclvalue(c), env = slider.env))
-        xmin <- as.numeric(evalq(tclvalue(xmin), env = slider.env))
-        xmax <- as.numeric(evalq(tclvalue(xmax), env = slider.env))
+        a <- as.numeric(evalq(tclvalue(a), envir= slider.env))
+        b <- as.numeric(evalq(tclvalue(b), envir= slider.env))
+        c <- as.numeric(evalq(tclvalue(c), envir= slider.env))
+        xmin <- as.numeric(evalq(tclvalue(xmin), envir= slider.env))
+        xmax <- as.numeric(evalq(tclvalue(xmax), envir= slider.env))
         xx <- seq(xmin, xmax, length = 500)
         par(mar=c(5, 4, 4, 2))
+        
         if(com=="see.MM"){yy<-a*xx/(1+b*xx);main="Michaelis-Menten Model"}
         if(com=="see.2PE"){yy<-a*exp(-b*xx);main="2 Parameter Exponential"}
         if(com=="see.2PL"){yy<-exp(a+b*xx)/(1+exp(a+b*xx));main="2 Parameter Logistic"}
         if(com=="see.3PL"){yy<-a/(1+b*exp(-c*xx));main="3 Parameter Logistic"}
         if(com=="see.G"){yy<-a*exp(-b*exp(-c*xx));main="Gompertz"}
         if(com=="see.R"){yy<-a*xx*exp(-b*xx);main="Ricker"}
-        
+        dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", 
             xlab = "x",main=main)
+        dev.flush()    
     }
+    
+    tw <- function(){
+    tkdestroy(m)
+    see.nlm()
+    }
+    
+    
+    tclServiceMode(TRUE)
     m <- tktoplevel()
     tkwm.geometry(m, "+600+4")
     tkwm.title(m, "Visualizing Non-linear Models")
@@ -109,38 +119,38 @@ require(tcltk) || stop("tcltk support is absent")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
         to = 10, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
         side = "left")
-    assign("sc", sc, env = slider.env)
-    evalq(tkconfigure(sc, variable = a), env = slider.env)
+    assign("sc", sc, envir= slider.env)
+    evalq(tkconfigure(sc, variable = a), envir= slider.env)
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "b", font = c("Helvetica", 
         "9", "italic"), width = "20"), side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
         to = 10, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
         side = "left")
-    assign("sc", sc, env = slider.env)
-    evalq(tkconfigure(sc, variable = b), env = slider.env)
+    assign("sc", sc, envir= slider.env)
+    evalq(tkconfigure(sc, variable = b), envir= slider.env)
      tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "c", font = c("Helvetica", 
         "9", "italic"), width = "20"), side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
         to = 10, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
         side = "left")
-    assign("sc", sc, env = slider.env)
-    evalq(tkconfigure(sc, variable = c), env = slider.env)
+    assign("sc", sc, envir= slider.env)
+    evalq(tkconfigure(sc, variable = c), envir= slider.env)
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "Xmin:", width = 6), side = "left")
     tkpack(e <- tkentry(fr, width = 8), side = "left")
-    assign("e", e, env = slider.env)
-    evalq(tkconfigure(e, textvariable = xmin), env = slider.env)
+    assign("e", e, envir= slider.env)
+    evalq(tkconfigure(e, textvariable = xmin), envir= slider.env)
     tkpack(tklabel(fr, text = "Xmax:", width = 6), side = "left")
     tkpack(e <- tkentry(fr, width = 8), side = "left")
-    assign("e", e, env = slider.env)
-    evalq(tkconfigure(e, textvariable = xmax), env = slider.env)
-    tkpack(tkbutton(m, text = "New model", command = substitute(see.nlm())))   
+    assign("e", e, envir= slider.env)
+    evalq(tkconfigure(e, textvariable = xmax), envir= slider.env)
+    tkpack(tkbutton(m, text = "New model", command = function() tw()))   
     tkpack(tkbutton(m, text = "Refresh", command = norm.refresh), 
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
         side = "right")
-        
+   
 }
 

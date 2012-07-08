@@ -68,7 +68,7 @@ Ken Aho
 \seealso{\code{\link{near.bound}}, \code{\link{bound.angle}}}
 
 \examples{
-
+\dontrun{
 ###Diagram describing prp output.  
 y<-rnorm(100,0,5)
 plot(seq(1,100),sort(y),type="l",xaxt="n",yaxt="n",lwd=2,xlab="",ylab="")
@@ -134,5 +134,6 @@ for(i in 1:9)text(mx[i],my[i],i,font=2,cex=1.3)
 
 nn<-near.bound(X,Y,bX,bY)
 prp(seq(1,10),X,Y,nn[,1],nn[,2])$moment.by.moment
+}
 }
 

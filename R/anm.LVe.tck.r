@@ -10,6 +10,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Lotka Volterra exploitation")       
@@ -78,6 +79,7 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+    invisible(tclServiceMode(TRUE))
     }                            
       Nh<-tclVar("300")                          
       Np<-tclVar("50")

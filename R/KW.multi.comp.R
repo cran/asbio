@@ -13,7 +13,7 @@ ni.den<-ni.mat[upper.tri(ni.mat)]
 
 SE.diff<-sqrt(((N*(N+1))/12)*ni.den)
 B<-qnorm(1-((1-conf)/(r^2-r)))
-p.val<-2*pnorm(abs(diffs)/SE.diff,lower=FALSE)
+p.val<-2*pnorm(abs(diffs)/SE.diff,lower.tail=FALSE)
 p.adj<-ifelse(p.val*((r^2-r)/2)>=1,1,round(p.val*((r^2-r)/2),6))
 hwidths<-B*SE.diff
 val<-round(cbind(diffs,diffs-hwidths,diffs+hwidths),5)

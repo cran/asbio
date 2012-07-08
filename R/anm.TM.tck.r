@@ -12,6 +12,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Matrix population models")
@@ -61,6 +62,7 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+    invisible(tclServiceMode(TRUE))
     }
 
     Av <- tclVar("matrix(nrow=3,ncol=3,data=c(.672,0,.561,0.018,0.849,0,0,0.138,0.969),byrow=TRUE)")

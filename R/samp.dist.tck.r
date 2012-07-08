@@ -10,6 +10,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Sampling distributions")
@@ -107,6 +108,7 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+    tclServiceMode(TRUE)
     }                            
       Parent1<-tclVar("rexp(100)")
       Parent2<-tclVar("NULL")

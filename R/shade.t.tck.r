@@ -59,7 +59,7 @@ local({
         tkgrid(tklabel(tt,text="t probability"),columnspan=4)
         tkgrid(tklabel(tt,text=""))
         tkgrid(tklabel(tt,text="x",font=c("Helvetica","9","italic")), x.entry)
-        tkgrid(tklabel(tt,text='\u03b7',font=c("Helvetica","9","italic")), nu.entry)
+        tkgrid(tklabel(tt,text='\u03bd',font=c("Helvetica","9","italic")), nu.entry)
         tkgrid(tklabel(tt,text=""))
         alt.rbuts <- tkframe(tt)
 

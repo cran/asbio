@@ -7,6 +7,7 @@ local({
         tkframe <- ttkframe
         tklabel <- ttklabel
     }
+tclServiceMode(FALSE)
    top <- tktoplevel() 
    tkwm.geometry(top, "+500+4")
    tktitle(top) <- "Demonstration of type I and type II error"
@@ -134,6 +135,7 @@ IV<-function(){
         
 
 tkpack(tkbutton(top, text = "Exit", command = function()tkdestroy(top)),side="right")
+tclServiceMode(TRUE)
 })
 }
 

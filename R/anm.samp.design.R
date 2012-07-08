@@ -2,6 +2,7 @@ anm.samp.design<-function(n=20, interval = 0.5 ,iter = 30){
 r<-rep(n,iter)
 for(i in 1:iter){ 
 samp.design(r[i])
+dev.flush()
 Sys.sleep(interval)
 }
 }

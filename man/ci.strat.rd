@@ -3,7 +3,7 @@
 \title{Confidence intervals for stratified random samples.
 }
 \description{
-A statistical estimate along with its associated confidence interval can be considered to be an inferential statement about the sampled population.  However this statement will only be a correct if the method of sampling is considered in the computations of standard errors.  The function \code{ci.strat} provides appropriate computations given stratified random sampling.
+A statistical estimate along with its associated confidence interval can be considered to be an inferential statement about the sampled population.  However this statement will only be correct if the method of sampling is considered in the computations of standard errors.  The function \code{ci.strat} provides appropriate computations given stratified random sampling.
 }
 \usage{
 

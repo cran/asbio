@@ -196,7 +196,7 @@ res<-list()
   res$lines<-lines
   
   n.perp<-length(!is.na(perp))
-  SD.perp<-sapply(as.data.frame(perp),function(x)sd(x,na.rm=TRUE))
+  SD.perp<-sapply(perp,function(x)sd(x,na.rm=TRUE))
   SE.perp<-SD.perp/sqrt(n.perp)
   
 if(!is.null(habitat))

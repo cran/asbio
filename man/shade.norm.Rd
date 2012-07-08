@@ -15,26 +15,26 @@ Creates plots with lower, upper, two-tailed, and middle of the distribution shad
 \usage{
 
 shade.norm(x = NULL, from = NULL, to = NULL, sigma = 1, mu = 0,
-tail = "lower", show.p = TRUE, show.d = FALSE, show.dist = TRUE, digits = 5, 
+tail = "lower", show.p = TRUE, show.d = FALSE, show.dist = TRUE, digits = 5,legend.cex = .9, 
 shade.col="gray",...)
 
 shade.t(x = NULL, from = NULL, to = NULL, nu = 3, tail = "lower", 
-show.p = TRUE, show.d = FALSE, show.dist = TRUE, digits = 5, 
+show.p = TRUE, show.d = FALSE, show.dist = TRUE, digits = 5,legend.cex = .9, 
 shade.col="gray",...)
 
 shade.F(x = NULL, from = NULL, to = NULL, nu1 = 1, nu2 = 5, 
 tail = "lower", show.p = TRUE, show.d = FALSE, show.dist = TRUE, 
-prob.to.each.tail = 0.025, digits = 5, shade.col="gray",...)
+prob.to.each.tail = 0.025, digits = 5, legend.cex = .9,shade.col="gray",...)
 
 shade.chi(x = NULL, from = NULL, to = NULL, nu = 1, tail = "lower", 
 show.p = TRUE, show.d = FALSE, show.dist = TRUE, prob.to.each.tail = 0.025, 
-digits = 5,shade.col="gray",...)
+digits = 5,legend.cex = .9,shade.col="gray",...)
 
 shade.bin(x=NULL,from=NULL,to=NULL,n=1,p=0.5,tail="X=x",show.p=TRUE,
-show.dist=TRUE, show.d=FALSE,digits=5, ...)
+show.dist=TRUE, show.d=FALSE,legend.cex = .9,digits=5, ...)
 
 shade.poi(x=NULL,from=NULL,to=NULL,lambda=5,tail="X=x",show.p=TRUE,
-show.dist=TRUE, show.d=FALSE,digits=5, ...)
+show.dist=TRUE, show.d=FALSE,legend.cex = .9,digits=5, ...)
 }
 
 \arguments{
@@ -88,6 +88,9 @@ The binomial probability of success.
 }
 \item{lambda}{
 The Poisson parameter (i.e. rate).
+}
+\item{legend.cex}{
+Character expansion for legends in plots.
 }
 \item{shade.col}{
 Color of probability shading.

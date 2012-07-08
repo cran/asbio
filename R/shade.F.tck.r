@@ -10,7 +10,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
-    
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Depiction of F probability")
@@ -62,8 +62,8 @@ local({
         tkgrid(tklabel(tt,text="F probability"),columnspan=2)
         tkgrid(tklabel(tt,text=""))
         tkgrid(tklabel(tt,text="x",font=c("Helvetica","9","italic")), x.entry)
-        tkgrid(tklabel(tt,text='\u03b7\u2081'), nu1.entry)
-        tkgrid(tklabel(tt,text='\u03b7\u2082'), nu2.entry)
+        tkgrid(tklabel(tt,text='\u03bd\u2081'), nu1.entry)
+        tkgrid(tklabel(tt,text='\u03bd\u2082'), nu2.entry)
         tkgrid(tklabel(tt,text=""))
         alt.rbuts <- tkframe(tt)
 
@@ -94,6 +94,7 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+        tclServiceMode(TRUE)
     }                            
       X<-tclVar("2")
       Nu1<-tclVar("5")

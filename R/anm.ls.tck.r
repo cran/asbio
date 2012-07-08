@@ -10,6 +10,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,'Least squares estimation of \u03bc')
@@ -54,6 +55,7 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+    tclServiceMode(TRUE)
     }                            
       Data<-tclVar("rnorm(30)")
       Int<-tclVar("0.01")

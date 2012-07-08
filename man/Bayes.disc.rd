@@ -9,7 +9,7 @@ An exceedingly simple function for for summarizing a Bayesian analysis given dis
 }
 \usage{
 
-Bayes.disc(Data, Prior, data.name = "data", plot = TRUE, 
+Bayes.disc(Likelihood, Prior, data.name = "data", plot = TRUE, 
 c.data = seq(1, length(Prior)), ...)
 
 Bayes.disc.tck()
@@ -17,7 +17,7 @@ Bayes.disc.tck()
 
 \arguments{
 
-  \item{Data}{A vector of data probabilities.  This must be in the same order as \code{Prior}, i.e. if \eqn{\theta_1} is the first element in \code{Prior}, then \eqn{data|\theta_1} must be the first element in \code{Data}.
+  \item{Likelihood}{A vector of sample distribution probabilities.  This must be in the same order as \code{Prior}, i.e. if \eqn{\theta_1} is the first element in \code{Prior}, then \eqn{data|\theta_1} must be the first element in \code{Data}.
 }
   \item{Prior}{
 A vector of prior probabilities, or weights.

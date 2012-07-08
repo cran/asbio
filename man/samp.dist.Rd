@@ -13,21 +13,21 @@ This help page describes a series of \pkg{asbio} functions for depicting samplin
 }
 \usage{
 samp.dist(parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
-n.seq = seq(1, 30),R = 1000, breaks = 30, stat = mean, stat2 = NULL, 
+n.seq = seq(1, 30),R = 1000, nbreaks = 50, stat = mean, stat2 = NULL, 
 stat3 = NULL, stat4 = NULL, fix.n = TRUE, xlab = expression(bar(x)), 
-ylab = "Relative frequency", ylim = NULL, func = NULL, show.n = TRUE, 
+ylim = NULL, func = NULL, show.n = TRUE, 
 show.SE = FALSE, est.density = TRUE, col.density = 4, lwd.density = 2, 
 est.ylim = TRUE, anim = TRUE, interval = 0.01, col.anim = "rainbow", 
 digits = 3,...)
 
 samp.dist.fixn(parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
-R = 1000, breaks = 30, stat = mean, stat2 = NULL, stat3 = NULL, 
-stat4 = NULL, xlab = expression(bar(x)), ylab = "Relative frequency", 
+R = 1000, nbreaks = 50, stat = mean, stat2 = NULL, stat3 = NULL, 
+stat4 = NULL, xlab = expression(bar(x)), 
 func = NULL, show.n = TRUE, show.SE = FALSE, anim = TRUE, 
 interval = 0.01, col.anim = "rainbow", digits = 3,...)
 
 samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, 
-xlab = expression(bar(x)), ylab = "Relative frequency", breaks = 30, 
+xlab = expression(bar(x)), nbreaks = 50, 
 func = NULL, show.n = TRUE, show.SE = FALSE, est.density = TRUE, 
 col.density = 4, lwd.density = 2, est.ylim = TRUE, ylim = NULL, 
 anim = TRUE, interval = 0.5, col.anim = NULL, digits = 3,...)
@@ -37,7 +37,7 @@ samp.dist.tck()
 samp.dist.method.tck()
 
 samp.dist.snap(parent,parent2 = NULL,stat = mean,stat2 = NULL, stat3 = 
-NULL, stat4 = NULL,s.sizes=c(1,3,6,10,20,50),s.sizes2 = NULL,R = 1000,L = 6,
+NULL, stat4 = NULL,s.sizes=c(1,3,6,10,20,50),s.sizes2 = NULL,R = 1000,
 xlab = expression(bar(x)),show.SE = TRUE)
 
 samp.dist.snap.tck()
@@ -50,16 +50,14 @@ samp.dist.snap.tck()
  \item{s.sizes}{An argument from \code{samp.dist.snap}.  This will be a vector of maximum length twelve indicating which sample sizes (taken from \code{parent}) should be simultaneously depicted.}
   \item{s.sizes2}{An optional argument from \code{samp.dist.snap}.  This will be a vector of maximum length twelve indicating which sample sizes (taken from \code{parent2}) should be simultaneously depicted.  Must be the same length as \code{s.sizes}.} 
   \item{n.seq}{A two element vector specifying the smallest and largest in a range of demonstrated sample sizes.  Requires \code{fix.n=FALSE}.}
-  \item{L}{An argument from \code{samp.dist.snap}.  Will be a single integer indicating the length of \code{s.sizes} (i.e. the number of desired snapshots), and ,if specifified, the length of \code{s.sizes2}.} 
   \item{R}{The number of samples to be taken from parent distribution(s).}
-  \item{breaks}{Number of breaks in the histogram.}
+  \item{nbreaks}{Number of breaks in the histogram.}
   \item{stat}{The statistic whose sampling distribution is to be represented.  Will work for any summary statistic; e.g. \code{\link{mean}}, \code{\link{var}}, \code{\link{median}}, etc.}
   \item{stat2}{An optional second statistic. Useful for conceptualizing sampling distributions of test statistics.  Calculated from sampling \code{parent2}.}
   \item{stat3}{An optional third statistic. The sampling distribution is created from the same sample data used for \code{stat}.}
   \item{stat4}{An optional fourth statistic. The sampling distribution is created from the same sample data used for \code{stat2}}.
   \item{fix.n}{Logical indicating whether or not sample size should be held constant in demonstrations (see below).}
   \item{xlab}{\emph{X}-axis label.}
-  \item{ylab}{\emph{Y}-axis label.}
   \item{ylim}{Limits for \emph{Y}-axis.  Specify using a two element vector.}
   \item{func}{An optional function used to manipulate a sampling distribution or to combine the sampling distributions of two or more statistics.  The function must have only sampling distributions, i.e. \code{s.dist1}, \code{s.dist2}, \code{s.dist3}, and/or \code{s.dist} as non-fixed arguments (see example below).}
   \item{show.n}{A logical command, \code{TRUE} indicates that sample size for \code{parent} will be displayed.}
@@ -112,19 +110,19 @@ samp.dist(parent=exp.parent, col.anim="heat.colors",fix.n=FALSE,interval=.3)
 parent<-rnorm(10000,sd=3)
 dev.new()
 samp.dist(parent, R=1000,col.anim="heat.colors",fix.n=FALSE,interval=.1,
-n.seq=seq(1,100),breaks=50,show.SE=TRUE)
+n.seq=seq(1,100),nbreaks=50,show.SE=TRUE)
 dev.new()
 samp.dist(parent, R=1000,col.anim="heat.colors",fix.n=FALSE,interval=.1,stat=median,
-n.seq=seq(1,100),xlab="Median",show.SE=TRUE,breaks=50)
+n.seq=seq(1,100),xlab="Median",show.SE=TRUE,nbreaks=50)
 
 #How do the efficiency of the median and mean compare in a distribution with 10\% 
 #contamination?
 parent<-c(rnorm(9000),rnorm(1000,mean=10))
 samp.dist(parent, col.anim="heat.colors",fix.n=FALSE,interval=.3,
-breaks=50,show.SE=TRUE)
+nbreaks=50,show.SE=TRUE)
 dev.new()
 samp.dist(parent, col.anim="heat.colors",fix.n=FALSE,interval=.3,stat=median,
-xlab="Median",est.ylim=TRUE,show.SE=TRUE,breaks=50)
+xlab="Median",est.ylim=TRUE,show.SE=TRUE,nbreaks=50)
 
 
 ##Distribution of t-statistics from a pooled variance t-test under valid and invalid assumptions
@@ -135,7 +133,7 @@ MSE<-(((s.size-1)*s.dist3)+((s.size2-1)*s.dist4))/(s.size+s.size2-2)
 func.res<-(s.dist1-s.dist2)/(sqrt(MSE)*sqrt((1/s.size)+(1/s.size2)))
 func.res}
 
-samp.dist(parent, parent2=parent, s.size=6, R=1000, breaks=35,stat=mean,stat2=mean,
+samp.dist(parent, parent2=parent, s.size=6, R=1000, nbreaks=35,stat=mean,stat2=mean,
 stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star,show.n=FALSE)
 
 curve(dt(x,10),from=-6,to=6,add=TRUE,lwd=2)
@@ -146,7 +144,7 @@ legend("topleft",lwd=2,col=1,legend="t(10)")
 parent<-runif(100000, min=0,max=2)
 parent2<-rexp(100000)
 
-samp.dist(parent, parent2=parent2, s.size=6, R=1000, breaks=35,stat=mean,stat2=mean,
+samp.dist(parent, parent2=parent2, s.size=6, R=1000, nbreaks=35,stat=mean,stat2=mean,
 stat3=var,stat4=var,xlab="t*", ylab="Relative frequency",func=t.star,show.n=FALSE)
 curve(dt(x,10),from=-6,to=6,add=TRUE,lwd=2)
 legend("topleft",lwd=2,col=1,legend="t(10)")

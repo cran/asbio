@@ -1,21 +1,21 @@
 samp.dist<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
-    n.seq = seq(1, 30), R = 1000, breaks = 30, stat = mean, stat2 = NULL, 
+    n.seq = seq(1, 30), R = 1000, nbreaks = 50, stat = mean, stat2 = NULL, 
     stat3 = NULL, stat4 = NULL, fix.n = TRUE, xlab = expression(bar(x)), 
-    ylab = "Relative frequency", ylim = NULL, func = NULL, show.n = TRUE, 
+    ylim = NULL, func = NULL, show.n = TRUE, 
     show.SE = FALSE, est.density = TRUE, col.density = 4, lwd.density = 2, 
     est.ylim = TRUE, anim = TRUE, interval = 0.01, col.anim = "rainbow", 
     digits = 3, ...) 
 {
     if (fix.n == TRUE) 
         samp.dist.fixn(parent = parent, parent2 = parent2, s.size = s.size, 
-            s.size2 = s.size2, R = R, breaks = breaks, stat = stat, 
+            s.size2 = s.size2, R = R, nbreaks = nbreaks, stat = stat, 
             stat2 = stat2, stat3 = stat3, stat4 = stat4, xlab = xlab, 
-            ylab = ylab, func = func, show.n = show.n, show.SE = show.SE, 
+            func = func, show.n = show.n, show.SE = show.SE, 
             anim = anim, interval = interval, col.anim = col.anim, 
             digits = digits, ...)
     if (fix.n == FALSE) 
         samp.dist.n(parent = parent, R = R, n.seq = n.seq, stat = stat, 
-            xlab = xlab, ylab = ylab, breaks = breaks, ylim = ylim, 
+            xlab = xlab, nbreaks = nbreaks, ylim = ylim, 
             func = func, show.n = show.n, show.SE = show.SE, 
             est.density = est.density, col.density = col.density, 
             lwd.density = lwd.density, est.ylim = est.ylim, anim = anim, 
@@ -27,8 +27,8 @@ samp.dist<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size,
 #------------------------------------ fixed n ---------------------------------------#
 
 samp.dist.fixn<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
-    R = 1000, breaks = 30, stat = mean, stat2 = NULL, stat3 = NULL, 
-    stat4 = NULL, xlab = expression(bar(x)), ylab = "Relative frequency", 
+    R = 1000, nbreaks = 50, stat = mean, stat2 = NULL, stat3 = NULL, 
+    stat4 = NULL, xlab = expression(bar(x)), 
     func = NULL, show.n = TRUE, show.SE = FALSE, anim = TRUE, 
     interval = 0.01, col.anim = "rainbow", digits = 3, ...) 
 {
@@ -54,22 +54,24 @@ samp.dist.fixn<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size
         }
         if (!is.null(func)) 
             s.dist <- func(s.dist)
-        SE <- round(sd(s.dist), digits)
+        SE <- round(apply(s.dist,2,sd), digits)
         if (anim == TRUE) {
             for (i in 1:R) {
-                hist(s.dist, xlab = xlab, ylab = ylab, main = "", 
-                  freq = FALSE, breaks = breaks, border = "white", 
+                dev.hold()
+                hist(s.dist, xlab = xlab, main = "", 
+                  freq = FALSE, breaks = nbreaks, border = "white", 
                   ...)
                 points(suppressWarnings(hist(s.dist[1:i], plot = FALSE, 
-                  breaks = breaks, freq = FALSE)$mids), suppressWarnings(hist(s.dist[1:i], 
-                  plot = FALSE, breaks = breaks, freq = FALSE)$density), 
+                  breaks = nbreaks, freq = FALSE)$mids), suppressWarnings(hist(s.dist[1:i], 
+                  plot = FALSE, breaks = nbreaks, freq = FALSE)$density), 
                   type = "h", col = clr[i], lwd = 5)
+                dev.flush()
                 Sys.sleep(interval)
             }
         }
         if (anim == FALSE) {
-            hist(s.dist, xlab = xlab, ylab = ylab, main = "", 
-                freq = FALSE, breaks = breaks, ...)
+            hist(s.dist, xlab = xlab, main = "", 
+                freq = FALSE, breaks = nbreaks, ...)
         }
     }
     if (!is.null(stat2) | !is.null(stat3)) {
@@ -97,21 +99,24 @@ samp.dist.fixn<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size
         if (!is.null(stat2) & !is.null(stat3) & !is.null(stat4)) {
             func.res <- func(s.dist1, s.dist2, s.dist3, s.dist4)
         }
-        SE <- sd(func.res)
+        SE <- apply(func.res,2,sd)
+        brks <- seq(min(func.res),max(func.res),length.out=nbreaks)
         if (anim == TRUE) {
             for (i in 1:R) {
-                hist(func.res, xlab = xlab, ylab = "Relative frequency", 
-                  main = "", freq = FALSE, breaks = breaks, border = "white",...)
+                dev.hold()
+                hist(func.res, xlab = xlab,  
+                  main = "", freq = FALSE, breaks = brks, border = "white",...)
                 points(suppressWarnings(hist(func.res[1:i], plot = FALSE, 
-                  breaks = breaks, freq = FALSE)$mids), suppressWarnings(hist(func.res[1:i], 
-                  plot = FALSE, breaks = breaks, freq = FALSE)$density), 
+                  breaks = brks, freq = FALSE)$mids), suppressWarnings(hist(func.res[1:i], 
+                  plot = FALSE, breaks = brks, freq = FALSE)$density), 
                   type = "h", col = clr[i], lwd = 5)
+                dev.flush()
                 Sys.sleep(interval)
             }
         }
         if (anim == FALSE) {
-            hist(func.res, xlab = xlab, ylab = "Relative frequency", 
-                main = "", freq = FALSE, breaks = breaks, ...)
+            hist(func.res, xlab = xlab,  
+                main = "", freq = FALSE, breaks = brks, ...)
         }
     }
     if (show.n == TRUE & show.SE == FALSE) {
@@ -130,7 +135,7 @@ samp.dist.fixn<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size
 #----------------------------- changing n ------------------------------------#
 
 samp.dist.n<-function (parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = expression(bar(x)), 
-    ylab = "Relative frequency", breaks = 30, func = NULL, show.n = TRUE, 
+    nbreaks = 50, func = NULL, show.n = TRUE, 
     show.SE = FALSE, est.density = TRUE, col.density = 4, lwd.density = 2, 
     est.ylim = TRUE, ylim = NULL, anim = TRUE, interval = 0.5, 
     col.anim = NULL, digits = 3, ...) 
@@ -147,9 +152,9 @@ samp.dist.n<-function (parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = 
         }
         if (!is.null(func)) 
             s.dist <- func(s.dist)
-        SE <- round(sd(s.dist), digits)
-        hist(s.dist, xlab = xlab, ylab = ylab, main = "", freq = FALSE, 
-            breaks = breaks, ...)
+        SE <- round(apply(s.dist,2,sd), digits)
+        hist(s.dist, xlab = xlab, main = "", freq = FALSE, 
+            breaks = nbreaks, ...)
         if (est.density == TRUE) {
             lines(density(s.dist), col = col.density, lwd = lwd.density)
         }
@@ -193,9 +198,11 @@ samp.dist.n<-function (parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = 
             ylim <- c(0, max(c(max(density(s.dist[, 1])$y), max(density(s.dist[, 
                 max.col])$y))))
         }
+        brks <- seq(min(s.dist), max(s.dist), length.out = nbreaks)
         for (i in 1:length(n.seq)) {
-            hist(s.dist[, i], xlab = xlab, ylab = ylab, ylim = ylim, 
-                main = "", breaks = breaks, freq = FALSE, col = clr[i],...)
+            dev.hold()
+            hist(s.dist[, i], xlab = xlab, ylim = ylim, 
+                main = "", breaks = brks, freq = FALSE, col = clr[i],...)
             if (show.n == TRUE & show.SE == FALSE) {
                 legend("topright", legend = paste("n = ", n.seq[i]), 
                   bty = "n")
@@ -212,6 +219,7 @@ samp.dist.n<-function (parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = 
                 lines(density(s.dist[, i]), col = col.density, 
                   lwd = lwd.density)
             }
+            dev.flush()
             Sys.sleep(interval)
         }
     }

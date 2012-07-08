@@ -1,116 +1,54 @@
-bplot<-function (y, x, int = "CI", conf = 0.95, 
-    plot.ci = TRUE, bar = TRUE, simlett = FALSE, bar.col = "gray", 
-    lett = NULL, exp.fact = 2, xlab = "x", ylab = "y", err = "y", 
-    sfrac = 0.01, gap = 0, slty = par("lty"), scol = NULL, pt.bg = par("bg"), 
-    order = FALSE, names.arg = NULL, width = 1, loc.meas = mean, 
-    cex.lab = 1, cex.axis = 1, cex.names = 1, las = par("las"), 
-    horiz = FALSE, ylim = NULL, ...) 
+bplot<-function (y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "SE", conf = 0.95, 
+    uiw = NULL, liw = NULL, sfrac = 0.1, slty = 1, scol = 1, slwd = 1, exp.fact = 1.5, simlett = FALSE, lett.side = 3,  
+    lett = NULL, names.arg = NULL, ylim = NULL, horiz = FALSE, ...) 
 {
-    require(plotrix)
-    t.conf <- function(data, conf = 0.95) {
-        n <- nrow(as.matrix(data))
-        SE <- sd(data)/sqrt(n)
-        t.star <- qt((1 - ((1 - conf)/2)), n - 1)
-        m <- SE * t.star
-        CI <- c(mean(data) - m, mean(data) + m)
-        result <- list()
-        result$SE <- SE
-        result$margin <- m
-        result$CI <- CI
-        result
-    }
     SE <- tapply(y, x, function(x) {
-        t.conf(x[!is.na(x)])$SE
+    ci.mu.t(x[!is.na(x)])$SE
     })
     CI <- tapply(y, x, function(x) {
-        t.conf(x[!is.na(x)], conf = conf)$margin
+    ci.mu.t(x[!is.na(x)], conf = conf)$margin
     })
     iqr <- tapply(y, x, IQR)
     n <- as.numeric(summary(as.factor(x)))
     iqr.ci <- 1.58 * iqr/sqrt(n)
+    MAD <- tapply(y, x, function(x) {
+    mad(x[!is.na(x)])})
+    
     loc.vec <- tapply(y, x, function(x) {
-        loc.meas(x[!is.na(x)])
-    })
-    if (order == TRUE) {
+        loc.meas(x[!is.na(x)])})
+    
+       if (order == TRUE) {
         o <- order(loc.vec)
         loc.vec <- loc.vec[o]
         SE <- SE[o]
         CI <- CI[o]
         iqr <- iqr[o]
         iqr.ci <- iqr.ci[o]
+        MAD <- MAD[o]
         names.arg <- names.arg[o]
     }
-    b <- barplot(loc.vec, plot = FALSE)
-    if (plot.ci == TRUE) {
-        if (bar == TRUE) {
-            if (int == "SE") {
-                if (simlett == TRUE&is.null(ylim)) 
-                  yLim = c(0, max(loc.vec + (SE * exp.fact)))
-                if (simlett == FALSE&is.null(ylim)) 
-                  yLim = c(0, max(loc.vec + SE))
-                if (!is.null(ylim))yLim=ylim
-                plotCI(barplot(loc.vec, col = bar.col, ylim = yLim, 
-                  xlab = xlab, ylab = ylab, cex.axis = cex.axis, 
-                  las = las, horiz = horiz, names.arg = names.arg, 
-                  width = width, cex.names = cex.names, cex.lab = cex.lab), 
-                  loc.vec, uiw = SE, slty = slty, sfrac = sfrac, 
-                  err = err, add = TRUE, ...)
-            }
-            if (int == "CI") {
-                if (simlett == TRUE) 
-                  yLim = c(0, max(loc.vec + (CI * exp.fact)))
-                if (simlett == FALSE) 
-                  yLim = c(0, max(loc.vec + CI))
-                if (!is.null(ylim))yLim=ylim
-                plotCI(barplot(loc.vec, col = bar.col, ylim = yLim, 
-                  xlab = xlab, ylab = ylab, cex.axis = cex.axis, 
-                  las = las, horiz = horiz, names.arg = names.arg, 
-                  width = width, cex.names = cex.names, cex.lab = cex.lab), 
-                  loc.vec, uiw = CI, slty = slty, sfrac = sfrac, 
-                  err = err, add = TRUE, ...)
-            }
-            if (int == "IQR") {
-                if (simlett == TRUE) 
-                  yLim = c(0, max(loc.vec + (iqr * 0.5 * exp.fact)))
-                if (simlett == FALSE) 
-                  yLim = c(0, max(loc.vec + iqr * 0.5))
-                if (!is.null(ylim))yLim=ylim
-                plotCI(barplot(loc.vec, col = bar.col, ylim = yLim, 
-                  xlab = xlab, ylab = ylab, cex.axis = cex.axis, 
-                  las = las, horiz = horiz, names.arg = names.arg, 
-                  width = width, cex.names = cex.names, cex.lab = cex.lab), 
-                  loc.vec, uiw = iqr * 0.5, slty = slty, sfrac = sfrac, 
-                  err = err, add = TRUE, ...)
-            }
-            if (int == "IQR.CI") {
-                if (simlett == TRUE) 
-                  yLim = c(0, max(loc.vec + (iqr.ci * exp.fact)))
-                if (simlett == FALSE) 
-                  yLim = c(0, max(loc.vec + iqr.ci))
-                if (!is.null(ylim))yLim=ylim
-                plotCI(barplot(loc.vec, col = bar.col, ylim = yLim, 
-                  xlab = xlab, ylab = ylab, cex.axis = cex.axis, 
-                  las = las, horiz = horiz, names.arg = names.arg, 
-                  width = width, cex.names = cex.names, cex.lab = cex.lab), 
-                  loc.vec, uiw = iqr.ci, slty = slty, sfrac = sfrac, 
-                  err = err, add = TRUE, ...)
-            }
-        }
-        if (bar == FALSE) {
-            if (int == "SE") 
-                plotCI(x = as.numeric(levels(as.factor(x))), 
-                  loc.vec, uiw = SE, xlab = xlab, ylab = ylab, 
-                  ...)
-            if (int == "CI") 
-                plotCI(x = as.numeric(levels(as.factor(x))), 
-                  loc.vec, uiw = CI, xlab = xlab, ylab = ylab, 
-                  ...)
-        }
-    }
-    if (plot.ci == FALSE) 
-        barplot(loc.vec, xlab = xlab, ylab = ylab, cex.axis = cex.axis, 
-            las = las, horiz = horiz, names.arg = names.arg, 
-            width = width, cex.names = cex.names, cex.lab = cex.lab, ylim = ylim)
-    if (simlett == TRUE) 
-        mtext(lett, side = 3, at = b, line = 0.5)
+    
+    if(int == "CI") margin <- CI
+    if(int == "SE") margin <- SE
+    if(int == "IQR") margin <- iqr
+    if(int == "IQR.CI") margin <- iqr.ci
+    if(int == "MAD") margin <- MAD
+    if(is.null(uiw)) uiw <- loc.vec + margin; liw <- loc.vec - margin
+    
+                if (simlett == TRUE & is.null(ylim)){ 
+                  yLim = c(min(c(0, loc.vec - (margin * exp.fact))), 
+                  max(c(0, loc.vec + (margin * exp.fact))))}
+                if(simlett == FALSE){
+                  yLim <- c(min(0, loc.vec - (margin)), max(0, loc.vec + (margin)))}
+                                     
+                if(horiz == FALSE) b <- barplot(loc.vec, ylim = yLim , col = bar.col, ...)
+                if(horiz == TRUE) b <- barplot(loc.vec, xlim = yLim , col = bar.col, horiz = TRUE, ...)
+                if(horiz == FALSE){
+                    arrows(b, liw, b, uiw, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)
+                    arrows(b, liw, b, uiw, code = 1, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)}
+                if(horiz == TRUE){
+                    arrows(liw, b, uiw, b, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)
+                    arrows(liw, b, uiw, b, code = 1, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)}
+        if(simlett == TRUE){
+                    mtext(lett, side = lett.side, at = b, line = ifelse(lett.side == 3, 0.5, -0.5))}
 }

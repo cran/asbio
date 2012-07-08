@@ -11,6 +11,7 @@ loglik.tck<-function(){
             tklabel <- ttklabel
             tkradiobutton <- ttkradiobutton
         }
+        tclServiceMode(FALSE)
         dialog.ll <- function() {
             tt <- tktoplevel()
             tkwm.title(tt, "Log-likelihood")
@@ -63,6 +64,7 @@ loglik.tck<-function(){
             tkdestroy(tt)
             cmd <- build()
             eval.parent(cmd)
+            invisible(tclServiceMode(TRUE))
         }
         Xe <- tclVar("rnorm(20)")
         Dist <- tclVar("norm")

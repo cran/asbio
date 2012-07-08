@@ -10,7 +10,7 @@ local({
         tklabel <- ttklabel
         tkradiobutton <- ttkradiobutton
     }
-    
+    tclServiceMode(FALSE)
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Depiction of binomial probability")
@@ -90,6 +90,7 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
+        tclServiceMode(FALSE)
     }                            
       X<-tclVar("1")
       Lambda<-tclVar("5")

@@ -12,6 +12,7 @@ anm.die.tck<-function ()
             tklabel <- ttklabel
             tkradiobutton <- ttkradiobutton
         }
+        tclServiceMode(FALSE)
         dialog.sd <- function() {
             tt <- tktoplevel()
             tkwm.title(tt, "Frequentist probability and die throws")
@@ -54,6 +55,7 @@ anm.die.tck<-function ()
             tkdestroy(tt)
             cmd <- build()
             eval.parent(cmd)
+        invisible(tclServiceMode(TRUE))
         }
         P <- tclVar("rep(1/6,6)")
         Throws <- tclVar("1000")

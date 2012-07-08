@@ -46,6 +46,7 @@ Max.lik<-log(prod(dnorm(X,mean=mean(X),sd=sqrt(Var.MLE(X)))))
           abline(v=MLE,lty=2,col=2)
           }
       if(plot.density==TRUE){
+          x <- NULL; rm(x); # Dummy to trick R CMD check 
           curve(dnorm(x,mean=mean(X),sd=sqrt(Var.MLE(X))),from=min(X),to=max(X),xlab= "x",ylab="f(x)")
           legend("topright",legend=c(paste("X~N(",bquote(.(round(mean(X),1))),", ",bquote(.(round(Var.MLE(X),1))),")",sep=""),
           paste("Loglik = ",bquote(.(round(Max.lik,2))))),bty="n",cex=.9)
@@ -57,6 +58,7 @@ Max.lik<-log(prod(dnorm(X,mean=mean(X),sd=sqrt(Var.MLE(X)))))
     nm<-which(logl==max(logl))[1]
       if(plot.likfunc==TRUE&plot.density==TRUE)dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.9)
             for(i in 1:(nm-1)){
+                dev.hold()
                 if(plot.likfunc==TRUE){
                     plot(possibilities,logl,type="n",ylab=ifelse(is.null(ylab),"Normal log-likelihood function",ylab), 
                     xlab=ifelse(is.null(xlab),ifelse(parameter== "mu",expression(paste("Estimates for ", mu)),
@@ -69,6 +71,7 @@ Max.lik<-log(prod(dnorm(X,mean=mean(X),sd=sqrt(Var.MLE(X)))))
                         }
                 }
                 if(plot.density==TRUE){
+                    x <- NULL; rm(x); # Dummy to trick R CMD check 
                     curve(dnorm(x,mean=ifelse(parameter=="mu",possibilities[i],mu),sd=ifelse(parameter=="mu",sdM,possibilities[i])),from=min(X),to=max(X),xlab= "x"
                     ,ylab="f(x)")
                     segments(x0=X,y0=rep(0,length(X)),x1=X,y1=dnorm(X,mean=ifelse(parameter=="mu",possibilities[i],mu),sd=ifelse(parameter=="mu",sdM,possibilities[i]
@@ -81,6 +84,7 @@ Max.lik<-log(prod(dnorm(X,mean=mean(X),sd=sqrt(Var.MLE(X)))))
                         (sigma^2," = ",.(MLE))))),as.expression(bquote(paste("Loglik = ", .(round(Max.lik,2)))))),bty="n",cex=.9)
                         }
                 }
+            dev.flush()
             Sys.sleep(interval)
           }
      if(plot.calc==TRUE){
@@ -91,11 +95,14 @@ Max.lik<-log(prod(dnorm(X,mean=mean(X),sd=sqrt(Var.MLE(X)))))
       loglik<-log(dnorm(X,mean=ifelse(parameter=="mu",max.p,mu),sd=ifelse(parameter=="mu",sdM,max.p)))
       cumlik<-rep(cumsum(loglik),each=c)
       for(i in 1:(length(X)*c)){
+        dev.hold()
+        x <- NULL; rm(x); # Dummy to trick R CMD check 
         curve(dnorm(x,mean=ifelse(parameter=="mu",max.p,mu),sd=ifelse(parameter=="mu",sdM,max.p)),from=min(X),to=max(X),xlab= "x",ylab="f(x)")
         legend("topleft",col=2,lty=2,legend="Obs. density",bty="n",cex=.9)
         legend("topright",legend=c(paste("X~N(",bquote(.(round(mean(X),1))),", ",bquote(.(round(Var.MLE(X),1))),")",sep=""),
         paste("Loglik = ", bquote(.(round(cumlik[i],2))))),bty="n",cex=.9)
         segments(x0[1:i],y0[1:i],x0[1:i],y1[1:i],col=2,lty=2)
+        dev.flush()
         Sys.sleep(interval)
         
       }
@@ -145,6 +152,7 @@ Max.lik<-log(prod(dpois(X,mean(X))))
         nm<-which(logl==max(logl))[1]
           if(plot.likfunc==TRUE&plot.density==TRUE)dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.9)
             for(i in 1:(nm-1)){
+                dev.hold()
                 if(plot.likfunc==TRUE){
                     plot(possibilities,logl,type="n",ylab=ifelse(is.null(ylab),"Poisson Log-likelihood function",ylab), 
                     xlab=ifelse(is.null(xlab),expression(paste("Estimates for ", lambda)),xlab),...)
@@ -165,6 +173,7 @@ Max.lik<-log(prod(dpois(X,mean(X))))
                           .(round(Max.lik,2)))))),bty="n",cex=.9)
                           }
                 }                                                                                                                                               
+            dev.flush()
             Sys.sleep(interval)
             }
         if(plot.calc==TRUE){
@@ -175,12 +184,15 @@ Max.lik<-log(prod(dpois(X,mean(X))))
             loglik<-log(dpois(X,mean(X)))
             cumlik<-rep(cumsum(loglik),each=c)
             for(i in 1:(length(X)*c)){
+              dev.hold()
               plot(X,dpois(X,mean(X)),xlab= "x",ylab="f(x)",pch=16,type="n")
+              dev.hold()
               legend("topleft",col=2,lty=2,legend="Obs. density",bty="n",cex=.9)
               legend("topright",legend=c(paste("X~POI(",bquote(.(round(MLE,2))),")"),
               paste("Loglik = ", bquote(.(round(cumlik[i],2))))),bty="n",cex=.9)
               segments(x0[1:i],y0[1:i],x0[1:i],y1[1:i],col=2,lty=2)
               points(x0[1:i],y1[1:i],pch=16)
+              dev.flush()
               Sys.sleep(interval)
               }
          }
@@ -227,6 +239,7 @@ Max.lik<-log(prod(dbinom(sum(X),length(X),mean(X))))
         nm<-which(logl==max(logl))[1]
       if(plot.likfunc==TRUE&plot.density==TRUE)dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.9)
            for(i in 1:(nm-1)){
+           dev.hold()
                if(plot.likfunc==TRUE){     
                     plot(possibilities,logl,type="n",ylab=ifelse(is.null(ylab),"Binomial Log-likelihood function",ylab), 
                     xlab=ifelse(is.null(xlab),expression(paste("Estimates for ", italic(p))),xlab),...)
@@ -246,6 +259,7 @@ Max.lik<-log(prod(dbinom(sum(X),length(X),mean(X))))
                         if(i == (nm-1)){legend("topright",legend=c(as.expression(bquote(paste(italic(p), " = ",.(MLE)))),as.expression(bquote(paste("Loglik = ",
                         .(round(Max.lik,2)))))),bty="n",cex=.9)}
               }
+           dev.flush()
            Sys.sleep(interval)
           }
       }
@@ -278,6 +292,7 @@ possibilities<-poss
             abline(v=mean(X),lty=2,col=2)
             }
         if(plot.density==TRUE){
+            x <- NULL; rm(x); # Dummy to trick R CMD check 
             curve(dexp(x,1/mean(X)),from=min(X),to=max(X),xlab= "x",ylab="f(x)")
             legend("topright",legend=c(paste("X~EXP(1/",bquote(.(round(mean(X),3))),")",sep=""),
             paste("Loglik = ",bquote(.(round(Max.lik,2))))),bty="n",cex=.9)
@@ -290,6 +305,7 @@ possibilities<-poss
         nm<-which(logl==max(logl))[1]
           if(plot.likfunc==TRUE&plot.density==TRUE)dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.9)
             for(i in 1:(nm-1)){
+                dev.hold()
                 if(plot.likfunc==TRUE){
                     plot(possibilities,logl,type="n",ylab=ifelse(is.null(ylab),"Exponential Log-likelihood function",ylab), 
                     xlab=ifelse(is.null(xlab),expression(paste("Estimates for ", theta)),xlab),...)
@@ -300,6 +316,7 @@ possibilities<-poss
                             legend("topright",legend=bquote(paste("ML est. = ",.(MLE))),cex=.9,bty="n")}
                 }
                 if(plot.density==TRUE){
+                      x <- NULL; rm(x); # Dummy to trick R CMD check 
                       curve(dexp(x,1/possibilities[i]),from=min(X),to=max(X),xlab= "x",ylab="f(x)")
                       segments(x0=X,y0=rep(0,length(X)),x1=X,y1=dexp(X,1/possibilities[i]),col=2,lty=2)
                           if(i != (nm-1)){legend("topright",legend=c(as.expression(bquote(paste(theta, " = ",.(round(possibilities[i],2))))),
@@ -309,6 +326,7 @@ possibilities<-poss
                           .(round(Max.lik,2)))))),bty="n",cex=.9)
                           }
                 }                                                                                                                                               
+            dev.flush()
             Sys.sleep(interval)
     }
     if(plot.calc==TRUE){
@@ -319,11 +337,14 @@ possibilities<-poss
         loglik<-log(dexp(X,1/mean(X)))
         cumlik<-rep(cumsum(loglik),each=c)
             for(i in 1:(length(X)*c)){
+                dev.hold()
+                x <- NULL; rm(x); # Dummy to trick R CMD check 
                 curve(dexp(x,1/mean(X)),from=min(X),to=max(X),xlab="x",ylab="f(x)")
                 legend("topleft",col=2,lty=2,legend="Obs. density",bty="n",cex=.9)
                 legend("topright",legend=c(paste("X~EXP(1/",bquote(.(round(mean(X),4))),")"),
                 paste("Loglik = ", bquote(.(round(cumlik[i],2))))),bty="n",cex=.9)
                 segments(x0[1:i],y0[1:i],x0[1:i],y1[1:i],col=2,lty=2)
+                dev.flush()
                 Sys.sleep(interval)
             }
         }
@@ -345,9 +366,11 @@ plot(poss,logl,type="l",xlab=xlab,ylab=ylab,...)
 if(anim==TRUE){
 nm<-which(logl==max(logl))[1]
         for(i in 1:(nm-1)){
+          dev.hold()          
           plot(poss,logl,type="n",xlab=xlab,ylab=ylab,...)
           arrows(poss[i],logl[i],poss[i+1],logl[i+1],col=2,length=.15,lwd=1)
           points(poss[1:i],logl[1:i],lty=2,col=2,lwd=1,type="l")
+          dev.flush()
           Sys.sleep(interval)
       }
       points(poss,logl,type="l")

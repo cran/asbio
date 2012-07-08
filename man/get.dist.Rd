@@ -4,8 +4,6 @@
 \description{This function allows users access to 26 resemblance measures 
 .  This includes five not previously available in R.  
 Many of the measures are programmed with the function \code{\link[vegan]{designdist}} from library \pkg{vegan}.  
-The methods can be specified by name or by the distance measure number they were 
-given in Table 29.10 in (Aho; in prep); e.g. Steinhaus index = \code{"D8"}.  
  Minkowski's distance requires an additional specification for power.  
  The default is power = 2 which makes the measure equivalent to Euclidean distance. 
 }
@@ -16,19 +14,18 @@ get.dist(data, method, minkowski.power = 2)
 \arguments{
 
   \item{data}{A matrix for which resemblances between rows will be calculated}
-  \item{method}{One of twenty six possible resemblance measures.  These 
-  are: \code{"matching", "rogers", "jaccard.pa", "sorenson", "kulkczynski.pa", "ochiai",
-  "gower", "steinhaus", "kulkczynski.q", "jaccard.q", "euclidean", "rel.euclidean",
-  "manhattan", "czekanowski", "whittaker", "canberra", "chi.metric","chi.dist",
-  "morisita", "morisita.horn", "minkowski", "mountford", "raup.crick",
-  "binomial",}
-   or \code{"chao"}.  A method may also be specified by its equation number from Ch. 29. 
-   i.e. Steinhaus dissimilarity = \code{"D8"}.}
+  \item{method}{One of twenty six possible resemblance measures.  These are: \code{"matching",
+ "rogers", "jaccard.pa", "sorenson", "kulkczynski.pa", "ochiai",
+  "gower", "steinhaus", "kulkczynski.q", "jaccard.q", "euclidean",
+ "rel.euclidean", "manhattan", "czekanowski", "whittaker", "canberra",
+ "chi.metric","chi.dist", "morisita", "morisita.horn", "minkowski", "mountford",
+ "raup.crick", "binomial",}
+   or \code{"chao"}.}
   \item{minkowski.power}{Minkowski's distance requires a specification for power.  
  The default is \code{minkowski.power = 2} which makes the measure equivalent to Euclidean distance.}
 }
-\details{See Ch. 29 for descriptions of resemblance measures.
-}
+
+
 \value{
 Returns a matrix of \code{class(dist)}.
 }

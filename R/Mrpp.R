@@ -21,8 +21,8 @@ Mrpp<-function (dat, grouping, permutations = 1000, distance = "euclidean", weig
     del <- mrpp.perms(ind, dmat, indls, w)
     if (missing(strata)) 
         strata <- NULL
-    perms <- sapply(1:permutations, function(x) ind[permuted.index(N, 
-        strata = strata)])
+    CNTR <- permControl(strata = strata)
+    perms <- sapply(1:permutations, function(x) ind[shuffle(N, control = CNTR)])
     m.ds <- numeric(permutations)
     m.ds <- apply(perms, 2, function(x) mrpp.perms(x, dmat, indls, 
         w))
