@@ -1,7 +1,7 @@
 \name{Mode}
 \alias{Mode}
 \title{Sample mode}
-\description{Calculates the sample mode; i.e. the most frequent outcome in a dataset.  Non-existence of the mode will return a message.}
+\description{Calculates the sample mode; i.e. the most frequent outcome in a dataset.  Non-existence of the mode will return a message.  Several errors in earlier versions were corrected in asbio 0.4}
 \usage{
 Mode(x)
 }

@@ -1,6 +1,6 @@
 bplot<-function (y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "SE", conf = 0.95, 
     uiw = NULL, liw = NULL, sfrac = 0.1, slty = 1, scol = 1, slwd = 1, exp.fact = 1.5, simlett = FALSE, lett.side = 3,  
-    lett = NULL, names.arg = NULL, ylim = NULL, horiz = FALSE, ...) 
+    lett = NULL, cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, ...) 
 {
     SE <- tapply(y, x, function(x) {
     ci.mu.t(x[!is.na(x)])$SE
@@ -50,5 +50,5 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "
                     arrows(liw, b, uiw, b, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)
                     arrows(liw, b, uiw, b, code = 1, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)}
         if(simlett == TRUE){
-                    mtext(lett, side = lett.side, at = b, line = ifelse(lett.side == 3, 0.5, -0.5))}
+                    mtext(lett, side = lett.side, cex = cex.lett, at = b, line = ifelse(lett.side == 3, 0.5, -0.5))}
 }

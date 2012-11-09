@@ -9,14 +9,11 @@ Calculates prediction sum of squares (PRESS) for a linear model.
 }
 \usage{
 
-press(Y, X)
+press(lm)
 }
 \arguments{
-  \item{Y}{
-A numeric vector containing the response variable.
-}
-  \item{X}{
-A vector or matrix containing explanatory variables.
+  \item{lm}{
+An object of class \code{lm}.
 }
 }
 \details{
@@ -37,8 +34,8 @@ Ken Aho
 }
 \seealso{\code{\link{cor}}}
 \examples{
-Y<-rnorm(100)
-X<-rnorm(100)
-press(Y,X)
+Y <- rnorm(100)
+X <- rnorm(100)
+press(lm(Y ~ X))
 }
 \keyword{univar}

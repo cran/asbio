@@ -22,7 +22,7 @@ Letting \eqn{m = 2} results in a Gaussian distribution.  Standardizing this so t
 Ken Aho
 }
 \seealso{
-\code{\link{demos}}
+\code{\link{book.menu}}
 }
 
 \keyword{graphs}

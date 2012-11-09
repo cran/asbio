@@ -20,8 +20,8 @@ require(tcltk) || stop("tcltk support is absent")
         xmax <- as.numeric(evalq(tclvalue(xmax), envir = slider.env))
         xx <- seq(xmin, xmax, length = 500)
         yy <- dbeta(xx, alpha, beta)
-        
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(BETA), "(", .(alpha), ", ", .(beta),")", sep = "")), side = 3, line = 1)
         dev.flush()
                     }
     tclServiceMode(TRUE)
@@ -77,7 +77,7 @@ require(tcltk) || stop("tcltk support is absent")
     xmax <- 1
     assign("xmax", tclVar(xmax), envir = slider.env)
            
-   dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+   dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
    norm.refresh <- function(...) {
         alpha <- as.numeric(evalq(tclvalue(alpha), envir = slider.env))
         beta <- as.numeric(evalq(tclvalue(beta), envir = slider.env))
@@ -89,6 +89,7 @@ require(tcltk) || stop("tcltk support is absent")
         dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
         plot(xx, y1, type = "l", xlim = c(xmin, xmax), ylab = "F(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(BETA), "(", .(alpha), ", ", .(beta),")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()            
                     }
     tclServiceMode(TRUE)

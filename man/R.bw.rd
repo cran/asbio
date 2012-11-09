@@ -1,12 +1,12 @@
-\name{R.bw}
-\alias{R.bw}
+\name{r.bw}
+\alias{r.bw}
 \title{Biweight midvariance, and biweight midcorrelation. 
 }
 \description{
-Calculates biweight midvariance if one variable is given and biweight midvariances, midcovariance and midcorrelation if two variables are given. Biweight midcorrelation is a robust alternative to Pearson's \emph{R}.
+Calculates biweight midvariance if one variable is given and biweight midvariances, midcovariance and midcorrelation if two variables are given. Biweight midcorrelation is a robust alternative to Pearson's \emph{r}.
 }
 \usage{
-R.bw(X, Y=NULL)
+r.bw(X, Y=NULL)
 }
 \arguments{
   \item{X}{A numeric vector
@@ -27,12 +27,12 @@ Wilcox, R. R.  (2005)  \emph{Introduction to Robust Estimation and Hypothesis Te
 }
 \author{Ken Aho
 }
-\seealso{\code{\link{cor}}, \code{\link{R.pb}}}
+\seealso{\code{\link{cor}}, \code{\link{r.pb}}}
 
 \examples{
 x<-rnorm(100)
 y<-rnorm(100)
-R.bw(x,y)
+r.bw(x,y)
 }
 \keyword{univar}
 

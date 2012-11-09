@@ -1,4 +1,4 @@
-R.bw<-function(X,Y=NULL){
+r.bw<-function(X,Y=NULL){
     U.i<-(X-median(X))/(9*qnorm(.75)*mad(X))
     a.i<-ifelse(U.i<=-1|U.i>=1,0,1)
     n<-nrow(as.matrix(X))
@@ -14,6 +14,6 @@ R.bw<-function(X,Y=NULL){
     S.xy<-n*sum((a.i*(X-median(X)))*((1-U.i^2)^2)*(b.i*(Y-median(Y)))*((1-V.i^2)^2))/((sum((a.i*(1-U.i^2))*(1-5*U.i^2)))*(sum((b.i*(1-V.i^2))*(1-5*V.i^2))))
     R.xy<-S.xy/(sqrt(S.xx*S.yy))}
 if(is.null(Y))res<-data.frame(S.xx=S.xx)
-if(!is.null(Y))res<-data.frame(S.xx=S.xx,S.yy=S.yy,S.xy=S.xy,R.xy=R.xy)
+if(!is.null(Y))res<-data.frame(s.xx=S.xx,s.yy=S.yy,s.xy=S.xy,r.xy=R.xy)
 res
 }

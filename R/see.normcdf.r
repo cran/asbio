@@ -16,7 +16,7 @@ require(tcltk) || stop("tcltk support is absent")
     ymax <- round(dnorm(0, 0, 0.5), 2)
     assign("ymax", tclVar(ymax),envir= slider.env)
       
-    dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
     norm.refresh <- function(...) {
         dev.hold()
         mu <- as.numeric(evalq(tclvalue(mu),envir= slider.env))
@@ -36,8 +36,10 @@ require(tcltk) || stop("tcltk support is absent")
             code = 3, col = "blue", length= .1)
         legend("topright", lty=c(2,2), col=c("red", "blue"), legend=c(expression(mu),expression(paste("+1",sigma))),bty="n") 
         plot(xx, y1, type = "l", xlim = c(xmin, xmax), ylab = "F(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(N), "(", .(mu), ", ", .(sigma^2),")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()    
             }
+            
     tclServiceMode(TRUE)
     m <- tktoplevel()
     tkwm.title(m, "Visualizing the Normal Distribution")
@@ -118,6 +120,7 @@ require(tcltk) || stop("tcltk support is absent")
             col = "red")
         arrows(mu, dnorm(sigma, 0, sigma),mu + sigma, dnorm(sigma, 0, sigma), lty = 2, 
             code = 3, col = "blue", length= .1)
+        mtext(bquote(paste(italic(X), " ~ ", italic(N), "(", .(mu), ", ", .(sigma^2),")", sep = "")), line = 1, side = 3)
         legend("topright", lty=c(2,2), col=c("red", "blue"), legend=c(expression(mu),expression(paste("+1",sigma))),bty="n")   
         dev.flush()
     }

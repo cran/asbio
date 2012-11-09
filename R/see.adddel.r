@@ -2,12 +2,12 @@ see.adddel<-function(){
 require(tcltk) || stop("tcltk support is absent")
 action<-tclVar("add") 
 pts <- matrix(c(12, 56,
-                       20, 94,
-                       33, 98,
-                       32, 120,
-                       61, 180,
-                       75, 160,
-                       98, 223), ncol=2, byrow=TRUE)
+                20, 94,
+                33, 98,
+                32, 120,
+                61, 180,
+                75, 160,
+                98, 223), ncol=2, byrow=TRUE)
 x<-pts[,1]
 y<-pts[,2]
 dev.new(height=5,width=5*1.4)

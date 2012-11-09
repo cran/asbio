@@ -1,4 +1,4 @@
-anm.ls.reg<-function (X, Y, parameter = c("slope","intercept"),  
+anm.ls.reg<-function (X, Y, parameter = "slope",  
     nmax=50, interval = 0.1,...) 
 {
     lin.mod <- lm(Y ~ X)
@@ -27,22 +27,39 @@ anm.ls.reg<-function (X, Y, parameter = c("slope","intercept"),
       
                for (i in 1:length(poss)) {
                 dev.hold()
+                if(i < length(poss)){
                 plot(X, Y) 
-                abline(b0,b1,col="gray")
-                if(parameter == "intercept") abline(poss[i],b1)
-                if(parameter == "slope") abline(b0,poss[i])
+                abline(b0, b1, lwd = 1.4)
+                if(parameter == "intercept") abline(poss[i],b1, col="gray")
+                if(parameter == "slope") abline(b0,poss[i], col="gray")
                 segments(X, Y, X, fitted[,i],lty = 2, col = 2) 
+                }
+                
+                if(i == length(poss)){
+                plot(X, Y)
+                abline(b0, b1, lwd = 1.4)
+                segments(X, Y, X, fitted(lin.mod),lty = 2, col = 2)
+                }
                           
                 plot(poss, ss.res, ylab = "Residual sum of squares", xlab = 
                 ifelse(parameter == "intercept","Intercept estimate","Slope estimate"), type = "n") 
                 arrows(poss[i], ss.res[i], poss[i + 1], ss.res[i + 1], col = 2, length = 0.15, lwd = 1)
                 points(poss[1:i], ss.res[1:i], lty = 2, col = 2, lwd = 1, type = "l")
                   
+                if(i < length(poss)){
                 legend("topright", legend = bquote(paste("SS = ", .(ss.res[i]))), cex = 0.9, bty = "n")
+                }
+                
+                 if(i == length(poss)){
+                legend("topright", legend = bquote(paste("SS = ", .(sum(resid(lin.mod)^2)))), cex = 0.9, bty = "n")
+                }
+                
                 dev.flush()
                 Sys.sleep(interval)
                 }
+                     
            abline(v=ifelse(parameter=="intercept",b0,b1),lty=2)
            if(parameter=="intercept") legend("center",legend = bquote(paste(hat(beta[0])," = ",.(b0))),box.col="white", bg = "white",)
            if(parameter=="slope") legend("center",legend = bquote(paste(hat(beta[1])," = ",.(b1))),box.col="white", bg = "white")
+          
 }

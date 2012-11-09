@@ -16,7 +16,7 @@ Salmon, W (1963) \emph{Logic}.  Prentice-Hall
 Ken Aho
 }
 \seealso{
-\code{\link{demos}}
+\code{\link{book.menu}}
 }
 \examples{
 \dontrun{

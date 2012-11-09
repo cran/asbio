@@ -21,6 +21,7 @@ require(tcltk) || stop("tcltk support is absent")
         yy <- dlnorm(xx, mu, sigma)
         dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(LOGN), "(", .(mu), ", ", .(sigma),")", sep = "")), line = 1, side = 3)
         dev.flush()          
                     }
     tclServiceMode(TRUE)
@@ -76,7 +77,7 @@ require(tcltk) || stop("tcltk support is absent")
     xmax <- 15
     assign("xmax", tclVar(xmax), envir= slider.env)
            
-   dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+   dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
    norm.refresh <- function(...) {
         mu <- as.numeric(evalq(tclvalue(mu), envir= slider.env))
         sigma <- as.numeric(evalq(tclvalue(sigma), envir= slider.env))
@@ -88,6 +89,7 @@ require(tcltk) || stop("tcltk support is absent")
         dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
         plot(xx, y1, type = "l", xlim = c(xmin, xmax), ylab = "F(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(LOGN), "(", .(mu), ", ", .(sigma),")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()          
                     }
     tclServiceMode(TRUE)

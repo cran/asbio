@@ -1,4 +1,4 @@
-R.pb<-function(X,Y,beta=0.2){
+r.pb<-function(X,Y,beta=0.2){
     n<-nrow(as.matrix(X))
   prc<-function(V){
     W.i<-abs(V-median(V))
@@ -20,7 +20,7 @@ R.pb<-function(X,Y,beta=0.2){
   R<-sum(A*B)/sqrt(sum(A^2)*sum(B^2))
   TS<-R*sqrt((n-2)/(1-R^2))
   P<-pt(abs(TS),df=n-2,lower.tail=FALSE)*2
-  res<-data.frame(R.bp=R,TS=TS,p=P)
-  names(res)<-c("R.bp","t*","P(t>t*)")
+  res<-data.frame(r.bp=R,TS=TS,P=P)
+  names(res)<-c("r.bp","t*","P(T>t*)")
   res
 }

@@ -24,11 +24,8 @@ Chapman and Hall, London.}
 
 \seealso{\code{\link{empinf}}, \code{\link{boot}}, \code{\link{bootstrap}}}
 \examples{
-library(vegan)
-data(varespec)
-# A partial set of observations from a single plot for a Scandinavian 
-# moss/vascular plant/lichen survey.
-site18<-data.frame(t(varespec[1,][1:20]))
+data(cliff.sp)
+siteCD1<-data.frame(t(cliff.sp[1,]))
 
 #Shannon-Weiner diversity
 SW<-function(data){
@@ -37,6 +34,6 @@ p<-d/sum(d)
 -1*sum(p*log(p))
 }
 
-pv<-pseudo.v(site18,SW)
+pv<-pseudo.v(siteCD1,SW)
 }
 \keyword{manip}

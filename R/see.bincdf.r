@@ -10,12 +10,13 @@ require(tcltk) || stop("tcltk support is absent")
     assign("p", tclVar(p), envir = slider.env)           
    
    show.norm<-tclVar(0) 
-      prefunc<-function(xx,yy,vy,muy,n,show.norm=FALSE){
+      prefunc<-function(xx,yy,vy,muy,n,p,show.norm=FALSE){
         dev.hold()
         plot(xx, yy, type = "h", ylab = "f(x)", xlab = "x")
         points(xx, yy, pch =19)
         x <- NULL; rm(x); # Dummy to trick R CMD check
         if(show.norm==TRUE) curve(dnorm(x,muy,vy),0,n, col =2,add=TRUE)
+        mtext(bquote(paste(italic(X), " ~ ", italic(BIN), "(", .(n), ", ", .(p),")", sep = "")), line = 1, side = 3)
         dev.flush()
                   }   
    norm.refresh <- function(...) {
@@ -26,8 +27,9 @@ require(tcltk) || stop("tcltk support is absent")
         show.norm <- as.logical(tclObj(show.norm))
         vy<-sqrt(p*n*(1-p))
         muy<-n*p 
-        prefunc(xx,yy,vy,muy,n,show.norm=show.norm)
+        prefunc(xx,yy,vy,muy,n,p=p,show.norm=show.norm)
                     }
+    tclServiceMode(TRUE)
     m <- tktoplevel()
     tkwm.title(m, "Visualizing the Binomial Distribution")
     tkpack(tklabel(m,text="      Visualizing the Binomial Distribution      "))
@@ -69,9 +71,9 @@ require(tcltk) || stop("tcltk support is absent")
     
     show.norm<-tclVar(0)
     
-    dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))   
+    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE)) 
    
-    prefunc<-function(xx,yy,y1,vy,muy,n,show.norm=FALSE){
+    prefunc<-function(xx,yy,y1,vy,muy,n,p,show.norm=FALSE){
         dev.hold()
         plot(xx, yy, type = "h", ylab = "f(x)", xlab = "x")
         points(xx, yy, pch =19)
@@ -82,6 +84,7 @@ require(tcltk) || stop("tcltk support is absent")
         segments(xx, y1,xx+1,y1)
         points(xx+1, y1, pch =1)
         if(show.norm==TRUE) curve(pnorm(x,muy,vy),0,n, col =2, add=TRUE)
+        mtext(bquote(paste(italic(X), " ~ ", italic(BIN), "(", .(n), ", ", .(p),")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()
                   }   
    
@@ -94,8 +97,9 @@ require(tcltk) || stop("tcltk support is absent")
         show.norm <- as.logical(tclObj(show.norm))
         vy<-sqrt(p*n*(1-p))
         muy<-n*p 
-        prefunc(xx,yy,y1,vy,muy,n,show.norm=show.norm)
+        prefunc(xx, yy, y1, vy, muy, n, p, show.norm = show.norm)
                    }
+    tclServiceMode(TRUE)
     m <- tktoplevel()
     tkwm.title(m, "Visualizing the Binomial Distribution")
     tkpack(tklabel(m,text="      Visualizing the Binomial Distribution      "))

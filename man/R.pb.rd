@@ -1,11 +1,11 @@
-\name{R.pb}
-\alias{R.pb}
+\name{r.pb}
+\alias{r.pb}
 \title{Percentage bend correlation}
 \description{
 The percentage bend correlation is a robust alternative to Pearson's product moment correlation.
 }
 \usage{
-R.pb(X, Y, beta = 0.2)
+r.pb(X, Y, beta = 0.2)
 }
 \arguments{
   \item{X}{A quantitative vector}
@@ -22,11 +22,11 @@ R.pb(X, Y, beta = 0.2)
 Edition}.  Elsevier, Burlington, MA.
 }
 \author{Ken Aho}
-\seealso{\code{\link{corr}}, \code{\link{R.bw}}}
+\seealso{\code{\link{corr}}, \code{\link{r.bw}}}
 \examples{
 x<-rnorm(100)
 y<-rnorm(100)
-R.pb(x,y)
+r.pb(x,y)
 }
 \keyword{univar}
 \keyword{htest}

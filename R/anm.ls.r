@@ -31,7 +31,7 @@ anm.ls<-function (X, poss = NULL, parameter = "mu", est.lty = 2, est.col = 2,
             points(poss, ss.res, type = "l")
             
             if (plot.res == TRUE) {
-                plot(X, sq.res[, nm], ylab = expression(e_i^2), 
+                plot(X, sq.res[, nm], ylab = "Squared residual", 
                   type = "h", col = est.col,lty=2, xlab = "x")
                 points(X, sq.res[, nm], pch=19,cex=.7)
                 legend("topright", legend = bquote(paste("SS = ", 
@@ -55,7 +55,7 @@ anm.ls<-function (X, poss = NULL, parameter = "mu", est.lty = 2, est.col = 2,
                   points(poss, ss.res, type = "l")
                 }
                 if (plot.res == TRUE) {
-                  plot(X, sq.res[, i], ylab = expression(e[i]^2), 
+                  plot(X, sq.res[, i], ylab = "Squared residual", 
                     type = "h", col = est.col,lty=2, xlab = "x")
                   points(X, sq.res[, i], pch=19,cex=.7)
                   legend("topright", legend = bquote(paste("SS = ", 

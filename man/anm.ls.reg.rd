@@ -8,7 +8,7 @@ Animated plot of least squares function.
 }
 \usage{
 
-anm.ls.reg(X, Y, parameter = c("slope","intercept"), nmax=50, interval = 0.1,...)
+anm.ls.reg(X, Y, parameter="slope", nmax=50, interval = 0.1,...)
 
 anm.ls.reg.tck()
 }

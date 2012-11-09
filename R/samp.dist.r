@@ -1,37 +1,17 @@
-samp.dist<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
-    n.seq = seq(1, 30), R = 1000, nbreaks = 50, stat = mean, stat2 = NULL, 
-    stat3 = NULL, stat4 = NULL, fix.n = TRUE, xlab = expression(bar(x)), 
-    ylim = NULL, func = NULL, show.n = TRUE, 
-    show.SE = FALSE, est.density = TRUE, col.density = 4, lwd.density = 2, 
-    est.ylim = TRUE, anim = TRUE, interval = 0.01, col.anim = "rainbow", 
-    digits = 3, ...) 
-{
-    if (fix.n == TRUE) 
-        samp.dist.fixn(parent = parent, parent2 = parent2, s.size = s.size, 
-            s.size2 = s.size2, R = R, nbreaks = nbreaks, stat = stat, 
-            stat2 = stat2, stat3 = stat3, stat4 = stat4, xlab = xlab, 
-            func = func, show.n = show.n, show.SE = show.SE, 
-            anim = anim, interval = interval, col.anim = col.anim, 
-            digits = digits, ...)
-    if (fix.n == FALSE) 
-        samp.dist.n(parent = parent, R = R, n.seq = n.seq, stat = stat, 
-            xlab = xlab, nbreaks = nbreaks, ylim = ylim, 
-            func = func, show.n = show.n, show.SE = show.SE, 
-            est.density = est.density, col.density = col.density, 
-            lwd.density = lwd.density, est.ylim = est.ylim, anim = anim, 
-            interval = interval, col.anim = col.anim, digits = digits, 
-            ...)
+dirty.dist <- function(s.size, parent = expression(rnorm(1)), cont = expression(rnorm(1, mean = 10)), prop.cont = 0.1){
+vec <- seq(1,s.size)
+for(i in 1 : s.size){
+pure <- eval(parent)
+dirty <- eval(cont)
+vec[i]<- sample(c(pure, dirty), size = 1, prob = c(1 - prop.cont, prop.cont))
 }
+vec
+} 
 
-
-#------------------------------------ fixed n ---------------------------------------#
-
-samp.dist.fixn<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size, 
-    R = 1000, nbreaks = 50, stat = mean, stat2 = NULL, stat3 = NULL, 
-    stat4 = NULL, xlab = expression(bar(x)), 
-    func = NULL, show.n = TRUE, show.SE = FALSE, anim = TRUE, 
-    interval = 0.01, col.anim = "rainbow", digits = 3, ...) 
+samp.dist<- function (parent = rnorm, parent2 = NULL, biv.parent = NULL, s.size = 1, s.size2 = NULL, R = 1000, nbreaks = 50, stat = mean, stat2 = NULL, 
+stat3 = NULL, stat4 = NULL, xlab = expression(bar(x)), func = NULL, show.n = TRUE, show.SE = FALSE, anim = TRUE, interval = 0.01, col.anim = "rainbow", digits = 3, ...) 
 {
+ 
     if (is.null(col.anim)) 
         clr = NULL
     if (!is.null(col.anim)) {
@@ -47,60 +27,72 @@ samp.dist.fixn<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size
             "heat.colors") 
             clr <- rep(col.anim, R)
     }
-    if (is.null(stat2) & is.null(stat3)) {
-        s.dist <- matrix(ncol = 1, nrow = R)
+
+if(!is.null(biv.parent)){
+     
+        func.res <- seq(1:R)
         for (i in 1:R) {
-            s.dist[i] <- stat(sample(parent, size = s.size, replace = FALSE))
-        }
-        if (!is.null(func)) 
-            s.dist <- func(s.dist)
-        SE <- round(apply(s.dist,2,sd), digits)
-        if (anim == TRUE) {
+            if(is.expression(biv.parent)) part <- eval(biv.parent)
+            if(!is.expression(biv.parent)){ 
+                part <- sample(1:nrow(biv.parent), s.size, replace = FALSE)
+                samp <- sample(1:nrow(biv.parent), s.size, replace = FALSE)
+                part <- biv.parent[samp,]}
+            
+            func.res[i] <- func(part[,1],part[,2])
+}
+}
+    
+if(is.null(biv.parent)){    
+    if (is.null(stat2) & is.null(stat3)) {
+        func.res <- matrix(ncol = 1, nrow = R)
             for (i in 1:R) {
-                dev.hold()
-                hist(s.dist, xlab = xlab, main = "", 
-                  freq = FALSE, breaks = nbreaks, border = "white", 
-                  ...)
-                points(suppressWarnings(hist(s.dist[1:i], plot = FALSE, 
-                  breaks = nbreaks, freq = FALSE)$mids), suppressWarnings(hist(s.dist[1:i], 
-                  plot = FALSE, breaks = nbreaks, freq = FALSE)$density), 
-                  type = "h", col = clr[i], lwd = 5)
-                dev.flush()
-                Sys.sleep(interval)
-            }
-        }
-        if (anim == FALSE) {
-            hist(s.dist, xlab = xlab, main = "", 
-                freq = FALSE, breaks = nbreaks, ...)
-        }
+                if(is.expression(parent))func.res[i] <- stat(eval(parent))
+                if(!is.expression(parent)){
+                    part <- sample(parent, size = s.size, replace = FALSE)
+                    func.res[i] <- stat(part)}
+           }
+        if (!is.null(func)) 
+            func.res <- func(func.res, s.dist2 = NULL, s.size, s.size2 = NULL)
     }
-    if (!is.null(stat2) | !is.null(stat3)) {
+
+    if (!is.null(stat2) | !is.null(stat3)){
         s.dist1 <- matrix(ncol = 1, nrow = R)
         s.dist2 <- matrix(ncol = 1, nrow = R)
         s.dist3 <- matrix(ncol = 1, nrow = R)
         s.dist4 <- matrix(ncol = 1, nrow = R)
-        for (i in 1:R) {
-            sample1 <- sample(parent, size = s.size, replace = FALSE)
-            sample2 <- sample(parent2, size = s.size, replace = FALSE)
-            s.dist1[i] <- stat(sample1)
-            if (!is.null(stat2)) 
-                s.dist2[i] <- stat2(sample2)
-            if (!is.null(stat3)) 
-                s.dist3[i] <- stat3(sample1)
-            if (!is.null(stat4)) 
-                s.dist4[i] <- stat4(sample2)
-        }
+         for(i in 1 : R){
+             if(is.expression(parent)){
+                sample1 <- eval(parent)
+                if(!is.null(parent2)) sample2 <- eval(parent2)
+                }
+             if(!is.expression(parent)){
+                sample1 <- sample(parent, size = s.size, replace = FALSE)
+                if(!is.null(parent2)) sample2 <- sample(parent2, size = s.size, replace = FALSE)
+                }
+                        
+                    s.dist1[i] <- stat(sample1)
+                if (!is.null(stat2)) 
+                    s.dist2[i] <- stat2(sample2)
+                if (!is.null(stat3)) 
+                    s.dist3[i] <- stat3(sample1)
+                if (!is.null(stat4)) 
+                    s.dist4[i] <- stat4(sample2)
+              } 
+        
         if (!is.null(stat2) & (is.null(stat3) | is.null(stat4))) {
-            func.res <- func(s.dist1, s.dist2)
+            func.res <- func(s.dist1, s.dist2, s.size, s.size2)
         }
         if (!is.null(stat3) & (is.null(stat2) | is.null(stat4))) {
-            func.res <- func(s.dist1, s.dist3)
-        }
+            func.res <- func(s.dist1, s.dist3, s.size, s.size2)
+        }                                                               
         if (!is.null(stat2) & !is.null(stat3) & !is.null(stat4)) {
-            func.res <- func(s.dist1, s.dist2, s.dist3, s.dist4)
+            func.res <- func(s.dist1, s.dist2, s.dist3, s.dist4, s.size, s.size2)
         }
-        SE <- apply(func.res,2,sd)
+        }
+        }
+        SE <- round(ifelse(is.matrix(func.res),apply(func.res, 2, sd),sd(func.res)),digits)
         brks <- seq(min(func.res),max(func.res),length.out=nbreaks)
+        
         if (anim == TRUE) {
             for (i in 1:R) {
                 dev.hold()
@@ -110,6 +102,7 @@ samp.dist.fixn<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size
                   breaks = brks, freq = FALSE)$mids), suppressWarnings(hist(func.res[1:i], 
                   plot = FALSE, breaks = brks, freq = FALSE)$density), 
                   type = "h", col = clr[i], lwd = 5)
+                if(i < R) legend("topright",legend=i, bty="n", title="Sample")
                 dev.flush()
                 Sys.sleep(interval)
             }
@@ -118,19 +111,23 @@ samp.dist.fixn<-function (parent, parent2 = parent, s.size = 1, s.size2 = s.size
             hist(func.res, xlab = xlab,  
                 main = "", freq = FALSE, breaks = brks, ...)
         }
-    }
-    if (show.n == TRUE & show.SE == FALSE) {
-        legend("topright", legend = paste("n = ", s.size), bty = "n")
+    
+    if (show.SE == FALSE & show.n == TRUE) {
+       if(is.null(s.size2))legend("topright", legend = paste("n = ", s.size), bty = "n")
+       if(!is.null(s.size2))legend("topright", legend = c(paste("n1 = ", s.size), paste("n2 = ", s.size2)), bty = "n")
     }
     if (show.SE == TRUE & show.n == FALSE) {
-        legend("topright", legend = paste("SE = ", SE), bty = "n")
+       legend("topright", legend = paste("SE = ", SE), bty = "n")
     }
     if (show.SE == TRUE & show.n == TRUE) {
-        legend("topright", legend = c(paste("n = ", s.size), 
-            paste("SE = ", SE)), bty = "n")
+       if(is.null(s.size2)){
+       legend("topright", legend = c(paste("n = ", s.size), 
+            paste("SE = ", SE)), bty = "n")}
+       if(!is.null(s.size2)){
+       legend("topright", legend = c(paste("n1 = ", s.size), paste("n2 = ", s.size2), 
+            paste("SE = ", SE)), bty = "n")}     
     }
 }
-
 
 #----------------------------- changing n ------------------------------------#
 
@@ -148,7 +145,8 @@ samp.dist.n<-function (parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = 
     if (anim == FALSE) {
         s.dist <- matrix(ncol = 1, nrow = R)
         for (i in 1:R) {
-            s.dist[i] <- stat(sample(parent, size = n.max, replace = FALSE))
+            if(is.expression(parent)) s.dist[i] <- stat(eval(parent))
+            if(!is.expression(parent)) s.dist[i] <- stat(sample(parent, size = n.max, replace = FALSE))
         }
         if (!is.null(func)) 
             s.dist <- func(s.dist)
@@ -188,8 +186,10 @@ samp.dist.n<-function (parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = 
         }
         s.dist <- matrix(nrow = R, ncol = max.col)
         for (i in n.min:max.col) {
-            s.dist[, i] <- apply(matrix(replicate(R, sample(parent, 
-                i)), i), 2, stat)
+            if(is.expression(parent)) s.dist[,i] <- stat(eval(parent))
+            if(!is.expression(parent)){
+            s.dist[,i] <- apply(matrix(replicate(R, sample(parent, 
+                i)), i), 2, stat)}
         }
         if (!is.null(func)) 
             s.dist <- func(s.dist)
