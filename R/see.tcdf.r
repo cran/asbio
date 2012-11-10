@@ -12,16 +12,19 @@ require(tcltk) || stop("tcltk support is absent")
     
     show.norm<-tclVar(0)    
     
-    prefunc<-function(xx,yy,sny,y1,sncy,xlim,show.norm=FALSE){
+    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+    
+    prefunc<-function(xx,yy,sny,y1,sncy,xlim,nu,show.norm=FALSE){
         dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
         if(show.norm==TRUE) points(xx,sny,type = "l", col =2)
         plot(xx, y1, type = "l", xlim = c(xmin, xmax), ylab = "F(x)", xlab = "x")
         if(show.norm==TRUE) points(xx,sncy,type = "l", col =2)
+        mtext(bquote(paste(italic(X), " ~ ", italic(t), "(", .(nu), ")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()
-          }
+        }
     
-    dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+      
     norm.refresh <- function(...) {
         nu <- as.numeric(evalq(tclvalue(nu), envir = slider.env))
         xmin <- as.numeric(evalq(tclvalue(xmin), envir = slider.env))
@@ -32,10 +35,11 @@ require(tcltk) || stop("tcltk support is absent")
         sny <- dnorm(xx)
         sncy <- pnorm(xx)
         show.norm <- as.logical(tclObj(show.norm))
-        prefunc(xx,yy,sny,y1,sncy,show.norm=show.norm)
+        prefunc(xx,yy,sny,y1,sncy,nu=nu,show.norm=show.norm)
               }
+              
+    tclServiceMode(TRUE)
     m <- tktoplevel()
-     
     tkwm.title(m, "Visualizing the t Distribution")
     tkpack(tklabel(m,text="      Visualizing the t Distribution      "))
     tkwm.geometry(m, "+0+0")
@@ -82,10 +86,11 @@ require(tcltk) || stop("tcltk support is absent")
         
      show.norm<-tclVar(0)    
     
-    prefunc<-function(xx,yy,sny,y1,sncy,xlim,show.norm=FALSE){
+    prefunc<-function(xx,yy,sny,y1,sncy,xlim,nu,show.norm=FALSE){
         dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
         if(show.norm==TRUE) points(xx,sny,type = "l", col =2)
+        mtext(bquote(paste(italic(X), " ~ ", italic(t), "(", .(nu), ")", sep = "")), line = 1, side = 3)
         dev.flush()         
                  }
     
@@ -97,9 +102,10 @@ require(tcltk) || stop("tcltk support is absent")
         yy <- dt(xx, nu)
         sny <- dnorm(xx)
         show.norm <- as.logical(tclObj(show.norm))
-        prefunc(xx,yy,sny,show.norm=show.norm)
+        prefunc(xx,yy,sny,nu=nu,show.norm=show.norm)
               }
     
+    tclServiceMode(TRUE)
     m <- tktoplevel()
     tkwm.title(m, "Visualizing the t Distribution")
     tkpack(tklabel(m,text="      Visualizing the t Distribution      "))

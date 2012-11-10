@@ -18,6 +18,7 @@ require(tcltk) || stop("tcltk support is absent")
         dev.hold()
         plot(xx, yy, type = "h", ylab = "f(x)", xlab = "x")
         points(xx, yy, pch =19)
+        mtext(bquote(paste(italic(X), " ~ ", italic(HYP), "(", .(n), ", ", .(M),", ", .(N),")", sep = "")), line = 1, side = 3)
         dev.flush()
                     }
     tclServiceMode(TRUE)
@@ -53,7 +54,7 @@ tkpack(fr <- tkframe(m), side = "top")
 }
 
  
- see.hypercdf.tck<-function () 
+see.hypercdf.tck<-function () 
 {
 require(tcltk) || stop("tcltk support is absent")
     if (!exists("slider.env")) 
@@ -64,7 +65,7 @@ require(tcltk) || stop("tcltk support is absent")
     assign("n", tclVar(n), envir= slider.env)
     assign("M", tclVar(M), envir= slider.env)           
     assign("N", tclVar(N), envir= slider.env)
-    dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))   
+    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
    norm.refresh <- function(...) {
         n <- as.numeric(evalq(tclvalue(n), envir= slider.env))
         M <- as.numeric(evalq(tclvalue(M), envir= slider.env))
@@ -79,6 +80,7 @@ require(tcltk) || stop("tcltk support is absent")
         points(xx, y1, pch =19)
         segments(xx, y1,xx+1,y1)
         points(xx+1, y1, pch =1)
+        mtext(bquote(paste(italic(X), " ~ ", italic(HYP), "(", .(n), ", ", .(M),", ", .(N),")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()
                     }
     tclServiceMode(TRUE)

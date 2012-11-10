@@ -21,6 +21,7 @@ require(tcltk) || stop("tcltk support is absent")
         yy <- dgamma(xx, kappa, scale=theta)
         dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(GAM), "(", .(kappa), ", ", .(theta),")", sep = "")), line = 1, side = 3)
         dev.flush()            }
     tclServiceMode(TRUE)
     m <- tktoplevel()
@@ -79,7 +80,7 @@ require(tcltk) || stop("tcltk support is absent")
     xmax <- 30
     assign("xmax", tclVar(xmax), envir = slider.env)
            
-   dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+   dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
    norm.refresh <- function(...) {
         theta <- as.numeric(evalq(tclvalue(theta), envir = slider.env))
         kappa <- as.numeric(evalq(tclvalue(kappa), envir = slider.env))
@@ -91,6 +92,7 @@ require(tcltk) || stop("tcltk support is absent")
         dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
         plot(xx, y1, type = "l", xlim = c(xmin, xmax), ylab = "F(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(GAM), "(", .(kappa), ", ", .(theta),")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()          
                     }
     tclServiceMode(TRUE)

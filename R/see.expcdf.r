@@ -12,15 +12,17 @@ require(tcltk) || stop("tcltk support is absent")
     assign("xmax", tclVar(xmax), envir = slider.env)
            
    norm.refresh <- function(...) {
+        dev.hold()
         theta <- as.numeric(evalq(tclvalue(theta), envir = slider.env))
         xmin <- as.numeric(evalq(tclvalue(xmin), envir = slider.env))
         xmax <- as.numeric(evalq(tclvalue(xmax), envir = slider.env))
         xx <- seq(xmin, xmax, length = 500)
         yy <- dexp(xx, theta)
-        dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(EXP), "(", .(theta), ")", sep = "")), line = 1, side = 3)
         dev.flush()            
-                    }
+        }
+                    
     tclServiceMode(TRUE)
     m <- tktoplevel()
     tkwm.title(m, "Visualizing the Exponential Distribution")
@@ -50,6 +52,7 @@ require(tcltk) || stop("tcltk support is absent")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
         side = "right")
 }
+
 see.expcdf.tck<-function (){ 
 require(tcltk) || stop("tcltk support is absent")
     if (!exists("slider.env")) 
@@ -60,18 +63,21 @@ require(tcltk) || stop("tcltk support is absent")
     assign("xmin", tclVar(xmin), envir = slider.env)
     xmax <- 6
     assign("xmax", tclVar(xmax), envir = slider.env)
-  dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))         
+   dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))        
    norm.refresh <- function(...) {
+        dev.hold()
         theta <- as.numeric(evalq(tclvalue(theta), envir = slider.env))
         xmin <- as.numeric(evalq(tclvalue(xmin), envir = slider.env))
         xmax <- as.numeric(evalq(tclvalue(xmax), envir = slider.env))
         xx <- seq(xmin, xmax, length = 500)
         yy <- dexp(xx, theta)
         y1 <- pexp(xx, theta)
-        dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
-        plot(xx, y1, type = "l", xlim = c(xmin, xmax), ylab = "F(x)", xlab = "x")}
+        plot(xx, y1, type = "l", xlim = c(xmin, xmax), ylab = "F(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(EXP), "(", .(theta), ")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()
+ }  
+    
     tclServiceMode(TRUE)
     m <- tktoplevel()
     tkwm.title(m, "Visualizing the Exponential Distribution")

@@ -1,9 +1,10 @@
 \name{anm.mc.bvn}
 \alias{anm.mc.bvn}
 \alias{anm.mc.norm}
+\alias{anm.mc.bvn.tck}
 
 \title{
-animation of Markov Chain Monte Carlo walks in bivariate normal space
+Animation of Markov Chain Monte Carlo walks in bivariate normal space
 }
 \description{
 The algorithm can use three different variants on MCMC random walks: Gibbs sampling, the Metropolis algorithm, and the Metropolis-Hastings algorithms to move through univariate \code{anm.mc.norm} and bivariate normal probability space.  The jumping distribution is also bivariate normal with a mean vector at the current bivariate coordinates.  The jumping kernel modifies the jumping distribution through multiplying the variance covariance of this distribution by the specified constant. 
@@ -16,7 +17,11 @@ anm.mc.bvn(start = c(-4, -4), mu = c(0, 0), sigma = matrix(2, 2, data = c(1, 0,
 anm.mc.norm(start = -4, mu = 0, sigma = 1, length = 2000, sim = "M",
  jump.kernel = 0.2, xlim = c(-4, 4), ylim = c(0, 0.4), interval = 0.01,
  show.leg = TRUE, ...)
+
+anm.mc.bvn.tck()
 }
+
+
 
 \arguments{
 
@@ -27,7 +32,7 @@ A two element vector specifying the starting coordinates.
 A two element vector specifying the mean vector for the proposal distribution.
 }
   \item{sigma}{
-A 2 x 2 matrix specifying the variance covariance matrix for the proposal dsitribution.
+A 2 x 2 matrix specifying the variance covariance matrix for the proposal dsitribution.    
 }
   \item{length}{
 The length of the MCMC chain.

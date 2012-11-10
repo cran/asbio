@@ -20,6 +20,7 @@ require(tcltk) || stop("tcltk support is absent")
         dev.hold()
         plot(xx, yy, type = "h", ylab = "f(x)", xlab = "x")
         points(xx, yy, pch =19)
+        mtext(bquote(paste(italic(X), " ~ ", italic(GEO), "(", .(p), ")", sep = "")), line = 1, side = 3)
         dev.flush()        
                     }
     tclServiceMode(TRUE)
@@ -67,7 +68,7 @@ require(tcltk) || stop("tcltk support is absent")
     assign("xmax", tclVar(xmax), envir = slider.env)
     
        
-   dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))   
+   dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE)) 
    norm.refresh <- function(...) {
         p <- as.numeric(evalq(tclvalue(p), envir = slider.env))
         xmin <- as.numeric(evalq(tclvalue(xmin), envir = slider.env))
@@ -82,6 +83,7 @@ require(tcltk) || stop("tcltk support is absent")
         points(xx, y1, pch =19)
         segments(xx, y1,xx+1,y1)
         points(xx+1, y1, pch =1)
+        mtext(bquote(paste(italic(X), " ~ ", italic(GEO), "(", .(p), ")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()
                     }
     tclServiceMode(TRUE)

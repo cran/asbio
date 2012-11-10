@@ -11,12 +11,13 @@ require(tcltk) || stop("tcltk support is absent")
     assign("xmax", tclVar(xmax), envir  = slider.env)
        
     show.norm<-tclVar(0) 
-      prefunc<-function(xx,yy,vy,muy,xmin,xmax,show.norm=FALSE){
+      prefunc<-function(xx,yy,vy,muy,xmin,xmax,lambda,show.norm=FALSE){
         dev.hold()
         plot(xx, yy, type = "h", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
         points(xx, yy, pch =19)
         x <- NULL; rm(x); # Dummy to trick R CMD check 
         if(show.norm==TRUE) curve(dnorm(x,muy,vy),0,xmax, col =2,add=TRUE)
+        mtext(bquote(paste(italic(X), " ~ ", italic(POI), "(", .(lambda), ")", sep = "")), line = 1, side = 3)
         dev.flush()
                   } 
         
@@ -29,7 +30,7 @@ require(tcltk) || stop("tcltk support is absent")
         show.norm <- as.logical(tclObj(show.norm))
         vy<-sqrt(lambda)
         muy<-lambda 
-        prefunc(xx,yy,vy,muy,xmin,xmax,show.norm=show.norm)
+        prefunc(xx,yy,vy,muy,xmin,xmax,lambda=lambda,show.norm=show.norm)
                     }
     tclServiceMode(TRUE)
     m <- tktoplevel()
@@ -74,7 +75,8 @@ require(tcltk) || stop("tcltk support is absent")
     assign("xmax", tclVar(xmax), envir  = slider.env)
    
    show.norm<-tclVar(0)  
-   prefunc<-function(xx,yy,vy,muy,y1,xmin, xmax,show.norm=FALSE){
+   dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+   prefunc<-function(xx,yy,vy,muy,y1,xmin, xmax,lambda, show.norm=FALSE){
         dev.hold()
         plot(xx, yy, type = "h", xlim = c(xmin, xmax),ylab = "f(x)", xlab = "x")
         points(xx, yy, pch =19)
@@ -85,10 +87,11 @@ require(tcltk) || stop("tcltk support is absent")
         points(xx,y1,pch=19)
         points(xx+1,y1,pch=1)
         if(show.norm==TRUE) curve(pnorm(x,muy,vy),0,xmax, col =2,add=TRUE)
+        mtext(bquote(paste(italic(X), " ~ ", italic(POI), "(", .(lambda), ")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()
                   } 
    
-   dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))    
+   
    norm.refresh <- function(...) {
         lambda <- as.numeric(evalq(tclvalue(lambda), envir  = slider.env))
         xmin <- as.numeric(evalq(tclvalue(xmin), envir  = slider.env))
@@ -99,7 +102,7 @@ require(tcltk) || stop("tcltk support is absent")
         show.norm <- as.logical(tclObj(show.norm))
         vy<-sqrt(lambda)
         muy<-lambda 
-        prefunc(xx,yy,vy,muy,y1,xmin,xmax,show.norm=show.norm)
+        prefunc(xx,yy,vy,muy,y1,xmin,xmax,lambda,show.norm=show.norm)
                             }
     tclServiceMode(TRUE)
     m <- tktoplevel()

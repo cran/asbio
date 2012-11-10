@@ -33,10 +33,10 @@ Ken Aho
 }
 \seealso{\code{\link{dnorm}}, \code{\link{nls}}}
 \examples{
-library(vegan)
-data(BCI)
-BCI.count<-apply(BCI,2,sum)
-Preston.dist(BCI.count)
+
+data(BCI.count)
+BCI.ttl<-apply(BCI.count,2,sum)
+Preston.dist(BCI.ttl)
 }
 \keyword{graphs}
 

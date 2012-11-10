@@ -1,4 +1,4 @@
-anm.ExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","strip.split2","strip.split3","latin","pairs"),titles =  TRUE, interval = 0.5, iter = 30){
+anm.ExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs"),titles =  TRUE, interval = 0.5, iter = 30){
     m<-matrix(nrow=iter,ncol=length(method),rep(method,iter),byrow=TRUE)
     for(i in 1:nrow(m)){
 	    dev.hold()
@@ -8,7 +8,7 @@ anm.ExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","neste
     }
 }
 
-ExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split","SPRB","strip","strip.split2","strip.split3","latin","pairs"),titles=TRUE, ...){
+ExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split","SPRB","strip","split.block","strip.split","latin","pairs"),titles=TRUE, ...){
 
 L<-length(method)
 if(L==2) {par(mfrow=c(2,1),mar=c(0.1,1.5,2,1.5))} else
@@ -190,9 +190,9 @@ m<-c(expression(B[1]),expression(B[2]))
 text(y=c(3,8),x=c(5.5,5.5),m[s],cex=1.1)
   }
 
-#Strip split plot (2 way) # Littell et al. Mixed Models in SAS
-if(any(method=="strip.split2")){
-plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",type="n",main=ifelse(titles==TRUE,"Strip Block",""),...)
+#Split block/Strip split plot (2 way) # Littell et al. Mixed Models in SAS
+if(any(method=="split.block")){
+plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",type="n",main=ifelse(titles==TRUE,"Split Block",""),...)
 segments(c(5.5,3,8),c(0,0,0),c(5.5,3,8),c(11,11,11),col=c("black","gray","gray"))
 segments(c(0,0,0),c(5.5,3,8),c(11,11,11),c(5.5,3,8),col=c("black","gray","gray"))
 sym.y<-c(rep(1.85,2),rep(4.3,2),rep(6.7,2),rep(9.2,2))
@@ -217,7 +217,7 @@ mtext(c("Block 3","Block 4"), side = 4,at=c(3,8),cex=ifelse(L>5,1/(L*0.2),0.7),l
 
 
 #Strip split plot (3 way) # Milliken et al. Analysis of Messy Data Vol. 1
-if(any(method=="strip.split3")){
+if(any(method=="strip.split")){
 plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",type="n",main=ifelse(titles==TRUE,"Strip Split Plot (3 way)",""),...)
 sym.y<-c(rep(3,2),rep(5.5,2),rep(8,2))
 segments(c(5.5,3,8),c(0,0,0),c(5.5,3,8),c(11,11,11),col=c("black","gray","gray"))

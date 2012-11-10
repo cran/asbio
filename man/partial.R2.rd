@@ -6,11 +6,11 @@ Calculates the partial correlation of determination for a variable of interest i
 }
 \usage{
 
-partial.R2(lm.without, lm.with)
+partial.R2(nested.lm, ref.lm)
 }
 \arguments{
-  \item{lm.without}{A linear model without the variable of interest.}
-  \item{lm.with}{A linear model with the variable of interest.}
+  \item{nested.lm}{A linear model without the variable of interest.}
+  \item{ref.lm}{A linear model with the variable of interest.}
   }
 \details{
 Coefficients of partial determination measure the proportional reduction in sums of squares after a variable of interest, \emph{X}, is introduced into a model.  We can see how this would be of interest in a multiple regression.  

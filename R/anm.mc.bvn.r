@@ -1,7 +1,7 @@
 anm.mc.norm <- function(start = -4, mu = 0, sigma = 1, length = 2000, sim = "M", jump.kernel = 0.2, xlim = c(-4, 4), ylim = c(0, 0.4), interval = 0.01, show.leg = TRUE, ...)
 {
 x<-seq(-4, 4, .05)
-windows(xpos = -750)
+dev.new(xpos = -750)
 curve(dnorm(x, mu, sigma), xlim = xlim, xlab = "x", ylab = "f(x)", main = "Underlying distribution")
 dev.new()
 
@@ -67,7 +67,7 @@ require(mvtnorm)
 x<-seq(-4, 4, .05)
 g<-expand.grid(x, x)
 p<-dmvnorm(g, mu, sigma)
-windows(xpos = -750)
+dev.new(xpos = -750)
 plot(g, type = "p", col = gray(1-(p/max(p))), xlab = "X1", ylab = "X2", main = "Underlying BVN distribution")
 dev.new()
 

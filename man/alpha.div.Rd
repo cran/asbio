@@ -26,7 +26,6 @@ The type of alpha diversity to be computed.  The function currently has three ch
 }
 \value{A single diversity value is returned if \code{x} is a vector.  A vector of diversities (one for each site) are returned if \code{x} is a matrix. 
 }
-\seealso{\code{\link{beta.div}}}
 \references{
 Simpson, E. H.  (1949)  Measurement of diversity.  \emph{Nature}.  163: 688.
 
@@ -37,9 +36,8 @@ Ken Aho
 }
 
 \examples{
-library(vegan)
-data(varespec)
-alpha.div(varespec,"simp")
+data(cliff.sp)
+alpha.div(cliff.sp,"simp")
 }
 
 

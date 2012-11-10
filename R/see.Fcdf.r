@@ -12,7 +12,7 @@ require(tcltk) || stop("tcltk support is absent")
     xmax <- 10
     assign("xmax", tclVar(xmax), envir = slider.env)
         
-    dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.85);layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
     norm.refresh <- function(...) {
         nu1 <- as.numeric(evalq(tclvalue(nu1), envir = slider.env))
         nu2 <- as.numeric(evalq(tclvalue(nu2), envir = slider.env))
@@ -24,6 +24,7 @@ require(tcltk) || stop("tcltk support is absent")
         dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax),ylab = "f(x)", xlab = "x")
         plot(xx, y1, type = "l", xlim = c(xmin, xmax),ylab = "F(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(F), "(", .(nu1), ", ", .(nu2),")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()
             }
     tclServiceMode(TRUE)
@@ -84,6 +85,7 @@ require(tcltk) || stop("tcltk support is absent")
         yy <- df(xx, nu1, nu2)
         dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax),ylab = "f(x)", xlab = "x")
+        mtext(bquote(paste(italic(X), " ~ ", italic(F), "(", .(nu1), ", ", .(nu2),")", sep = "")), line = 1, side = 3)
         dev.flush()
                     }
     tclServiceMode(TRUE)

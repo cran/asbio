@@ -10,7 +10,7 @@ Creates barplots for displaying statistical summaries by treatment (e.g. means, 
 bplot(y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "SE",
  conf = 0.95, uiw = NULL, liw = NULL, sfrac = 0.1, slty = 1, scol = 1,
  slwd = 1, exp.fact = 1.5, simlett = FALSE, lett.side = 3, lett = NULL,
- names.arg = NULL, ylim = NULL, horiz = FALSE, ...)
+ cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, ...)
 }
 
 \arguments{
@@ -31,7 +31,7 @@ bplot(y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "SE",
   \item{simlett}{A logical statement indicating whether or not letters should be shown above bars indicating that populations means have been determined to be significantly different. }
   \item{lett.side}{Side that letters will be drawn on, 1 = bottom, 2 = left, 3 = top, 4 = right.}
   \item{lett}{A vector of letters or some other code to display multiple comparison results.}
-  
+  \item{cex.lett}{Character expansion for multiple comparison result letters.}
   \item{names.arg}{A vector of names to be plotted below each bar or error bar. If this argument is omitted, then the names are taken from the names attribute of \code{y}.}
   \item{ylim}{Upper and lower limits of the \emph{Y} axis}
   \item{horiz}{Logical value. If \code{FALSE}, then bars are drawn vertically with the first bar to the left. If \code{TRUE}, then bars are drawn horizontally with the first at the bottom.}
