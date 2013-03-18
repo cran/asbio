@@ -18,7 +18,7 @@ require(tcltk) || stop("tcltk support is absent")
         xx <- seq(xmin, xmax)
         yy <- dgeom(xx,p)
         dev.hold()
-        plot(xx, yy, type = "h", ylab = "f(x)", xlab = "x")
+        plot(xx, yy, type = "h", xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")))
         points(xx, yy, pch =19)
         mtext(bquote(paste(italic(X), " ~ ", italic(GEO), "(", .(p), ")", sep = "")), line = 1, side = 3)
         dev.flush()        
@@ -30,7 +30,7 @@ require(tcltk) || stop("tcltk support is absent")
     tkwm.geometry(m, "+0+0")
     
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "p", font=c("Helvetica","9","italic"),width = "20"), 
+    tkpack(tklabel(fr, text = '\u03C0', font=c("Helvetica","9","italic"),width = "20"), 
         side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0.01, 
         to = 1, orient = "horiz", resolution = 0.01, showvalue = TRUE), 
@@ -77,9 +77,9 @@ require(tcltk) || stop("tcltk support is absent")
         yy <- dgeom(xx,p)
         y1 <- pgeom(xx,p)
         dev.hold()
-        plot(xx, yy, type = "h", ylab = "f(x)", xlab = "x")
+        plot(xx, yy, type = "h", xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")))
         points(xx, yy, pch =19)
-        plot(xx, y1, type = "n", ylab = "F(x)", xlab = "x")
+        plot(xx, y1, type = "n", xlab=expression(italic(x)),ylab=expression(paste(italic(F),"(",italic(x),")", sep = "")))
         points(xx, y1, pch =19)
         segments(xx, y1,xx+1,y1)
         points(xx+1, y1, pch =1)
@@ -93,7 +93,7 @@ require(tcltk) || stop("tcltk support is absent")
     tkwm.geometry(m, "+0+0")
     
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "p", font=c("Helvetica","9","italic"),width = "20"), 
+    tkpack(tklabel(fr, text = '\u03C0', font=c("Helvetica","9","italic"),width = "20"), 
         side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0.01, 
         to = 1, orient = "horiz", resolution = 0.01, showvalue = TRUE), 

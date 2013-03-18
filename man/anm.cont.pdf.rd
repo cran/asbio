@@ -1,5 +1,6 @@
 \name{anm.cont.pdf}
 \alias{anm.cont.pdf}
+\alias{see.pdf.conc.tck}
 \title{Animated demonstration of density for a continuous pdf
 }
 \description{
@@ -7,7 +8,9 @@ A continuous pdf is conceptually a histogram whose bins sum to one, with infinit
 }
 \usage{
 
-anm.cont.pdf(part = "norm", interval = 0.1)
+anm.cont.pdf(part = "norm", interval = 0.3)
+
+see.pdf.conc.tck()
 }
 \arguments{
 

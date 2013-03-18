@@ -1,6 +1,7 @@
 \name{BDM.test}
 \alias{BDM.test}
 \alias{BDM.2way}
+\alias{print.BDM}
 \title{Brunner-Dette-Munk test}
 \description{One and two way heteroscedastic rank-based permutation tests.  Two way designs are assumed to be factorial, i.e. interactions are tested.
 }

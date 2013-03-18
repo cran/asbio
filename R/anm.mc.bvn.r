@@ -60,7 +60,7 @@ dens <- dnorm(q.x, mu, sigma)
 
 
 
-anm.mc.bvn <- function(start = c(-4, -4), mu = c(0, 0), sigma = matrix(2, 2, data = c(1, 0, 0, 1)), length = 1000, sim = "M", jump.kernel = 0.2, xlim = c(-4, 4), ylim = c(-4, 4), interval = 0.01, show.leg = TRUE, ...)
+anm.mc.bvn <- function(start = c(-4, -4), mu = c(0, 0), sigma = matrix(2, 2, data = c(1, 0, 0, 1)), length = 1000, sim = "M", jump.kernel = 0.2, xlim = c(-4, 4), ylim = c(-4, 4), interval = 0.01, show.leg = TRUE, cex.leg = 1,...)
 {
 require(mvtnorm)
 
@@ -68,8 +68,10 @@ x<-seq(-4, 4, .05)
 g<-expand.grid(x, x)
 p<-dmvnorm(g, mu, sigma)
 dev.new(xpos = -750)
-plot(g, type = "p", col = gray(1-(p/max(p))), xlab = "X1", ylab = "X2", main = "Underlying BVN distribution")
+par(mar=c(5,4.5,3,2))
+plot(g, type = "p", col = gray(1-(p/max(p))), xlab = expression(italic(X)[1]), ylab = expression(italic(X)[2]), main = "Underlying BVN distribution",...)
 dev.new()
+par(mar=c(5,4.5,3,2))
 
 if(sim == "M") method = "Metropolis"; if(sim == "MH") method = "Metropolis-Hastings"; if(sim == "G") method = "Gibbs"
 
@@ -127,12 +129,12 @@ if(sim == "MH")
     for( i in 1 : length)
         {
         dev.hold()
-        plot(q.x[seq(1 : i),], xlim = xlim, ylim = ylim, xlab = "X1", ylab = "X2", type = "l", col = "gray", main = paste("MCMC walk, method = ", method))
+        plot(q.x[seq(1 : i),], xlim = xlim, ylim = ylim, xlab = expression(italic(X)[1]), ylab = expression(italic(X)[2]), type = "l", col = "gray", main = paste("MCMC walk, method = ", method),...)
         points(q.x[,1][seq(1 : i)], q.x[,2][seq(1 : i)], pch = 19, cex = .5)
         points(q.x[i,][1], q.x[i,][2], pch = 19, cex = 1.5)
         density <- dmvnorm(q.x[i,], mu, sigma)
         #legend("topright", bty = "n", inset = 0.1, legend = c("f(x1,x2) = ", density))
-        if(show.leg) legend("topleft", bty = "n", legend = c("Length = ", i))
+        if(show.leg) legend("topleft", bty = "n", legend = c("Length = ", i), cex = cex.leg)
         dev.flush()
         Sys.sleep(interval)
         }

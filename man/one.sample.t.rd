@@ -5,7 +5,7 @@
 Provides a one-sample hypothesis test.  The test assumes that the underlying population is normal.}
 \usage{
 one.sample.t(data = NULL, null.mu = 0, xbar = NULL, s, n = NULL, 
-test = c("two.sided", "lower.tail", "upper.tail"))
+alternative = c("two.sided", "lower", "upper"))
 }
 \arguments{
   \item{data}{A vector of quantitative data.  Not required if \code{xbar} and \code{n} are supplied by the user.}
@@ -13,7 +13,7 @@ test = c("two.sided", "lower.tail", "upper.tail"))
   \item{xbar}{Sample mean.  Not required if \code{is.null(data)==FALSE}}
   \item{s}{The sample standard deviation. Not required if \code{is.null(data)==FALSE}}
   \item{n}{The sample size. Not required if \code{is.null(data)==FALSE}}
-  \item{test}{Type of test.  One of three must be specified \code{"two.sided", "lower.tail"}, or \code{"upper.tail"}}
+  \item{alternative}{Type of test.  One of three must be specified \code{"two.sided", "lower"}, or \code{"upper"}}
 }
 \details{The function can use either raw data \code{is.null(data)==FALSE} or summarized data if \code{is.null(data)==TRUE}.  With the later \code{xbar}\code{s}, and \code{n} must be specified by the user.
 }
@@ -23,7 +23,7 @@ test = c("two.sided", "lower.tail", "upper.tail"))
 \author{Ken Aho}
 \seealso{\code{\link{pt}}}
 \examples{
-one.sample.z(null.mu=131,xbar=126,s=12,n=85,test="two.sided")
+one.sample.z(null.mu=131,xbar=126,s=12,n=85,alternative="two.sided")
 }
 \keyword{htest}
 \keyword{univar}

@@ -16,11 +16,11 @@ Kappa(class1, reference)
   \item{class1}{A vector describing a classification of experimental units.}
   \item{reference}{A vector describing the "correct" classification of the experimental units in \code{class1}}
 }
-\value{Returns a list with 5 items 
+\value{Returns a list with 4 items 
   \item{ttl_agreement}{The percentage of correctly classified items.}
   \item{user_accuracy}{The user accuracy for each category of the classification.}
   \item{producer_accuracy}{The producer accuracy for each category of the classification.}
-  \item{table}{A two way contingency table comparing the user supplied classification versus the reference classification.}
+  \item{table}{A two way contingency table comparing the user supplied classification to the reference classification.}
 }
 \references{Jensen, J. R.  (1996)  \emph{Introductory digital imagery processing 2nd edition}.  Prentice-Hall.}
 \author{Ken Aho}

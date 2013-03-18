@@ -36,13 +36,13 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "
     if(is.null(uiw)) uiw <- loc.vec + margin; liw <- loc.vec - margin
     
                 if (simlett == TRUE & is.null(ylim)){ 
-                  yLim = c(min(c(0, loc.vec - (margin * exp.fact))), 
+                  ylim = c(min(c(0, loc.vec - (margin * exp.fact))), 
                   max(c(0, loc.vec + (margin * exp.fact))))}
-                if(simlett == FALSE){
-                  yLim <- c(min(0, loc.vec - (margin)), max(0, loc.vec + (margin)))}
+                if(simlett == FALSE & is.null(ylim)){
+                  ylim <- c(min(0, loc.vec - (margin)), max(0, loc.vec + (margin)))}
                                      
-                if(horiz == FALSE) b <- barplot(loc.vec, ylim = yLim , col = bar.col, ...)
-                if(horiz == TRUE) b <- barplot(loc.vec, xlim = yLim , col = bar.col, horiz = TRUE, ...)
+                if(horiz == FALSE) b <- barplot(loc.vec, ylim = ylim , col = bar.col, ...)
+                if(horiz == TRUE) b <- barplot(loc.vec, xlim = ylim , col = bar.col, horiz = TRUE, ...)
                 if(horiz == FALSE){
                     arrows(b, liw, b, uiw, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)
                     arrows(b, liw, b, uiw, code = 1, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)}

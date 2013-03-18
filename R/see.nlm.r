@@ -96,8 +96,7 @@ require(tcltk) || stop("tcltk support is absent")
         if(com=="see.G"){yy<-a*exp(-b*exp(-c*xx));main="Gompertz"}
         if(com=="see.R"){yy<-a*xx*exp(-b*xx);main="Ricker"}
         dev.hold()
-        plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", 
-            xlab = "x",main=main)
+        plot(xx, yy, type = "l", xlim = c(xmin, xmax), xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")),main=main)
         dev.flush()    
     }
     

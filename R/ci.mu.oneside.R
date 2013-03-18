@@ -9,7 +9,7 @@ tstar<-qt(conf,df=n-1)
   if(tail=="upper")CI<-c(xbar,NA,xbar+tstar*S.xbar)
   if(tail=="lower")CI<-c(xbar,xbar-tstar*S.xbar,NA)
 res<-list()
-res$head<-paste(paste(as.character(conf*100),"%",sep=""),c("One Sided Confidence Interval for Population Mean"))
+res$head<-paste(paste(as.character(conf*100),"%",sep=""),c("One-sided confidence interval for population mean"))
 res$ci<-CI
 res$ends<-c("Estimate",paste(as.character(c((1-conf),1-((1-conf)))*100),"%",sep=""))
 class(res)<-"ci"

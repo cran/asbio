@@ -13,7 +13,7 @@ require(tcltk) || stop("tcltk support is absent")
     show.norm<-tclVar(0) 
       prefunc<-function(xx,yy,vy,muy,xmin,xmax,lambda,show.norm=FALSE){
         dev.hold()
-        plot(xx, yy, type = "h", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
+        plot(xx, yy, type = "h", xlim = c(xmin, xmax), xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")))
         points(xx, yy, pch =19)
         x <- NULL; rm(x); # Dummy to trick R CMD check 
         if(show.norm==TRUE) curve(dnorm(x,muy,vy),0,xmax, col =2,add=TRUE)
@@ -78,11 +78,11 @@ require(tcltk) || stop("tcltk support is absent")
    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
    prefunc<-function(xx,yy,vy,muy,y1,xmin, xmax,lambda, show.norm=FALSE){
         dev.hold()
-        plot(xx, yy, type = "h", xlim = c(xmin, xmax),ylab = "f(x)", xlab = "x")
+        plot(xx, yy, type = "h", xlim = c(xmin, xmax),xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")))
         points(xx, yy, pch =19)
         x <- NULL; rm(x); # Dummy to trick R CMD check 
         if(show.norm==TRUE) curve(dnorm(x,muy,vy),0,xmax, col =2,add=TRUE)
-        plot(xx, y1, type = "n", xlim = c(xmin, xmax), ylab = "F(x)", xlab = "x")
+        plot(xx, y1, type = "n", xlim = c(xmin, xmax), xlab=expression(italic(x)),ylab=expression(paste(italic(F),"(",italic(x),")", sep = "")))
         segments(xx, y1, xx+1, y1, pch=19)
         points(xx,y1,pch=19)
         points(xx+1,y1,pch=1)

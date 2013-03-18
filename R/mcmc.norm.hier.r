@@ -74,7 +74,7 @@ class(chains) <- "norm.hier"
 chains
 }
 
-mcmc.summary <- function(M, burn.in = 0.5, cred = 0.95, conv.log = TRUE){
+norm.hier.summary <- function(M, burn.in = 0.5, cred = 0.95, conv.log = TRUE){
     if(class(M) != "norm.hier") stop("Input must be output from function 'mcmc.norm.hier'")
         n <- dim(M)[1]
         m <- M[(n * burn.in) : n, ,]
@@ -82,7 +82,7 @@ mcmc.summary <- function(M, burn.in = 0.5, cred = 0.95, conv.log = TRUE){
         n.chains <- dim(m)[3]
         
         upper <- 1 - (1 - cred)/2; lower <- 1 - upper 
-        res <- matrix(nrow = vars, ncol = 4, dimnames = list(c(paste("theta", seq(1 : (vars - 3)), sep = ""), "mu", "s.sq", "tau.sq"), c(paste(lower, "%", sep = ""), "Median", paste(upper, "%", sep =""), "R.hat")))
+        res <- matrix(nrow = vars, ncol = 4, dimnames = list(c(paste("theta", seq(1 : (vars - 3)), sep = ""), "mu", "s.sq", "tau.sq"), c(paste(lower * 100, "%", sep = ""), "Median", paste(upper * 100, "%", sep =""), "R.hat")))
             for(i in 1 : vars){
             res[,1][i] <- quantile(m[, i, 1 : n.chains], lower)
             res[,2][i] <- median(m[, i, 1 : n.chains])

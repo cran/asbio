@@ -15,7 +15,17 @@ DEGREES.OF.FREEDOM<-c(1,dfdenom)
 names(DEGREES.OF.FREEDOM)<-c("num.df","denom.df")
 D<-sqrt(SSAB/(sum((ybari.-ybar..)^2)*sum((ybar.j-ybar..)^2)))
 names(D)="D"
-RVAL<-list(statistic=STATISTIC,parameter=DEGREES.OF.FREEDOM,p.value=1-pf(STATISTIC,1,dfdenom),method="Tukey's one df test for additivity",data.name=dname)
-attr(RVAL, "class")<-"htest"
-return(RVAL)
+RVAL<-list(statistic=STATISTIC,df=DEGREES.OF.FREEDOM,p.value=1-pf(STATISTIC,1,dfdenom),head="Tukey's one df test for additivity",data.name=dname)
+attr(RVAL, "class")<-"addtest"
+RVAL
 }
+
+print.addtest <- function(x, digits= max(3, getOption("digits")),...){
+cat("\n")
+cat(x$head,"\n")
+p <- paste("F =", round(x$statistic[1], digits), " ", "Denom df =", x$df[2], "  ", "p-value =", round(x$p.value[1], digits))
+cat(p)
+cat("\n")
+invisible(x)
+}
+

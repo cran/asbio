@@ -1,5 +1,6 @@
 \name{tukey.add.test}
 \alias{tukey.add.test}
+\alias{print.addtest} 
 \title{Tukey's test of additivity.}
 \description{With an RBD we are testing the null hypothesis that there is no treatment effect in any block.  As a result randomized block designs including RBDs, Latin Squares, and spherical repeated measures assume that there is no interaction effect between blocks and main factors (i.e. main effects and block are additive).  We can test this assumption with the Tukey's test for additivity.  We address the following hypotheses:
 

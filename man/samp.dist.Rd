@@ -21,7 +21,7 @@ The function \code{dirty.dist} can be used to create contaminated parent distrib
 }
 \usage{
 
-samp.dist(parent = rnorm, parent2 = NULL, biv.parent = NULL, s.size = 1, s.size2
+samp.dist(parent = NULL, parent2 = NULL, biv.parent = NULL, s.size = 1, s.size2
  = NULL, R = 1000, nbreaks = 50, stat = mean, stat2 = NULL, stat3 = NULL, stat4 
  = NULL, xlab = expression(bar(x)), func = NULL, show.n = TRUE, show.SE = FALSE, 
  anim = TRUE, interval = 0.01, col.anim = "rainbow", digits = 3, ...)
@@ -53,10 +53,10 @@ samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = expression(
 
   \item{parent}{A vector or vector generating function, describing the parental distribution.  
   Any collection of values can be used. When using random value generators for 
-  parental distributions, for CPU effiency (and accuracy) one should use\code{parent = expression(rpdf(s.size, ...))}. Datasets exceeding 100000 observations are not recommended.}
+  parental distributions, for CPU effiency (and accuracy) one should use \code{parent = expression(rpdf(s.size, ...))}. Datasets exceeding 100000 observations are not recommended.}
   \item{parent2}{An optional second parental distribution (see \code{parent} above), 
   useful for the construction of sampling distributions of test statistics.  
-  When using random value generators use\code{parent2 = expression(rpdf(s.size2, ...))}.}
+  When using random value generators use \code{parent2 = expression(rpdf(s.size2, ...))}.}
   \item{biv.parent}{A bivariate (two column) distribution.}
   \item{s.size}{An integer defining sample size (or a vector of integers in the case of \code{samp.dist.snap}) to be taken at each of \code{R} iterations from the parental distribution.}
   \item{s.size2}{An optional integer definining a second sample size if a second statistic is to be calculated.  Again, this will be a vector of integers in the of \code{samp.dist.snap}.}
@@ -65,7 +65,7 @@ samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = expression(
   \item{stat}{The statistic whose sampling distribution is to be represented.  Will work for any summary statistic that only requires a call to data; e.g. \code{\link{mean}}, \code{\link{var}}, \code{\link{median}}, etc.}
   \item{stat2}{An optional second statistic. Useful for conceptualizing sampling distributions of test statistics.  Calculated from sampling \code{parent2}.}
   \item{stat3}{An optional third statistic. The sampling distribution is created from the same sample data used for \code{stat}.}
-  \item{stat4}{An optional fourth statistic. The sampling distribution is created from the same sample data used for \code{stat2}}.
+  \item{stat4}{An optional fourth statistic. The sampling distribution is created from the same sample data used for \code{stat2}.}
   \item{xlab}{\emph{X}-axis label.}  
   \item{func}{An optional function used to manipulate a sampling distribution or to combine the sampling distributions of two or more statistics.  
   The function must contain the following arguemets (although they needn't all be used in the function):  
@@ -80,7 +80,6 @@ samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = expression(
   \item{interval}{Animation speed.  Decreasing \code{interval} increases speed.}
   \item{col.anim}{Color to be used in animation.  Three changing color palettes: \code{\link{rainbow}}, \code{\link{gray}}, \code{\link{heat.colors}}, or "fixed" color types can be used.}
   \item{digits}{The number of digits to be displayed in the bootstrap standard error.}
-  \item{\dots}{Additional arguments from \code{\link{plot.histogram}}.}
   \item{fits}{Fitted distributions for \code{samp.dist.snap}  A function with two argument: \code{s.size} and \code{s.size2}} 
   \item{show.fits}{Logical indicating whether or not fits should be shown (fits 
   will not be shown if no fitting function is specified regardless of whether this is \code{TRUE} or \code{FALSE}}
@@ -97,7 +96,7 @@ samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = expression(
   \item{col.density}{The color of the density line for \code{samp.dist.n}.  See \code{est.density} above.}
   \item{lwd.density}{The width of the density line for \code{samp.dist.n}.  See \code{est.density} above.} 
   \item{est.ylim}{Logical.  If \code{TRUE} \emph{Y}-axis limits are estimated logically for the animation in \code{samp.dist.n}.  Consistent \emph{Y}-axis limits make animations easier to visualize.  Only used if \code{fix.n = TRUE}.} 
-
+  \item{\dots}{Additional arguments from \code{\link{plot.histogram}}.}
 }
 \value{Returns a representation of a statistic's sampling distribution in the form of a histogram.
 }

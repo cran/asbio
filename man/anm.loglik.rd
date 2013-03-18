@@ -15,11 +15,11 @@ Plots the normal, exponential, Poisson, binomial and "custom" log-likelihood fun
 anm.loglik(X, dist = c("norm", "poi", "bin", "exp", "custom"), 
 plot.likfunc = TRUE, parameter = NULL, func = NULL, poss = NULL, 
 plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
-conv = diff(range(X))/70, anim = TRUE, interval = 0.01, ...)
+conv = diff(range(X))/70, anim = TRUE, est.col = 2, density.leg = TRUE, cex.leg = 0.9, interval = 0.01, ...)
 
 loglik.norm.plot(X, parameter = c("mu", "sigma.sq"), poss = NULL, 
 plot.likfunc = TRUE, plot.density = TRUE, plot.calc = FALSE, 
-xlab = NULL, ylab = NULL, conv = 0.01, anim = TRUE, 
+xlab = NULL, ylab = NULL, conv = 0.01, anim = TRUE, est.col = 2, density.leg = TRUE, cex.leg = 0.9,
 interval = 0.01, ...)
 
 loglik.pois.plot(X, poss = NULL, plot.likfunc = TRUE, 
@@ -32,7 +32,7 @@ interval = 0.01, ...)
 
 loglik.exp.plot(X, poss = NULL, plot.likfunc = TRUE, 
 plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
-conv = 0.01, anim = TRUE, interval = 0.01, ...)
+conv = 0.01, anim = TRUE, est.col = 2, density.leg = TRUE, cex.leg = 0.9, interval = 0.01, ...)
 
 loglik.custom.plot(X, func, poss, anim = TRUE, interval = 0.01, 
 xlab, ylab, ...)
@@ -54,6 +54,9 @@ log-likelihood function, and binary responses (0,1) for the binomial log likelih
   \item{ylab}{Optional \emph{Y}-axis label.}
   \item{conv}{Precision of likelihood function.  Decreasing \code{conv} increases the smoothness and precision of the ML function.  Decreasing \code{conv} will also slow the animation.}
   \item{anim}{A logical command indicating whether animation should be used in plots.}
+  \item{est.col}{Color used in depicting estimation.}
+  \item{density.leg}{Logical.  Should the legend for density be shown?}
+  \item{cex.leg}{Character expansion for legend.}
   \item{interval}{Speed of animation, in seconds per frame.  May not work in all systems; see \code{\link{Sys.sleep}}.} 
   \item{func}{Custom likelihood function to be specified when using \code{loglik.custom.plot}.  The function should have two arguments.  An optional call to data, and the likelihood function parameter (see example below).} 
   \item{\dots}{Additional arguments from \code{\link{plot}} can be specified for likelihood function plots.}

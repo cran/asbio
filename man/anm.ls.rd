@@ -10,7 +10,7 @@ Animated plot of least squares function.
 
 anm.ls(X, poss=NULL, parameter = "mu", est.lty = 2, est.col = 2,
 conv=diff(range(X))/50, anim=TRUE, plot.lsfunc = TRUE, plot.res = TRUE, 
-interval=0.01, xlab=expression(paste("Estimates for E(X)")),...)
+interval=0.01, xlab=expression(paste("Estimates for ", italic(E),"(",italic(X),")", sep = "")),...)
 
 anm.ls.tck()
 }

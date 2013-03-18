@@ -4,12 +4,11 @@
 \description{The function creates partial residual plots which help a user graphically determine the effect of a single predictor with respect to all other predictors in a multiple regression model.
 }
 \usage{
-partial.resid.plot(Y, X, smooth.span = 0.8)
+partial.resid.plot(x, smooth.span = 0.8)
 }
 \arguments{
 
-  \item{Y}{A vector of quantitative responses.}
-  \item{X}{A matrix of explanatory variables.}
+  \item{x}{A output object of class \code{lm} or class \code{glm}}
   \item{smooth.span}{Degree of smoothing for smoothing line.}
 }
 \details{
@@ -26,10 +25,10 @@ Soil.C<-c(13,20,10,11,2,25,30,25,23)
 Soil.N<-c(1.2,2,1.5,1,0.3,2,3,2.7,2.5)
 Slope<-c(15,14,16,12,10,18,25,24,20)
 Aspect<-c(45,120,100,56,5,20,5,15,15)
-Y<-as.vector(c(20,30,10,15,5,45,60,55,45))
-X<-as.matrix(cbind(Soil.C, Soil.N, Slope, Aspect))
+Y<-c(20,30,10,15,5,45,60,55,45)
+x <- lm(Y ~ Soil.N + Soil.C + Slope + Aspect)
 par(mfrow=c(2,2),mar=c(5,4,1,1.5))
-partial.resid.plot(Y,X)
+partial.resid.plot(x)
 }
 \keyword{univar}
 \keyword{graphs}

@@ -63,7 +63,7 @@ local({
         tkgrid(tklabel(tt,text=""))
         tkgrid(tklabel(tt,text="x",font=c("Helvetica","9","italic")), x.entry)
         tkgrid(tklabel(tt,text="n",font=c("Helvetica","9","italic")), n.entry)
-        tkgrid(tklabel(tt,text="p",font=c("Helvetica","9","italic")), p.entry)
+        tkgrid(tklabel(tt,text='\u03C0',font=c("Helvetica","9","italic")), p.entry)
         tkgrid(tklabel(tt,text=""))
         alt.rbuts <- tkframe(tt)
 

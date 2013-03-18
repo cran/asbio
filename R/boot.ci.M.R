@@ -1,19 +1,24 @@
-boot.ci.M<-function(X1,X2,alpha=0.05,est=huber.one.step,R=1000,type="perc"){
-require(boot)||stop("This function requires the library 'boot'")
+boot.ci.M<-function(X1,X2,alpha=0.05,est=huber.one.step,R=1000,method="perc"){
+
 data<-data.frame(cbind(X1,X2))
-boot.M<-function(data,i){
+boot.M<-function(data){
 X1<-data$X1
 X2<-data$X2
-X1.b<-est(na.omit(X1[i]))
-X2.b<-est(na.omit(X2[i]))
+X1.b<-est(na.omit(X1))
+X2.b<-est(na.omit(X2))
 D<-X1.b-X2.b
 }
-b<-boot(data,boot.M,R=R,stype="i")
-ci<-boot.ci(b,conf=1-alpha,type=type)
-Rr<-length(na.omit(b$t))
-ci.L<-as.numeric(as.data.frame(ci[4])[4])
-ci.U<-as.numeric(as.data.frame(ci[4])[5])
+b<-bootstrap(data,boot.M,R=R)
+ci<-ci.boot(b,conf=1-alpha,method=method)
+if(method=="norm") nm = 1
+if(method=="basic") nm = 2
+if(method=="perc") nm = 3
+if(method=="BCa") nm = 4
+ 
+Rr<-length(na.omit(b$dist))
+ci.L<-as.numeric(as.data.frame(ci[nm,])[1])
+ci.U<-as.numeric(as.data.frame(ci[nm,])[2])
 res<-list()
-res$result<-data.frame(R.used=Rr,ci.type =type,conf=1-alpha,se=sd(na.omit(b$t)),original=b$t0,lower=ci.L,upper=ci.U)
+res$result<-data.frame(R.used=Rr,ci.type = method,conf=1-alpha,se=sd(na.omit(b$t)),original=b[[3]][1],lower=ci.L,upper=ci.U)
 res
 }

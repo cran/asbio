@@ -2,7 +2,7 @@
 \alias{ant.dew}
 \docType{data}
 \title{
-ant honeydew data
+Ant honeydew data
 }
 \description{
 Wright et al. (2000) examined behavior of red wood ants (\emph{Formica rufus}), a species that harvests honeydew in aphids.  

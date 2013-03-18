@@ -12,11 +12,11 @@ The algorithm can use three different variants on MCMC random walks: Gibbs sampl
 \usage{
 anm.mc.bvn(start = c(-4, -4), mu = c(0, 0), sigma = matrix(2, 2, data = c(1, 0,
  0, 1)), length = 1000, sim = "M", jump.kernel = 0.2, xlim = c(-4, 4),
- ylim = c(-4, 4), interval = 0.01, show.leg = TRUE, ...)
+ ylim = c(-4, 4), interval = 0.01, show.leg = TRUE, cex.leg = 1, ...)
 
 anm.mc.norm(start = -4, mu = 0, sigma = 1, length = 2000, sim = "M",
  jump.kernel = 0.2, xlim = c(-4, 4), ylim = c(0, 0.4), interval = 0.01,
- show.leg = TRUE, ...)
+ show.leg = TRUE,...)
 
 anm.mc.bvn.tck()
 }
@@ -55,6 +55,11 @@ Animation interval
   \item{show.leg}{
 Logical.  Indicating whether or not the chain length should be shown.
 }
+
+ \item{cex.leg}{
+Character expansion for legend.
+}
+
   \item{\dots}{
 Additional arguments from \code{plot}.
 }

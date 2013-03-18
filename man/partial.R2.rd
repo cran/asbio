@@ -32,7 +32,7 @@ Aspect<-c(45,120,100,56,5,20,5,15,15)
 Y<-as.vector(c(20,30,10,15,5,45,60,55,45))
 
 lm.with<-lm(Y~Soil.C+Soil.N+Slope+Aspect)
-lm.without<-lm(Y~Soil.C+Slope+Aspect)
+lm.without<-update(lm.with, ~. - Soil.N)
 
 partial.R2(lm.without,lm.with)
 }

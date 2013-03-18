@@ -21,7 +21,7 @@ see.r.dist.tck <-function(){
 plot.r <- function(rho, r, n, ...){
 vals <- r.dist(rho = rho, r = seq(-1, 1, .001) , n = n)
 dev.hold()
-plot(seq(-1, 1, .001), vals, type = "l", ylab = "f(r)", xlab = "r", ...)
+plot(seq(-1, 1, .001), vals, type = "l", ylab = expression(paste(italic(f),"(",italic(r),")", sep = "")), xlab = expression(italic(r)), ...)
 dev.flush()
 }
 

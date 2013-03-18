@@ -8,7 +8,7 @@ vec[i]<- sample(c(pure, dirty), size = 1, prob = c(1 - prop.cont, prop.cont))
 vec
 } 
 
-samp.dist<- function (parent = rnorm, parent2 = NULL, biv.parent = NULL, s.size = 1, s.size2 = NULL, R = 1000, nbreaks = 50, stat = mean, stat2 = NULL, 
+samp.dist<- function (parent = NULL, parent2 = NULL, biv.parent = NULL, s.size = 1, s.size2 = NULL, R = 1000, nbreaks = 50, stat = mean, stat2 = NULL, 
 stat3 = NULL, stat4 = NULL, xlab = expression(bar(x)), func = NULL, show.n = TRUE, show.SE = FALSE, anim = TRUE, interval = 0.01, col.anim = "rainbow", digits = 3, ...) 
 {
  

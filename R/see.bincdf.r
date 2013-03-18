@@ -12,7 +12,7 @@ require(tcltk) || stop("tcltk support is absent")
    show.norm<-tclVar(0) 
       prefunc<-function(xx,yy,vy,muy,n,p,show.norm=FALSE){
         dev.hold()
-        plot(xx, yy, type = "h", ylab = "f(x)", xlab = "x")
+        plot(xx, yy, type = "h", xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")))
         points(xx, yy, pch =19)
         x <- NULL; rm(x); # Dummy to trick R CMD check
         if(show.norm==TRUE) curve(dnorm(x,muy,vy),0,n, col =2,add=TRUE)
@@ -44,7 +44,7 @@ require(tcltk) || stop("tcltk support is absent")
     evalq(tkconfigure(sc, variable = n), envir = slider.env)
     
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "p", font=c("Helvetica","9","italic"),width = "20"), 
+    tkpack(tklabel(fr, text = '\u03C0', font=c("Helvetica","9","italic"),width = "20"), 
         side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
         to = 1, orient = "horiz", resolution = 0.01, showvalue = TRUE), 
@@ -75,11 +75,11 @@ require(tcltk) || stop("tcltk support is absent")
    
     prefunc<-function(xx,yy,y1,vy,muy,n,p,show.norm=FALSE){
         dev.hold()
-        plot(xx, yy, type = "h", ylab = "f(x)", xlab = "x")
+        plot(xx, yy, type = "h", xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")))
         points(xx, yy, pch =19)
         x <- NULL; rm(x); # Dummy to trick R CMD check
         if(show.norm==TRUE) curve(dnorm(x,muy,vy),0,n, col =2, add = TRUE)
-        plot(xx, y1, type = "n", ylab = "F(x)", xlab = "x")
+        plot(xx, y1, type = "n", xlab=expression(italic(x)),ylab=expression(paste(italic(F),"(",italic(x),")", sep = "")))
         points(xx, y1, pch =19)
         segments(xx, y1,xx+1,y1)
         points(xx+1, y1, pch =1)
@@ -113,7 +113,7 @@ require(tcltk) || stop("tcltk support is absent")
     evalq(tkconfigure(sc, variable = n), envir = slider.env)
     
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "p", font=c("Helvetica","9","italic"),width = "20"), 
+    tkpack(tklabel(fr, text = '\u03C0', font=c("Helvetica","9","italic"),width = "20"), 
         side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
         to = 1, orient = "horiz", resolution = 0.01, showvalue = TRUE), 
