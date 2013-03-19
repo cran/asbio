@@ -21,11 +21,13 @@ anm.die.tck<-function ()
             throw.entry <- tkentry(tt, textvariable = Throws, width = 10)
             done <- tclVar(0)
             show.die<-tclVar(1)
+            color<-tclVar(1)
             reset <- function() {
                 tclvalue(P) <- "c(1/6,1/6,1/6,1/6,1/6,1/6)"
                 tclvalue(Int) <- "0.01"
                 tclvalue(Throw) <- "1000"
                 tclvalue(show.die)<-"0"
+                tclvalue(color)<-"0"
             }
             reset.but <- tkbutton(tt, text = "Reset", command = reset)
             submit.but <- tkbutton(tt, text = "Submit", command = function() tclvalue(done) <- 1)
@@ -34,10 +36,12 @@ anm.die.tck<-function ()
                 interval <- tclvalue(Int)
                 reps <- tclvalue(Throws)
                 show.die <- as.logical(tclObj(show.die))
+                color <- as.logical(tclObj(color))
                 substitute(anm.die(rep=as.numeric(reps),p=p, 
-                  interval = as.numeric(interval), show.die=show.die))
+                  interval = as.numeric(interval), show.die=show.die, cl = color))
             }
             nc.cbut <- tkcheckbutton(tt, text="Show die", variable=show.die)
+            col.cbut <- tkcheckbutton(tt, text="Color", variable=color)
             tkgrid(tklabel(tt, text = "Frequentist probability\nand die throws", justify = "center"), 
                 columnspan = 2)
             tkgrid(tklabel(tt, text = ""))
@@ -46,7 +50,7 @@ anm.die.tck<-function ()
             tkgrid(tklabel(tt, text = "Anim. int."), 
                 int.entry)
             tkgrid(tklabel(tt, text = ""))
-            tkgrid(nc.cbut)
+            tkgrid(nc.cbut, col.cbut)
             tkgrid(submit.but, reset.but,sticky="w")
             tkbind(tt, "<Destroy>", function() tclvalue(done) <- 2)
             tkwait.variable(done)

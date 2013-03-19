@@ -1,9 +1,11 @@
 transM<-function(A,init,inter=100,stage.names =c("All grps",1:(ncol(A))),leg.room = 1.5,...){
 m<-matrix(nrow=ncol(A),ncol=inter)
-for (i in 2:inter){
 m[,1]<-init
+
+for (i in 2:inter){
 m[,i]<-A%*%m[,i-1]
 }
+
 n<-apply(m,2,sum)
 plot(seq(1,inter),n,type="n",ylim=c(0,max(n)*leg.room),...)
 lines(seq(1,inter),n,col=1,lwd=3)

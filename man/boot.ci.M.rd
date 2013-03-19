@@ -4,13 +4,13 @@
 \description{
 Creates a bootstrap confidence interval for location differences for two samples.  The default location
 estimator is the Huber one-step estimator, although any estimator can be used.  The function is similar to 
-a function written by Wilcox (2005) but does not compute two-tailed \emph{p}-values as these are often in conflict 
+a function written by Wilcox (2005) but does not compute two-tailed \emph{P}-values as these are often in conflict 
 with the calculated confidence intervals.  The default method for bootstrap confidence intervals is the percentile 
 method which is recommended by Wilcox (2005) for \emph{M}-estimators.
 }
 \usage{
 boot.ci.M(X1, X2, alpha = 0.05, est = huber.one.step, R = 1000, 
-type = "perc")
+method = "perc")
 }
 \arguments{
   \item{X1}{Sample from population one.}
@@ -18,7 +18,7 @@ type = "perc")
   \item{alpha}{Significance level.}
   \item{est}{Location estimator; default is the Huber one step estimator.}
   \item{R}{Number of bootstrap samples.}
-  \item{type}{Method for computing bootstrap confidence intervals. Other alternatives are given in \code{boot.ci} from the library \code{boot}.}
+  \item{method}{Method for computing bootstrap confidence intervals. Other alternatives are given in \code{ci.boot}.  Cannot currently handle studentized intervals.}
 }
 \value{
   Returns a list with one component, a dataframe containing summary information from the analysis:  
@@ -36,7 +36,7 @@ Manly, B. F. J.  (1997)  \emph{Randomization and Monte Carlo methods in biology,
 Chapman and Hall, London.
 }
 \author{Ken Aho}
-\seealso{\code{\link{bootstrap}}, \code{\link{boot}}}
+\seealso{\code{\link{bootstrap}}, \code{\link{ci.boot}}}
 \examples{
 \dontrun{
 X1<-rnorm(100,2,2.5)

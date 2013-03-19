@@ -1,9 +1,9 @@
 see.power<-function(alpha=NULL,sigma=NULL,n=NULL,effect=NULL,test="lower",xlim=c(-3,3),strict=FALSE){
-    upper.titlel<-bquote(paste("Distribution assuming ",H[0],": ",mu," > 0"))
-    upper.titleu<-bquote(paste("Distribution assuming ",H[0],": ",mu," < 0"))
+    upper.titlel<-bquote(paste("Distribution assuming ",H[0],": ",mu >= 0))
+    upper.titleu<-bquote(paste("Distribution assuming ",H[0],": ",mu <= 0))
     upper.titleb<-bquote(paste("Distribution assuming ",H[0],": ",mu," = 0"))
-    lower.titlel<-bquote(paste("Distribution assuming ",H[A],": ",mu <= 0))
-    lower.titleu<-bquote(paste("Distribution assuming ",H[A],": ",mu >= 0))
+    lower.titlel<-bquote(paste("Distribution assuming ",H[A],": ",mu," < 0"))
+    lower.titleu<-bquote(paste("Distribution assuming ",H[A],": ",mu," > 0"))
     lower.titleb<-bquote(paste("Distribution assuming ",H[A],": ",mu != 0))
 
     effect=abs(effect)

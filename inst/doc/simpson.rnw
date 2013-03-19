@@ -1,0 +1,4 @@
+%\VignetteIndexEntry{Simpson's paradox depiction}
+\documentclass{article}
+\begin{document}
+\end{document}

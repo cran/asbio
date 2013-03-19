@@ -7,7 +7,7 @@
 The user specifies the probabilities of two outcomes, and if applicable, their intersection.  A Venn diagram is returned. The universe, S, will generally not have unit area, but in many applications will be a good approximation.  The area of the intersection will also be an approximation.   
 }
 \usage{
-Venn(A, B, AandB = 0, labA = "A", labB = "B")
+Venn(A, B, AandB = 0, labA = "A", labB = "B", cex.text = .95, ...)
 
 Venn.tck()
 }
@@ -17,6 +17,8 @@ Venn.tck()
   \item{AandB}{probability of the intersection of A and B}
   \item{labA}{Label assigned to event A in the diagram}
   \item{labB}{Label assigned to event B in the diagram}
+  \item{cex.text}{Character expansion for text.}
+  \item{\dots}{Additional arguments from \code{\link{plot}}}
 }
 \value{
 A Venn diagram is returned.  

@@ -1,69 +1,107 @@
-Venn<-function(A,B,AandB=0,labA="A",labB="B"){
-if(A>1|B>1|AandB>1|(A+B)-AandB>1|A<0|B<0|AandB<0|AandB>A|AandB>B){
-stop("Violation of probability rules!")}
-require(plotrix)
-
-if(A==0&B==0){
-S<-plot(seq(0,1),seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="")
-text(0.5,0.6,"P(A) = 0");text(0.5,0.4,"P(B) = 0")
-}
-
-if(A+B==1&AandB==0){
-S<-plot(seq(0,1),seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
-rect(c(0,A),c(0,0), c(A,1),c(1,1),col=c(rgb(0.7,0.7,0.7,0.8),rgb(0.3,0.3,0.3,0.8)))
-text(A/2,.5,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
-text(A+((1-A)/2),.5,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
-}
-
-if(A+B==1&AandB>0){
-S<-plot(seq(0,1),seq(0,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
-rect(c(0,A-AandB),c(0,0), c(A,1),c(1,1),col=c(rgb(0.7,0.7,0.7,0.8),rgb(0.3,0.3,0.3,0.8)))
-text(A/2,.5,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
-text(A+((1-A)/2),.5,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
-mtext(paste("P(",bquote(.(labA)),' \u2229 ',bquote(.(labB)),") = ",bquote(.(AandB)),sep=""), side = 3, at = A-(AandB/2),cex = 0.95)
-arrows(A-(AandB/2),1.01,A-(AandB/2),0.75,length=.05)
-}
-
-
-if((AandB==A|AandB==B)&(A!=0|B!=0)){##subset
-S<-plot(seq(-.55,.55,length=3),seq(-.55,.55,length=3),type="n",xaxt="n",yaxt="n",xlab="",ylab="")
-r.A<-sqrt(A/pi)
-r.B<-sqrt(B/pi)
-draw.circle(0,0,radius=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
-draw.circle(0,0,radius=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
-if(A>=B){text(-0.5,0.5,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
-text(0,0,paste("P(",bquote(.(labB)),") = P(A \u2229 B) = ",bquote(.(B)),sep=""),cex=.95)}
-if(B>A){text(-0.5,0.5,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
-text(0,0,paste("P(",bquote(.(labA)),") = P(A \u2229 B) =",bquote(.(A)),sep=""),cex=.95)}
-arrows(-0.5,.46,-mean(c(r.A,r.B)),0,length=.05)
-}
-
-if(A+B!=1&AandB==0&(A!=0|B!=0)){
-S<-plot(seq(0,2),seq(0,2),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
-r.A<-sqrt(A/pi)
-r.B<-sqrt(B/pi)
-draw.circle(0.5,1,radius=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
-draw.circle(1.25,1,radius=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
-text(0.5,1,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
-text(1.25,1,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
-rect(0.5-sqrt(1/pi),1-sqrt(1/pi),1.25+sqrt(1/pi),1+sqrt(1/pi))
-}
-
-if((A+B!=1&AandB!=0)&(A!=AandB)&(B!=AandB)){
-S<-plot(seq(-1,1),seq(-1,1),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n")
-r.A<-sqrt(A/pi)
-r.B<-sqrt(B/pi)
-r.diff<-r.A-r.B
-d<-2*((1-AandB)*r.A)-r.diff
-draw.circle(-.5,0,radius=r.A,col=rgb(blue=0.7,red=0.7,green=0.7,alpha=.8))
-draw.circle(d-.5,0,radius=r.B,col=rgb(blue=0.3,red=0.3,green=0.3,alpha=.8))
-text(-.5,0,paste("P(",bquote(.(labA)),") = ",bquote(.(A)),sep=""),cex=.95)
-text(d-.5,0,paste("P(",bquote(.(labB)),") = ",bquote(.(B)),sep=""),cex=.95)
-x<-((d+r.diff)/2)-.5
-arrows(x,.6,x,0,length=.05)
-text(x,.65,paste("P(",bquote(.(labA)),' \u2229 ',bquote(.(labB)),") = ",bquote(.(AandB)),sep=""),cex=.8)
-rect(-0.5-sqrt(1/pi),sqrt(1/pi),(d-.5)+sqrt(1/pi),-sqrt(1/pi))
-}
+Venn <- function (A, B, AandB = 0, labA = "A", labB = "B", cex.text = .95, ...) 
+{
+    if (A > 1 | B > 1 | AandB > 1 | (A + B) - AandB > 1 | A < 
+        0 | B < 0 | AandB < 0 | AandB > A | AandB > B) {
+        stop("Violation of probability rules!")
+    }
+    require(plotrix)
+    if (A == 0 & B == 0) {
+        S <- plot(seq(0, 1), seq(0, 1), type = "n", xaxt = "n", 
+            yaxt = "n", xlab = "", ylab = "",...)
+        text(0.5, 0.6, bquote(paste(italic(P), "(", italic(.(labA)), 
+            ") = 0", sep = "")), cex = cex.text)
+        text(0.5, 0.4, bquote(paste(italic(P), "(", italic(.(labB)), 
+            ") = 0", sep = "")), cex = cex.text)
+    }
+    if (A + B == 1 & AandB == 0) {
+        S <- plot(seq(0, 1), seq(0, 1), type = "n", xaxt = "n", 
+            yaxt = "n", xlab = "", ylab = "", bty = "n",...)
+        rect(c(0, A), c(0, 0), c(A, 1), c(1, 1), col = c(rgb(0.7, 
+            0.7, 0.7, 0.8), rgb(0.3, 0.3, 0.3, 0.8)))
+        text(A/2, 0.5, bquote(paste(italic(P), "(", italic(.(labA)), 
+            ") = ", .(A), sep = "")), cex = cex.text)
+        text(A + ((1 - A)/2), 0.5, bquote(paste(italic(P), "(", 
+            italic(.(labB)), ") = ", .(B), sep = "")), cex = cex.text)
+    }
+    if (A + B == 1 & AandB > 0) {
+        S <- plot(seq(0, 1), seq(0, 1), type = "n", xaxt = "n", 
+            yaxt = "n", xlab = "", ylab = "", bty = "n",...)
+        rect(c(0, A - AandB), c(0, 0), c(A, 1), c(1, 1), col = c(rgb(0.7, 
+            0.7, 0.7, 0.8), rgb(0.3, 0.3, 0.3, 0.8)))
+        text(A/2, 0.5, bquote(paste(italic(P), "(", italic(.(labA)), 
+            ") = ", .(A), sep = "")), cex = cex.text)
+        text(A + ((1 - A)/2), 0.5, bquote(paste(italic(P), "(", 
+            italic(.(labB)), ") = ", .(B), sep = "")), cex = cex.text)
+        mtext(bquote(paste(italic(P), "(", italic(.(labA)), intersect(""), 
+            italic(.(labB)), ") = ", .(AandB), sep = "")), side = 3, 
+            at = A - (AandB/2), cex = cex.text)
+        arrows(A - (AandB/2), 1.01, A - (AandB/2), 0.75, length = 0.05)
+    }
+    if ((AandB == A | AandB == B) & (A != 0 | B != 0)) {
+        S <- plot(seq(-0.55, 0.55, length = 3), seq(-0.55, 0.55, 
+            length = 3), type = "n", xaxt = "n", yaxt = "n", 
+            xlab = "", ylab = "",...)
+        r.A <- sqrt(A/pi)
+        r.B <- sqrt(B/pi)
+        draw.circle(0, 0, radius = r.A, col = rgb(blue = 0.7, 
+            red = 0.7, green = 0.7, alpha = 0.8))
+        draw.circle(0, 0, radius = r.B, col = rgb(blue = 0.3, 
+            red = 0.3, green = 0.3, alpha = 0.8))
+        if (A >= B) {
+            text(-0.5, 0.5, bquote(paste(italic(P), "(", italic(.(labA)), 
+                ") = ", .(A), sep = "")), cex = cex.text)
+            text(0, 0, bquote(paste(italic(P), "(", italic(.(labB)), 
+                ") = ", italic(P), "(", italic(A), intersect(""), 
+                italic(B), ") = ", .(B), sep = "")), cex = cex.text)
+        }
+        if (B > A) {
+            text(-0.5, 0.5, bquote(paste(italic(P), "(", italic(.(labB)), 
+                ") = ", .(B), sep = "")), cex = cex.text)
+            text(0, 0, bquote(paste(italic(P), "(", italic(.(labA)), 
+                ") = ", italic(P), "(", italic(A), intersect(""), 
+                italic(B), ") = ", .(A), sep = "")), cex = cex.text)
+        }
+        arrows(-0.5, 0.46, -mean(c(r.A, r.B)), 0, length = 0.05)
+    }
+    if (A + B != 1 & AandB == 0 & (A != 0 | B != 0)) {
+        S <- plot(seq(0, 2), seq(0, 2), type = "n", xaxt = "n", 
+            yaxt = "n", xlab = "", ylab = "", bty = "n",...)
+        r.A <- sqrt(A/pi)
+        r.B <- sqrt(B/pi)
+        draw.circle(0.5, 1, radius = r.A, col = rgb(blue = 0.7, 
+            red = 0.7, green = 0.7, alpha = 0.8))
+        draw.circle(1.25, 1, radius = r.B, col = rgb(blue = 0.3, 
+            red = 0.3, green = 0.3, alpha = 0.8))
+        text(0.5, 1, bquote(paste(italic(P), "(", italic(.(labA)), 
+            ") = ", .(A), sep = "")), cex = cex.text)
+        text(1.25, 1, bquote(paste(italic(P), "(", italic(.(labB)), 
+            ") = ", .(B), sep = "")), cex = cex.text)
+        rect(0.5 - sqrt(1/pi), 1 - sqrt(1/pi), 1.25 + sqrt(1/pi), 
+            1 + sqrt(1/pi))
+    }
+    if ((A + B != 1 & AandB != 0) & (A != AandB) & (B != AandB)) {
+        S <- plot(seq(-1, 1), seq(-1, 1), type = "n", xaxt = "n", 
+            yaxt = "n", xlab = "", ylab = "", bty = "n",...)
+        r.A <- sqrt(A/pi)
+        r.B <- sqrt(B/pi)
+        r.diff <- r.A - r.B
+        d <- 2 * ((1 - AandB) * r.A) - r.diff
+        draw.circle(-0.5, 0, radius = r.A, col = rgb(blue = 0.7, 
+            red = 0.7, green = 0.7, alpha = 0.8))
+        draw.circle(d - 0.5, 0, radius = r.B, col = rgb(blue = 0.3, 
+            red = 0.3, green = 0.3, alpha = 0.8))
+        text(-0.5, 0, bquote(paste(italic(P), "(", italic(.(labA)), 
+            ") = ", .(A), sep = "")), cex = cex.text)
+        text(d - 0.5, 0, bquote(paste(italic(P), "(", italic(.(labB)), 
+            ") = ", .(B), sep = "")), cex = cex.text)
+        x <- ((d + r.diff)/2) - 0.5
+        arrows(x, 0.6, x, 0, length = 0.05)
+        text(x, 0.65, bquote(paste(italic(P), "(", italic(.(labA)), 
+            intersect(""), italic(.(labB)), ") = ", .(AandB), 
+            sep = "")), cex = 0.8)
+        rect(-0.5 - sqrt(1/pi), sqrt(1/pi), (d - 0.5) + sqrt(1/pi), 
+            -sqrt(1/pi))
+    }
 }
 
 Venn.tck<-function()
@@ -80,6 +118,7 @@ Venn.tck<-function()
             tklabel <- ttklabel
             tkradiobutton <- ttkradiobutton
         }
+        tclServiceMode(FALSE) 
         dialog.sd <- function() {
             tt <- tktoplevel()
             tkwm.title(tt, "Venn diagrams")

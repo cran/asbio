@@ -1,7 +1,7 @@
 \name{loess.surf}
 \alias{loess.surf}
 \title{
-loess 2D and 3D smooth plots
+Loess 2D and 3D smooth plots
 }
 \description{
 The function serves as wrapper for \code{\link{loess}} and lets one make 2D or 3D smoother plots using \code{loess} specifications. 

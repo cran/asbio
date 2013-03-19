@@ -1,4 +1,5 @@
-anm.ExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs"),titles =  TRUE, interval = 0.5, iter = 30){
+anm.ExpDesign<-function(method= "all", titles =  TRUE, interval = 0.5, iter = 30){
+    if(method == "all") method = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
     m<-matrix(nrow=iter,ncol=length(method),rep(method,iter),byrow=TRUE)
     for(i in 1:nrow(m)){
 	    dev.hold()
@@ -8,7 +9,7 @@ anm.ExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","neste
     }
 }
 
-ExpDesign<-function(method=c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split","SPRB","strip","split.block","strip.split","latin","pairs"),titles=TRUE, ...){
+ExpDesign<-function(method= "all",titles=TRUE, ...){
 
 L<-length(method)
 if(L==2) {par(mfrow=c(2,1),mar=c(0.1,1.5,2,1.5))} else
@@ -18,7 +19,7 @@ if(L==5|L==6) {par(mfrow=c(3,2),mar=c(0.1,1.5,2,1.5))} else
 if(L==7|L==8|L==9) {par(mfrow=c(3,3),mar=c(0.1,1.0,2,1.0))}else
 if(L==10|L==11|L==12) {par(mfrow=c(4,3),mar=c(0.1,1.0,2,1.0))}else
 if(L==13|L==14) {par(mfrow=c(5,3),mar=c(0.1,1.0,1.5,1.0))}
-
+if(method == "all") method = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
 #CRD
 if(any(method=="CRD")){
 plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",type="n",main=ifelse(titles==TRUE,"CRD",""),...)

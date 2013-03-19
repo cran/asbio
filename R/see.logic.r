@@ -89,15 +89,15 @@ VIII.F<-function(){
     tkcreate(canvas, "line", 20, 85, 350, 85, width=1)
     tkcreate(canvas, "text", 20, 100, text="Joe fails the class.                                                   }Conclusion",
              font=plotFont, anchor="w")
-    tkcreate(canvas, "text", 140, 140, text="Logical",
+    tkcreate(canvas, "text", 125, 140, text="Logically correct",
              font=plotFont2, anchor="w")
-    tkcreate(canvas, "text", 230, 140, text="Fallacious",
+    tkcreate(canvas, "text", 255, 140, text="Fallacious",
              font=plotFont2, anchor="w")         
-     itemI.T <- tkcreate(canvas, "oval", 125, 135, 135, 145,
+     itemI.T <- tkcreate(canvas, "oval", 110, 135, 120, 145,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointI.T", "withtag", itemI.T)
-     itemI.F <- tkcreate(canvas, "oval", 215, 135, 225, 145,
+     itemI.F <- tkcreate(canvas, "oval", 240, 135, 250, 145,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointI.F", "withtag", itemI.F)       
@@ -113,15 +113,15 @@ tkcreate(canvas, "text", 205, 165, text="Argument 2",
     tkcreate(canvas, "line", 20, 225, 350, 225, width=1)
     tkcreate(canvas, "text", 20, 240, text="Joe passes the class.                                                             }Conclusion",
              font=plotFont, anchor="w")
-    tkcreate(canvas, "text", 140, 280, text="Logical",
+    tkcreate(canvas, "text", 125, 280, text="Logically correct",
              font=plotFont2, anchor="w")
-    tkcreate(canvas, "text", 230, 280, text="Fallacious",
+    tkcreate(canvas, "text", 255, 280, text="Fallacious",
              font=plotFont2, anchor="w")         
-     itemII.T <- tkcreate(canvas, "oval", 125, 275, 135, 285,
+     itemII.T <- tkcreate(canvas, "oval", 110, 275, 120, 285,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointII.T", "withtag", itemII.T)
-     itemII.F <- tkcreate(canvas, "oval", 215, 275, 225, 285,
+     itemII.F <- tkcreate(canvas, "oval", 240, 275, 250, 285,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointII.F", "withtag", itemII.F)       
@@ -137,15 +137,15 @@ tkcreate(canvas, "text", 205, 165, text="Argument 2",
     tkcreate(canvas, "line", 20, 375, 350, 375, width=1)
     tkcreate(canvas, "text", 20, 390, text="not A.                   }Conclusion",
              font=plotFont, anchor="w")
-    tkcreate(canvas, "text", 140, 430, text="Logical",
+    tkcreate(canvas, "text", 125, 430, text="Logically correct",
              font=plotFont2, anchor="w")
-    tkcreate(canvas, "text", 230, 430, text="Fallacious",
+    tkcreate(canvas, "text", 255, 430, text="Fallacious",
              font=plotFont2, anchor="w")         
-     itemIII.T <- tkcreate(canvas, "oval", 125, 425, 135, 435,
+     itemIII.T <- tkcreate(canvas, "oval", 110, 425, 120, 435,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointIII.T", "withtag", itemIII.T)
-     itemIII.F <- tkcreate(canvas, "oval", 215, 425, 225, 435,
+     itemIII.F <- tkcreate(canvas, "oval", 240, 425, 250, 435,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointIII.F", "withtag", itemIII.F)
@@ -161,15 +161,15 @@ tkcreate(canvas, "text", 205, 455, text="Argument 4",
     tkcreate(canvas, "line", 20, 520, 350, 520, width=1)
     tkcreate(canvas, "text", 20, 535, text="Not B.                  }Conclusion",
              font=plotFont, anchor="w")
-    tkcreate(canvas, "text", 140, 575, text="Logical",
+    tkcreate(canvas, "text", 125, 575, text="Logically correct",
              font=plotFont2, anchor="w")
-    tkcreate(canvas, "text", 230, 575, text="Fallacious",
+    tkcreate(canvas, "text", 255, 575, text="Fallacious",
              font=plotFont2, anchor="w")         
-     itemIV.T <- tkcreate(canvas, "oval", 125, 570, 135, 580,
+     itemIV.T <- tkcreate(canvas, "oval", 110, 570, 120, 580,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointIV.T", "withtag", itemIV.T)
-     itemIV.F <- tkcreate(canvas, "oval", 215, 570, 225, 580,
+     itemIV.F <- tkcreate(canvas, "oval", 240, 570, 250, 580,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointIV.F", "withtag", itemIV.F)  
@@ -185,15 +185,15 @@ tkcreate(canvas, "text", 205, 455, text="Argument 4",
     tkcreate(canvas, "line", 410, 85, 740, 85, width=1)
     tkcreate(canvas, "text", 410, 100, text="Pocatello is in ID.                                                       }Conclusion",
              font=plotFont, anchor="w")
-    tkcreate(canvas, "text", 530, 140, text="Logical",
+    tkcreate(canvas, "text", 510, 140, text="Logically corect",
              font=plotFont2, anchor="w")
-    tkcreate(canvas, "text", 620, 140, text="Fallacious",
+    tkcreate(canvas, "text", 640, 140, text="Fallacious",
              font=plotFont2, anchor="w")         
-     itemV.T <- tkcreate(canvas, "oval", 515, 135, 525, 145,
+     itemV.T <- tkcreate(canvas, "oval", 495, 135, 505, 145,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointV.T", "withtag", itemV.T)
-     itemV.F <- tkcreate(canvas, "oval", 605, 135, 615, 145,
+     itemV.F <- tkcreate(canvas, "oval", 625, 135, 635, 145,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointV.F", "withtag", itemV.F)     
@@ -208,15 +208,15 @@ tkcreate(canvas, "text", 595, 165, text="Argument 6",
     tkcreate(canvas, "text", 410, 215, text="Sarah's baby will be a genius.                       }Conclusion",
              font=plotFont, anchor="w")
        
-    tkcreate(canvas, "text", 530, 280, text="Logical",
+    tkcreate(canvas, "text", 510, 280, text="Logically correct",
              font=plotFont2, anchor="w")
-    tkcreate(canvas, "text", 620, 280, text="Fallacious",
+    tkcreate(canvas, "text", 640, 280, text="Fallacious",
              font=plotFont2, anchor="w")         
-     itemVI.T <- tkcreate(canvas, "oval", 515, 275, 525, 285,
+     itemVI.T <- tkcreate(canvas, "oval", 495, 275, 505, 285,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointVI.T", "withtag", itemVI.T)
-     itemVI.F <- tkcreate(canvas, "oval", 605, 275, 615, 285,
+     itemVI.F <- tkcreate(canvas, "oval", 625, 275, 635, 285,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointVI.F", "withtag", itemVI.F) 
@@ -230,17 +230,17 @@ tkcreate(canvas, "text", 595, 165, text="Argument 6",
     tkcreate(canvas, "line", 410, 350, 740, 350, width=1)
     tkcreate(canvas, "text", 410, 365, text="Drunk, lazy students should be given a cow \nto make them sober and industrious.",
              font=plotFont, anchor="w")
-    tkcreate(canvas, "text", 705, 370, text="}Conclusions",
+    tkcreate(canvas, "text", 705, 370, text="}Conclusion",
              font=plotFont, anchor="w")   
-    tkcreate(canvas, "text", 530, 430, text="Logical",
+    tkcreate(canvas, "text", 510, 430, text="Logically correct",
              font=plotFont2, anchor="w")
-    tkcreate(canvas, "text", 620, 430, text="Fallacious",
+    tkcreate(canvas, "text", 640, 430, text="Fallacious",
              font=plotFont2, anchor="w")         
-     itemVII.T <- tkcreate(canvas, "oval", 515, 425, 525, 435,
+     itemVII.T <- tkcreate(canvas, "oval", 495, 425, 505, 435,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointVII.T", "withtag", itemVII.T)
-     itemVII.F <- tkcreate(canvas, "oval", 605, 425, 615, 435,
+     itemVII.F <- tkcreate(canvas, "oval", 625, 425, 635, 435,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointVII.F", "withtag", itemVII.F)
@@ -256,15 +256,15 @@ tkcreate(canvas, "text", 595, 455, text="Argument 8",
     tkcreate(canvas, "line", 410, 520, 740, 520, width=1)
     tkcreate(canvas, "text", 410, 535, text="conclude A.                                          }Conclusion",
              font=plotFont, anchor="w")
-    tkcreate(canvas, "text", 530, 575, text="Logical",
+    tkcreate(canvas, "text", 510, 575, text="Logically correct",
              font=plotFont2, anchor="w")
-    tkcreate(canvas, "text", 620, 575, text="Fallacious",
+    tkcreate(canvas, "text", 640, 575, text="Fallacious",
              font=plotFont2, anchor="w")         
-     itemVIII.T <- tkcreate(canvas, "oval", 515, 570, 525, 580,
+     itemVIII.T <- tkcreate(canvas, "oval", 495, 570, 505, 580,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointVIII.T", "withtag", itemVIII.T)
-     itemVIII.F <- tkcreate(canvas, "oval", 605, 570, 615, 580,
+     itemVIII.F <- tkcreate(canvas, "oval", 625, 570, 635, 580,
                                  width=1, outline="black",
                                  fill="SkyBlue2")        
             tkaddtag(canvas, "pointVIII.F", "withtag", itemVIII.F)  

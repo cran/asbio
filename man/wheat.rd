@@ -14,10 +14,10 @@ was conducted.
 \format{
 The dataframe has four columns:
   \describe{
+\item{yield}{Refers to wheat yield.}
 \item{loc}{Refers to randomly selected locations where wheat were grown commercially.  A factor with four levels: \code{1,2,3,4}.}
 \item{block}{Refers to the replicate block within location.  A factor with four levels: \code{1,2,3,4}. Within each block five wheat crosses were randomly assigned and grown.}  
-\item{fam}{Refers to wheat crosses.  A factor with five levels: \code{1,2,3,4,5}.}
-\item{yield}{Refers to wheat yield.}
+\item{cross}{Refers to wheat crosses.  A factor with five levels: \code{1,2,3,4,5}.}
   }
 }
 \source{

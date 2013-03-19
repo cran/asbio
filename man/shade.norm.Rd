@@ -6,6 +6,7 @@
 \alias{shade.chi}
 \alias{shade.bin}
 \alias{shade.poi}
+\alias{shade.wei}
 
 \title{Shading functions for interpretation of pdf probabilities.
 }
@@ -35,6 +36,10 @@ show.dist=TRUE, show.d=FALSE,legend.cex = .9,digits=5, ...)
 
 shade.poi(x=NULL,from=NULL,to=NULL,lambda=5,tail="X=x",show.p=TRUE,
 show.dist=TRUE, show.d=FALSE,legend.cex = .9,digits=5, ...)
+
+shade.wei(x = NULL, from = NULL, to = NULL, theta = 1, beta = 1, tail = "lower", 
+show.p = TRUE, show.d = FALSE, show.dist = TRUE, prob.to.each.tail = 0.025, 
+digits = 5, legend.cex = 0.9, shade.col = "gray", ...)
 }
 
 \arguments{
@@ -95,6 +100,13 @@ Character expansion for legends in plots.
 \item{shade.col}{
 Color of probability shading.
 }
+\item{theta}{
+Pdf parameter.
+}
+\item{beta}{
+Pdf parameter.
+}
+
 \item{\dots}{
 Additional arguments to \code{\link{plot}}.}
 }

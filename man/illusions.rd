@@ -21,5 +21,8 @@ illusions(ill.no = 1)
 \author{
 Ken Aho
 }
-
+\examples{
+illusions(2)
+illusions(3)
+}
 \keyword{graphs}

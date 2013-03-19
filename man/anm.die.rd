@@ -11,7 +11,7 @@ Convergence in probablity for fair (or loaded) six-sided die.
 \usage{
 
 anm.die(reps = 300, interval = 0.1, show.die = TRUE, p = c(1/6, 1/6, 1/6, 
-1/6, 1/6, 1/6))
+1/6, 1/6, 1/6), cl = TRUE)
 
 anm.die.tck()
 }
@@ -22,10 +22,13 @@ anm.die.tck()
 Animation interval in frames per second.
 }
   \item{show.die}{
-Logical, indicating whether die outcomes should be shown
+Logical, indicating whether die outcomes should be shown.
 }
   \item{p}{
-A vector of length six which sums to one indicating the probability of die outcomes
+A vector of length six which sums to one indicating the probability of die outcomes.
+}
+  \item{cl}{
+Logical,  Indicating whether or not color should be used.
 }
 }
 \author{

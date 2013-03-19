@@ -9,13 +9,13 @@ The function provide model selection summaries using AIC, AICc, BIC, Mallow's Cp
 }
 \usage{
 
-lm.select(lms)
+lm.select(lms, deltaAIC = FALSE)
 }
 \arguments{
 
-  \item{lms}{
-A list containing linear models.
-}
+ \item{lms}{
+A list containing linear models.}
+ \item{deltaAIC}{Logical.  Should a delta AIC summary be given with relative likelihoods and Akaike weights?}
 }
 \note{Mallow's Cp assumes that all models are nested within the first model in \code{lms}.  Non-nesting will produce a warning message.}
 

@@ -1,18 +1,18 @@
 \name{mcmc.norm.hier}
 \alias{mcmc.norm.hier}
-\alias{mcmc.summary}
+\alias{norm.hier.summary}
 
 \title{
 Gibbs sampling of normal hierarchical models
 }
 \description{
-These functions are designed for Gibbs sampling comparison of groups with normal hierarchical models (see Gelman 2003), and for providing appropriate summaries.  The function requires loading of the library \pkg{geoR}.    
+These functions are designed for Gibbs sampling comparison of groups with normal hierarchical models (see Gelman 2003), and for providing appropriate summaries.    
 }
 \usage{
 
 mcmc.norm.hier(data, length = 1000, n.chains = 5)
 
-mcmc.summary(M, burn.in = 0.5, cred = 0.95, conv.log = TRUE)
+norm.hier.summary(M, burn.in = 0.5, cred = 0.95, conv.log = TRUE)
 }
 
 \arguments{
@@ -61,7 +61,6 @@ Ken Aho
 }
 \examples{
 \dontrun{
-library(geoR)
 data(cuckoo)
 mcmc.norm.hier(cuckoo,10,2)
 }

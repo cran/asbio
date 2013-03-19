@@ -1,7 +1,7 @@
 \name{panel.cor.res}
 \alias{panel.cor.res}
 \alias{panel.lm}
-\title{functions for customizing correlation matrices}
+\title{Functions for customizing correlation matrices}
 \description{
 The functions here can be used to customize upper and lower triangles in 
 correlation matrices.  In particular \code{panel.cor.res} provides correlation 

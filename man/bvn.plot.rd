@@ -1,7 +1,7 @@
 \name{bvn.plot}
 \alias{bvn.plot}
 \title{
-make plots of bivariate normal distributions
+Make plots of bivariate normal distributions
 }
 \description{
 The function uses functions from \pkg{lattice} and \pkg{mvtnorm} to make wireframe plots of bivariate normal distributions.  Remember that the covariance must be less than the product of the marginal standard deviations (square roots of the diaganol elements).  

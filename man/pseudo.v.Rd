@@ -5,11 +5,12 @@
 The function returns first-order jackknife pseudovalues which can then be used to create statistical summaries, e.g. the jackknife parameter estimate, and the jackknife standard error.  The function can be run on univariate data \code{(matrix = FALSE)} or multivariate data \code{(matrix =TRUE)}.  In the later case matrix rows are treated as multivariate observations.   
 }
 \usage{
-pseudo.v(data, statistic, matrix = FALSE)
+pseudo.v(data, statistic, order = 1, matrix = FALSE)
 }
 \arguments{
   \item{data}{A vector \code{(matrix =FALSE)} or matrix \code{(matrix=TRUE)} of quantitative data.}
   \item{statistic}{A function whose output is a statistic (e.g. a sample mean).  The function must have only one argument, a call to \code{data}.}
+  \item{order}{The order of jackknifing to be used.}
   \item{matrix}{A logical statement.  If \code{matrix = TRUE} then rows in the matrix are sampled as multivariate observations.}
 }
 \details{

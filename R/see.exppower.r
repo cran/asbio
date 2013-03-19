@@ -19,7 +19,7 @@ require(tcltk) || stop("tcltk support is absent")
         xx <- seq(xmin, xmax, length = 200)
         yy <- exppower(as.numeric(xx), m)
         dev.hold()
-        plot(xx, yy, type = "l", xlim = c(xmin, xmax),ylab = "f(x)", xlab = "x")
+        plot(xx, yy, type = "l", xlim = c(xmin, xmax),xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")))
         dev.flush()        
                 }
     tclServiceMode(TRUE)

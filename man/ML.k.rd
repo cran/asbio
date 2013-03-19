@@ -23,9 +23,10 @@ Resolution for the ML estimator.
 }
 
 \value{
-Returns two items
-\item{m}{The negative binomial distribution mean, emph{m}}
-\item{comp2 }{The negative binomial dispersion parameter, \emph{k}}
+Returns a list with two items
+\item{k}{The negative binomial dispersion parameter, \emph{k}}
+
+\item{m}{The negative binomial distribution mean, \emph{m}}
 
 }
 \references{

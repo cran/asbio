@@ -16,9 +16,9 @@ require(tcltk) || stop("tcltk support is absent")
     
     prefunc<-function(xx,yy,sny,y1,sncy,xlim,nu,show.norm=FALSE){
         dev.hold()
-        plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
+        plot(xx, yy, type = "l", xlim = c(xmin, xmax), xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")))
         if(show.norm==TRUE) points(xx,sny,type = "l", col =2)
-        plot(xx, y1, type = "l", xlim = c(xmin, xmax), ylab = "F(x)", xlab = "x")
+        plot(xx, y1, type = "l", xlim = c(xmin, xmax), xlab=expression(italic(x)),ylab=expression(paste(italic(F),"(",italic(x),")", sep = "")))
         if(show.norm==TRUE) points(xx,sncy,type = "l", col =2)
         mtext(bquote(paste(italic(X), " ~ ", italic(t), "(", .(nu), ")", sep = "")), outer = TRUE, side = 3, cex = .9)
         dev.flush()
@@ -88,7 +88,7 @@ require(tcltk) || stop("tcltk support is absent")
     
     prefunc<-function(xx,yy,sny,y1,sncy,xlim,nu,show.norm=FALSE){
         dev.hold()
-        plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "f(x)", xlab = "x")
+        plot(xx, yy, type = "l", xlim = c(xmin, xmax), xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")))
         if(show.norm==TRUE) points(xx,sny,type = "l", col =2)
         mtext(bquote(paste(italic(X), " ~ ", italic(t), "(", .(nu), ")", sep = "")), line = 1, side = 3)
         dev.flush()         

@@ -9,8 +9,9 @@ Provides animated depictions of confidence intervals for \eqn{\mu}, \eqn{\sigma^
 }
 \usage{
 
-anm.ci(parent, par.val, conf = 0.95, sigma = NULL, par.type = c("mu", 
-"median", "sigma.sq", "p"), n.est = 100, n = 50, interval = 0.1, ...)
+anm.ci(parent=expression(rnorm(n)), par.val, conf = 0.95, sigma = NULL, par.type = c("mu", 
+    "median", "sigma.sq", "p"), n.est = 100, n = 50, err.col = 2, par.col = 4, interval = 0.1, 
+    ...) 
 
 anm.ci.tck()
 
@@ -24,6 +25,8 @@ anm.ci.tck()
   \item{par.type}{The parameter whose confidence intervals to be estimated. There are currently four choices.  These are the normal pdf parameters \eqn{\mu} and \eqn{\sigma^{2}}, the population median, and the binomial parameter, \emph{p}.}
   \item{n.est}{The number of confidence intervals to be created.}
   \item{n}{The sample size used for each confidence interval.}
+  \item{err.col}{The line color of the intervals which do not include the true value.}
+  \item{par.col}{The line color denoting the parameter value.}
   \item{interval}{The time interval for animation (in seconds).  Smaller intervals speed up animation}
   \item{\dots}{Additional arguments to \code{\link{plot}}.}
 }

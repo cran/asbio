@@ -1,11 +1,18 @@
 illusions<-function(ill.no=1) {
 if(ill.no==1){
 #Illusion#1
+par(mar = c(5,0,4,0))
 plot(seq(1,10),type="n",xaxt="n",yaxt="n",xlab="",ylab="",bty="n",main="Which line is longer?")
-arrows(2,4,8,4,lwd=4)
-arrows(8,4,2,4,lwd=4)
-arrows(8,6,2,6,angle=140,lwd=4)
-arrows(2,6,8,6,angle=140,lwd=4)
+arrows(2.5,4,8.5,4,lwd=4)
+arrows(8.5,4,2.5,4,lwd=4)
+arrows(8.5,6,2.5,6,angle=140,lwd=4)
+arrows(2.5,6,8.5,6,angle=140,lwd=4)
+readline("Press return for next plot")
+rect(1,1,2.5,10, col = "white", border = "white")
+rect(8.5,1,10,10, col = "white", border = "white")
+rect(2.5,1,8.5,5, col = "white", border = "white")
+segments(2.5,4,8.5,4,lwd=4)
+abline(v=c(2.5,8.5), col = "gray", lty = 2)
 }
 if(ill.no==2){
 #Illusion#2
