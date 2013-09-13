@@ -13,7 +13,7 @@ power.z.test(sigma = 1, n = NULL, power = NULL, alpha = 0.05, effect = NULL,
 test = c("two.tail", "one.tail"), strict = FALSE)
 }
 \arguments{
-  \item{sigma}{The population variance}
+  \item{sigma}{The population standard deviation.}
   \item{n}{The sample size.  Not required if \code{power} is specified.}
   \item{power}{The desired power.  Not required if \code{n} is specified.}
   \item{alpha}{Probability of type I error.}

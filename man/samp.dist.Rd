@@ -153,7 +153,8 @@ legend("topleft", lwd = 2, col = 1, legend = "t(10)")
 
 ## Pearson's R
 require(mvtnorm)
-BVN <- function(s.size) rmvnorm(s.size, c(0, 0), sigma = matrix(ncol = 2, nrow = 2, data = c(1, 0, 0, 1)))
+BVN <- function(s.size) rmvnorm(s.size, c(0, 0), sigma = matrix(ncol = 2, 
+nrow = 2, data = c(1, 0, 0, 1)))
 samp.dist(biv.parent = expression(BVN(s.size)), s.size = 20, func = cor, xlab = "r")
                                                   
 #Interactive GUI, require package 'tcltk'

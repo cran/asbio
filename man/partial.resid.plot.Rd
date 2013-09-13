@@ -4,12 +4,15 @@
 \description{The function creates partial residual plots which help a user graphically determine the effect of a single predictor with respect to all other predictors in a multiple regression model.
 }
 \usage{
-partial.resid.plot(x, smooth.span = 0.8)
+partial.resid.plot(x, smooth.span = 0.8, lf.col = 2, sm.col = 4,...)
 }
 \arguments{
 
   \item{x}{A output object of class \code{lm} or class \code{glm}}
   \item{smooth.span}{Degree of smoothing for smoothing line.}
+  \item{lf.col}{Color for linear fit.}
+  \item{sm.col}{Color for smoother fit.}
+  \item{\dots}{Additional arguments from \code{\link{plot}}.}
 }
 \details{
 Creates partial residual plots (see Kutner et al. 2002).  Smoother lines from \code{\link{lowess}} and linear fits from \code{\link{lm}} are imposed over plots to help an investigator determine the effect of a particular \emph{X} variable on \emph{Y} with all other variables in the model.  The function automatically inserts explanatory variable names on axes.

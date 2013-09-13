@@ -1,6 +1,6 @@
 see.roc.tck <- function () 
 {
-        require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     mu1 <- 0.4
@@ -23,15 +23,16 @@ see.roc.tck <- function ()
         c <- as.numeric(evalq(tclvalue(c), envir = slider.env))
         sigma = 0.08
         layout(matrix(c(1,1,1,1,1,2,2), 1, 7))
-        par(mar=c(5,4,3,1.5))
+        par(mar=c(5,4.1,3,1))
         
         
         x<-NULL; rm(x)
         
         cols <- c(rgb(red=1,blue=1,green=1,alpha=.6), rgb(red=0,blue=0,green=0,alpha=.6), rgb(red=.5,blue=.5,green=0.5,alpha=.6))
-        curve(dnorm(x,mu1,sigma),from=0,to=1,ylab = "Density",ylim=ylim,xlab = "",xlim=xlim, main = "Dichotomous populations",cex.lab=1.4,cex.axis=1.3, cex.main=1.4,xaxt="n",yaxt="n")
+        curve(dnorm(x,mu1,sigma),from=0,to=1,ylab = "",ylim=ylim,xlab = "",xlim=xlim, main = "Dichotomous populations",cex.lab=1.4,cex.axis=1.3, cex.main=1.4,xaxt="n",yaxt="n")
         axis(side = 1, at = c(0, .2, .4, .6, .8,1))
         mtext(side = 1, at = 0.5, line = 3, expression(italic(c)))
+        mtext(side = 2, line = 1.7, "Density")
         legend("topleft", pch=22, pt.cex=1.7, pt.bg=c(cols[1],cols[2]), legend = c(expression(paste(italic(Y)," = 0")), expression(paste(italic(Y)," = 1"))), bty = "n")
                 
         xx <- seq(-0.5, 1.5, length = 500)

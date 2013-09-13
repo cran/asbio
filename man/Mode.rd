@@ -17,6 +17,6 @@ statistics}.  Duxbury press.  Belmont, CA, USA.
 \seealso{\code{\link{H.mean}}, \code{\link{HL.mean}}, \code{\link{mean}}, \code{\link{median}}, \code{\link{huber.mu}}}
 \examples{
 x<-round(rnorm(100000,mean=10,sd=2),0)
-mode(x)
+Mode(x)
 }
 

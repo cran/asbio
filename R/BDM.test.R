@@ -1,5 +1,6 @@
 BDM.test <- function (Y, X) 
 {
+    if(any(is.na(Y))==TRUE) stop("Please remove missing values")
     n <- length(Y)
     n.s <- tapply(Y, X, length)
     Q <- matrix((1/n) * (tapply(rank(Y), X, function(x) {

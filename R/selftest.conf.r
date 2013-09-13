@@ -1,5 +1,5 @@
 selftest.conf.tck1<-function(){
-require(tcltk) || stop("tcltk support is absent")
+
 tclServiceMode(FALSE)
 tt <- tktoplevel()
 have_ttk <- as.character(tcl("info", "tclversion")) >= 
@@ -55,7 +55,7 @@ invisible(tclServiceMode(TRUE))
 
 
 selftest.conf.tck2<-function(){
-require(tcltk) || stop("tcltk support is absent")
+
 tclServiceMode(FALSE)
 tt <- tktoplevel()
  have_ttk <- as.character(tcl("info", "tclversion")) >= 

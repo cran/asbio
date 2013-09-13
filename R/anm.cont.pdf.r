@@ -34,7 +34,7 @@ if(pdf=="exp")anm.cont.pdf("exp")
 if(pdf=="unif")anm.cont.pdf("unif")
 }
 
-require(tcltk) || stop("tcltk support is absent")
+
 tclRequire("BWidget")
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"

@@ -9,9 +9,9 @@ Provides animated depictions of confidence intervals for \eqn{\mu}, \eqn{\sigma^
 }
 \usage{
 
-anm.ci(parent=expression(rnorm(n)), par.val, conf = 0.95, sigma = NULL, par.type = c("mu", 
-    "median", "sigma.sq", "p"), n.est = 100, n = 50, err.col = 2, par.col = 4, interval = 0.1, 
-    ...) 
+anm.ci(parent=expression(rnorm(n)), par.val, conf = 0.95, sigma = NULL, 
+  par.type = c("mu", "median", "sigma.sq", "p"), n.est = 100, 
+  n = 50, err.col = 2, par.col = 4, interval = 0.1, ...) 
 
 anm.ci.tck()
 

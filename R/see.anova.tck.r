@@ -1,6 +1,6 @@
 see.anova.tck <- function () 
 {
-        require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     mu1 <- -1.5
@@ -13,7 +13,7 @@ see.anova.tck <- function ()
     assign("sigma", tclVar(sigma), envir = slider.env)
     n <- 10
     assign("n", tclVar(n), envir = slider.env)
-    
+    color<-tclVar(1)
     
     ylim <- c(0, dnorm(0, 0, 0.5))
     norm.refresh <- function(...) {
@@ -23,8 +23,11 @@ see.anova.tck <- function ()
         mu3 <- as.numeric(evalq(tclvalue(mu3), envir = slider.env))
         sigma <- as.numeric(evalq(tclvalue(sigma), envir = slider.env))
         n <- as.numeric(evalq(tclvalue(n), envir = slider.env))
+        color <- as.logical(tclObj(color))
+        
         mu <- (mu1+mu2+mu3)/3
         E.MSA <- sigma^2 + (n*((mu-mu1)^2)/2 + n*((mu-mu2)^2)/2 + n*((mu-mu3)^2)/2)
+        
         
         y1 <- rnorm(n,mu1,sigma)
         y2 <- rnorm(n,mu2,sigma)
@@ -43,32 +46,45 @@ see.anova.tck <- function ()
         
         curve(dnorm(x,mu1,sigma),from=-5,to=5,ylim=ylim,xlab=expression(italic(y)),ylab=expression(paste(italic(f),"(",italic(y),")", sep = "")))
         mtext(side = 3, "ANOVA from random sample of populations:", line = 2.5) 
-        mtext(side = 3, line = 1, bquote(paste(italic(MSA)," = ", .(round(MSA, 2)), "  ",italic(MSE)," = ", 
+        mtext(side = 3, line = 1, bquote(paste(italic(MSTR)," = ", .(round(MSA, 2)), "  ",italic(MSE)," = ", 
         .(round(MSE, 2)), "  ",italic(F),  "* = ", .(round(F.star, 2)),"   ", italic(P), "-value = ", .(round(P, 5)))))
         
         xx <- seq(-10, 10, length = 500)
         yy1 <- dnorm(xx, mu1, sigma)
         yy2 <- dnorm(xx, mu2, sigma)
         yy3 <- dnorm(xx, mu3, sigma)
+    
+    if(color == TRUE){
         polygon(c(xx[xx <= 10], 10), c(yy1[xx <= 10], yy1[xx == 
             -10]), col = cols[1])
         polygon(c(xx[xx <= 10], 10), c(yy2[xx <= 10], yy2[xx == 
             -10]), col = cols[2])
         polygon(c(xx[xx <= 10], 10), c(yy3[xx <= 10], yy3[xx == 
             -10]), col = cols[3])
-        
-        text(c(y1,y2,y3),rep(0.008,n*3), c(rep(1,n),rep(2,n),rep(3,n)), adj = c(0.5,0), cex = .9, col = rcols)
-        
-        legend("topright", pch = 22, pt.cex = 1.7, pt.bg = cols, 
+        mtext(side = 1, at = c(y1,y2,y3), line = -1, c(rep(1,n),rep(2,n),rep(3,n)), adj = c(0.5,0), cex = .9, col = rcols)
+        legend("topright", pch = 22, pt.cex = 1.7, pt.bg = cols,  
             legend = c(expression(italic(X)[1]), expression(italic(X)[2]), expression(italic(X)[3])), 
-            bty = "n")
+            bty = "n")}
+        
+    if(color == FALSE){
+        polygon(c(xx[xx <= 10], 10), c(yy1[xx <= 10], yy1[xx == 
+            -10]), angle = 45, density = 20)
+        polygon(c(xx[xx <= 10], 10), c(yy2[xx <= 10], yy2[xx == 
+            -10]), angle = 0, density = 20)
+        polygon(c(xx[xx <= 10], 10), c(yy3[xx <= 10], yy3[xx == 
+            -10]), angle = 135, density = 20)
+        mtext(side = 1, at = c(y1,y2,y3), line = -1, c(rep(1,n),rep(2,n),rep(3,n)), adj = c(0.5,0), cex = .9, col = 1)
+        legend("topright", angle = c(45, 0, 135), density = 20,  
+            legend = c(expression(italic(X)[1]), expression(italic(X)[2]), expression(italic(X)[3])), 
+            bty = "n")}
+            
         legend("topleft", legend = c(expression(paste(italic(alpha)[1], 
             "  =")), expression(paste(italic(alpha)[2], "  =")), expression(paste(italic(alpha)[3], 
-            "  =")), "", expression(paste(italic(E), "(", italic(MSA), 
+            "  = ")), "", expression(paste(italic(E), "(", italic(MSTR), 
             ") = ")), expression(paste(italic(E), "(", italic(MSE), 
             ") = "))), bty = "n")
         legend(-4.7, 0.833, legend = c(round(mu1 - mu, 2), round(mu2 - 
-            mu, 2), round(mu3 - mu, 2), "", paste("            ", 
+            mu, 2), round(mu3 - mu, 2),"", paste("              ", 
             round(E.MSA, 2)), paste("            ", round(sigma^2, 
             2))), bty = "n")
         
@@ -126,7 +142,7 @@ see.anova.tck <- function ()
         side = "left")
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = n), envir = slider.env) 
-    
+    tkpack(tkcheckbutton(m, text="Color", variable=color))
     
     tkpack(tkbutton(m, text = "Refresh", command = norm.refresh), 
         side = "left")

@@ -36,7 +36,7 @@ if(pdf=="weibull"&show.cdf==FALSE)see.weib.tck()
 
 
 see.pdfdriver.tck<-function(){
-require(tcltk) || stop("tcltk support is absent")
+
 tclRequire("BWidget")
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"

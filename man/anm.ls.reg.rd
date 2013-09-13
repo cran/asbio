@@ -8,7 +8,7 @@ Animated plot of least squares function.
 }
 \usage{
 
-anm.ls.reg(X, Y, parameter="slope", nmax=50, interval = 0.1,...)
+anm.ls.reg(X, Y, parameter="slope", nmax=50, interval = 0.1, col = "red",...)
 
 anm.ls.reg.tck()
 }
@@ -24,6 +24,7 @@ A numeric vector containing response data.
 Parameter to be estimated.  Either "slope" or "intercept".}
   \item{nmax}{The number of parameter estimates to be depicted.  The true LS estimate will always be in the center of this sequence.}
   \item{interval}{Speed of animation (in frames per second).  A smaller interval decreases speed.  May not work in all systems; see \code{\link{Sys.sleep}}.} 
+  \item{col}{Line color.}
   \item{\dots}{
 Additional arguments to \code{\link{plot}}
 }

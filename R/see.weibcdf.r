@@ -1,6 +1,6 @@
 see.weib.tck<-function () 
 {
-require(tcltk) || stop("tcltk support is absent")
+
 tclServiceMode(TRUE)
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
@@ -26,7 +26,7 @@ tclServiceMode(TRUE)
         dev.flush()          
                     }
     m <- tktoplevel()
-  tkwm.title(m, "Visualizing the Weibull Distribution")
+  tkwm.title(m, "WEI(\u03b8, \u03b2)")
     tkpack(tklabel(m,text="      Visualizing the Weibull Distribution      "))
     tkwm.geometry(m, "+0+0")
     
@@ -65,7 +65,7 @@ tclServiceMode(TRUE)
 
 
 see.weibcdf.tck<-function (){ 
-require(tcltk) || stop("tcltk support is absent")
+
 tclServiceMode(TRUE)
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
@@ -78,7 +78,7 @@ tclServiceMode(TRUE)
     xmax <- 30
     assign("xmax", tclVar(xmax), envir = slider.env)
            
-   dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+   dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.5,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
    norm.refresh <- function(...) {
         theta <- as.numeric(evalq(tclvalue(theta), envir = slider.env))
         beta <- as.numeric(evalq(tclvalue(beta), envir = slider.env))
@@ -94,7 +94,7 @@ tclServiceMode(TRUE)
         dev.flush()          
                     }
     m <- tktoplevel()
-  tkwm.title(m, "Visualizing the Weibull Distribution")
+ tkwm.title(m, "WEI(\u03b8, \u03b2)")
     tkpack(tklabel(m,text="      Visualizing the Weibull Distribution      "))
     tkwm.geometry(m, "+0+0")
     

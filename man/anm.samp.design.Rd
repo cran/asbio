@@ -7,9 +7,9 @@
 Animated Comparisons of outcomes from simple random sampling, stratified random sampling and cluster sampling.
 }
 \usage{
-anm.samp.design(n=20, interval = 0.5 ,iter = 30)
+anm.samp.design(n=20, interval = 0.5 ,iter = 30, main = "", lwd = 2, lcol = 2)
 
-samp.design(n = 20)
+samp.design(n = 20, main = "", lwd = 2, lcol = 2)
 
 anm.samp.design.tck()
 }
@@ -18,6 +18,9 @@ anm.samp.design.tck()
   \item{n}{The number of samples to be randomly selected from a population of 400.}
   \item{interval}{Time length spent on each frame in animation (in seconds).}
   \item{iter}{Number of random iterations in animation.}
+  \item{main}{Main heading.}
+  \item{lwd}{line width to distinguish strata in stratified and cluster designs.}
+  \item{lcol}{line width to distinguish strata in stratified and cluster designs.}
 }
 \details{
 Returns a plot comparing outcomes of random sampling, stratified random sampling and cluster sampling from a population

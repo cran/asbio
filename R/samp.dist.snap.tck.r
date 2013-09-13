@@ -287,6 +287,7 @@ if(statc == "H-L estimator"){
       }
       
 if(statc == "MAD"){
+      require(MASS)
       Biv.parent<-tclVar("NULL")
       Parent1<-tclVar("expression(rnorm(s.size))")
       Parent2<-tclVar("NULL")
@@ -730,7 +731,7 @@ samp.dist.snap.tck2<-function (statc = "mean")
             fits <- tclVar("function(s.size, s.size2)({curve(dnorm(x),from = -10, to = 10, add = TRUE, lty = 2, lwd = 2, col = gray(.3)); curve(dt(x, (s.size + s.size2) - 2),from = -10,to = 10, add = TRUE, lty = 1, lwd = 2, col = gray(.6))})")
         }
         if (statc == "Pearson correlation") {
-            require(mvtnorm)
+
             Biv.parent <- tclVar("expression(rmvnorm(s.size, c(0,0), sigma = matrix(nrow=2,ncol=2, data =c(1,0,0,1))))")
             Parent1 <- tclVar("NULL")
             Parent2 <- tclVar("NULL")
@@ -748,7 +749,7 @@ samp.dist.snap.tck2<-function (statc = "mean")
             fits <- tclVar("NULL")
         }
         if (statc == "covariance") {
-            require(mvtnorm)
+
             Biv.parent <- tclVar("expression(rmvnorm(s.size, c(0,0), sigma = matrix(nrow=2,ncol=2, data =c(1,0,0,1))))")
             Parent1 <- tclVar("NULL")
             Parent2 <- tclVar("NULL")

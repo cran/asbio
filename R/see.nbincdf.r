@@ -1,6 +1,6 @@
 see.nbin.tck <-function () 
 {
-    require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL
     suppressWarnings(rm(slider.env))
@@ -30,7 +30,7 @@ see.nbin.tck <-function ()
     }
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the Negative Binomial Distribution")
+    tkwm.title(m, "NB(r, \u03C0)")
     tkpack(tklabel(m, text = "      Visualizing the Negative Binomial Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
@@ -42,7 +42,7 @@ see.nbin.tck <-function ()
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = r), envir = slider.env)
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "p", font = c("Helvetica", "9", 
+    tkpack(tklabel(fr, text = "\u03C0", font = c("Helvetica", "9", 
         "italic"), width = "20"), side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0.01, 
         to = 1, orient = "horiz", resolution = 0.01, showvalue = TRUE), 
@@ -73,7 +73,7 @@ see.nbin.tck <-function ()
 
 see.nbincdf.tck <- function () 
 {
-    require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL
     suppressWarnings(rm(slider.env))
@@ -88,7 +88,7 @@ see.nbincdf.tck <- function ()
     assign("xmax", tclVar(xmax), envir = slider.env)
     dev.new(height = 4, width = 8)
     par(mar = c(4.4, 4.5, 1, 0.5), cex = 0.85, oma = c(0, 0, 
-        1, 0))
+        1.5, 0))
     layout(matrix(c(1, 2), 1, 2, byrow = TRUE))
     norm.refresh <- function(...) {
         r <- as.numeric(evalq(tclvalue(r), envir = slider.env))
@@ -115,7 +115,7 @@ see.nbincdf.tck <- function ()
     }
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the Negative Binomial Distribution")
+    tkwm.title(m, "NB(r, \u03C0)")
     tkpack(tklabel(m, text = "      Visualizing the Negative Binomial Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
@@ -127,7 +127,7 @@ see.nbincdf.tck <- function ()
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = r), envir = slider.env)
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "p", font = c("Helvetica", "9", 
+    tkpack(tklabel(fr, text = "\u03C0", font = c("Helvetica", "9", 
         "italic"), width = "20"), side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0.01, 
         to = 1, orient = "horiz", resolution = 0.01, showvalue = TRUE), 

@@ -1,11 +1,20 @@
 samp.dist.mech <- function(rep, int=.05){
 
-library(pixmap)
+
 g1 <- NULL; rm(g1)
 g1 <- read.pnm(system.file("pictures/goat1.pgm", package="asbio"))
 
 ymx <- 0.5; ymn <- 3
 xback <- rnorm(1000,90.5,15); xmx <- max(xback); xmn <- min(xback)
+
+retry <- function(){ 
+xback <- rnorm(1000,90.5,15); xmx <- max(xback); xmn <- min(xback)
+}
+
+if(xmx > 110|xmn < 75)retry() 
+if(xmx > 110|xmn < 75)retry()
+                             
+
 m <- (ymx - ymn)/(xmx - xmn)
 b <- -m*xmx + ymx
 wt1 <- matrix(nrow=10,ncol=rep,data=sample(xback, rep*10, replace=FALSE))
@@ -43,7 +52,7 @@ dev.hold()
 sub(wt1[,i])
 mtext(side = 3, outer=TRUE,"", line = -26, cex = 1.3)
 Sys.sleep(int*10)
-mtext(side = 3, outer=TRUE,bquote(paste(italic(bar(x))[.(i)], " = ", .(round(all.wt[i],1)))), line = -26, cex = 1.3)
+mtext(side = 3, outer=TRUE,bquote(paste(italic(bar(x))[.(i)], " = ", .(round(all.wt[i],1)))), line = -24, cex = 1.3)
 
 par(mar=c(6,5.5,5,1))
 hist(all.wt[1:i], main = "", breaks = c(75,77.5,80,82.5,85,87.5,90,92.5,95,97.5,100,102.5,105,107.5,110), cex.lab=1.8, cex.axis=1.5, xlab = "", ylab = "", ylim=c(0,32))

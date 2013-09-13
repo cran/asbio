@@ -5,7 +5,7 @@ n<-length(Y)
 p<-ncol(X)
 b<-solve(t(X)%*%X)%*%t(X)%*%Y
 b1<-round(b,8)
-MSTR<-round(((t(b)%*%t(X)%*%Y)-(1/n)*t(Y)%*%matrix(1,nrow=n,ncol=n)%*%Y)/(p-1),10)
+MSR<-round(((t(b)%*%t(X)%*%Y)-(1/n)*t(Y)%*%matrix(1,nrow=n,ncol=n)%*%Y)/(p-1),10)
 MSE<-round((t(Y)%*%(Y)-t(b)%*%t(X)%*%Y)/(n-p),10)
 Yhat<-round(X%*%b,8)
 
@@ -26,8 +26,8 @@ legend(5,9,b1,cex=1.3*sz,bty="n")
      
 plot(seq(1,10),seq(1,10),type="n",xlab="",ylab="",xaxt="n",yaxt="n")
 text(5,9.5,"Mean squares",cex=1.6*sz)
-text(1.8,8.1,expression(paste("MSTR = ", hat(beta),"'","X'Y - ",frac(1,n)," Y'1Y/(p - 1)")),cex=1.4*sz,adj=0)
-text(1.8,6.8,bquote(paste("       = ",.(MSTR))),cex=1.4*sz,adj=0)
+text(1.8,8.1,expression(paste("MSR = ", hat(beta),"'","X'Y - ",frac(1,n)," Y'1Y/(p - 1)")),cex=1.4*sz,adj=0)
+text(1.8,6.8,bquote(paste("       = ",.(MSR))),cex=1.4*sz,adj=0)
 text(1.8,5.5,expression(paste("MSE = Y'",hat(beta),"'X'Y/(n - p)")),cex=1.4*sz,adj=0)
 text(1.8,4.1,paste("       = ",bquote(.(MSE))),cex=1.4*sz,adj = 0)
 
@@ -38,7 +38,7 @@ legend(5,9,Yhat,cex=1.3*sz,bty="n")
 }
 
 see.lmr.tck<-function (){
-require(tcltk) || stop("tcltk support is absent")
+
 local({
 have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"
 if (have_ttk) {

@@ -62,7 +62,7 @@ dens <- dnorm(q.x, mu, sigma)
 
 anm.mc.bvn <- function(start = c(-4, -4), mu = c(0, 0), sigma = matrix(2, 2, data = c(1, 0, 0, 1)), length = 1000, sim = "M", jump.kernel = 0.2, xlim = c(-4, 4), ylim = c(-4, 4), interval = 0.01, show.leg = TRUE, cex.leg = 1,...)
 {
-require(mvtnorm)
+
 
 x<-seq(-4, 4, .05)
 g<-expand.grid(x, x)

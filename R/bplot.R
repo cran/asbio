@@ -2,6 +2,9 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "
     uiw = NULL, liw = NULL, sfrac = 0.1, slty = 1, scol = 1, slwd = 1, exp.fact = 1.5, simlett = FALSE, lett.side = 3,  
     lett = NULL, cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, ...) 
 {
+
+require(MASS)
+
     SE <- tapply(y, x, function(x) {
     ci.mu.t(x[!is.na(x)])$SE
     })
@@ -41,8 +44,8 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "
                 if(simlett == FALSE & is.null(ylim)){
                   ylim <- c(min(0, loc.vec - (margin)), max(0, loc.vec + (margin)))}
                                      
-                if(horiz == FALSE) b <- barplot(loc.vec, ylim = ylim , col = bar.col, ...)
-                if(horiz == TRUE) b <- barplot(loc.vec, xlim = ylim , col = bar.col, horiz = TRUE, ...)
+                if(horiz == FALSE) b <- barplot(loc.vec, ylim = ylim , col = bar.col, names.arg = names.arg,...)
+                if(horiz == TRUE) b <- barplot(loc.vec, xlim = ylim , col = bar.col, horiz = TRUE, names.arg = names.arg,...)
                 if(horiz == FALSE){
                     arrows(b, liw, b, uiw, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)
                     arrows(b, liw, b, uiw, code = 1, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)}

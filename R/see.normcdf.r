@@ -1,6 +1,6 @@
 see.normcdf.tck <- function () 
 {
-    require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL
     suppressWarnings(rm(slider.env))
@@ -19,7 +19,7 @@ see.normcdf.tck <- function ()
     assign("ymax", tclVar(ymax), envir = slider.env)
     dev.new(height = 4, width = 8)
     par(mar = c(4.4, 4.5, 1, 0.5), cex = 0.85, oma = c(0, 0, 
-        1, 0))
+        1.5, 0))
     layout(matrix(c(1, 2), 1, 2, byrow = TRUE))
     norm.refresh <- function(...) {
         dev.hold()
@@ -51,7 +51,7 @@ see.normcdf.tck <- function ()
     }
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the Normal Distribution")
+    tkwm.title(m, "N(\u03bc, \u03c3\u00B2)")
     tkpack(tklabel(m, text = "      Visualizing the Normal Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
@@ -97,7 +97,7 @@ see.normcdf.tck <- function ()
 
 see.norm.tck<-function () 
 {
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     mu <- 0
@@ -124,7 +124,8 @@ require(tcltk) || stop("tcltk support is absent")
         xx <- seq(xmin, xmax, length = 500)
         yy <- dnorm(xx, mu, sigma)
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylim = c(ymin, 
-            ymax), ylab = "f(x)", xlab = "x")
+            ymax), xlab = expression(italic(x)), ylab = expression(paste(italic(f), 
+            "(", italic(x), ")", sep = "")))
         lines(c(mu, mu), c(par("usr")[3], dnorm(0, 0, sigma)), 
             lty = 3)
         segments(mu, dnorm(sigma, 0, sigma),mu + sigma, dnorm(sigma, 0, sigma), lty = 2)
@@ -137,7 +138,7 @@ require(tcltk) || stop("tcltk support is absent")
     }
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the Normal Distribution")
+    tkwm.title(m, "N(\u03bc, \u03c3\u00B2)")
     tkpack(tklabel(m,text="      Visualizing the Normal Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")

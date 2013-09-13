@@ -24,9 +24,9 @@ Milliken, G. A., and D. E. Johnson. 2008. \emph{Analysis of messy data: Vol. I. 
 }
 \examples{
 \dontrun{
-# Split plot in time. From Milliken and Johnson (1999, pg 506).
-data(heart) 
+data(heart)
 aov(rate ~ drug * time + Error(subject%in%drug), data = heart)
 }
 }
 \keyword{datasets}
+                   

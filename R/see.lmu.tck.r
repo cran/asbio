@@ -103,7 +103,7 @@ paste("X1:X2 = ",round(P.val[3],6))),bty="n",inset=.2)
 
 
 see.lmu.tck<-function (){
-require(tcltk) || stop("tcltk support is absent")
+
 tclRequire("BWidget")
 local({
 have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"

@@ -1,7 +1,7 @@
 #-------------Geometric--------------#
 
 anm.geo.growth.tck<-function(){         
-require(tcltk) || stop("tcltk support is absent")
+
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"
     if(have_ttk) {
@@ -75,7 +75,7 @@ local({
 #-------------Exponential--------------#
 
 anm.exp.growth.tck<-function(){         
-require(tcltk) || stop("tcltk support is absent")
+
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"
     if(have_ttk) {
@@ -150,7 +150,7 @@ local({
 #-------------Logistic--------------#
 
 anm.log.growth.tck<-function(){         
-require(tcltk) || stop("tcltk support is absent")
+
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"
     if(have_ttk) {

@@ -1,4 +1,5 @@
 r.bw<-function(X,Y=NULL){
+    require(MASS)
     U.i<-(X-median(X))/(9*qnorm(.75)*mad(X))
     a.i<-ifelse(U.i<=-1|U.i>=1,0,1)
     n<-nrow(as.matrix(X))

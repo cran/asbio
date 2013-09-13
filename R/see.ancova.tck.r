@@ -1,6 +1,6 @@
 see.ancova.tck <- function () 
 {
-        require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
 
@@ -26,18 +26,21 @@ see.ancova.tck <- function ()
         
         dev.hold()
         layout(matrix(c(1,2,3,4,4,4),2,3, byrow = TRUE))
-        par(mar = c(2,4,0,0))
-        plot(1:n,Y1, xaxt = "n", ylab = expression(italic(Y)), ylim = c(5, 20), cex.lab = 1.3, cex.axis = 1.3, cex = 1.5); abline(h = mean(Y1), lty = 1); legend("top", legend = "Treatment 1", bty = "n", cex = 1.1); mtext(side = 1, line = .5, "Subject", cex = .9) 
-        par(mar = c(2,2,0,1))
-        plot(1:n,Y2, xaxt = "n", yaxt = "n", pch = 19, ylim = c(5, 20), cex.lab = 1.3, cex.axis = 1.3, cex = 1.5); abline(h = mean(Y2), lty = 2); legend("top", legend = "Treatment 2", bty = "n", cex = 1.1); mtext(side = 1, line = .5, "Subject", cex = .9) 
-        par(mar = c(2,1,0,3))
-        plot(1:n,Y3, xaxt = "n", yaxt = "n", pch = 2, ylim = c(5, 20), cex.lab = 1.3, cex.axis = 1.3, cex = 1.5); abline(h = mean(Y3), lty = 3); legend("top", legend = "Treatment 3", bty = "n", cex = 1.1); mtext(side = 1, line = .5, "Subject", cex = .9)  
+        par(mar = c(4,0,0,.5), oma=c(0,4.5,0.5,0.5))
+        plot(1:n,Y1, xaxt = "n", ylab = "", xlab = "", ylim = c(5, 20), cex.lab = 1.3, cex.axis = 1.3, cex = 1.3); abline(h = mean(Y1), lty = 1); legend("top", legend = "Treatment 1", bty = "n", cex = 1.1) 
+        mtext(side=2, line = 3, expression(italic(Y)))
+        axis(1,at=seq(1,n), labels=FALSE)
+        plot(1:n,Y2, xaxt = "n", yaxt = "n", ylab = "", xlab = "", pch = 19, ylim = c(5, 20), cex.lab = 1.3, cex.axis = 1.3, cex = 1.3); abline(h = mean(Y2), lty = 2); legend("top", legend = "Treatment 2", bty = "n", cex = 1.1); mtext(side = 1, line = 1.8, "Experimental unit", cex = .9) 
+        axis(1,at=seq(1,n), labels=FALSE)
+        plot(1:n,Y3, xaxt = "n", yaxt = "n", ylab = "", xlab = "", pch = 2, ylim = c(5, 20), cex.lab = 1.3, cex.axis = 1.3, cex = 1.3); abline(h = mean(Y3), lty = 3); legend("top", legend = "Treatment 3", bty = "n", cex = 1.1)  
+        axis(1,at=seq(1,n), labels=FALSE)
         
         Xij <- runif(n * 3, 0, 10) 
         Yij <- mu + alpha + beta * (Xij - (mean(Xij))) + rnorm(n * 3, 0, sigma * (1 - var.exp))
         
-        par(mar = c(4,4,1,3))
-        plot(Xij - mean(Xij), Yij, pch = c(rep(1,n), rep(19, n), rep(2, n)), xlab = expression(italic(X-bar(X))), ylab = expression(italic(Y)), cex.lab = 1.3, cex.axis = 1.3, cex = 1.5)
+        par(mar = c(4.6,0,0,0.5))
+        plot(Xij - mean(Xij), Yij, pch = c(rep(1,n), rep(19, n), rep(2, n)), xlab = expression(italic(X-bar(X))), ylab = "", cex.lab = 1.4, cex.axis = 1.3, cex = 1.3)
+        mtext(side=2, line = 3, expression(italic(Y)))
         abline(mu + alpha1, beta, lty = 1)
         abline(mu + alpha2, beta, lty = 2)
         abline(mu + alpha3, beta, lty = 3)
