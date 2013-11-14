@@ -1,5 +1,5 @@
 Preston.dist<-function(counts, start=.2, cex.octave = 1, cex.legend = 1, cex.pt = 1,...){
-require(plotrix)
+
 	log2.counts<-logb(counts,2)
 	hm<-hist(round(log2.counts,0),breaks=seq(0,round(max(log2.counts),0)),plot=FALSE)
 	n<-hm$counts

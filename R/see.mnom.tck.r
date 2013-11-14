@@ -1,7 +1,7 @@
 see.mnom.tck <- function () 
 {
-    require(scatterplot3d)
-    require(tcltk) || stop("tcltk support is absent")
+
+
     if (!exists("slider.env")) 
         slider.env <- NULL
     suppressWarnings(rm(slider.env))
@@ -26,7 +26,7 @@ see.mnom.tck <- function ()
     }
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the Multinomial (Binomial) Distribution")
+    tkwm.title(m, "MNOM(n, \u03C0\u2081, \u03C0\u2082)")
     tkpack(tklabel(m, text = "      Visualizing the Multinomial Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
@@ -38,8 +38,7 @@ see.mnom.tck <- function ()
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = n), envir = slider.env)
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "\u2565\u2081", font = c("Helvetica", "9", 
-        "italic"), width = "20"), side = "right")
+    tkpack(tklabel(fr, text = "\u03C0\u2081", width = "20"), side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
         to = 1, orient = "horiz", resolution = 0.01, showvalue = TRUE), 
         side = "left")

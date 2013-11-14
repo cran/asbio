@@ -1,6 +1,6 @@
 see.regression.tck <- function () 
 {
-        require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     beta0 <- 0
@@ -17,7 +17,7 @@ xpts<- c(5,15)
 dev.new(height = 5, width = 10)
 
 plot.it<-function(...){
-require(scatterplot3d)
+
 dev.hold()
         beta0 <- as.numeric(evalq(tclvalue(beta0), envir = slider.env))
         beta1 <- as.numeric(evalq(tclvalue(beta1), envir = slider.env))

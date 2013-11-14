@@ -4,7 +4,7 @@ Venn <- function (A, B, AandB = 0, labA = "A", labB = "B", cex.text = .95, ...)
         0 | B < 0 | AandB < 0 | AandB > A | AandB > B) {
         stop("Violation of probability rules!")
     }
-    require(plotrix)
+
     if (A == 0 & B == 0) {
         S <- plot(seq(0, 1), seq(0, 1), type = "n", xaxt = "n", 
             yaxt = "n", xlab = "", ylab = "",...)
@@ -106,7 +106,7 @@ Venn <- function (A, B, AandB = 0, labA = "A", labB = "B", cex.text = .95, ...)
 
 Venn.tck<-function()
 {
-    require(tcltk) || stop("tcltk support is absent")
+
     local({
         have_ttk <- as.character(tcl("info", "tclversion")) >= 
             "8.5"

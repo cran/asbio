@@ -28,7 +28,7 @@ for(i in min(time):max(time)){
 anm.exp.growth<-function(n,rmax,time=seq(0,20),ylab="Abundance",xlab="Time",interval=0.1,...){
 y<-xstart<-c(n=n)
 pars<-c(rmax=rmax) 
-require(deSolve)||stop("This function requires package 'deSolve'")
+
 pr<-as.list(pars)
 func<-function(time=time,xstart=xstart,pars=pars){
     n<-xstart
@@ -63,7 +63,7 @@ for(i in min(time):max(time)){
 anm.log.growth<-function(n,rmax,K,time=seq(0,60),ylab="Abundance",xlab="Time",interval=0.1,...){
 y<-xstart<-c(n=n)
 pars<-c(rmax=rmax,K=K) 
-require(deSolve)||stop("This function requires package 'deSolve'")
+
 pr<-as.list(pars)
 func<-function(time=time,xstart=xstart,pars=pars){
     n<-xstart

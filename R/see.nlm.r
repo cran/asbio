@@ -35,7 +35,7 @@ text(8.8,4.95,"a, b",font=3)
 text(8.85,3.95,"a, b, c",font=3)
 text(8.85,2.95,"a, b, c",font=3)
 text(8.8,1.3,"a, b",font=3)
-text(6.3,7.9,expression(paste(italic("f(x) = "),italic(frac(ax,1+bx)))),font=3)
+text(6.3,7.9,expression(paste(italic("f(x) = "),italic(frac(ax,b+x)))),font=3)
 text(6.3,6.9,expression(paste(italic("f(x) = a","(1-"),italic(e^(-bx)))),font=3)
 text(6.3,5.25,expression(paste(italic("f(x) = "),italic(frac(e^(a+bx),1+e^(a+bx))))),font=3)
 text(6.3,4.25,expression(paste(italic("f(x) = "),italic(frac(a,1+be^(-cx))))),font=3)
@@ -64,7 +64,7 @@ com
 }
 
 com <- fp()
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     a <- 1
@@ -87,16 +87,17 @@ require(tcltk) || stop("tcltk support is absent")
         xmin <- as.numeric(evalq(tclvalue(xmin), envir= slider.env))
         xmax <- as.numeric(evalq(tclvalue(xmax), envir= slider.env))
         xx <- seq(xmin, xmax, length = 500)
-        par(mar=c(5, 4, 4, 2))
+        par(mar=c(5, 4.3, 4, 2), cex=1.2)
         
-        if(com=="see.MM"){yy<-a*xx/(1+b*xx);main="Michaelis-Menten Model"}
+        if(com=="see.MM"){yy<-a*xx/(b+xx);main=bquote(paste("Michaelis-Menten Model   ",italic(f),"(",italic(x),") = ",.(a),italic(x),"/(",.(b)," + ",italic(x),")"))}
         if(com=="see.2PE"){yy<-a*exp(-b*xx);main="2 Parameter Exponential"}
         if(com=="see.2PL"){yy<-exp(a+b*xx)/(1+exp(a+b*xx));main="2 Parameter Logistic"}
         if(com=="see.3PL"){yy<-a/(1+b*exp(-c*xx));main="3 Parameter Logistic"}
         if(com=="see.G"){yy<-a*exp(-b*exp(-c*xx));main="Gompertz"}
         if(com=="see.R"){yy<-a*xx*exp(-b*xx);main="Ricker"}
         dev.hold()
-        plot(xx, yy, type = "l", xlim = c(xmin, xmax), xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")),main=main)
+        par(cex=1.3)
+        plot(xx, yy, type = "l", xlim = c(xmin, xmax), xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")),main=main, cex.main=1.1)
         dev.flush()    
     }
     
@@ -116,7 +117,7 @@ require(tcltk) || stop("tcltk support is absent")
     tkpack(tklabel(fr, text = "a", font = c("Helvetica", 
         "9", "italic"), width = "20"), side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
-        to = 10, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
+        to = 50, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
         side = "left")
     assign("sc", sc, envir= slider.env)
     evalq(tkconfigure(sc, variable = a), envir= slider.env)
@@ -124,7 +125,7 @@ require(tcltk) || stop("tcltk support is absent")
     tkpack(tklabel(fr, text = "b", font = c("Helvetica", 
         "9", "italic"), width = "20"), side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
-        to = 10, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
+        to = 20, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
         side = "left")
     assign("sc", sc, envir= slider.env)
     evalq(tkconfigure(sc, variable = b), envir= slider.env)

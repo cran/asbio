@@ -1,6 +1,6 @@
 see.exppower.tck<-function () 
 {
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     m <- 1

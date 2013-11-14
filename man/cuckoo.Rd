@@ -16,7 +16,7 @@ Part of a dataset detailing cuckoo egg lengths found in other birds nests.  Unit
   }
 }
 \source{
-Tippett, L. H. C. (1959) \emph{The Methods of Statistics, 4th Edition}.  Wiley.
+Tippett, L. H. C. (1952) \emph{The Methods of Statistics, 4th Edition}.  Wiley.
 }
 \keyword{datasets}
 

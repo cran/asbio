@@ -1,6 +1,6 @@
 see.chicdf.tck<-function () 
 {
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
     slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     nu <- 5
@@ -10,7 +10,7 @@ require(tcltk) || stop("tcltk support is absent")
     xmax <- 20
     assign("xmax", tclVar(xmax), envir = slider.env)
         
-    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.5,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.75,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
     norm.refresh <- function(...) {
         nu <- as.numeric(evalq(tclvalue(nu), envir = slider.env))
         xmin <- as.numeric(evalq(tclvalue(xmin), envir = slider.env))
@@ -26,7 +26,7 @@ require(tcltk) || stop("tcltk support is absent")
             }
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the chi-square Distribution")
+    tkwm.title(m, "\u03A7\u00B2(\u03bd)")
      tkpack(tklabel(m,text="      Visualizing the Chi-square Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
@@ -54,7 +54,7 @@ require(tcltk) || stop("tcltk support is absent")
 
 see.chi.tck<-function () 
 {
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
     slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     nu <- 5
@@ -78,7 +78,7 @@ require(tcltk) || stop("tcltk support is absent")
                     }
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the Chi-square Distribution")
+    tkwm.title(m, "\u03A7\u00B2(\u03bd)")
     tkpack(tklabel(m,text="      Visualizing the Chi-square Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")

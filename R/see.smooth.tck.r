@@ -1,6 +1,6 @@
 see.smooth.tck <- function(){
-require(tcltk) || stop("tcltk support is absent")
-require(graphics); require(stats)
+
+
 
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"
@@ -13,8 +13,9 @@ local({
 
 plot.lines <- function(x, y, xlab, ylab, degree, span, kernel, bandwidth, nknots, spar){
     dev.hold()
+    par(cex=1.2)
     plot(x, y, xlab=xlab, ylab=ylab)
-    legend("topleft", lty = c(1,2,3), lwd = 2, legend = c("LOWESS", "kernel", "spline"), bty = "n")
+    legend("topleft", lty = c(1,2,3), lwd = 2, legend = c("lowess", "kernel", "spline"), bty = "n")
     ##################
     o <- order(x)
     lines(x[o],fitted(loess(y[o] ~ x[o], degree = degree, span = span)[o]), lty = 1, lwd = 2)
@@ -27,8 +28,7 @@ plot.lines <- function(x, y, xlab, ylab, degree, span, kernel, bandwidth, nknots
     dev.flush()
     }
         
-
-        
+     
 dialog.ci <- function(){
     grDevices::devAskNewPage(FALSE) 
     tclServiceMode(FALSE)
@@ -48,13 +48,13 @@ dialog.ci <- function(){
     kernel<- tclVar("normal")
     bw    <- tclVar(5)
     spar <- tclVar(0.5)
-    knots <- tclVar(5)
+    knots <- tclVar(8)
     
     replot <- function(...) {
     X <- parse(text = tclvalue(X))[[1]];X <- eval(X)
     Y <- parse(text = tclvalue(Y))[[1]];Y <- eval(Y)
-    Xlab <- parse(text = tclvalue(Xlab))[[1]]
-    Ylab <- parse(text = tclvalue(Ylab))[[1]]
+    Xlab <- tclvalue(Xlab)
+    Ylab <- tclvalue(Ylab)
     degree <- as.numeric(tclvalue(degree)); degree <- as.numeric(degree)
     span <- tclvalue(span); span <- as.numeric(span)
     
@@ -82,7 +82,7 @@ dialog.ci <- function(){
     tkpack(tkscale(frame1, command = replot, from = 0.1, to = 1.0,
                    showvalue = TRUE, variable = span,
                    resolution=0.05, orient="horiz"))
-    
+
     
     #Kernel
     frame2 <- tkframe(left.frm, relief="groove", borderwidth=2)
@@ -104,7 +104,7 @@ dialog.ci <- function(){
     tkpack(tklabel(frame3, text="Spline"))
      
     tkpack(tklabel (frame3, text="Knots"))
-    tkpack(tkscale(frame3, command = replot, from = 1, to = 40,
+    tkpack(tkscale(frame3, command = replot, from = 1, to = 28,
                    showvalue = TRUE, variable = knots,
                    resolution=1, orient="horiz"))
     tkpack(tklabel (frame3, text="Smoothing parameter"))

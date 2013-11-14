@@ -1,16 +1,14 @@
 \name{boot.ci.M}
 \alias{boot.ci.M}
+\alias{print.bci}
 \title{Bootstrap CI of M-estimators differences of two samples}
 \description{
 Creates a bootstrap confidence interval for location differences for two samples.  The default location
-estimator is the Huber one-step estimator, although any estimator can be used.  The function is similar to 
-a function written by Wilcox (2005) but does not compute two-tailed \emph{P}-values as these are often in conflict 
-with the calculated confidence intervals.  The default method for bootstrap confidence intervals is the percentile 
-method which is recommended by Wilcox (2005) for \emph{M}-estimators.
+estimator is the Huber one-step estimator, although any estimator can be used.  The function is based on 
+a function written by Wilcox (2005).  Note, importantly, that \emph{P}-values may be in conflict with the confidence intervals.
 }
 \usage{
-boot.ci.M(X1, X2, alpha = 0.05, est = huber.one.step, R = 1000, 
-method = "perc")
+boot.ci.M(X1, X2, alpha = 0.05, est = huber.one.step, R = 1000)
 }
 \arguments{
   \item{X1}{Sample from population one.}
@@ -18,7 +16,7 @@ method = "perc")
   \item{alpha}{Significance level.}
   \item{est}{Location estimator; default is the Huber one step estimator.}
   \item{R}{Number of bootstrap samples.}
-  \item{method}{Method for computing bootstrap confidence intervals. Other alternatives are given in \code{ci.boot}.  Cannot currently handle studentized intervals.}
+
 }
 \value{
   Returns a list with one component, a dataframe containing summary information from the analysis:  
@@ -34,8 +32,12 @@ method = "perc")
 \references{
 Manly, B. F. J.  (1997)  \emph{Randomization and Monte Carlo methods in biology, 2nd edition}.  
 Chapman and Hall, London.
+
+Wilcox, R. R. (2005) \emph{Introduction to Robust Estimation and Hypothesis Testing, 2nd edition}.  Elsevier, 
+Burlington, MA.
+
 }
-\author{Ken Aho}
+\author{Ken Aho and R. R. Wilcox from whom I stole liberlly from code in the function m2ci on R-forge}
 \seealso{\code{\link{bootstrap}}, \code{\link{ci.boot}}}
 \examples{
 \dontrun{

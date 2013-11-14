@@ -4,8 +4,13 @@
 exportPattern(".")
 
 # Import all packages listed as Imports or Depends
+importFrom(scatterplot3d, scatterplot3d)
+importFrom(mvtnorm, dmvnorm, rmvnorm, qmvt) 
+importFrom(lattice, wireframe)
+importFrom(deSolve,rk4)
+importFrom(plotrix,draw.circle,staxlab)
 import(
-  plotrix,
-  MASS,
-  tcltk
+  tcltk,
+  tkrplot,
+  pixmap
 )

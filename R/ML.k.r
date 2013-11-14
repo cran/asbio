@@ -17,7 +17,8 @@ khats<-seq(khat1-rng,khat1+rng,by=res)
 z<-matrix(ncol=1,nrow=length(khats))
 for(i in 1:length(khats)){
 S1<-sum(Az/(khats[i]+x))
-S2<-N*log(1+(m/khats[i]))
+S2a <- 1+(m/khats[i])
+S2<-ifelse(S2a >= 0, N*log(S2a), 0)
 z[i]<-abs(S1-S2)
 }
 

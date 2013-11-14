@@ -7,8 +7,9 @@
 }
 \usage{
 
-plotCI.reg(x, y, conf = 0.95, CI = TRUE, PI = TRUE, resid = FALSE, reg.col = 1, CI.col = 2, 
-PI.col = 4, reg.lty = 1, CI.lty = 2, PI.lty = 3, reg.lwd = 1, CI.lwd = 1, resid.lty = 3, resid.col = 4,...)
+plotCI.reg(x, y, conf = 0.95, CI = TRUE, PI = TRUE, resid = FALSE, reg.col = 1, 
+CI.col = 2, PI.col = 4, reg.lty = 1, CI.lty = 2, PI.lty = 3, reg.lwd = 1, 
+CI.lwd = 1, resid.lty = 3, resid.col = 4,...)
 }
 \arguments{
   \item{x}{The explanatory variable, a numeric vector.}

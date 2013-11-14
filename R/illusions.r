@@ -38,4 +38,5 @@ abline(v = x, h = y, col = "gray", lwd = 6)
 points(rep(x, each=10), rep(y, 10), col = "white", 
 cex = 3, pch = 20)
 par(op)
+print("Code for this illusion follow from Yihui Xie's package animation")
 }}

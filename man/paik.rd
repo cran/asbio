@@ -9,7 +9,8 @@ Paik diagrmas for the representation of Simpsons Paradox in three way tables.
 }
 \usage{
 
-paik(formula, counts, resp.lvl = 2, data, circle.mult = 0.4, xlab = NULL, ylab = NULL, leg.title = NULL, leg.loc = NULL, show.mname = FALSE,...)
+paik(formula, counts, resp.lvl = 2, data, circle.mult = 0.4, xlab = NULL, 
+ylab = NULL, leg.title = NULL, leg.loc = NULL, show.mname = FALSE,...)
 }
 
 \arguments{
@@ -62,9 +63,13 @@ require(tcltk)
 data(death.penalty)# from Agresti 2012 
 
 par(mfrow=c(1,2), mar=c(4,4,0,0))
-paik(verdict ~ d.race + v.race, counts = count, data = death.penalty, leg.title = "Victims race", xlab = "Defendants race", ylab = "Proportion receiving death penalty")
+paik(verdict ~ d.race + v.race, counts = count, data = death.penalty, 
+leg.title = "Victims race", xlab = "Defendants race", 
+ylab = "Proportion receiving death penalty")
 par(mar=c(4,2,0,2))
-paik(verdict ~ v.race + d.race, counts = count, data = death.penalty, xlab = "Victims race", leg.title = "Defendants race",leg.loc="topleft", ylab = "", yaxt = "n")
+paik(verdict ~ v.race + d.race, counts = count, data = death.penalty, 
+xlab = "Victims race", leg.title = "Defendants race",leg.loc="topleft", 
+ylab = "", yaxt = "n")
 
 message("Type: vignette(\"simpson\") for more information about this figure")
 

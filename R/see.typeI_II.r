@@ -1,5 +1,5 @@
 see.typeI_II<-function(){
-require(tcltk) || stop("tcl/tk library not available")
+
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"
     if(have_ttk) {

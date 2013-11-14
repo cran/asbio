@@ -1,6 +1,6 @@
 \name{samp.dist.mech}
 \alias{samp.dist.mech}
-
+\alias{samp.dist.mech.tck}
 \title{
 Animated representation of sampling distribution basics
 }
@@ -10,6 +10,9 @@ Goats are sampled 10 at a time and weighed, a mean weight is calculated from the
 \usage{
 
 samp.dist.mech(rep, int = 0.05)
+
+samp.dist.mech.tck()
+
 }
 \arguments{
 

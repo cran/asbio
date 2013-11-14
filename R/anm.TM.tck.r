@@ -1,6 +1,6 @@
 anm.TM.tck<-function(){   
-require(tcltk) || stop("tcltk support is absent")
-require(stats)
+
+
 
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"

@@ -1,6 +1,5 @@
 r.dist <- function(rho, r, n){
-require(lattice) || stop("function requires library lattice")
-require(mvtnorm) || stop("function requires library mvtnorm")
+
 rd <- function(rho, r, n){
 ((n-2)*gamma(n-1)*((1-rho^2)^((n-1)/2))*((1-r^2)^((n-4)/2)))/
 (sqrt(2*pi)*gamma(n-0.5)*((1-rho*r)^(n-(3/2)))) *
@@ -25,7 +24,7 @@ plot(seq(-1, 1, .001), vals, type = "l", ylab = expression(paste(italic(f),"(",i
 dev.flush()
 }
 
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL
     suppressWarnings(rm(slider.env))

@@ -1,5 +1,5 @@
 see.adddel<-function(){
-require(tcltk) || stop("tcltk support is absent")
+
 action<-tclVar("add") 
 pts <- matrix(c(12, 56,
                 20, 94,

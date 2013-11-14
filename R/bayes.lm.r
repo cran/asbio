@@ -6,7 +6,6 @@ V.beta <- solve(t(X)%*%X)
 MSE<-(t(Y)%*%(Y)-t(beta.hat)%*%t(X)%*%Y)/(n - p)
 sigma.sq <- rinvchisq(length, n - p, MSE)
 
-library(mvtnorm)
 beta.f.x <- matrix(ncol = length(beta.hat), nrow = length)
 for(i in 1 : length){
     beta.f.x[i,] <- rmvnorm(1, beta.hat, V.beta *sigma.sq[i])

@@ -7,10 +7,11 @@
 Describes random treatment allocation for fifteen experimental designs.}
 \usage{
 
-anm.ExpDesign(method="all", titles =  TRUE, interval = 0.5, iter = 30)
+anm.ExpDesign(method="all", titles =  TRUE, cex.text = 1, mp.col = NULL, 
+interval = 0.5, iter = 30)
 
 
-ExpDesign(method="all", titles = TRUE, ...)
+ExpDesign(method="all", titles = TRUE, cex.text = 1, mp.col = NULL, ...)
 
 anm.ExpDesign.tck()
 }
@@ -19,6 +20,8 @@ anm.ExpDesign.tck()
   \item{titles}{A logical argument specifying whether or not plots should have \code{main} titles.}
   \item{interval}{Time length spent on each frame in animation (in seconds).}
   \item{iter}{Number of random iterations in animation.}
+  \item{cex.text}{Text character expanasion plots.}
+  \item{mp.col}{Arrow colors in \code{"matched"} plot.  Either a vector of length 3 or a single color.}
   \item{\dots}{Additional arguments from \code{\link{plot}}.}
 }
 \details{

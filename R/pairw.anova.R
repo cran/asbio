@@ -163,7 +163,7 @@ res
 }
 
 dunnettCI<-function(y, x, conf.level = 0.95, control = NULL){
-require(mvtnorm)
+
 x <- factor(x)
 if(is.null(control)) stop(call. = FALSE, "Please specify the control")
 nis <- tapply(y, x, length)

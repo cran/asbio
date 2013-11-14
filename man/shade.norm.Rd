@@ -16,8 +16,8 @@ Creates plots with lower, upper, two-tailed, and middle of the distribution shad
 \usage{
 
 shade.norm(x = NULL, from = NULL, to = NULL, sigma = 1, mu = 0,
-tail = "lower", show.p = TRUE, show.d = FALSE, show.dist = TRUE, digits = 5,legend.cex = .9, 
-shade.col="gray",...)
+tail = "lower", show.p = TRUE, show.d = FALSE, show.dist = TRUE, digits = 5,
+legend.cex = .9, shade.col="gray",...)
 
 shade.t(x = NULL, from = NULL, to = NULL, nu = 3, tail = "lower", 
 show.p = TRUE, show.d = FALSE, show.dist = TRUE, digits = 5,legend.cex = .9, 

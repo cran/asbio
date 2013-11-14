@@ -1,6 +1,6 @@
 see.tcdf.tck<-function () 
 {
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     nu <- 5
@@ -12,7 +12,7 @@ require(tcltk) || stop("tcltk support is absent")
     
     show.norm<-tclVar(0)    
     
-    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.5,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
     
     prefunc<-function(xx,yy,sny,y1,sncy,xlim,nu,show.norm=FALSE){
         dev.hold()
@@ -40,7 +40,7 @@ require(tcltk) || stop("tcltk support is absent")
               
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the t Distribution")
+    tkwm.title(m, "t(\u03bd)")
     tkpack(tklabel(m,text="      Visualizing the t Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
@@ -74,7 +74,7 @@ require(tcltk) || stop("tcltk support is absent")
 
 see.t.tck<-function () 
 {
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     nu <- 5
@@ -107,7 +107,7 @@ require(tcltk) || stop("tcltk support is absent")
     
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the t Distribution")
+    tkwm.title(m, "t(\u03bd)")
     tkpack(tklabel(m,text="      Visualizing the t Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")

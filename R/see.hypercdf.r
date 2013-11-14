@@ -1,6 +1,6 @@
 see.hyper.tck<-function () 
 {
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
     slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     n <- 1
@@ -23,7 +23,7 @@ require(tcltk) || stop("tcltk support is absent")
                     }
     tclServiceMode(TRUE)
     m <- tktoplevel()
-   tkwm.title(m, "Visualizing the Hypergeometric Distribution")
+   tkwm.title(m, "HYP(n, M, n)")
     tkpack(tklabel(m,text="      Visualizing the Hypergeometric Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
@@ -56,7 +56,7 @@ tkpack(fr <- tkframe(m), side = "top")
  
 see.hypercdf.tck<-function () 
 {
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
     slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     n <- 1
@@ -65,7 +65,7 @@ require(tcltk) || stop("tcltk support is absent")
     assign("n", tclVar(n), envir= slider.env)
     assign("M", tclVar(M), envir= slider.env)           
     assign("N", tclVar(N), envir= slider.env)
-    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.5,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
    norm.refresh <- function(...) {
         n <- as.numeric(evalq(tclvalue(n), envir= slider.env))
         M <- as.numeric(evalq(tclvalue(M), envir= slider.env))
@@ -85,7 +85,7 @@ require(tcltk) || stop("tcltk support is absent")
                     }
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the Hypergeometric Distribution")
+    tkwm.title(m, "HYP(n, M, n)")
     tkpack(tklabel(m,text="      Visualizing the Hypergeometric Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")

@@ -1,6 +1,6 @@
 see.exp.tck<-function () 
 {
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     theta <- 1
@@ -25,7 +25,7 @@ require(tcltk) || stop("tcltk support is absent")
                     
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the Exponential Distribution")
+    tkwm.title(m, "EXP(\u03b8)")
     tkpack(tklabel(m,text="      Visualizing the Exponential Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
@@ -54,7 +54,7 @@ require(tcltk) || stop("tcltk support is absent")
 }
 
 see.expcdf.tck<-function (){ 
-require(tcltk) || stop("tcltk support is absent")
+
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     theta <- 1
@@ -63,7 +63,7 @@ require(tcltk) || stop("tcltk support is absent")
     assign("xmin", tclVar(xmin), envir = slider.env)
     xmax <- 6
     assign("xmax", tclVar(xmax), envir = slider.env)
-   dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))        
+   dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.5,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))        
    norm.refresh <- function(...) {
         dev.hold()
         theta <- as.numeric(evalq(tclvalue(theta), envir = slider.env))
@@ -80,7 +80,7 @@ require(tcltk) || stop("tcltk support is absent")
     
     tclServiceMode(TRUE)
     m <- tktoplevel()
-    tkwm.title(m, "Visualizing the Exponential Distribution")
+    tkwm.title(m, "EXP(\u03b8)")
     tkpack(tklabel(m,text="      Visualizing the Exponential Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")

@@ -1,5 +1,5 @@
 samp.dist.method.tck<-function(){
-require(tcltk) || stop("tcltk support is absent")
+
 tclRequire("BWidget")
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"
@@ -83,7 +83,7 @@ dialog.ci()
 
 
 samp.dist.tck<-function(statc = "mean"){
-require(tcltk) || stop("tcltk support is absent")
+
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"
     if(have_ttk) {
@@ -336,6 +336,7 @@ if(statc == "var"){
       Col<- tclVar("gray")
       Int<-tclVar("0.01")}   
 if(statc == "MAD"){
+      require(MASS)
       Biv.parent<-tclVar("NULL")
       Parent1<-tclVar("expression(rnorm(s.size))")
       Parent2<-tclVar("NULL")
@@ -432,7 +433,7 @@ if(statc == "t* (2 sample)"){
       Col<- tclVar("gray")
       Int<-tclVar("0.01")}    
 if(statc == "Pearson correlation"){
-      require(mvtnorm)
+  
       Biv.parent<-tclVar("expression(rmvnorm(s.size, c(0,0), sigma = matrix(nrow=2,ncol=2, data =c(1,0,0,1))))")
       Parent1<-tclVar("NULL")
       Parent2<-tclVar("NULL")
@@ -449,7 +450,7 @@ if(statc == "Pearson correlation"){
       Col<- tclVar("gray")
       Int<-tclVar("0.01")} 
 if(statc == "covariance"){
-      require(mvtnorm)
+      
       Biv.parent<-tclVar("expression(rmvnorm(s.size, c(0,0), sigma = matrix(nrow=2,ncol=2, data =c(1,0,0,1))))")
       Parent1<-tclVar("NULL")
       Parent2<-tclVar("NULL")

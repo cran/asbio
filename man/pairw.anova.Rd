@@ -29,9 +29,11 @@ scheffeCI(y, x, conf.level = 0.95, MSE = NULL, df.err = NULL)
 
 dunnettCI(y, x, conf.level = 0.95, control = NULL)
 
-scheffe.cont(y, x, lvl = c("x1", "x2"), conf.level = 0.95, MSE = NULL, df.err = NULL)
+scheffe.cont(y, x, lvl = c("x1", "x2"), conf.level = 0.95, 
+MSE = NULL, df.err = NULL)
 
-bonf.cont(y, x, lvl = c("x1", "x2"), conf.level = 0.95, MSE = NULL, df.err = NULL, comps = 1)
+bonf.cont(y, x, lvl = c("x1", "x2"), conf.level = 0.95, 
+MSE = NULL, df.err = NULL, comps = 1)
 
 }
 \arguments{
@@ -83,7 +85,8 @@ pairw.anova(y=eggs,x=trt,method="bonf")##Bonferroni
 pairw.anova(y=eggs,x=trt,method="scheffe")##Sheffe
 pairw.anova(y=eggs,x=trt,method="tukey")##Tukey HSD
 
-blood.count <- data.frame(bc=c(7.4,8.5,7.2,8.24,9.84,8.32,9.76,8.8,7.68,9.36,12.8,9.68,12.16,9.2,10.55), trt=c(rep("C",6),rep("A",4),rep("B",5)))
+blood.count <- data.frame(bc=c(7.4,8.5,7.2,8.24,9.84,8.32,9.76,8.8,
+7.68,9.36,12.8,9.68,12.16,9.2,10.55), trt=c(rep("C",6),rep("A",4),rep("B",5)))
 with(blood.count,pairw.anova(y=bc,x=trt,control="C",method="dunnett"))##Dunnett
 
 scheffe.cont(y=eggs,x=trt,lvl=c(1,3)) 

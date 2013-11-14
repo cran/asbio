@@ -19,7 +19,7 @@ dev.flush()
 }
 
 see.HW.tck<-function (){
-require(tcltk) || stop("tcltk support is absent")
+
 if (!exists("slider.envir")) 
 slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
 p <- 0.5

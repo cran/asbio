@@ -1,5 +1,5 @@
 anm.ExpDesign.tck<-function(){
-require(tcltk) || stop("tcltk support is absent")
+
 tclRequire("BWidget")
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"

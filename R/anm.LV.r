@@ -3,7 +3,7 @@
 anm.LVcomp<-function(n1,n2,r1,r2,K1,K2,a2.1,a1.2,time=seq(0,200),ylab="Abundance",xlab="Time",interval=0.1,...){
 y<-xstart<-c(n1=n1,n2=n2)
 pars<-c(r1=r1,r2=r2,K1=K1,K2=K2,a2.1=a2.1,a1.2=a1.2) 
-require(deSolve)||stop("This function requires package 'deSolve'")
+
 pr<-as.list(pars)
 func<-function(time=time,xstart=xstart,pars=pars){
     n1<-xstart[1]
@@ -47,7 +47,7 @@ for(i in min(time):max(time)){
 
 anm.LVexp<-function(nh,np,rh,con,p,d.p,time=seq(0,200),ylab="Abundance",xlab="Time",interval=0.1,circle=FALSE,...){
 y=xstart=c(nh=nh,np=np);pars=c(rh=rh,con=con,p=p,d.p=d.p)
-require(deSolve)||stop("This function requires package 'deSolve'")
+
 pr<-as.list(pars)
 func<-function(time=time,x=xstart,pars=pars){
 nh<-x[1]

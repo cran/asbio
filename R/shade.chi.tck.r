@@ -1,5 +1,5 @@
 shade.chi.tck<-function(){
-require(tcltk) || stop("tcltk support is absent")
+
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"
     if(have_ttk) {
