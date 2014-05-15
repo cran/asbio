@@ -5,7 +5,7 @@
 Enzymatic rate data for the phospholipase protein ExoU 
 }
 \description{
-The bacteria \emph{Pseudomonas aeruginosa} causes disease in human hosts leading to 
+The bacterium \emph{Pseudomonas aeruginosa} causes disease in human hosts leading to 
 sepsis and even death in part by secreting lipases (proteins that break down lipids) 
 into cellular environments.  The protein ExoU is a phospholipase produce by particularly 
 virulent strains of \emph{P. aeruginosa}.  Benson et al. (2009) measured of ExoU enzymatic 

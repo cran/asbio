@@ -17,7 +17,7 @@ Soils from twenty one paired on-haypile and off-haypile sites were gathered from
   }
 }
 \references{
-Aho, K., Huntly N., Moen J., and T. Oksanen. 1998. Pikas (\emph{Ochotona princeps}: Lagomorpha) as allogenic engineers in an alpine ecosystem. \emph{Oecologia}.  114 (3): 405-409. 
+Aho, K., Huntly N., Moen J., and T. Oksanen (1998) Pikas (\emph{Ochotona princeps}: Lagomorpha) as allogenic engineers in an alpine ecosystem. \emph{Oecologia}.  114 (3): 405-409. 
 }
 
 \keyword{datasets}

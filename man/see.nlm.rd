@@ -16,4 +16,4 @@ see.nlm()
 \author{
 Ken Aho
 }
-\keyword{grpahs}
+\keyword{graphs}

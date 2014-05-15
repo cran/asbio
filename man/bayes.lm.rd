@@ -15,19 +15,19 @@ bayes.lm(Y, X, model = "anova", length = 1000, cred = 0.95)
 \arguments{
 
   \item{Y}{
-An n x 1 column vector (a matrix with one column) containing the response variable.
+An \emph{n} x \emph{1} column vector (a matrix with one column) containing the response variable.
 }
   \item{X}{
-The n x p design matrix
+The \emph{n} x \emph{p} design matrix
 }
   \item{model}{
-One of "anova" or "reg".  Parameter output labels are changed depending on choice. 
+One of \code{"anova"} or \code{"reg"}.  Parameter output labels are changed depending on choice. 
 }
   \item{length}{
 Number of draws for posterior. 
 }
   \item{cred}{
-Region for credble interval. 
+Level for credible interval. 
 }
 }
 \value{

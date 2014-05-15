@@ -1,7 +1,7 @@
 \name{trim.ranef.test}
 \alias{trim.ranef.test}
 \title{Robust test for random factors using trimmed means.}
-\description{Provides a robust hypothesis test for the null: Var(\emph{X} = 0), for a population of random factor levels. 
+\description{Provides a robust hypothesis test for the null: \emph{Var}(\emph{X}) = 0, for a population of random factor levels. 
 }
 \usage{
 trim.ranef.test(Y, X, tr = 0.2)
@@ -17,7 +17,7 @@ Robust analyses for random effect designs are particularly important since stand
 \value{
 Returns a list with three components dataframe describing numerator and denominator degrees of freedom, the \emph{F} test statistic and the \emph{p}-value.
 }
-\references{Wilcox, R. R.   2005.  \emph{Introduction to Robust Estimation and Hypothesis Testing, Second 
+\references{Wilcox, R. R. (2005)  \emph{Introduction to Robust Estimation and Hypothesis Testing, Second 
 Edition}.  Elsevier, Burlington, MA.
 }
 \author{Ken Aho}

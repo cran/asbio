@@ -21,7 +21,7 @@ The dataframe has four columns:
   }
 }
 \source{
-Littell, R. C., Milliken, G. A., Stroup, W. W., Wolfinger, R. D., and O. Schabenberger.  
-2006.  \emph{SAS for mixed models 2nd ed}.  SAS press.
+Littell, R. C., Milliken, G. A., Stroup, W. W., Wolfinger, R. D., and O. Schabenberger  
+(2006)  \emph{SAS for mixed models 2nd ed}.  SAS press.
 }
 \keyword{datasets}

@@ -59,7 +59,7 @@ Standard deviation for the nomral distribution.
 Mean of the normal distribution.
 }
   \item{tail}{
-One of four possibilities: \code{"lower"} provides lower tail shading, \code{"upper"} provides upper tail shading, \code{"two"} provides two tail shading, and \code{"middle"} provide shading in the middle of the pdf, between \code{"from"} and \code{"to"}.  For discrete pdfs (binomial and Poisson) the possibility "X=x" is also allowed, and will be equivalent to the density. Two tailed probability is not implemented for \code{shade.poi}.
+One of four possibilities: \code{"lower"} provides lower tail shading, \code{"upper"} provides upper tail shading, \code{"two"} provides two tail shading, and \code{"middle"} provide shading in the middle of the pdf, between \code{"from"} and \code{"to"}.  For discrete pdfs (binomial and Poisson) the possibility \code{"X=x"} is also allowed, and will be equivalent to the density. Two tailed probability is not implemented for \code{shade.poi}.
 }
   \item{show.p}{
 Logical; indicating whether probabilities are to be shown.

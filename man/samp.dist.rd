@@ -53,7 +53,8 @@ samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = expression(
 
   \item{parent}{A vector or vector generating function, describing the parental distribution.  
   Any collection of values can be used. When using random value generators for 
-  parental distributions, for CPU effiency (and accuracy) one should use \code{parent = expression(rpdf(s.size, ...))}. Datasets exceeding 100000 observations are not recommended.}
+  parental distributions, for CPU effiency (and accuracy) one should use 
+  \code{parent = expression(rpdf(s.size, ...))}. Datasets exceeding 100000 observations are not recommended.}
   \item{parent2}{An optional second parental distribution (see \code{parent} above), 
   useful for the construction of sampling distributions of test statistics.  
   When using random value generators use \code{parent2 = expression(rpdf(s.size2, ...))}.}
@@ -85,9 +86,11 @@ samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = expression(
   will not be shown if no fitting function is specified regardless of whether this is \code{TRUE} or \code{FALSE}}
   \item{xlim}{A two element numeric vector defining the upper and lower limits of the \emph{X}-axis.}
   \item{ylim}{A two element numeric vector defining the upper and lower limits of the \emph{Y}-axis.} 
-  \item{statc}{Presets for certain statistics.  Currently one of \code{"custom", "mean", 
-  "median", "trimmed mean", "Winsorized mean", "Huber estimator", "H-L estimator", 
-  "sd", "var", "IQR", "MAD", "(n-1)S^2/sigma^2", "F*", "t* (1 sample)", "t* (2 sample)", "Pearson correlation"} or \code{"covariance"}.
+  \item{statc}{Presets for certain statistics.  Currently one of \code{"custom"}, \code{"mean"}, 
+  \code{"median"}, \code{"trimmed mean"}, \code{"Winsorized mean"}, 
+  \code{"Huber estimator"}, "H-L estimator", \code{"sd"}, \code{"var"}, \code{"IQR"},
+  \code{"MAD"}, \code{"(n-1)S^2/sigma^2"}, \code{"F*"}, \code{"t* (1 sample)"},
+  \code{"t* (2 sample)"}, \code{"Pearson correlation"} or \code{"covariance"}.
 }
   \item{cont}{A distribution representing a source of contamination in the parent population.  Used by function \code{dirty.dist}.}
   \item{prop.cont}{The proportion of the parent distribution that is contaminated by \code{code}.}

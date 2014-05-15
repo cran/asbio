@@ -21,7 +21,7 @@ ci.boot(x, method = "all", sigma.t = NULL, conf = 0.95)
 For \code{ci.boot} the list output from \code{bootstrap}. 
 }
   \item{method}{
-CI interval method to be used.  One of \code{"all", "norm", "basic", "perc", "BCa", "student"}.  Partial matches are allowed.
+CI interval method to be used.  One of \code{"all"}, \code{"norm"}, \code{"basic"}, \code{"perc"}, \code{"BCa"}, or \code{"student"}.  Partial matches are allowed.
 }
   \item{sigma.t}{
 Vector of standard errors in association with studentized intervals.

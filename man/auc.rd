@@ -5,7 +5,7 @@
 Area under a reciever operating characterisitic (ROC) curve
 }
 \description{
-A simple algortihm for calculating emph{AUC}.
+A simple algortihm for calculating \emph{AUC}.
 }
 \usage{
 

@@ -20,6 +20,7 @@ Kappa(class1, reference)
   \item{ttl_agreement}{The percentage of correctly classified items.}
   \item{user_accuracy}{The user accuracy for each category of the classification.}
   \item{producer_accuracy}{The producer accuracy for each category of the classification.}
+  \item{kappa}{The kappa statistic.}
   \item{table}{A two way contingency table comparing the user supplied classification to the reference classification.}
 }
 \references{Jensen, J. R.  (1996)  \emph{Introductory digital imagery processing 2nd edition}.  Prentice-Hall.}

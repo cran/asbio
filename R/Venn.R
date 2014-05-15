@@ -1,9 +1,14 @@
 Venn <- function (A, B, AandB = 0, labA = "A", labB = "B", cex.text = .95, ...) 
 {
-    if (A > 1 | B > 1 | AandB > 1 | (A + B) - AandB > 1 | A < 
-        0 | B < 0 | AandB < 0 | AandB > A | AandB > B) {
-        stop("Violation of probability rules!")
-    }
+    if(A > 1) stop("Violation of probability rules! \nP(A) cannot be greater than 1")
+    if(B > 1) stop("Violation of probability rules! \nP(B) cannot be greater than 1")   
+    if(AandB > 1) stop("Violation of probability rules! \nP(AandB) cannot be greater than 1") 
+    if(A + B - AandB > 1)stop("Violation of probability rules! \nP(A) + P(B) -P(AandB) cannot be greater than 1")  
+    if(A + B + AandB > 1) stop("Violation of probability rules! \nP(A) + P(B) + P(AandB) cannot be greater than 1")   
+    if(A < 0) stop("Violation of probability rules! \nP(A) cannot be less than 0")  
+    if(B < 0) stop("Violation of probability rules! \nP(B) cannot be less than 0")
+    if(AandB < 0) stop("Violation of probability rules! \nP(AandB) cannot be less than 0")    
+    if(AandB > A | AandB > B) stop("Violation of probability rules! \nP(AandB) cannot be greater than P(A) or P(B)")
 
     if (A == 0 & B == 0) {
         S <- plot(seq(0, 1), seq(0, 1), type = "n", xaxt = "n", 

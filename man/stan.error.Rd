@@ -9,7 +9,7 @@ stan.error(x)
 stan.error.sq(x)
 }
 \arguments{
-\item{x}{A vector of quantitative data describing a sampling distribution.}}
+\item{x}{A vector of quantitative data.}}
 \author{Ken Aho}
 \seealso{\code{\link{sd}}}
 \keyword{univar}

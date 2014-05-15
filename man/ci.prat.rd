@@ -34,23 +34,71 @@ The ratio denominator number of trials. A scalar or vector of \code{length(y1)}
 The level of confidence, i.e. 1 - \emph{P}(type I error). 
 }
   \item{method}{
-Confidence interval method.  One of "adj.log","bailey","katz.log","koopman","sinh-1" or "noether".  Partial distinct names can be used.  
+Confidence interval method.  One of \code{"adj.log"},\code{"bailey"},\code{"katz.log"},\code{"koopman"},\code{"sinh-1"} or \code{"noether"}.  Partial distinct names can be used.  
 }
   \item{bonf}{
 Logical, indicating whether or not Bonferroni corrections should be applied for simultaneous inference if \code{y1, y2, n1} and \code{n2} are vectors.}  
   
-  \item{tol}{The desired accuracy (convergence tolerance) for the iterative root finding procedure when finding Koopman and Agresti-Min intevals. The default is taken to be the smallest positive floating-point number 
-  of the workstation implementing the function, raised to the 0.25 power, and will normally be approximately 0.0001.}
+  \item{tol}{The desired accuracy (convergence tolerance) for the iterative root finding procedure when finding Koopman intevals. The default is taken to be the smallest positive floating-point number of the workstation implementing the function, raised to the 0.25 power, and will normally be approximately 0.0001.}
+ }
 
-}
 \details{
-See Aho and Bowyer (in review) for computational details.   Koopman et al. (1984) suggested methods for handling extreme cases of y1, n1, y2, and n2 (see below).  These are applied through exception handling here.  
+Let \eqn{Y_1} and \eqn{Y_2} be multinomial random variables with parameters \eqn{n_1, \pi_{1i}},  and  \eqn{n_2, \pi_{2i}}, respectively; where \eqn{i = \{1, 2, 3, \dots, r\}}.  This encompasses the binomial case in which \eqn{r = 1}. We define the true selection ratio for the \emph{i}th resource of \emph{r} total resources to be:
+ \deqn{\theta_{i}=\frac{\pi _{1i}}{\pi _{2i}}}
+
+where \eqn{\pi_{1i}} and \eqn{\pi_{2i}} represent the proportional use and availability of the \emph{i}th resource, respectively. Note that if \eqn{r = 1} the selection ratio becomes relative risk.  The maximum likelihood estimators for \eqn{\pi_{1i}} and \eqn{\pi_{2i}} are the sample proportions: 
+
+\deqn{{{\hat{\pi }}_{1i}}=\frac{{{y}_{1i}}}{{{n}_{1}}},} and
+\deqn{{{\hat{\pi }}_{2i}}=\frac{{{y}_{2i}}}{{{n}_{2}}}}
+
+where \eqn{y_{1i}} and \eqn{y_{2i}} are the observed counts for use and availability for the \emph{i}th resource.  The estimator for \eqn{\theta_i} is:
+
+\deqn{\hat{\theta}_{i}=\frac{\hat{\pi}_{1i}}{\hat{\pi }_{2i}}.}
+
+\tabular{ll}{
+Method \tab Algorithm \cr
+\tab \cr 
+
+% Katz-log	
+Katz-log \tab \eqn{\hat\theta_i\times} exp\eqn{(\pm z_1-\alpha/2\sigma _W)}, \cr
+\tab where \eqn{\hat\sigma_W^2=\frac{(1-\hat{\pi} _{1i})}{\hat{\pi}_{1i}n_1}+\frac{(1-\hat{\pi}_{2i})}{\hat{\pi}_{2i}n_2}}.  \cr 
+\tab \cr
+
+% Adjusted log
+Adjusted-log \tab \eqn{\hat{\theta}_{Ai}\times} exp\eqn{(\pm z_1-\alpha /2\sigma_A)}, \cr 
+\tab where \eqn{\hat{\theta}_{Ai}=\frac{y_{1i}+0.5/n_1+0.5}{y_{2i}+0.5/n_2+0.5}}, \cr 
+\tab \eqn{\hat{\sigma}_A^2=\frac{1}{y_1+0.5}-\frac{1}{n_1+0.5}+\frac{1}{y_2+0.5}-\frac{1}{n_2+0.5}}. \cr
+\tab \cr
+
+% Bailey
+Bailey \tab \eqn{\hat{\theta} _i\left[\frac{1\pm z_1-\left( \alpha /2 \right)\left( \hat{\pi}_{1i}'/y_{1i}+\hat{\pi}_{2i}'/y_{2i}-z_1-\left(\alpha/2 \right)^2\hat{\pi} _{1i}'\hat{\pi}_{2i}'/9y_{1i}y_{2i} \right)^{1/2}/3}{1-z_1-\left(\alpha/2 \right)^2\hat{\pi} _{2i}'/9y_{2i}} \right]^3},\cr 
+\tab where \eqn{\hat{\pi_{1i}}'} = 1 - \eqn{\hat{\pi}_{1i}}, and \eqn{\hat{\pi}_{2i}'} = 1 - \eqn{\hat{\pi}_{2i}}.\cr
+\tab \cr
+
+%% Inv sin
+Inv. hyperbolic sine \tab \eqn{\ln({{\hat{\theta }}_{i}})\pm \left[ 2sin{{h}^{-1}}\left( \frac{{{z}_{(1-\alpha /2)}}}{2}\sqrt{\frac{1}{{{y}_{1i}}}-\frac{1}{{{n}_{1}}}+\frac{1}{{{y}_{2i}}}-\frac{1}{{{n}_{2}}}} \right) \right]}, \cr
+\tab\cr 
+
+%% Koopman
+Koopman \tab Find \eqn{X^2(\theta_0)} = \eqn{\chi _1^2(1 - \alpha)}, where \cr
+\tab  \eqn{{{\tilde{\pi }}_{1i}}=\frac{{{\theta }_{0}}({{n}_{1}}+{{y}_{2i}})+{{y}_{1i}}+{{n}_{2}}-{{[{{\{{{\theta }_{0}}({{n}_{1}}+{{n}_{2}})+{{y}_{2i}}+{{n}_{2}}\}}^{2}}-4{{\theta }_{0}}({{n}_{1}}+{{n}_{2}})({{y}_{1i}}+{{y}_{2i}})]}^{0.5}}}{2({{n}_{1}}+{{n}_{2}})}}, \cr
+\tab \eqn{{{\tilde{\pi }}_{2i}}=\frac{{{{\tilde{\pi }}}_{1i}}}{{{\theta }_{0}}}}, \cr 
+\tab and \eqn{{{X}^{2}}({{\theta }_{0}})=\frac{{{\left( {{y}_{2i}}-{{n}_{1}}{{{\tilde{\pi }}}_{1i}} \right)}^{2}}}{{{n}_{1}}{{{\tilde{\pi }}}_{1i}}(1-{{{\tilde{\pi }}}_{1i}})}\left\{ 1+\frac{{{n}_{1}}({{\theta }_{0}}-{{{\tilde{\pi }}}_{1i}})}{{{n}_{2}}({{n}_{1}}+{{n}_{2}})} \right\}}. \cr 
+\tab \cr
+%% Noether
+Noether \tab \eqn{\hat{\theta}_i\pm z_1-\alpha/2\hat{\sigma}_N},   \cr
+\tab where \eqn{\hat{\sigma }_{N}^{2}=\hat{\theta }_{i}^{2}\left( \frac{1}{{{y}_{1i}}}-\frac{1}{{{n}_{1}}}+\frac{1}{{{y}_{2i}}}-\frac{1}{{{n}_{2}}} \right)}.  
 }
 
+Exception handling strategies are generally necessary in the cases \eqn{y_1} = 0, \eqn{n_1} = \eqn{y_1}, \eqn{y_2} = 0, and \eqn{n_2} = \eqn{y_2} (see Aho and Bowyer, in review).  
+}
+
+\value{Returns a list of \code{class = "ci"}.  Default output is a matrix with the point and interval estimate. 
+}
 \references{
 Agresti, A., Min, Y. (2001) On small-sample confidence intervals for parameters in discrete distributions.  \emph{Biometrics} 57: 963-971.
 
-Aho, K., and Bowyer, T. (In review)  Asymptotic confidence intervals for ratios of proportions with an emphasis on ratios of multinomial random variables (selection ratios). \emph{Ecological Modelling}.
+Aho, K., and Bowyer, T. (In review) Confidence intervals for ratios of multinomial random variables (selection ratios). \emph{Environental and Ecological Statistics}.
 
 Bailey, B.J.R. (1987) Confidence limits to the risk ratio.  \emph{Biometrics} 43(1): 201-205.
 
@@ -71,7 +119,7 @@ Walter, S. D. (1975) The distribution of Levins measure of attributable risk. \e
 Ken Aho
 }
 \seealso{
-\code{\link{ci.p}}
+\code{\link{ci.p}, \link{ci.prat.ak}}
 }
 \examples{
 # From Koopman (1984)

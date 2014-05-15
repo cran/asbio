@@ -4,7 +4,7 @@
 \title{
 Monte Carlo hypothesis testing for two samples.
 }
-\description{\code{MC.test} calculates a permutation of test statistics from an pooled variance \emph{t}-test.  It compares this distribution to an initial test statistic calculated using non-permuted data to derive a \emph{p}-value.}
+\description{\code{MC.test} calculates a permutation of test statistics from an pooled variance \emph{t}-test.  It compares this distribution to an initial test statistic calculated using non-permuted data to derive a \emph{P}-value.}
 \usage{
 MC.test(Y,X, perm = 1000, alternative = "not.equal", var.equal = TRUE, paired = FALSE)
 }
@@ -33,7 +33,7 @@ The method follows the description of Manly (1998) for a two-sample test.  Upper
 Returns a list with the following items:
 \item{observed.test.statistic}{\emph{t}-statistic calculated from non-permuted (original)data.}
 \item{no_of_permutations_exceeding_observed_value}{The number of times a Monte Carlo derived test statistic was more extreme than the initial observed test statistic.}
-\item{p.value}{Empirical \emph{p}-value}
+\item{p.value}{Empirical \emph{P}-value}
 \item{alternative}{The alternative hypothesis}
 }
 \references{

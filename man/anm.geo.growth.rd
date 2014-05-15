@@ -63,7 +63,7 @@ The carrying capacity
 
 
 }
-\details{Presented here are three famous population growth models from ecology.  Geometric, exponential and logistic growth.  The first two model growth in the presence of unlimited resources.  Geometric growth assumes non-overlapping generations, and is computed as:
+\details{Presented here are three famous population growth models from ecology.  Geometric, exponential and logistic growth.  The first two model growth in the presence of unlimited resources.  Geometric growth is exponential growth assuming non-overlapping generations, and is computed as:
 
 \deqn{N_t = N_{0}\lambda^t,}
 
@@ -73,7 +73,7 @@ Exponential growth allows simultaneous existience of multiple generations, and i
 
 \deqn{\frac{dN}{dt}=r_{max}N,}
 
-where \eqn{r_{max}} is the maximum intrinsic rate of increase, i.e. max(birth rate - death rate), and \emph{N} is the population size.  With logistic growth exponential growth is slowed as \emph{N} approaches the carrying capacity.  It is computed as: 
+where \eqn{r_{max}} is the maximum intrinsic rate of increase, i.e. max(birth rate - death rate), and \emph{N} is the population size.  With logistic growth, exponential growth is slowed as \emph{N} approaches the carrying capacity.  It is computed as: 
 
 \deqn{\frac{dN}{dt}=r_{max}N\frac{K-N}{K},}
 

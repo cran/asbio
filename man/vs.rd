@@ -13,7 +13,7 @@ Scandinavian, lichen, bryophyte, and vascular plant data from Vare et al. (1995)
   A data frame with 24 observations (sites) on 44 variables (species).
 }
 \details{
-Lifted from dataframe \code{\link[vegan]{varespec}}.
+Lifted from dataframe \code{\link[vegan]{varespec}} in package \pkg{vegan}.
 }
 \source{
 \code{\link[vegan]{varespec}}

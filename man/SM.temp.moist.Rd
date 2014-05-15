@@ -5,7 +5,7 @@
 Alpine soil temperature and moisture time series
 }
 \description{
-Soil temperature and water availabilty from Mt. Washburn in Yellowstone National Park.  Data were taken at depth of 5cm from a late snowmelt site at UTM 4960736.977	544792.225 zone 12 NAD 83, elevation 3070m.   
+Soil temperature and water availabilty from Mt. Washburn in Yellowstone National Park.  Data were taken at depth of 5cm from a late snowmelt site at UTM 4960736.977	544792.225 zone 12T NAD 83, elevation 3070m.   
 }
 \usage{data(SM.temp.moist)}
 \format{

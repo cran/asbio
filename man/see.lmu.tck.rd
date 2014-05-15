@@ -25,7 +25,7 @@ Second column in design matrix.
 An interaction column.  The product of design matrix columns one and two
 }
   \item{change.order}{
-A logical command specifying whether or not the order of X1 and X2 should changed in the model specification.
+A logical command specifying whether or not the order of \code{X1} and \code{X2} should changed in the model specification.
 }
   \item{delete}{
 when \code{delete != 0} an observation number to be deleted.

@@ -15,7 +15,7 @@ r.pb(X, Y, beta = 0.2)
 \details{The percentage bend correlation belongs to class of correlation measures which protect against marginal distribution (\emph{X} and \emph{Y}) outliers.  In this way it is similar to Kendall's \eqn{\tau}, Spearman's \eqn{\rho}, and biweight midcovariance.  A second class of robust correlation measures which take in to consideration the overall structure of the data (\emph{O} estimators) are discussed by Wilcox (2005, pg. 389).  A value for the bend criterion \code{beta} is required in the \code{R.pb} function; \code{beta} = 0.2 is recommended by Wilcox (2005).  
 
 }
-\value{A dataframe with the correlation, test statistic and \emph{p}-value for the null hypothesis of independence are returned.
+\value{A dataframe with the correlation, test statistic and \emph{P}-value for the null hypothesis of independence are returned.
   
 }
 \references{Wilcox, R. R.  (2005)  \emph{Introduction to Robust Estimation and Hypothesis Testing, Second 

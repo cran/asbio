@@ -5,7 +5,10 @@
 Potash/cotton strength data
 }
 \description{
-An oft-cited RCBD example is an agricultural experiment which evaluates the effect of levels of of soil K2O (potash) on the breaking strength of cotton fibers (Cochran and Cox 1957).  Five levels of K2O were used in the soil subplots (36, 54, 72, 108, and 144 lbs per acre) and a single sample of cotton was taken from each of five subplot.  The experiment had three blocks, and each of the K2O treatments was randomly assigned to the five subplots within each block.  
+An oft-cited RCBD example is an agricultural experiment which evaluates the effect of levels of of soil K\eqn{_2}O (potash) on 
+the breaking strength of cotton fibers (Cochran and Cox 1957).  Five levels of K\eqn{_2}O were used in the soil subplots (
+36, 54, 72, 108, and 144 lbs per acre) and a single sample of cotton was taken from each of five subplot.  
+The experiment had three blocks, and each of the K\eqn{_2}O treatments was randomly assigned to the five subplots within each block.  
 }
 \usage{data(potash)}
 \format{
@@ -17,7 +20,7 @@ An oft-cited RCBD example is an agricultural experiment which evaluates the effe
   }
 }
 \source{
-Cochran, W. G. and G. M. Cox.  1957. \emph{Experimental Designs (Second Edition)}. New York: John Wiley & Sons.
+Cochran, W. G. and G. M. Cox  (1957) \emph{Experimental Designs (Second Edition)}. New York: John Wiley & Sons.
 }
 
 \keyword{datasets}

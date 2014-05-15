@@ -3,6 +3,7 @@ anm.loglik <- function (X, dist = c("norm", "poi", "bin", "exp", "custom"),
     plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
     conv = diff(range(X))/70, anim = TRUE, est.col = 2, density.leg = TRUE, cex.leg = 0.9, interval = 0.01, ...) 
 {
+
     if (dist == "norm") 
         loglik.norm.plot(X = X, parameter = parameter, poss = poss, 
             plot.likfunc = plot.likfunc, plot.density = plot.density, 
@@ -25,6 +26,7 @@ anm.loglik <- function (X, dist = c("norm", "poi", "bin", "exp", "custom"),
     if (dist == "custom") 
         loglik.custom.plot(X = X, func = func, poss = poss, anim = anim, 
             interval = interval, xlab = xlab, ylab = ylab, ... = ...)
+
 }
 
 ##################################################

@@ -3,7 +3,7 @@
 \docType{data}
 \title{Plant traits for 136 species}
 \description{
-This dataset, from the library \code{cluster}, describes 136 plant species
+This dataset, from the library \pkg{cluster}, describes 136 plant species
 according to biological attributes (morphological or reproductive).
 }
 \usage{data(plantTraits)}
@@ -55,7 +55,7 @@ according to biological attributes (morphological or reproductive).
 }
 \details{Most of factor attributes are not disjunctive. For example, a  plant can be 
 usually pollinated by insects but sometimes self-pollination can occur.}
-\note{The description here follows directly from that in \code{cluster}.}
+\note{The description here follows directly from that in \pkg{cluster}.}
 \source{
      Vallet, Jeanne (2005) \emph{Structuration de communautes vegetales et
      analyse comparative de traits biologiques le long d'un gradient

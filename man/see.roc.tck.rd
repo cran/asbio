@@ -15,7 +15,8 @@ it The will change empirical rates of true positives, true negatives, false posi
 }
 
 \author{
-Ken Aho, inspired by a graphical demo at http://www.anaesthetist.com/mnm/stats/roc/Findex.htm 
+Ken Aho, inspired by a graphical demo at 
+\url{http://www.anaesthetist.com/mnm/stats/roc/Findex.htm} 
 }
 \keyword{graphs}
 

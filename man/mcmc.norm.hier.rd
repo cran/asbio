@@ -42,8 +42,15 @@ A logical argument indicating whether convergence for \eqn{\sigma} and \eqn{\tau
 }
 }
 \details{
-An important Bayesian application is the comparison of groups within a normal hierarchical model.  We assume that the data from each group are independent and from normal populations with means \eqn{\theta[j]}, \eqn{j = (1,...,J)}, and a common variance, \eqn{\sigma^2}. We also assume that group means, are normally distributed with an unknown mean, \eqn{\mu}, and an unknown variance , \eqn{\tau^2}.  A uniform prior distribution is assumed for     
-\eqn{\mu, log\sigma} and \eqn{\tau}; \eqn{\sigma} is logged to facilitate conjugacy.  The function \code{mcmc.norm.hier} provides posterior distributions of \eqn{\theta[j]}'s, \eqn{\mu, \sigma} and \eqn{\tau}.  The distributions are dervided from univariate conditional distributions dervided from the multivariate likelihood function.  These conditional distributions provide a situation conducive to MCMC Gibbs sampling. Gelman et al. (2003) provide excellent summaries of these sorts of models.  
+An important Bayesian application is the comparison of groups within a normal hierarchical model.  
+We assume that the data from each group are independent and from normal populations with means 
+\eqn{\theta[j]}, \eqn{j = (1,...,J)}, and a common variance, \eqn{\sigma^2}. We also assume that group means, 
+are normally distributed with an unknown mean, \eqn{\mu}, and an unknown variance , \eqn{\tau^2}.  
+A uniform prior distribution is assumed for \eqn{\mu, log\sigma} and \eqn{\tau}; \eqn{\sigma} is 
+logged to facilitate conjugacy.  The function \code{mcmc.norm.hier} provides posterior distributions 
+of \eqn{\theta[j]}'s, \eqn{\mu, \sigma} and \eqn{\tau}.  The distributions are dervided from univariate 
+conditional distributions from the multivariate likelihood function.  These conditional distributions 
+provide a situation conducive to MCMC Gibbs sampling. Gelman et al. (2003) provide excellent summaries of these sorts of models.  
 
 The function \code{mcmc.summary} provides statsitical summaries for the output array from \code{mcmc.norm.hier} including credible intervals (empirically derived directly from chains) and the Gelman/Rubin convergence criterion, \eqn{\hat{R}}.
 }

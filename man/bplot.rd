@@ -4,7 +4,9 @@
 Barplots with error bars for pairwise comparisons.
 }
 \description{
-Creates barplots for displaying statistical summaries by treatment (e.g. means, medians, M-estimates of location, standard deviation, variance, etc.)and their error estimates by treatment (i.e. standard errors, confidence intervals, IQRs, IQR confidence intervals, and MAD intervals). Custom intervals can also be created.  The function can also display letters indicating if results were significant after adjustment for simultaneous inference.
+Creates barplots for displaying statistical summaries by treatment (e.g. means, medians, \emph{M}-estimates of location, standard deviation, variance, etc.)and 
+their error estimates by treatment (i.e. standard errors, confidence intervals, \emph{IQR}s, \emph{IQR} confidence intervals, and \emph{MAD} intervals). Custom intervals can also be created.  
+The function can also display letters indicating if results are significant after adjustment for simultaneous inference.
 }
 \usage{
 bplot(y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "SE",
@@ -23,7 +25,7 @@ bplot(y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "SE",
   \item{conf}{Level of confidence, 1 - \emph{P}(type I error).}
   \item{uiw}{Upper \emph{y}-coordinate for the error bar, if \code{NULL} then this will be computed from \code{int}.} 
   \item{liw}{Lower \emph{y}-coordinate for the error bar, if \code{NULL} then this will be computed from \code{int}.}  
-  \item{sfrac}{Scaling factor for the size of the "serifs" (end bars) on the confidence bars, in x-axis units.}
+  \item{sfrac}{Scaling factor for the size of the "serifs" (end bars) on the confidence bars, in \emph{x}-axis units.}
   \item{slty}{Line type for error bars.}
   \item{scol}{Line color for error bars.}
   \item{slwd}{Line width for error bars.}
@@ -33,7 +35,7 @@ bplot(y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "SE",
   \item{lett}{A vector of letters or some other code to display multiple comparison results.}
   \item{cex.lett}{Character expansion for multiple comparison result letters.}
   \item{names.arg}{A vector of names to be plotted below each bar or error bar. If this argument is omitted, then the names are taken from the names attribute of \code{y}.}
-  \item{ylim}{Upper and lower limits of the \emph{Y} axis}
+  \item{ylim}{Upper and lower limits of the \emph{Y}-axis}
   \item{horiz}{Logical value. If \code{FALSE}, then bars are drawn vertically with the first bar to the left. If \code{TRUE}, then bars are drawn horizontally with the first at the bottom.}
   \item{\dots}{Additional arguments from \code{\link{barplot}}.}
 }

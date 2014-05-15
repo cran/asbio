@@ -33,7 +33,7 @@
   repeated on a second date with the same subjects but with a dietary
   additive used for all subjects.
 }
-\note{descriptions and details are from the library nlme.}
+\note{Descriptions and details are from the library \pkg{nlme}.}
 \source{
   Pinheiro, J. C. and Bates, D. M. (2000), \emph{Mixed-Effects Models in S
     and S-PLUS}, Springer, New York.  (Appendix A.10)

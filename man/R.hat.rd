@@ -30,7 +30,7 @@ sequences (with discussion)}. Statistical Science, 7:457-511.
 Gelman, A., Carlin, J. B., Stern, H. S., and D. B. Rubin (2003)  \emph{Bayesian Data Analysis, 2nd edition}.  Chapman and Hall/CRC.
 
 See code recommended by Gelman et al. at:
-http://lib.stat.cmu.edu/S/itsim
+\url{http://lib.stat.cmu.edu/S/itsim}
 }
 \author{
 Ken Aho and unknown StatLib author

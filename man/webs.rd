@@ -3,7 +3,7 @@
 \docType{data}
 \title{Spider web length data}
 \description{
-Gosline et al. applied heat to strands of spider web to determine whether the structure underlying webs was rubber-like. Data are estimated from a graph in Gosline et al. (1984). 
+Gosline et al. (1984) applied heat to strands of spider web to determine whether the structure underlying webs was rubber-like. Data are estimated from a scatterplot in Gosline et al.. 
 }
 \usage{data(webs)}
 \format{

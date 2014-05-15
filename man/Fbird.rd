@@ -3,7 +3,7 @@
 \docType{data}
 \title{Frigatebird drumming frequency data}
 \description{
-Male magnificent frigatebirds (Fregata magnificens) have an enlarged red throat pouch that has probably evolved as the result of sexual selection.  
+Male magnificent frigatebirds (\emph{Fregata magnificens}) have an enlarged red throat pouch that has probably evolved as the result of sexual selection.  
 During courtship displays males attract females by displaying this pouch and using it to make a drumming sound. Madsen et al. (2004) noted that conditions 
 (e.g. oblique viewing angles) often limit females' ability to appraise pouch size exactly.  Since females choose mates based on pouch size, 
 a question of interest is whether females could use the pitch of the pouch drumming as an indicator of pouch size. 
@@ -15,7 +15,7 @@ Eighteen of these observations are in this dataset.
 The dataframe contains two variables: 
   \describe{
     \item{vol}{
-     Pouch volume in (cm^3). 
+     Pouch volume (in cm\eqn{^3}). 
     }
     \item{freq}{
      Frequency of drumming (in Hz)

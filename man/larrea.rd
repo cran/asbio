@@ -6,8 +6,8 @@ Creosote bush counts
 }
 \description{
 Phillips and MacMahon (1981) conducted an extensive study of \emph{Larrea tridentata} (creosote bush) distributions in the Mojave 
-and Sonoran deserts from several life stage classes based areal coverage: Life stage 1 (102 -103 \deqn{cm^2})	Life stage 2 (103 -104 \deqn{cm^2}), and	Life stage 3
-(104 -105 \deqn{cm^2}).  Data were generated to approximate the results of the authors.
+and Sonoran deserts from several life stage classes based areal coverage: Life stage 1 (102 -103 cm\eqn{^2})	Life stage 2 (103 -104 cm\eqn{^2}), and	Life stage 3
+(104 -105 cm\eqn{^2}).  Data were generated to approximate the results of the authors.
 }
 \usage{data(larrea)}
 \format{

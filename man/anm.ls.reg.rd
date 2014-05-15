@@ -4,7 +4,7 @@
 \title{
 Animated plot of least squares function.
 }
-\description{Depicts the process of least squares estimation of simple linear regression parameters by plotting the least squares function with respect to a estimate possibilities for the intercept or slope.
+\description{Depicts the process of least squares estimation of simple linear regression parameters by plotting the least squares function with respect to estimate possibilities for the intercept or slope.
 }
 \usage{
 
@@ -21,7 +21,7 @@ A numeric vector containing explanatory data.
 A numeric vector containing response data.
 }
   \item{parameter}{
-Parameter to be estimated.  Either "slope" or "intercept".}
+Parameter to be estimated.  Either \code{"slope"} or \code{"intercept"}.}
   \item{nmax}{The number of parameter estimates to be depicted.  The true LS estimate will always be in the center of this sequence.}
   \item{interval}{Speed of animation (in frames per second).  A smaller interval decreases speed.  May not work in all systems; see \code{\link{Sys.sleep}}.} 
   \item{col}{Line color.}

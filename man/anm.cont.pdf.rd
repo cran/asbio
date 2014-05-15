@@ -4,7 +4,7 @@
 \title{Animated demonstration of density for a continuous pdf
 }
 \description{
-A continuous pdf is conceptually a histogram whose bins sum to one, with infinitely many bins to allow depiction of an infinite number of distinct continuous outcomes. 
+A continuous pdf is conceptually a histogram whose bin area sums to one.  Infinite, infinitely small bins, however, are required to allow depiction of an infinite number of distinct continuous outcomes. 
 }
 \usage{
 
@@ -15,7 +15,8 @@ see.pdf.conc.tck()
 \arguments{
 
   \item{part}{
-parent distribution, options are "norm" = N(0, 1), "t" = t(10) "exp" = EXP(1), and "unif" = UNIF(0,1)
+parent distribution, options are \code{"norm"} = \emph{N}(0, 1), \code{"t"} = \emph{t}(10), 
+\code{"exp"} = EXP(1), and \code{"unif"} = UNIF(0,1)
 }
   \item{interval}{
 Animation interval

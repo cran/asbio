@@ -14,7 +14,7 @@ This data frame contains the following columns:
       A numeric vector indicating the proportion of pollen removed.
          }
     \item{caste}{
-      A character string vector indicating whether a bee was a worker "W" or a queen "Q".
+      A character string vector indicating whether a bee was a worker \code{"W"} or a queen \code{"Q"}.
          }
     }
   }

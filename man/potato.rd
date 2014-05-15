@@ -20,7 +20,7 @@ Three replicates were measured for each of the 12 x 3 = 36 treatment combination
   }
 }
 \source{
-Fisher, R. A. 1925.  /emph{Statistical Methods for Research Workers, 1st edition}.  Oliver and Boyd,  Edinburgh
+Fisher, R. A. (1925)  \emph{Statistical Methods for Research Workers, 1st edition}.  Oliver and Boyd,  Edinburgh
 }
 \keyword{datasets}
 

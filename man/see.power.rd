@@ -35,8 +35,9 @@ Type of test, one of \code{c("lower","upper","two")}.
 \emph{X}-axis limits
 }
 
-  \item{strict}{Causes the function to use a strict interpretation of power in a two-sided test.  If strict = TRUE then power for a two sided test will include the probability of rejection in the opposite tail of the true effect. If strict = FALSE (the default) power will be half the value of \eqn{\alpha} if the true effect size is zero.}
-  
+  \item{strict}{Causes the function to use a strict interpretation of power in a two-sided test.  If \code{strict = TRUE}
+   then power for a two sided test will include the probability of rejection in the opposite tail of the true effect. If \code{strict = FALSE}
+   (the default) power will be half the value of \eqn{\alpha} if the true effect size is zero.}
 }
 \details{
 The function \code{see.power} provides an interactive display of power.  The function \code{see.power.tck} provides a \pkg{tcltk} GUI to manipulate \code{see.power}

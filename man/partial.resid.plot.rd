@@ -30,8 +30,9 @@ Slope<-c(15,14,16,12,10,18,25,24,20)
 Aspect<-c(45,120,100,56,5,20,5,15,15)
 Y<-c(20,30,10,15,5,45,60,55,45)
 x <- lm(Y ~ Soil.N + Soil.C + Slope + Aspect)
-par(mfrow=c(2,2),mar=c(5,4,1,1.5))
+op <- par(mfrow=c(2,2),mar=c(5,4,1,1.5))
 partial.resid.plot(x)
+par(op)
 }
 \keyword{univar}
 \keyword{graphs}

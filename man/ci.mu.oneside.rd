@@ -4,10 +4,13 @@
 One sided confidence interval for mu.
 }
 \description{
-In some situations we may wish to quantify confidence in the region above or below a mean estimate.  For instance, a biologist working with an endangered species may be interested in saying: "I am 95 percent confident that the true mean number of offspring is above a particular threshold".  In a one-sided situation, we essentially let our confidence be 1- 2\eqn{\alpha} (instead of 1 - \eqn{\alpha}).  Thus, if our significance level for a two-tailed test is \eqn{\alpha}, our one-tailed significance level will be 2\eqn{\alpha}.
+In some situations we may wish to quantify confidence in the region above or below a mean estimate.  
+For instance, a biologist working with an endangered species may be interested in saying: 
+"I am 95 percent confident that the true mean number of offspring is above a particular threshold."  
+In a one-sided situation, we essentially let our confidence be 1- 2\eqn{\alpha} (instead of 1 - \eqn{\alpha}).  
+Thus, if our significance level for a two-tailed test is \eqn{\alpha}, our one-tailed significance level will be 2\eqn{\alpha}.
 }
 \usage{
-
 ci.mu.oneside(data, conf = 0.95, n = NULL, Var = NULL, xbar = NULL, 
 summarized = FALSE, N = NULL, fpc = FALSE, tail = "upper")
 }
@@ -40,8 +43,7 @@ Logical.  Indicating whether finite population corrections should be made.
 Indicates what side the one sided confidence limit should be calculated for.  Choices are \code{"upper"} or \code{"lower"}.
 }
 }
-\value{
-Returns a matrix with the sample mean and either the upper or lower confidence limit.
+\value{Returns a list of \code{class = "ci"}.  Default output is a matrix with the sample mean and either the upper or lower confidence limit.
 }
 \references{Bain, L. J., and Engelhardt, M. (1992) \emph{Introduction to probability and mathematical 
 statistics}.  Duxbury press.  Belmont, CA, USA.

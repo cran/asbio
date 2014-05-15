@@ -5,7 +5,7 @@
 AIC, AICc, BIC, Mallow's Cp, and PRESS evaluation of linear models
 }
 \description{
-The function provide model selection summaries using AIC, AICc, BIC, Mallow's Cp, and PRESS for a list of objects of class \code{lm} 
+The function provide model selection summaries using \emph{AIC}, \emph{AICc}, \emph{BIC}, Mallow's \eqn{C_p}, and \emph{PRESS} for a list of objects of class \code{lm} 
 }
 \usage{
 
@@ -15,9 +15,9 @@ lm.select(lms, deltaAIC = FALSE)
 
  \item{lms}{
 A list containing linear models.}
- \item{deltaAIC}{Logical.  Should a delta AIC summary be given with relative likelihoods and Akaike weights?}
+ \item{deltaAIC}{Logical; Should a \eqn{\Delta} \emph{AIC} summary be given with relative likelihoods and Akaike weights?}
 }
-\note{Mallow's Cp assumes that all models are nested within the first model in \code{lms}.  Non-nesting will produce a warning message.}
+\note{Mallow's \eqn{C_p} assumes that all models are nested within the first model in the argument \code{lms}.  Non-nesting will produce a warning message.}
 
 \author{
 Ken Aho

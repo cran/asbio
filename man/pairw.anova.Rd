@@ -11,8 +11,8 @@
 
 \title{Conducts pairwise post hoc and planned comparisons associated with an ANOVA}
 \description{
-The function pairw.anova replaces the defunct \code{Pairw.test}. Conducts all possible pairwise tests with adjustments to \emph{P}-values using one of five methods: Least Significant difference (LSD), Bonferroni, Tukey-Kramer honest significantly difference (HSD), Scheffe's method, or Dunnett's method. 
-Dunnett's method requires specification of a control group, and does not return adjusted \emph{P}-values.  The functions \code{scheffe.cont}\code{bonf.cont} allow Bonferroni and Scheffe's family-wise adjustment of individual planned pairwise contrasts.    
+The function \code{pairw.anova} replaces the defunct \code{Pairw.test}. Conducts all possible pairwise tests with adjustments to \emph{P}-values using one of five methods: Least Significant difference (LSD), Bonferroni, Tukey-Kramer honest significantly difference (HSD), Scheffe's method, or Dunnett's method. 
+Dunnett's method requires specification of a control group, and does not return adjusted \emph{P}-values.  The functions \code{scheffe.cont} and \code{bonf.cont} allow Bonferroni and Scheffe's family-wise adjustment of individual planned pairwise contrasts.    
 }
 \usage{
 

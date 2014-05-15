@@ -26,7 +26,7 @@ The question of central interest was: "do women who have the same level of gener
 
 \source{
 Dobson, A. J. 2001. \emph{An Introduction to Generalized Linear Models, 2nd edition}. Chapman and Hall, London. 
-Chapman and Hall. 
+
 
 }
 \references{

@@ -16,7 +16,7 @@ trim.test(Y, X, tr = 0.2)
 \value{Returns a dataframe with numerator and denominator degrees of freedom, a test statistic, and a \emph{p}-value based on the \emph{F}-distribution.
 }
 \references{
-Wilcox, R. R.   2005.  \emph{Introduction to Robust Estimation and Hypothesis Testing, Second 
+Wilcox, R. R.  (2005)  \emph{Introduction to Robust Estimation and Hypothesis Testing, Second 
 Edition}.  Elsevier, Burlington, MA.
 }
 \author{Ken Aho}

@@ -2,7 +2,7 @@
 \alias{pairw.fried}
 \alias{FR.multi.comp}
 \title{Multiple pairwise comparison procedure to accompany a Friedman test.}
-\description{Replaces now defunct FR.multi.comp.  As with ANOVA we can examine multiple pairwise comparisons from a Friedman test after we have rejected othe overall null hypothesis.  However we will need to account for family-wise type I error in these comparisons which will be non-orthogonal.  A conservative multiple comparison method used here is based on the Bonferroni procedure.
+\description{Replaces now defunct \code{FR.multi.comp}.  As with ANOVA we can examine multiple pairwise comparisons from a Friedman test after we have rejected othe overall null hypothesis.  However we will need to account for family-wise type I error in these comparisons which will be non-orthogonal.  A conservative multiple comparison method used here is based on the Bonferroni procedure.
 }
 \usage{
 
@@ -30,7 +30,7 @@ Returns a list of \code{class = "pairw"}.  The utility print function returns a 
 
 5) the hypothesis decision rule given the prescribed significance level, and
 
-6) the adjusted \emph{p}-value.
+6) the adjusted \emph{P}-value.
 }
 \references{
 Fox, J. R., and Randall, J. E. (1970)  Relationship between forearm tremor and the biceps electromyogram.  \emph{Journal of Applied Physiology}  29: 103-108.

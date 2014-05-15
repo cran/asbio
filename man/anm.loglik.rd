@@ -9,7 +9,7 @@
 \alias{anm.loglik.tck}
 \title{Animated plots of log-likelihood functions}
 \description{
-Plots the normal, exponential, Poisson, binomial and "custom" log-likelihood functions.  Likelihoods for parameter estimates are calculated by holding data constant and varying estimates.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLEs.  
+Plots the normal, exponential, Poisson, binomial, and "custom" log-likelihood functions.  By definition, lLikelihoods for parameter estimates are calculated by holding data constant and varying estimates.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLEs.  
 }
 \usage{
 anm.loglik(X, dist = c("norm", "poi", "bin", "exp", "custom"), 
@@ -44,11 +44,11 @@ anm.loglik.tck()
 
 \arguments{
 
-  \item{X}{A vector of quantitative data.  The function does not currently handle extremely large datasets, n > 500. Data should be integers (counts) for the Poisson
+  \item{X}{A vector of quantitative data.  The function does not currently handle extremely large datasets, \emph{n} > 500. Data should be integers (counts) for the Poisson
 log-likelihood function, and binary responses (0,1) for the binomial log likelihood function.  Data elements for the exponential log likelihood function must be greater than zero.}
-  \item{parameter}{The parameter for which ML estimation is desired in \code{loglik.norm.plot}  Specification of either \code{"mu"} or \code{"sigma.sq"} is required for the normal log-likelihood function.  No specification is required for exponential, Poisson, and binomial log-likelihood functions since these distributions are generally specified with a single parameter, i.e. \eqn{\theta} for the exponential, \eqn{\lambda} for the Poisson distribution, and \emph{p} (the probability of a success) for the binomial distribution.}
+  \item{parameter}{The parameter for which ML estimation is desired in \code{loglik.norm.plot}.  Specification of either \code{"mu"} or \code{"sigma.sq"} is required for the normal log-likelihood function.  No specification is required for exponential, Poisson, and binomial log-likelihood functions since these distributions are generally specified with a single parameter, i.e. \eqn{\theta} for the exponential, \eqn{\lambda} for the Poisson distribution, and \emph{p} (the probability of a success) for the binomial distribution.}
   \item{poss}{An optional vector containing a sequence of possible parameter estimates.  Elements in the vector must be distinct.  If \code{poss} is not specified a vector of appropriate possibilities is provided by the function.  This argument can be used to set \code{xlim} in the likelihood function and density plots.}
-  \item{dist}{The type of assumed distribution there are currently five possibilities: \code{"norm", "poi", "binom", "exp",} and \code{"custom"}.  Use of custom distributions requires specification of a custom likelihood function in the argument \code{func}.}
+  \item{dist}{The type of assumed distribution there are currently five possibilities: \code{"norm"}, \code{"poi"}, \code{"binom"}, \code{"exp"}, and \code{"custom"}.  Use of custom distributions requires specification of a custom likelihood function in the argument \code{func}.}
   \item{plot.likfunc}{A logical command for indicating whether a graph of the log-likelihood function should be created.}
   \item{plot.density}{A logical command for indicating whether a second graph, in which densities are plotted on the pdf, should be created.}
   \item{plot.calc}{A logical command for indicating whether a third graph, in which log-densities are added to one another, should be created.}

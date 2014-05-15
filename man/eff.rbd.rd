@@ -19,7 +19,7 @@ An object of class \code{lm}.  The blocking factor must be called "block".
 }
 
 \references{
-Kutner, M. H., C. J. Nachtsheim, J. Neter, and W. Li. 2005. \emph{Applied Linear Statistical Models}. McGraw-Hill Irwin.
+Kutner, M. H., C. J. Nachtsheim, J. Neter, and W. Li  (2005) \emph{Applied Linear Statistical Models}. McGraw-Hill Irwin.
 }
 \author{
 Ken Aho

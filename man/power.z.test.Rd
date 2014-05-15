@@ -2,9 +2,9 @@
 \alias{power.z.test}
 \title{Power analysis for a one sample z-test}
 \description{
-A power analysis for a one sample z-test. The function requires alpha, sigma, 
+A power analysis for a one sample z-test. The function requires \eqn{\alpha}, \eqn{\sigma}, 
 the effect size, the type of test (one tailed or two-tailed), and either power 
-(1 - beta) or \emph{n} (sample size).  If \emph{n} is provided, then power is calculated.  Conversely, 
+(1 - \eqn{\beta}) or \emph{n} (sample size).  If \emph{n} is provided, then power is calculated.  Conversely, 
 if one provides power, but not \emph{n}, then n is calculated.
 }
 \usage{
@@ -19,7 +19,9 @@ test = c("two.tail", "one.tail"), strict = FALSE)
   \item{alpha}{Probability of type I error.}
   \item{effect}{Effect size.}
   \item{test}{One of two choices: \code{"two.tail"} or \code{"one.tail"}.}
-  \item{strict}{Causes the function to use a strict interpretation of power in a two-sided test.  If strict = TRUE then power for a two sided test will include the probability of rejection in the opposite tail of the true effect. If strict = FALSE (the default) power will be half the value of \eqn{\alpha} if the true effect size is zero.}
+  \item{strict}{Causes the function to use a strict interpretation of power in a two-sided test.  
+  If \code{strict = TRUE} then power for a two sided test will include the probability of rejection 
+  in the opposite tail of the true effect. If \code{strict = FALSE} (the default) power will be half the value of \eqn{\alpha} if the true effect size is zero.}
 }
 \value{
   Returns a list

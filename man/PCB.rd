@@ -22,7 +22,7 @@ herring gull (Larus smithsonianus) eggs were randomly collected and tested for P
 Ott, R. L., and M. T. Longnecker  (2004)  \emph{A First Course in Statistical Methods}.  Thompson. 
 }
 \references{
-Hughes, K. D., Weselogh, D. V., and B. M. Braune.  1998. The ratio of DDE to PCB 
+Hughes, K. D., Weselogh, D. V., and B. M. Braune (1998) The ratio of DDE to PCB 
 concentrations in Great Lakes herring gull eggs and its use in interpreting contaminants data. \emph{Journal of Great Lakes Research} 24(1): 12-31. 
 }
 \keyword{datasets}

@@ -16,7 +16,7 @@ partial.R2(nested.lm, ref.lm)
 Coefficients of partial determination measure the proportional reduction in sums of squares after a variable of interest, \emph{X}, is introduced into a model.  We can see how this would be of interest in a multiple regression.  
 }
 \value{
-The partial \eqn{r^2} is returned.
+The partial \eqn{R^2} is returned.
 }
 \references{
 Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li. (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston.

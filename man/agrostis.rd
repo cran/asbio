@@ -2,10 +2,10 @@
 \alias{agrostis}
 \docType{data}
 \title{
-Agrostis variabiis cover measurements
+Agrostis variabilis cover measurements
 }
 \description{
-Percent cover of the grass \emph{Agrostis variablis} at 25 alpine snowbank sites in the Absaroka- Bearthooth Mountains.
+Percent cover of the grass \emph{Agrostis variablis} at 25 alpine snowbank sites in the Absaroka-Bearthooth Mountains.
 }
 
 \usage{data(agrostis)}
@@ -15,6 +15,9 @@ Percent cover of the grass \emph{Agrostis variablis} at 25 alpine snowbank sites
     \item{site}{Site number}
     \item{cover}{Percent cover measure}
   }
+}
+\source{
+Aho, K.  (2006)  \emph{Alpine and Cliff Ecosystems in the North-Central Rocky Mountains}.  PhD dissertation, Montana State Univeristy, Bozeman, MT.
 }
 \keyword{datasets}
 

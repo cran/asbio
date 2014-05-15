@@ -5,7 +5,7 @@
 \description{
 Creates a bootstrap confidence interval for location differences for two samples.  The default location
 estimator is the Huber one-step estimator, although any estimator can be used.  The function is based on 
-a function written by Wilcox (2005).  Note, importantly, that \emph{P}-values may be in conflict with the confidence intervals.
+a function written by Wilcox (2005).  Note, importantly, that \emph{P}-values may be in conflict with the confidence interval bounds.
 }
 \usage{
 boot.ci.M(X1, X2, alpha = 0.05, est = huber.one.step, R = 1000)
@@ -37,7 +37,7 @@ Wilcox, R. R. (2005) \emph{Introduction to Robust Estimation and Hypothesis Test
 Burlington, MA.
 
 }
-\author{Ken Aho and R. R. Wilcox from whom I stole liberlly from code in the function m2ci on R-forge}
+\author{Ken Aho and R. R. Wilcox from whom I stole liberally from code in the function \code{m2ci} on R-forge}
 \seealso{\code{\link{bootstrap}}, \code{\link{ci.boot}}}
 \examples{
 \dontrun{

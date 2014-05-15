@@ -11,7 +11,7 @@ Portneuf River data from the Siphon Road site near Pocatello Idaho, downstream f
 \format{
   A data frame with 176 observations on the following 3 variables.
   \describe{
-    \item{\code{date}}{a Date, from 1998-01-15 to 2011-08-16}
+    \item{\code{date}}{Dates from 1998-01-15 to 2011-08-16}
     \item{\code{TKN}}{Total Kjeldahl nitrogen (measured as a percentage)}
     \item{\code{total.P}}{Total phosphorous (mg/L)}
   }

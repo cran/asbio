@@ -26,5 +26,5 @@ Solves and depicts the Hardy Weinberg equilibrium, i.e:
 }
 \author{Ken Aho
 }
-\keyword{grpahs}
+\keyword{graphs}
 

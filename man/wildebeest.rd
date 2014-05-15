@@ -5,8 +5,11 @@
 Wildebeest carcass categorical data
 }
 \description{
-To test the "predation-sensitive food" hypothesis, which predicts that both food and predation limit prey populations, Sinclair and Arcese (1995) examined wildebeest (\emph{Connochaetes taurinus}) carcasses in the Serengeti.  The degree of malnutrition in animals was measured by marrow content since marrow will contain the last fat reserves in ungulates.  Carcasses were cross-classified with respect to three categorical variables: sex {M, F}, 
-cause of death {predation, non-predation}, and marrow type {SWF = Solid White Fatty, indicating healthy animals, OG = Opaque Gelatinous, indicating malnourishment, and TG = Translucent Gelatinous, indicating sever malnourishment}.   
+To test the "predation-sensitive food" hypothesis, which predicts that both food and predation limit prey populations, 
+Sinclair and Arcese (1995) examined wildebeest (\emph{Connochaetes taurinus}) carcasses in the Serengeti.  
+The degree of malnutrition in animals was measured by marrow content since marrow will contain the last fat reserves in ungulates.  
+Carcasses were cross-classified with respect to three categorical variables: sex (M, F), cause of death (predation, non-predation), 
+and marrow type (SWF = Solid White Fatty, indicating healthy animals, OG = Opaque Gelatinous, indicating malnourishment, and TG = Translucent Gelatinous, the latter indicating severe malnourishment).   
 }
 \usage{data(wildebeest)}
 \format{

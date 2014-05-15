@@ -5,7 +5,7 @@
 prediction sum of squares
 }
 \description{
-Calculates prediction sum of squares (PRESS) for a linear model.
+Calculates PREdiction Sum of Squares (\emph{PRESS}) for a linear model.
 }
 \usage{
 
@@ -24,10 +24,10 @@ where
 where \eqn{h_{ii}} is the \emph{i}th diagonal element in the hat matrix.
 }
 \value{
-Returns the PRESS statistic.
+Returns the \emph{PRESS} statistic.
 }
 \references{
-Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li.  2005.  \emph{Applied linear statistical models, 5th edition.}  McGraw-Hill, Boston.
+Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li  (2005)  \emph{Applied linear statistical models, 5th edition.}  McGraw-Hill, Boston.
 }
 \author{
 Ken Aho

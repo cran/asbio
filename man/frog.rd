@@ -4,7 +4,7 @@
 \title{Australian frog calls following fire
 }
 \description{
-Driscoll and Roberts (1997) examined the impact of fire on the Walpole frog \emph{Geocrinia lutea} in catchments in Western Australia by counting the number of calling males in six paired burn and control sites for three years following spring burning in 1991. 
+Driscoll and Roberts (1997) examined the impact of fire on the Walpole frog (\emph{Geocrinia lutea}) in catchments in Western Australia by counting the number of calling males in six paired burn and control sites for three years following spring burning in 1991. 
 }
 \usage{data(frog)}
 

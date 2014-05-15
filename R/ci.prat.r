@@ -17,8 +17,7 @@ if(bonf == TRUE){
     x2 <- qchisq(conf, 1)
     }
      
-ci.prat1 <- function(x, m, y, n, conf = 0.95, method = "log", bonf = FALSE){
-
+ci.prat1 <- function(x, m, y, n, conf = 0.95, method = "katz.log", bonf = FALSE){
 if((x > m)|(y > n)) stop("Use correct parameterization for y1, y2, n1, and n2")
 
 
@@ -29,7 +28,7 @@ if(method == "adj.log"){
        rat <- (x/m)/(y/n); x <- m - 0.5; y <- n - 0.5; nrat <- ((x+0.5)/(m+0.5))/((y+0.5)/(n+0.5)); varhat <- (1/(x+0.5)) - (1/(m+0.5)) + (1/(y+0.5)) - (1/(n+0.5))
        CIL <- nrat * exp(-1 * z.star * sqrt(varhat))
        CIU <- nrat * exp(z.star * sqrt(varhat))
-       } else if (x == 0 & y == 0){CIL = 0; CIU = Inf; rat = 0
+       } else if(x == 0 & y == 0){CIL = 0; CIU = Inf; rat = 0; varhat <- (1/(x+0.5)) - (1/(m+0.5)) + (1/(y+0.5)) - (1/(n+0.5))
        }else{ 
      rat <- (x/m)/(y/n); nrat <- ((x+0.5)/(m+0.5))/((y+0.5)/(n+0.5)); varhat <- (1/(x+0.5)) - (1/(m+0.5)) + (1/(y+0.5)) - (1/(n+0.5))
      CIL <- nrat * exp(-1 * z.star * sqrt(varhat))

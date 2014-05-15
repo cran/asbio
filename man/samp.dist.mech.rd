@@ -5,7 +5,7 @@
 Animated representation of sampling distribution basics
 }
 \description{
-Goats are sampled 10 at a time and weighed, a mean weight is calculated from these measures and added to collection of mean weights in the form of a histogram. 
+Mountain goats are randomly sampled 10 at a time and weighed [goat weights are normal \emph{N}(90.5, 225)], a mean weight is calculated from these measures and added to collection of mean weights in the form of a histogram. 
 }
 \usage{
 
@@ -26,7 +26,7 @@ Number of samples.  Should not greatly exceed 100.
 Ken Aho
 }
 \note{
-Nice goat image from http://all-free-download.com 
+Nice goat image from \url{http://all-free-download.com} 
 }
 
 \keyword{graphs}

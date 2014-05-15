@@ -17,8 +17,8 @@ Norton and Dunn (1985) compiled data from four family practice clinics in Toront
   }
 }
 \source{
-Norton, P. G., and E. V. Dunn.  1985.  Snoring as a risk factor for disease: an 
-	epidemiological survey.  \emph{British Medical Journal} 291: 630-632. [11]
+Norton, P. G., and E. V. Dunn  (1985)  Snoring as a risk factor for disease: an 
+	epidemiological survey.  \emph{British Medical Journal} 291: 630-632. 
 }
 \keyword{datasets}
 

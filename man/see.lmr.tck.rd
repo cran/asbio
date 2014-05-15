@@ -28,7 +28,7 @@ Logical, indicating whether or not \emph{X} and \emph{Y} matrices should be show
 }
 }
 \details{
-\emph{X} requires a \emph{Y} intercept variable (X0) and at least one other variable.
+\emph{X} requires a \emph{Y} intercept variable \eqn{X_0} and at least one other variable.
 }
 \author{Ken Aho
 }

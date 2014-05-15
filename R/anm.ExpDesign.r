@@ -1,4 +1,5 @@
 anm.ExpDesign<-function(method= "all", titles =  TRUE, cex.text = 1, mp.col = NULL, interval = 0.5, iter = 30){
+old.par <- par(no.readonly = TRUE)
     if(any(method == "all")) method = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
     m<-matrix(nrow=iter,ncol=length(method),rep(method,iter),byrow=TRUE)
     for(i in 1:nrow(m)){
@@ -7,6 +8,8 @@ anm.ExpDesign<-function(method= "all", titles =  TRUE, cex.text = 1, mp.col = NU
 	    dev.flush()
 	    Sys.sleep(interval)
     }
+on.exit(par(old.par))
+invisible()	
 }
 
 ExpDesign<-function(method= "all",titles=TRUE, cex.text = 1, mp.col = NULL,...){

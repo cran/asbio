@@ -28,7 +28,7 @@ anm.ExpDesign.tck()
 The function returns a plot or series of plots illustrating the workings of experimental designs. Random apportionment of treatments of experimental units (EUs) is illustrated for each of twelve experimental designs.  A character string can be specified in the \code{method} arguement using a subset of any of the following: \cr
  \code{"CRD"}: a one-way completely randomized design,\cr
  \code{"factorial2by2"}: a 2 x 2 design with four EUs,\cr
- \code{"factorial2by2by2"}: a 2 x 2 x 2 factorial designs with 8 EUS,\cr 
+ \code{"factorial2by2by2"}: a 2 x 2 x 2 factorial designs with 8 EUs,\cr 
  \code{"nested"}: a nested design with two levels of nesting,\cr
  \code{"RCBD"} a randomized complete block design with two blocks, two treatments and four EUs,\cr
  \code{"RIBD"}: a randomized incomplete block design with three blocks, three treatments, and six EUs,\cr
@@ -42,7 +42,7 @@ The function returns a plot or series of plots illustrating the workings of expe
 }
 
  \section{Completely randomized design (CRD)}{
- In a \bold{completely randomized design} experimental units are each randomly assigned to factor levels design without constraints like blocking.  This approach can (and should) be implemented in one way ANOVAs, and in more complex formats like factorial and hierarchical designs.  
+ In a \bold{completely randomized design} experimental units are each randomly assigned to factor levels without constraints like blocking.  This approach can (and should) be implemented in one way ANOVAs, and in more complex formats like factorial and hierarchical designs.  
  }
  \section{Factorial design}{
  Treatments can be derived by combining factor levels from the multiple factors.  This is called a \bold{factorial design}.  In a fully crossed factorial design with two factors, A and B, every level in factor A is contained in every level of factor B.
@@ -51,7 +51,7 @@ The function returns a plot or series of plots illustrating the workings of expe
  In a \bold{randomized block design} a researcher randomly assigns experimental units to treatments separately within units called blocks.  If all treatments are assigned exactly once within each block this is known as a \bold{randomized complete block design (RCBD)} 
  }
  \section{Latin squares}{
- \bold{Latin squares designs} are useful when there are two potential blocking variables.  These can figuratively or literally be represented by rows and columns.  All treatments are assigned to each row and to each column, and for each row and column treatment assignments differ.  Of course this stipulation limits the number of ways we can allocate treatments.  
+ \bold{Latin squares designs} are useful when there are two potential blocking variables.  These can figuratively or literally be represented by rows and columns.  All treatments are assigned to each row and to each column, and for each row and column treatment assignments differ.  Of course this stipulation limits the number of ways one can allocate treatments.  
  }                             
  \section{Nested design}{
  In a \bold{nested design} factor levels from one factor will be contained entirely in one factor level from another factor.  Consider a design with two factors A and B.  When every level of factor A appears with every level of factor B, and vice versa, then we have a fully crossed factorial design (see above).  Conversely, when levels of B only occur within a single level of A, then B is nested in A.

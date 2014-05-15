@@ -2,7 +2,7 @@
 \alias{trim.me}
 \title{Trim data}
 \description{
-Trims observations above and below the central \eqn{(1 - 2 \times \lambda}) part of an an ordered vector of data. 
+Trims observations above and below the central \eqn{(1 - 2\lambda}) part of an an ordered vector of data. 
 }
 \usage{
 trim.me(Y, trim = 0.2)

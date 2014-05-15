@@ -6,11 +6,14 @@
 \title{Functions for calculating alpha diversity.
 }
 \description{
-The function \code{alpha.div} runs \code{Simp.index} or \code{SW.index} to calculate Simpson's, Inverse Simpson's or Shannon-Weiner diversities. 
-
 Alpha diversity quantifies richness and evenness within a sampling unit (replicate).
 
-Simpson's index has a straightforward interpretation. It is the probability of reaching into a plot and simultaneously pulling out two different species.  The inverse Simpson's diversity is equivalent to the probability that two randomly chosen individuals will be the same species. These measures have been attributed to Simpson (1949).  While it does not allow straightforward interpretation of results, the Shannon-Weiner diversity (\emph{H}') is another commonly used alpha-diversity measure based on the Kullback-Liebler information criterion (Macarthur and Macarthur 1961). 
+The function \code{alpha.div} runs \code{Simp.index} or \code{SW.index} to calculate Simpson's, Inverse Simpson's or Shannon-Weiner diversities. 
+
+Simpson's index has a straightforward interpretation. It is the probability of reaching into a plot and simultaneously pulling out two different species.  
+Inverse Simpson's diversity is equivalent to one over the probability that two randomly chosen individuals will be the same species. 
+These measures have been attributed to Simpson (1949).  While it does not allow straightforward interpretation of results, the Shannon-Weiner diversity (\emph{H}') 
+is another commonly used alpha-diversity measure based on the Kullback-Leibler information criterion (Macarthur and Macarthur 1961). 
 }
 \usage{
 alpha.div(x,index)

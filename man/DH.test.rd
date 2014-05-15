@@ -35,7 +35,7 @@ Returns a list with two objects.
   \item{multi}{A dataframe containing multivariate results, i.e. the test statistic, \emph{E}, the 
   degrees of freedom and the \emph{p}-value.}
   \item{comp2 }{A dataframe with \emph{p} rows detailing univariate tests. Columns in the dataframe contain
-  the test statistics, degrees of freedom and \emph{p}-values.}
+  the test statistics, degrees of freedom and \emph{P}-values.}
 }
 \references{
 D'Agostino, R. B. (1970). Transformation to normality of the null distribution of g1, Biometrika,

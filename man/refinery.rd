@@ -15,6 +15,6 @@ The dataframe contains three columns:
 }
 }
 \source{
-http://lib.stat.cmu.edu/DASL/Stories/MeasuringAirPollution.html; accessed 6/29/110
+\url{http://lib.stat.cmu.edu/DASL/Stories/MeasuringAirPollution.html}; accessed 6/29/110
 }
 \keyword{datasets}

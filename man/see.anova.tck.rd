@@ -5,7 +5,7 @@
 Interactive depiction of the ANOVA mechanism
 }
 \description{
-Slider control of the means and (constant) variablility of three factor level populations.  AN ANOVA is run by randomly sampling these populations.
+Slider control of the means and (constant) variablility of three factor level populations.  An ANOVA is run based on a random sample of these populations.
 }
 \usage{
 
@@ -16,4 +16,4 @@ see.anova.tck()
 \author{
 Ken Aho
 }
-\keyword{grpahs}
+\keyword{graphs}

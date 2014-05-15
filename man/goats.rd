@@ -3,7 +3,7 @@
 \docType{data}
 \title{Mountain goat data from Yellowstone National Park}
 \description{
-Mount goat \emph{Oreomnos americanus} feces data and soil nutrient data for eight different mountains in the Northern Absarokas in Yellowstone National Park.    
+Mount goat (\emph{Oreomnos americanus}) feces data and soil nutrient data for eight different mountains in the Northern Absarokas in Yellowstone National Park.    
 }
 \usage{data(goats)}
 \format{
@@ -15,6 +15,6 @@ Mount goat \emph{Oreomnos americanus} feces data and soil nutrient data for eigh
         }
 }
 \source{
-Aho, K. (2012)  Management of introduced mountain goats in Yellowstone National Park (vegetation analysis along a mountain goat gradient).  PMIS:  105289.  Report prepared for USDA National Park Service. 150 Pgs.
+Aho, K. (2012)  \emph{Management of introduced mountain goats in Yellowstone National Park (vegetation analysis along a mountain goat gradient).  PMIS:  105289}.  Report prepared for USDA National Park Service. 150 Pgs.
 }
 \keyword{datasets}

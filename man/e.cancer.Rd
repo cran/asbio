@@ -19,8 +19,8 @@ The dataset contains four variables:
   }
 }
 \source{
-Breslow, N. E. and N. E. Day. 1980. Statistical Methods in Cancer Research. 1: The 
-Analysis of Case-Control Studies. IARC Lyon / Oxford University Press. 
+Breslow, N. E. and N. E. Day (1980) \emph{Statistical Methods in Cancer Research. 1: The 
+Analysis of Case-Control Studies}. IARC Lyon / Oxford University Press. 
 }
 
 \keyword{datasets}

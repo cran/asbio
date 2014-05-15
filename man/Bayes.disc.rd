@@ -5,7 +5,7 @@
 Bayesian graphical summaries for discrete data.
 }
 \description{
-An exceedingly simple function for for summarizing a Bayesian analysis given discrete data and priors.
+An simple function for for summarizing a Bayesian analysis given discrete or categorical variables and priors.
 }
 \usage{
 

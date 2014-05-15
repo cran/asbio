@@ -18,7 +18,7 @@ Amount of noise added to linear association.  Residuals around line pulled from 
 }
 }
 \references{
-Based on a figure from http://en.wikipedia.org/wiki/Correlation_and_dependence
+Based on a figure from \url{http://en.wikipedia.org/wiki/Correlation_and_dependence}
 }
 \author{
 Ken Aho

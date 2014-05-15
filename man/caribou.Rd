@@ -4,8 +4,8 @@
 \title{
 Caribou count data
 }
-\description{Stratified random sampling was used to estimate the size of the Nelchina herd of Alaskan caribou (Rangifer tarandus) in February 1962 (Siniff and Skoog 1964).  
-The total population of sample units (for which responses would be counts of caribou) consisted of 699 four mile2 areas.  This population was divided into six strata, and each of these was randomly sampled.
+\description{Stratified random sampling was used to estimate the size of the Nelchina herd of Alaskan caribou (\emph{Rangifer tarandus}) in February 1962 (Siniff and Skoog 1964).  
+The total population of sample units (for which responses would be counts of caribou) consisted of 699 four mile\eqn{^2} areas.  This population was divided into six strata, and each of these was randomly sampled.
 }
 
 \usage{data(caribou)}

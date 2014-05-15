@@ -11,7 +11,7 @@ Fires from 1988 constituted the largest conflagration in the history of Yellowst
 \format{
   A data frame with 10 observations on the following 2 variables.
   \describe{
-    \item{\code{fire}}{Burn area in, in \deqn{hectares^2}.}
+    \item{\code{fire}}{Burn area in, in hectares\eqn{^2}.}
     \item{\code{stream}}{A factor with levels \code{Blacktail} \code{Cache} \code{EF.Blacktail} \code{Fairy} \code{Hellroaring} \code{Iron.Springs} \code{Pebble} \code{Rose} \code{SF.Cache} \code{Twin}}
   }
 }

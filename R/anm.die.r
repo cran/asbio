@@ -1,5 +1,6 @@
 
 anm.die<-function(reps=300,interval=0.1,show.die=TRUE,p=c(1/6,1/6,1/6,1/6,1/6,1/6),cl=TRUE){
+old.par <- par(no.readonly = TRUE)
 if(sum(p)!=1)stop("sum of die probabilities must = 1")
 p<-p*100
 die<-sample(c(rep(1,p[1]),rep(2,p[2]),rep(3,p[3]),rep(4,p[4]),rep(5,p[5]),rep(6,p[6])),reps,replace=TRUE)
@@ -54,4 +55,6 @@ if(die[i]==6)
 dev.flush()
 Sys.sleep(interval)
 }
+on.exit(par(old.par))
+invisible()	
 }

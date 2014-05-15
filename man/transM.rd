@@ -42,9 +42,9 @@ Additional arguments for \code{\link{plot}}
 Returns a plot and proportions of the population in each age class for the number of time intervals in \code{inter}.
 }
 \references{
-Caswell, H. 2000. \emph{Matrix population models: Construction, analysis and interpretation, 2nd Edition}. Sinauer Associates, Sunderland, Massachusetts.
+Caswell, H  (2000) \emph{Matrix Population Models: Construction, Analysis and Interpretation, 2nd Edition}. Sinauer Associates, Sunderland, Massachusetts.
 
-Gurevitch, J., Scheiner, S. M., and G. A. Fox.  2006.  The ecology of Plants.  Sinauer.
+Gurevitch, J., Scheiner, S. M., and G. A. Fox (2006)  \emph{The Ecology of Plants}.  Sinauer.
 }
 \author{
 Ken Aho

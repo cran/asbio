@@ -13,6 +13,7 @@ anm.coin<-function(flips=1000,p.head=.5,interval=0.01,show.coin=TRUE,...){
   	}
     }
   if(show.coin==TRUE){
+  old.par <- par(no.readonly = TRUE)
   layout(matrix(c(rep(1,6),0,2,0), 3, 3, byrow = TRUE))	
     par(mar = c(5.5, 4.5, 2, 2))
     for(i in 1:flips){
@@ -26,5 +27,7 @@ anm.coin<-function(flips=1000,p.head=.5,interval=0.01,show.coin=TRUE,...){
             dev.flush()
             Sys.sleep(interval)
 	}
-    }
+    on.exit(par(old.par))
+    invisible()	
+	}
 }

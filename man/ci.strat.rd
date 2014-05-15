@@ -40,7 +40,7 @@ We estimate the population mean, \eqn{\mu}, with:
 An unbiased estimator for the standard error of \eqn{\bar{X}_{str}} is:
 \deqn{S_{\bar{X}_{str}}=\sqrt{\sum_{h=1}^{k}\left(1-\frac{n_h}{N_h}\right)\left(\frac{N_h}{N}\right)^2\left(\frac{S_h^2}{n_h}\right)}}
 
-The standard error of \eqn{\hat{T}} is also of interest.  Here is an unbiased estimator.
+The standard error of \eqn{\hat{T}} is also of interest.  Here is an unbiased estimator:
 \deqn{S_{\hat{T}}=\sqrt{\sum_{h=1}^{k}\left(1-\frac{n_h}{N_h}\right)N_h^2\left(\frac{S_h^2}{n_h}\right)}}
 
 Note that these standard errors have both a finite population correction and adjustments for stratification built into them.  Assuming that sample sizes within each stratum are large or that the sampling design has a large number of strata, a 100(1 - \eqn{\alpha})percent confidence interval for \eqn{\mu}  and \emph{T} can be constructed using:

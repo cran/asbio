@@ -26,13 +26,13 @@ anm.mc.bvn.tck()
 \arguments{
 
   \item{start}{
-A two element vector specifying the starting coordinates.
+A two element vector specifying the bivariate starting coordinates.
 }
   \item{mu}{
 A two element vector specifying the mean vector for the proposal distribution.
 }
   \item{sigma}{
-A 2 x 2 matrix specifying the variance covariance matrix for the proposal dsitribution.    
+A 2 x 2 matrix specifying the variance covariance matrix for the proposal distribution.    
 }
   \item{length}{
 The length of the MCMC chain.
@@ -44,10 +44,10 @@ Simulation method used.  Must be one of \code{"G"} idicating Gibbs sampling, \co
 A number > 0 that will serve as a (squared) multiplier for the proposal variance covariance.  The result of this multiplication will be used as the variance covariance matrix for the jumping distribution.   
 }
   \item{xlim}{
-A two element vector describing the upper and lower limits of the x-axis.
+A two element vector describing the upper and lower limits of the \emph{x}-axis.
 }
   \item{ylim}{
-A two element vector describing the upper and lower limits of the y-axis.
+A two element vector describing the upper and lower limits of the \emph{y}-axis.
 }
   \item{interval}{
 Animation interval
@@ -61,7 +61,7 @@ Character expansion for legend.
 }
 
   \item{\dots}{
-Additional arguments from \code{plot}.
+Additional arguments from \code{\link{plot}}.
 }
 }
 

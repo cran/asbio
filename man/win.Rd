@@ -14,7 +14,7 @@ win(x, lambda = 0.2)
   \item{lambda}{A proportion from 0-1 giving the amount of data to be Winsorized in each tail of an ordered dataset.}
 }
 \details{
-In Winsorization we  we replace responses that are not in the central \eqn{1 - 2 \times \lambda} part of an ordered sample with the minimum and maximum responses of the central part of the sample.  
+In Winsorization we  we replace responses that are not in the central \eqn{1 - 2\lambda} part of an ordered sample with the minimum and maximum responses of the central part of the sample.  
 }
 \value{
 Returns Winsorized data.

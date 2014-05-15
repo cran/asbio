@@ -5,7 +5,7 @@
 Tree presence/absence data from Barro Colorado island
 }
 \description{
-1.	The presence of the tropical trees \emph{Alchornea costaricensis} and \emph{Anacardium excelsum} with diameter at breast height equal or larger than 10 cm were recorded on along with environmental factors at Barro Colorado Island in Panama (Kindt and Coe 2005).  These data were originally from (Pyke et al. 2001). 
+The presence of the tropical trees \emph{Alchornea costaricensis} and \emph{Anacardium excelsum} with diameter at breast height equal or larger than 10 cm were recorded on along with environmental factors at Barro Colorado Island in Panama (Kindt and Coe 2005).  These data were originally from (Pyke et al. 2001). 
 }
 \usage{data(BCI.plant)}
 \format{
@@ -19,12 +19,12 @@ Tree presence/absence data from Barro Colorado island
     \item{\code{age}}{A categorical vector describing age.}
     \item{\code{geology}}{A factor describing geology with levels \code{pT} \code{Tb} \code{Tbo} \code{Tc} \code{Tcm} \code{Tct} \code{Tgo} \code{Tl} \code{Tlc}.}
     \item{\code{Alchornea.costaricensis}}{Plant presence/absence.}
-    \item{\code{Anacardium.excelsum}}{Plant presence/aabsence.}
+    \item{\code{Anacardium.excelsum}}{Plant presence/absence.}
   }
 }
 
 \source{
-http://www.sciencemag.org/cgi/content/full/295/5555/666/DC1
+\url{http://www.sciencemag.org/cgi/content/full/295/5555/666/DC1}
 }
 \references{
 Pyke CR, Condit R, Aguilar S and Lao S. (2001). Floristic composition across a climatic gradient in a neotropical lowland forest. \emph{Journal of Vegetation Science} 12: 553-566.
