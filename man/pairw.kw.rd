@@ -27,7 +27,7 @@ Returns a list of \code{class = "pairw"}.  The utility print function returns a 
 
 4) the upper confidence bound of the true mean rank difference, 
 
-5) the hypothesis decision rule given the prescribed significance level, 
+5) the hypothesis decision given the prescribed significance level, 
 
 6) the adjusted \emph{P}-value.
 }
@@ -37,7 +37,10 @@ Returns a list of \code{class = "pairw"}.  The utility print function returns a 
 \examples{
 rye.data <- data.frame(rye = c(50, 49.8, 52.3, 44.5, 62.3, 74.8, 72.5, 80.2, 
 47.6, 39.5, 47.7,50.7), nutrient = factor(c(rep(1, 4), rep(2, 4), rep(3, 4))))
-with(rye.data, pairw.kw(y = rye, x = nutrient, conf = .95))
+kw <- with(rye.data, pairw.kw(y = rye, x = nutrient, conf = .95))
+kw
+plot(kw, loc.meas = median, int = "IQR")
+# you can also try: plot(kw, type = 2)
 }
 \keyword{univar}
 \keyword{htest}

@@ -2,7 +2,8 @@
 \alias{pairw.fried}
 \alias{FR.multi.comp}
 \title{Multiple pairwise comparison procedure to accompany a Friedman test.}
-\description{Replaces now defunct \code{FR.multi.comp}.  As with ANOVA we can examine multiple pairwise comparisons from a Friedman test after we have rejected othe overall null hypothesis.  However we will need to account for family-wise type I error in these comparisons which will be non-orthogonal.  A conservative multiple comparison method used here is based on the Bonferroni procedure.
+\description{Replaces now defunct \code{FR.multi.comp}.  As with ANOVA we can examine multiple pairwise comparisons from a Friedman test after we have rejected othe overall null hypothesis.  
+However we will need to account for family-wise type I error in these comparisons which will be non-orthogonal.  A conservative multiple comparison method used here is based on the Bonferroni procedure.
 }
 \usage{
 
@@ -28,7 +29,7 @@ Returns a list of \code{class = "pairw"}.  The utility print function returns a 
  
 4) the upper confidence bound of the true mean rank difference, 
 
-5) the hypothesis decision rule given the prescribed significance level, and
+5) the hypothesis decision given the prescribed significance level, and
 
 6) the adjusted \emph{P}-value.
 }
@@ -45,7 +46,10 @@ tremors <- data.frame(freq = c(2.58, 2.63, 2.62, 2.85, 3.01, 2.7, 2.83, 3.15,
 2.96, 3.08, 3.32, 3.41, 2.43, 2.5, 2.85, 3.06, 3.07), weights = 
 factor(rep(c(7.5, 5, 2.5, 1.25, 0), 6)), block = factor(rep (1 : 6, each = 5)))
 
-with(tremors, pairw.fried(y = freq, x = weights, blocks = block, nblocks = 6, conf = .95))
+fr <- with(tremors, pairw.fried(y = freq, x = weights, blocks = block, nblocks = 6, conf = .95))
+fr
+plot(fr, loc.meas = median, int = "IQR")
+# you can also try: plot(fr, type = 2, las = 2)
 }
 \keyword{htest}
 \keyword{univar}

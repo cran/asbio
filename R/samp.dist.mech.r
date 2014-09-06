@@ -1,5 +1,5 @@
 samp.dist.mech <- function(rep, int=.05){
-
+old.par <- par(no.readonly = TRUE)
 
 g1 <- NULL; rm(g1)
 g1 <- read.pnm(system.file("pictures/goat1.pgm", package="asbio"))
@@ -62,5 +62,6 @@ mtext(side=2, "Cumulative freq.", cex = 1.3, line = 4)
 dev.flush()
 Sys.sleep(int)
 }
+on.exit(par(old.par))
 }
 

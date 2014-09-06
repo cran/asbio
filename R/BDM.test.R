@@ -27,6 +27,7 @@ BDM.test <- function (Y, X)
     res$BDM.Table <- data.frame(df1 = nu1, df2 = nu2, F = F.star, 
         p.val = pf(F.star, nu1, nu2, lower.tail = FALSE), row.names = "X")
     colnames(res$BDM.Table) <- c("df1", "df2", "F*", "P(F > F*)")
+    if(nrow(res$BDM.Table) == 1) rownames(res$BDM.Table) <- ""	
     class(res) <- "BDM"
     res
 }

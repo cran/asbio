@@ -1,25 +1,21 @@
-ci.prat <- function(y1, n1, y2, n2, conf = 0.95, method = "katz.log", bonf = FALSE, tol = .Machine$double.eps^0.25){
+ci.prat <- function(y1, n1, y2, n2, conf = 0.95, method = "katz.log", bonf = FALSE, tol = .Machine$double.eps^0.25, R = 1000, r = length(y1)){
 
 x <- y1; m <- n1; y <- y2; n <- n2 
 
-indices <- c("adj.log","bailey","katz.log","koopman","noether","sinh-1")
+indices <- c("adj.log","bailey","boot","katz.log","koopman","noether","sinh-1")
 method <- match.arg(method, indices)
 
-r <- length(x)
-if(any(c(length(m),length(y),length(n))!=r)) stop("y1, n1, y2, and n2 vectors must have equal length")
 
+if(any(c(length(m),length(y),length(n))!= length(x))) stop("y1, n1, y2, and n2 vectors must have equal length")
 
-if(bonf == TRUE){
-    z.star <- qnorm(1 - (1 - conf)/(2 * r))
-    x2 <- qchisq(1- ((1- conf)/r), 1) 
-    } else { 
-    z.star <- qnorm(1 - (1 - conf)/2)
-    x2 <- qchisq(conf, 1)
-    }
+alpha <- 1 - conf
+oconf <- conf
+conf <- ifelse(bonf == FALSE, conf, 1 - alpha/r)
+z.star <- qnorm(1 - (1 - conf)/2)
+x2 <- qchisq(conf, 1)
      
 ci.prat1 <- function(x, m, y, n, conf = 0.95, method = "katz.log", bonf = FALSE){
 if((x > m)|(y > n)) stop("Use correct parameterization for y1, y2, n1, and n2")
-
 
 #-------------------------- Adj-log ------------------------------#
 
@@ -39,55 +35,86 @@ CI <- c(rat, CIL, CIU)
 #-------------------------------Bailey-----------------------------#
 
 if(method == "bailey"){
-rat <- (x/m)/(y/n)
-varhat <- ifelse((x == m) & (y == n),(1/(m-0.5)) - (1/(m)) + (1/(n-0.5)) - (1/(n)),(1/(x)) - (1/(m)) + (1/(y)) - (1/(n)))
+   rat <- (x/m)/(y/n)
+   varhat <- ifelse((x == m) & (y == n),(1/(m-0.5)) - (1/(m)) + (1/(n-0.5)) - (1/(n)),(1/(x)) - (1/(m)) + (1/(y)) - (1/(n)))
 
-p.hat1 <- x/m; p.hat2 <- y/n; 
-q.hat1 <- 1 - p.hat1; q.hat2 <- 1 - p.hat2 
+   p.hat1 <- x/m; p.hat2 <- y/n; 
+   q.hat1 <- 1 - p.hat1; q.hat2 <- 1 - p.hat2 
 
-if(x == 0 | y == 0){
-xn <- ifelse(x == 0, 0.5, x)
-yn <- ifelse(y == 0, 0.5, y)
-nrat <- (xn/m)/(yn/n)
-p.hat1 <- xn/m; p.hat2 <- yn/n; 
-q.hat1 <- 1 - p.hat1; q.hat2 <- 1 - p.hat2
-if(xn == m | yn == n){
-xn <- ifelse(xn == m, m - 0.5, xn)
-yn <- ifelse(yn == n, n - 0.5, yn)
-nrat <- (xn/m)/(yn/n)
-p.hat1 <- xn/m; p.hat2 <- yn/n; 
-q.hat1 <- 1 - p.hat1; q.hat2 <- 1 - p.hat2
-}
-}
+   if(x == 0 | y == 0){
+      xn <- ifelse(x == 0, 0.5, x)
+      yn <- ifelse(y == 0, 0.5, y)
+      nrat <- (xn/m)/(yn/n)
+      p.hat1 <- xn/m; p.hat2 <- yn/n; 
+      q.hat1 <- 1 - p.hat1; q.hat2 <- 1 - p.hat2
+      if(xn == m | yn == n){
+         xn <- ifelse(xn == m, m - 0.5, xn)
+         yn <- ifelse(yn == n, n - 0.5, yn)
+         nrat <- (xn/m)/(yn/n)
+         p.hat1 <- xn/m; p.hat2 <- yn/n; 
+         q.hat1 <- 1 - p.hat1; q.hat2 <- 1 - p.hat2
+      }
+   }
 
-if(x == 0 | y == 0){
-if(x == 0 & y == 0){
-rat <- Inf
-CIL = 0
-CIU = Inf
-}
-if(x == 0 & y != 0){
-CIL = 0
-CIU <- nrat * ((1+ z.star * sqrt((q.hat1/xn) + (q.hat2/yn) - (z.star^2 * q.hat1 * q.hat2)/(9 * xn * yn))/3)/((1 - (z.star^2 * q.hat2)/(9 * yn))))^3
-}
-if(y == 0 & x != 0){
-CIU = Inf                                                                                                                               
-CIL <- nrat * ((1- z.star * sqrt((q.hat1/xn) + (q.hat2/yn) - (z.star^2 * q.hat1 * q.hat2)/(9 * xn * yn))/3)/((1 - (z.star^2 * q.hat2)/(9 * yn))))^3 
-}
-} else if(x == m | y == n){
-xn <- ifelse(x == m, m - 0.5, x)
-yn <- ifelse(y == n, n - 0.5, y)
-nrat <- (xn/m)/(yn/n)
-p.hat1 <- xn/m; p.hat2 <- yn/n; 
-q.hat1 <- 1 - p.hat1; q.hat2 <- 1 - p.hat2
-CIL <- nrat * ((1- z.star * sqrt((q.hat1/xn) + (q.hat2/yn) - (z.star^2 * q.hat1 * q.hat2)/(9 * xn * yn))/3)/((1 - (z.star^2 * q.hat2)/(9 * yn))))^3 
-CIU <- nrat * ((1+ z.star * sqrt((q.hat1/xn) + (q.hat2/yn) - (z.star^2 * q.hat1 * q.hat2)/(9 * xn * yn))/3)/((1 - (z.star^2 * q.hat2)/(9 * yn))))^3 
-} else{
-CIL <- rat * ((1- z.star * sqrt((q.hat1/x) + (q.hat2/y) - (z.star^2 * q.hat1 * q.hat2)/(9 * x * y))/3)/((1 - (z.star^2 * q.hat2)/(9 * y))))^3 
-CIU <- rat * ((1+ z.star * sqrt((q.hat1/x) + (q.hat2/y) - (z.star^2 * q.hat1 * q.hat2)/(9 * x * y))/3)/((1 - (z.star^2 * q.hat2)/(9 * y))))^3 
-}
+   if(x == 0 | y == 0){
+      if(x == 0 & y == 0){
+         rat <- Inf
+         CIL <- 0
+         CIU <- Inf
+      }
+      if(x == 0 & y != 0){
+         CIL <- 0
+         CIU <- nrat * ((1+ z.star * sqrt((q.hat1/xn) + (q.hat2/yn) - (z.star^2 * q.hat1 * q.hat2)/(9 * xn * yn))/3)/((1 - (z.star^2 * q.hat2)/(9 * yn))))^3
+      }
+      if(y == 0 & x != 0){
+         CIU = Inf                                                                                                                               
+         CIL <- nrat * ((1- z.star * sqrt((q.hat1/xn) + (q.hat2/yn) - (z.star^2 * q.hat1 * q.hat2)/(9 * xn * yn))/3)/((1 - (z.star^2 * q.hat2)/(9 * yn))))^3 
+      } 
+   }else if(x == m | y == n){
+       xn <- ifelse(x == m, m - 0.5, x)
+       yn <- ifelse(y == n, n - 0.5, y)
+       nrat <- (xn/m)/(yn/n)
+       p.hat1 <- xn/m; p.hat2 <- yn/n; 
+       q.hat1 <- 1 - p.hat1; q.hat2 <- 1 - p.hat2
+       CIL <- nrat * ((1- z.star * sqrt((q.hat1/xn) + (q.hat2/yn) - (z.star^2 * q.hat1 * q.hat2)/(9 * xn * yn))/3)/((1 - (z.star^2 * q.hat2)/(9 * yn))))^3 
+       CIU <- nrat * ((1+ z.star * sqrt((q.hat1/xn) + (q.hat2/yn) - (z.star^2 * q.hat1 * q.hat2)/(9 * xn * yn))/3)/((1 - (z.star^2 * q.hat2)/(9 * yn))))^3 
+   }else{
+       CIL <- rat * ((1- z.star * sqrt((q.hat1/x) + (q.hat2/y) - (z.star^2 * q.hat1 * q.hat2)/(9 * x * y))/3)/((1 - (z.star^2 * q.hat2)/(9 * y))))^3 
+       CIU <- rat * ((1+ z.star * sqrt((q.hat1/x) + (q.hat2/y) - (z.star^2 * q.hat1 * q.hat2)/(9 * x * y))/3)/((1 - (z.star^2 * q.hat2)/(9 * y))))^3 
+   }
 CI <- c(rat, CIL, CIU)
 }
+
+#-------------------------- Boot ------------------------------#
+
+if(method == "boot"){
+rat <- (x/m)/(y/n)
+if((x == 0 & y == 0)|(x == 0 & y != 0)|(x != 0 & y == 0)){
+    if(x == 0 & y == 0) {CIL <- 0;  CIU <- Inf; rat = 0; varhat = NA}
+    if(x == 0 & y != 0) {CIL <- 0;  rat <- (x/m)/(y/n); x <- 0.5; nrat <- (x/m)/(y/n)
+    varhat <- (1/x) - (1/m) + (1/y) - (1/n)
+    CIU <- nrat * exp(z.star * sqrt(varhat))}
+    if(x != 0 & y == 0) {CIU <- Inf;  rat <- (x/m)/(y/n); y <- 0.5; nrat <- (x/m)/(y/n)
+    varhat <- (1/x) - (1/m) + (1/y) - (1/n)
+    CIL <- nrat * exp(-1 * z.star * sqrt(varhat))}
+    } else{
+num.data <- c(rep(1, x), rep(0, m - x))
+den.data <- c(rep(1, y), rep(0, n - y))
+nd <- matrix(ncol = R, nrow = m)
+dd <- matrix(ncol = R, nrow = n)
+brat <- 1:R
+	for(i in 1:R){
+		nd[,i] <- sample(num.data, m, replace = TRUE)
+		dd[,i] <- sample(den.data, n, replace = TRUE)
+		brat[i] <- (sum(nd[,i])/m)/(sum(dd[,i])/n)
+		}
+alpha <- 1 - conf
+CIU <- quantile(brat, 1 - alpha/2, na.rm = TRUE)
+CIL <- quantile(brat, alpha/2, na.rm = TRUE)
+varhat <- var(brat)
+}
+CI <- c(rat, CIL, CIU)
+}	
 
 #-------------------------- Katz-log ------------------------------#
 
@@ -317,28 +344,30 @@ res <- list(CI = CI, varhat = varhat)
 res
 }
 
-CI <- matrix(ncol = 3, nrow = r)
-vh <- rep(NA,r)
+CI <- matrix(ncol = 3, nrow = length(y1))
+vh <- rep(NA, length(y1))
 
-for(i in 1:r){
+for(i in 1 : length(y1)){
 temp <- ci.prat1(x = x[i], m = m[i], y = y[i], n = n[i], conf = conf, method = method, bonf = bonf)
 CI[i,] <- temp$CI
 vh[i] <- temp$varhat
 }
 
 CI <- data.frame(CI)
-if(r == 1) row.names(CI) <- ""
-head <- paste(paste(as.character(conf*100),"%",sep=""), c("Confidence interval for ratio of binomial proportions"))
+if(length(y1) == 1) row.names(CI) <- ""
+head <- paste(paste(as.character(oconf * 100),"%",sep=""), c("Confidence interval for ratio of binomial proportions"))
 if(method == "adj.log")head <- paste(head,"(method=adj-log)")
 if(method == "bailey")head <- paste(head,"(method=Bailey)") 
+if(method == "boot")head <- paste(head,"(method=percentile bootstrap)") 
 if(method == "katz.log")head <- paste(head,"(method=Katz-log)")
 if(method == "koopman")head <- paste(head,"(method=Koopman)")
 if(method == "noether")head <- paste(head,"(method=Noether)")
-if(method == "sinh")head <- paste(head,"(method=sinh-1)")
+if(method == "sinh")head <- paste(head,"(method=sinh^-1)")
 
-if(bonf == TRUE)head <- paste(head, "\n Bonferroni simultaneous intervals, r = ", bquote(.(r)), sep = "") 
+if(bonf == TRUE)head <- paste(head, "\n Bonferroni simultaneous intervals, r = ", bquote(.(r)), 
+"\n Marginal confidence = ", bquote(.(conf)), "\n", sep = "") 
 
-ends <- c("Estimate",paste(as.character(c((1-conf)/2,1-((1-conf)/2))*100),"%", sep=""))
+ends <- c("Estimate",paste(as.character(c((1-oconf)/2,1-((1-oconf)/2))*100),"%", sep=""))
 res <- list(varhat = vh, ci = CI, ends = ends, head = head)
 class(res) <- "ci"
 res

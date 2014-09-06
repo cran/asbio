@@ -5,12 +5,13 @@
 Chi-plots (Fisher and Switzer 1983, 2001) provide a method to diagnose multivariate 
 non-independence among \emph{Y} variables.
 }
-\usage{chi.plot(Y1, Y2)
+\usage{chi.plot(Y1, Y2, ...)
 }
 \arguments{
   \item{Y1}{A \emph{Y} variable of interest.  Must be quantitative vector.}
-  \item{Y2}{A second \emph{Y} variable of interest.  Must also be a quantitative vector.}}
-
+  \item{Y2}{A second \emph{Y} variable of interest.  Must also be a quantitative vector.}
+  \item{\dots}{Additional arguments from \code{\link{plot}}.} 
+}
 \details{The method relies on calculating all possible pairwise differences within \bold{y}\eqn{_1} and within \bold{y}\eqn{_2}. Let pairwise differences associated with the first observation in \bold{y}\eqn{_1} that are greater than zero be transformed to ones and all other differences be zeros.  Take the sum of the transformed values, and let this sum divided by (1 - \emph{n}) be be the first element in the 1 x \emph{n} vector \bold{z}.
 Find the rest of the elements (2,..,\emph{n}) in \bold{z} using the same process. 
 
@@ -42,12 +43,12 @@ Fisher, N. I, and Switzer, P. (1985)  Chi-plots for assessing dependence.  \emph
 Fisher, N. I., and Switzer, P.  (2001)  Graphical assessment of dependence: is a picture worth 100 tests?  
 \emph{The American Statistician}, 55: 233-239.
 }
-\author{Ken Aho}
+\author{Ken Aho and Tom Taverner (Tom provided modified original code to eliminate looping)}
 \seealso{\code{\link{bv.boxplot}}}
 \examples{
-Y1<-rnorm(100,15,2)
-Y2<-rnorm(100,18,3.2)
-chi.plot(Y1,Y2)
+Y1<-rnorm(100, 15, 2)
+Y2<-rnorm(100, 18, 3.2)
+chi.plot(Y1, Y2)
 }
 \keyword{graphs}
 \keyword{multivariate}

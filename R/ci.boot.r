@@ -1,7 +1,7 @@
 ci.boot <- function(x, method = "all", sigma.t = NULL, conf = 0.95){
+
 indices <- c("all", "norm", "basic", "perc", "BCa", "student")
 method <- match.arg(method, indices)
-
 
 mes <- NULL
 B <- x$dist 
@@ -47,9 +47,9 @@ pv <- pseudo.v(x$data, statistic = x$statistic)
 jk <- mean(pv[,1])
 a <- sum((jk - pv[,1])^3)/(6*((sum((jk - pv[,1])^2))^1.5))
 p <- length(sB[sB > est])/R
-z0 <- qnorm(1-p); z0 <- 0.1 
-zL <- (z0 - qnorm(1-alpha/2))/(1 - a*(z0 - qnorm(1-alpha/2)))+z0
+z0 <- qnorm(1 - p)
 zU <- (z0 - qnorm(alpha/2))/(1 - a*(z0 - qnorm(alpha/2)))+z0
+zL <- (z0 + qnorm(alpha/2))/(1 - a*(z0 + qnorm(alpha/2)))+z0
 pL <- pnorm(zL)
 pU <- pnorm(zU)
 uZ <- round(pL*R, 0)
@@ -80,7 +80,7 @@ else sci = c(NA, NA)
 head <- paste(conf*100,"%", " Bootstrap confidence interval(s)", sep = "")
 ends <-  c(paste(as.character(c((1 - conf)/2, 1 - ((1 - conf)/2)) * 100), "%", sep = ""))
 res <- matrix(nrow = 5, data=rbind(nci, bci, pci, bcci, sci), dimnames = list(c("Normal","Basic","Percentile", "BCa","Studentized"), ends))
-out <- list(head = head, res = res, mes = mes)
+out <- list(head = head, res = res, mes = mes, a = ifelse(method == "BCa"|method == "all", a, 0))
 class(out) <- "ciboot"
 out
 } 

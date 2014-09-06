@@ -6,6 +6,7 @@ n<-n0*lambda^time
 
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 lambda.lab<-bquote(paste(lambda,"=",.(lambda)))
+old.par <- par(no.readonly = TRUE)
 for(i in min(time):max(time)){
     dev.hold()
     par(mar=c(0,0,0,0))
@@ -21,6 +22,7 @@ for(i in min(time):max(time)){
  dev.flush()
  Sys.sleep(interval)
 }
+on.exit(par(old.par))
 }
 
 #--------------------------- Exponential Growth -------------------------#
@@ -41,6 +43,7 @@ out<-as.data.frame(rk4(xstart,time,func,pars))
 rmax.lab<-bquote(paste(r[max],"=",.(pr$rmax)))
 
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
+old.par <- par(no.readonly = TRUE)
 for(i in min(time):max(time)){
     dev.hold()
     par(mar=c(0,0,0,0))
@@ -56,6 +59,7 @@ for(i in min(time):max(time)){
  dev.flush()
  Sys.sleep(interval)
 }
+on.exit(par(old.par))
 }
 
 #--------------------------- Logistic Growth -------------------------#
@@ -75,7 +79,7 @@ func<-function(time=time,xstart=xstart,pars=pars){
 out<-as.data.frame(rk4(xstart,time,func,pars))
 rmax.lab<-bquote(paste(r[max],"=",.(pr$rmax)))
 K.lab<-bquote(paste(K,"=",.(pr$K)))
-
+old.par <- par(no.readonly = TRUE)
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){
     dev.hold()
@@ -92,5 +96,6 @@ for(i in min(time):max(time)){
  dev.flush()
  Sys.sleep(interval)
 }
+on.exit(par(old.par))
 }
 

@@ -60,7 +60,7 @@ The function \code{pairw.anova} and the confidence interval functions it calls r
 
 4) the upper confidence bound of the true mean difference, 
 
-5) the hypothesis decision rule given the prescribed significance level, and 
+5) the hypothesis decision, given the prescribed significance level, and 
 
 6) the adjusted \emph{P}-value.
 
@@ -69,7 +69,7 @@ Other \code{invisible} objects include:
   \item{conf}{The confidence level.}
   \item{band}{A two column matrix containing the lower and upper confidence bounds.}
 
-The \code{pairw} class also has a utility function \code{\link{plot.pairw}} which provides a plot of confidence intervals for the true difference of each comparison.  
+The \code{pairw} class also has a utility function \code{\link{plot.pairw}} which provides either a barplot of location measures with errors and letters indicating whether true effects are significant and the defined significance level (argument \code{type = 1}) or confidence intervals for the true difference of each comparison (argument \code{type = 2}).  See code below and and \code{\link{plot.pairw}} for examples.    
 }
 \references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and Li., W  (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston.
 }
@@ -80,20 +80,23 @@ The \code{pairw} class also has a utility function \code{\link{plot.pairw}} whic
 eggs<-c(11,17,16,14,15,12,10,15,19,11,23,20,18,17,27,33,22,26,28)
 trt<-as.factor(c(1,1,1,1,1,2,2,2,2,2,3,3,3,3,4,4,4,4,4))
 
-pairw.anova(y=eggs,x=trt,method="lsd")##LSD method
-pairw.anova(y=eggs,x=trt,method="bonf")##Bonferroni
-pairw.anova(y=eggs,x=trt,method="scheffe")##Sheffe
-pairw.anova(y=eggs,x=trt,method="tukey")##Tukey HSD
+pairw.anova(y = eggs, x = trt, method = "lsd")##LSD method
+pairw.anova(y = eggs, x = trt, method = "bonf")##Bonferroni
+pairw.anova(y = eggs, x = trt, method = "scheffe")##Sheffe
+tukey <- pairw.anova(y = eggs, x = trt, method = "tukey")##Tukey HSD
+
+plot(tukey)
+#you can also try plot(tukey, type = 2)
 
 blood.count <- data.frame(bc=c(7.4,8.5,7.2,8.24,9.84,8.32,9.76,8.8,
 7.68,9.36,12.8,9.68,12.16,9.2,10.55), trt=c(rep("C",6),rep("A",4),rep("B",5)))
 with(blood.count,pairw.anova(y=bc,x=trt,control="C",method="dunnett"))##Dunnett
 
-scheffe.cont(y=eggs,x=trt,lvl=c(1,3)) 
-scheffe.cont(y=eggs,x=trt,lvl=c(1,2))
+scheffe.cont(y = eggs, x = trt, lvl = c(1, 3)) 
+scheffe.cont(y = eggs, x = trt, lvl = c(1,2))
 
-bonf.cont(y=eggs,x=trt,lvl=c(1,3), comps = 2) 
-bonf.cont(y=eggs,x=trt,lvl=c(1,2), comps = 2) 
+bonf.cont(y = eggs, x = trt, lvl = c(1,3), comps = 2) 
+bonf.cont(y = eggs, x=trt, lvl = c(1,2), comps = 2) 
 }
 
 \keyword{univar}

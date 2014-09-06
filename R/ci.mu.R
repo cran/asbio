@@ -1,4 +1,4 @@
-ci.mu.t<-function(data,conf=.95,summarized=FALSE,xbar=NULL,st.dev=NULL,fpc=FALSE,N=NULL,n=NULL){
+ci.mu.t<-function(data,conf=.95,summarized=FALSE,xbar=NULL,sd=NULL,fpc=FALSE,N=NULL,n=NULL){
 
 if(summarized==FALSE){
 n<-nrow(as.matrix(data))
@@ -10,7 +10,7 @@ CI<-c(mean(data),mean(data)-m,mean(data)+m)
 
 if(summarized==TRUE){
 t.star<-qt((1-((1-conf)/2)),n-1)
-Var.Xbar<-ifelse(fpc==FALSE,st.dev^2/n,(1-(n/N))*(st.dev^2/n))
+Var.Xbar<-ifelse(fpc==FALSE,sd^2/n,(1-(n/N))*(sd^2/n))
 m<-sqrt(Var.Xbar)*t.star
 CI<-c(xbar,xbar-m,xbar+m)
 }

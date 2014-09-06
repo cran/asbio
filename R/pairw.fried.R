@@ -1,4 +1,4 @@
-pairw.fried<-function(y,x,blocks,nblocks,conf=.95)
+pairw.fried<-function(y, x, blocks, nblocks, conf = 0.95)
 {block.ranks<-matrix(ncol=nlevels(x),nrow=nblocks)
 for(i in 1:nblocks){
 block.ranks[i,]<-rank(y[blocks==i])
@@ -7,7 +7,7 @@ mean.ranks<-apply(block.ranks,2,mean)
 
 R1<-tapply(y,x,length)
 r<-length(R1)
-
+fitted<- tapply(y, x, median)
 dif.mat<-outer(mean.ranks,mean.ranks,"-")
 diffs<-dif.mat[upper.tri(dif.mat)]
 
@@ -33,7 +33,11 @@ comp <- outer(levels(x),levels(x),function(x1,x2){paste(x1, x2, sep="-")})
 res$comp <- comp[upper.tri(comp)]
 res$summary <- val
 res$band <- cbind(diffs-hwidths, diffs+hwidths)
+res$fitted <- fitted
 res$mean.rank.in.blocks<-mr
+res$method <- "mBonferroni"
+res$x <- x
+res$y <- y
 class(res)<-"pairw"
 res
 }

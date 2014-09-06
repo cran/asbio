@@ -35,7 +35,7 @@ Additional arguments from \code{\link{plot}}.
 Preston (1948) proposed that after a log\eqn{_2} transformation species abundances, grouped in bins representing 
 a doubling of abundance (octaves), would be normally distributed.  Thus, after this transformation most 
 species in a sample would have intermediate abundance, and there would be relatively few rare or ubiquitous species.  
-The Preston model is based on the Gaussian function: \eqn{n = n_0 \times e^{-aR^2}}, where, \emph{n}0 is the 
+The Preston model is based on the Gaussian function: \eqn{n = n_0 \times e^{-aR^2}}, where, \eqn{n_0} is the 
 number of species contained in the modal octave, \emph{n} is the number of species contained in an octave \emph{R} 
 octaves from the modal octave, and \emph{a} is an unknown parameter.  The parameter \emph{a} is estimated using the function 
 \code{\link{nls}}, using a starting value, 0.2, recommended by Preston.  The area under Preston curve provides an 

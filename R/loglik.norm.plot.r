@@ -2,6 +2,7 @@ loglik.norm.plot <- function (X, parameter = c("mu", "sigma.sq"), poss = NULL, p
     plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
     conv = 0.01, anim = TRUE, est.col = 2, density.leg = TRUE, cex.leg = 0.9, interval = 0.01, ...) 
 {
+    old.par <- par(no.readonly = TRUE)
     possibilities <- poss
     Var.MLE <- function(e.i) sum((e.i - mean(e.i))^2)/length(e.i)
     if (is.null(poss)) {
@@ -157,4 +158,5 @@ loglik.norm.plot <- function (X, parameter = c("mu", "sigma.sq"), poss = NULL, p
             }
         }
     }
+on.exit(par(old.par))
 }

@@ -1,5 +1,9 @@
-bv.boxplot<-function(X,Y,robust=TRUE,D=7,xlab="X",ylab="Y"){
-
+bv.boxplot<-function(X, Y, robust=TRUE, D = 7, xlab="X", ylab="Y", pch = 21, 
+pch.out = NULL, bg = "gray", bg.out = NULL, hinge.col = 1, fence.col = 1, 
+hinge.lty = 2, fence.lty = 3, xlim = NULL, ylim = NULL, names = 1:length(X), 
+ID.out = FALSE, cex.ID.out = 0.7, uni.CI = FALSE, uni.conf = 0.95, 
+uni.CI.col = 1, uni.CI.lty = 1, uni.CI.lwd = 2, ...){
+if(length(X) != length(Y)) stop("X and Y must have equal length")
 biweight<-function(a,const1=9,const2=36,err=0.0001){ ###From Everitt (2004)
               x<-a[,1]
               y<-a[,2]
@@ -101,49 +105,49 @@ biweight<-function(a,const1=9,const2=36,err=0.0001){ ###From Everitt (2004)
             param
 }
 
-if(robust==TRUE){
-bw<-biweight(cbind(X,Y))
-R<-bw[5]
-S.X<-bw[3]
-S.Y<-bw[4]
-X.loc<-bw[1]
-Y.loc<-bw[2]
+if(robust == TRUE){
+bw <- biweight(cbind(X,Y))
+R <- bw[5]
+S.X <- bw[3]
+S.Y <- bw[4]
+X.loc <- bw[1]
+Y.loc <- bw[2]
 }
-if(robust==FALSE){
-R<-cor(X,Y)
-S.X<-sd(X)
-S.Y<-sd(Y)
-X.loc<-mean(X)
-Y.loc<-mean(Y)
+if(robust == FALSE){
+R <- cor(X, Y)
+S.X <- sd(X)
+S.Y <- sd(Y)
+X.loc <- mean(X)
+Y.loc <- mean(Y)
 }
-X.stan<-(X-X.loc)/S.X
-Y.stan<-(Y-Y.loc)/S.Y
+X.stan <-(X - X.loc)/S.X
+Y.stan <-(Y - Y.loc)/S.Y
 
-E.i<-sqrt((X.stan^2+Y.stan^2-2*R*X.stan*Y.stan)/(1-R^2))
-E.m<-median(E.i)
-E.max<-max(E.i[E.i^2 < D * E.m^2])
+E.i <- sqrt((X.stan^2 + Y.stan^2 - 2 * R * X.stan * Y.stan)/(1 - R^2))
+E.m <- median(E.i)
+E.max <- max(E.i[E.i^2 < D * E.m^2])
 
 #Fence
-R1f<-E.max*sqrt((1+R)/2)
-R2f<-E.max*sqrt((1-R)/2)
-theta<-seq(2,360,by=2)
-theta.rad<-(theta*pi)/180
-Theta1<-R1f*cos(theta.rad)
-Theta2<-R2f*sin(theta.rad)
-X.pf<-X.loc+(Theta1+Theta2)*S.X
-Y.pf<-Y.loc+(Theta1-Theta2)*S.Y
+R1f <- E.max * sqrt((1 + R)/2)
+R2f <- E.max * sqrt((1 - R)/2)
+theta <- seq(2, 360, by = 2)
+theta.rad <-(theta * pi)/180
+Theta1 <- R1f * cos(theta.rad)
+Theta2 <- R2f * sin(theta.rad)
+X.pf <- X.loc + (Theta1 + Theta2) * S.X
+Y.pf <- Y.loc + (Theta1 - Theta2) * S.Y
 
 #Hinge
-R1<-E.m*sqrt((1+R)/2)
-R2<-E.m*sqrt((1-R)/2)
-Theta1<-R1*cos(theta.rad)
-Theta2<-R2*sin(theta.rad)
-X.p<-X.loc+(Theta1+Theta2)*S.X
-Y.p<-Y.loc+(Theta1-Theta2)*S.Y
+R1 <- E.m * sqrt((1 + R)/2)
+R2 <- E.m * sqrt((1 - R)/2)
+Theta1 <- R1 * cos(theta.rad)
+Theta2 <- R2 * sin(theta.rad)
+X.p <- X.loc + (Theta1 + Theta2) * S.X
+Y.p <- Y.loc + (Theta1 - Theta2) * S.Y
 
 
-fmmx<-c(min(X.pf),max(X.pf))
-fmmy<-c(min(Y.pf),max(Y.pf))
+fmmx <- c(min(X.pf), max(X.pf))
+fmmy <- c(min(Y.pf), max(Y.pf))
 
 b1 <- (R * S.Y)/S.X
 a1 <- Y.loc - b1 * X.loc
@@ -153,16 +157,45 @@ b2 <- (R * S.X)/S.Y
 a2 <- X.loc - b2 * Y.loc
 X1 <- a2 + b2 * min(fmmy)
 X2 <- a2 + b2 * max(fmmy)
-maxx <- max(c(max(X), max(fmmx),X1, X2))
-minx <- min(c(min(X), min(fmmx),X1, X2))
-maxy <- max(c(max(Y), max(fmmy),Y1, Y2))
-miny <- min(c(min(Y), min(fmmy),Y1, Y2))
+maxx <- max(c(max(X), max(fmmx), X1, X2))
+minx <- min(c(min(X), min(fmmx), X1, X2))
+maxy <- max(c(max(Y), max(fmmy), Y1, Y2))
+miny <- min(c(min(Y), min(fmmy), Y1, Y2))
+if(is.null(xlim)) xlim <- c(minx, maxx) 
+if(is.null(ylim)) ylim <- c(miny, maxy)
+plot(X, Y,  xlab = xlab, ylab = ylab, type = "n", xlim = xlim, ylim = ylim)
+lines(X.pf, Y.pf, lty = fence.lty, col = fence.col)
+lines(X.p, Y.p, lty = hinge.lty, col = hinge.col)
+segments(min(fmmx), Y1, max(fmmx), Y2, lty = 1)
+segments(X1, min(fmmy), X2, max(fmmy), lty = 1)
 
-plot(X,Y,xlim=c(minx,maxx),ylim=c(miny,maxy),xlab=xlab,ylab=ylab)
-lines(X.pf,Y.pf,lty=3)
-lines(X.p,Y.p,lty=2)
-segments(min(fmmx), Y1, max(fmmx),Y2,lty=1)
-segments(X1,min(fmmy),X2,max(fmmy),lty=1)
-points(X,Y,pch=21,bg="gray")
+#------- Outlier ID ---------------#
+bool <- ifelse(E.i > E.max, "out", "in")
+
+if(is.null(pch.out)) pch.out <- pch
+if(is.null(bg.out)) bg.out <- bg
+pch <- ifelse(bool == "in", pch, pch.out)
+bg <- ifelse(bool == "in", bg, bg.out)
+
+points(X, Y, pch = pch, bg = bg, ...)
+
+outl <- data.frame(X = X, Y = Y)[bool == "out",] 
+if(ID.out == TRUE){pos <- 2; if(nrow(outl) > 2) pos <-  thigmophobe(outl$X,outl$Y)
+text(outl$X, outl$Y, row.names(outl), pos = pos, cex = cex.ID.out)}
+
+if(uni.CI == TRUE){
+cX <- ci.median(X, conf = uni.conf)$ci
+cY <- ci.median(Y, conf = uni.conf)$ci
+yjust <- abs(par("usr")[1]-par("usr")[2])*.02
+xjust <- abs(par("usr")[3]-par("usr")[4])*.02
+segments(par("usr")[1]+yjust,cY[2], par("usr")[1]+yjust,cY[3],lwd=uni.CI.lwd, lty = uni.CI.lty, col = uni.CI.col)
+segments(cX[2],par("usr")[3]+xjust,cX[3], par("usr")[3]+xjust,lwd=uni.CI.lwd, lty = uni.CI.lty, col = uni.CI.col)
+segments(par("usr")[1]+(.5*yjust),cY[2],par("usr")[1]+(yjust+.5*yjust),cY[2],lwd=uni.CI.lwd, lty = uni.CI.lty, col = uni.CI.col)
+segments(par("usr")[1]+(.5*yjust),cY[3],par("usr")[1]+(yjust+.5*yjust),cY[3],lwd=uni.CI.lwd, lty = uni.CI.lty, col = uni.CI.col)
+segments(cX[2],par("usr")[3]+(.5*xjust), cX[2],par("usr")[3]+(xjust+.5*xjust), lwd=uni.CI.lwd, lty = uni.CI.lty, col = uni.CI.col)
+segments(cX[3],par("usr")[3]+(.5*xjust), cX[3],par("usr")[3]+(xjust+.5*xjust), lwd=uni.CI.lwd, lty = uni.CI.lty, col = uni.CI.col)
+}
+invisible(list(centroid = c(X.loc, Y.loc), scale = c(S.X, S.Y), correlation = R, E.median = E.m, E.max = E.max, outliers = outl))
 }
 
+ 

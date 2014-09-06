@@ -4,12 +4,12 @@
 Barplots with error bars for pairwise comparisons.
 }
 \description{
-Creates barplots for displaying statistical summaries by treatment (e.g. means, medians, \emph{M}-estimates of location, standard deviation, variance, etc.)and 
+Creates barplots for displaying statistical summaries by treatment (e.g. means, medians, \emph{M}-estimates of location, standard deviation, variance, etc.) and 
 their error estimates by treatment (i.e. standard errors, confidence intervals, \emph{IQR}s, \emph{IQR} confidence intervals, and \emph{MAD} intervals). Custom intervals can also be created.  
 The function can also display letters indicating if results are significant after adjustment for simultaneous inference.
 }
 \usage{
-bplot(y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "SE",
+bplot(y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = NULL, int = "SE",
  conf = 0.95, uiw = NULL, liw = NULL, sfrac = 0.1, slty = 1, scol = 1,
  slwd = 1, exp.fact = 1.5, simlett = FALSE, lett.side = 3, lett = NULL,
  cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, ...)
@@ -20,8 +20,9 @@ bplot(y, x, bar.col = "gray", loc.meas = mean, order = FALSE, int = "SE",
   \item{x}{A categorical vector representing treatments (e.g. factor levels).}
   \item{bar.col}{Color of bar.}
   \item{loc.meas}{Measure of location or other summary statistic, e.g. mean, median, etc.}
-  \item{order}{Logical, if \code{TRUE}, then treatments are ordered by their location statistics.}
-  \item{int}{Type of error bar to be drawn, must be one of \code{"SE"}, \code{"CI"}, \code{\link{IQR}}, \code{"MAD"}, or \code{"IQR.CI"}.  IQR-derived confidence intervals are based on +/-1.58 IQR/sqrt(n) and provide an approximate 95\% confidence interval for the difference in two medians.  The measure can be attributed to Chambers et al. (1983, p. 62), given McGill et al. (1978, p. 16). It is based on asymptotic normality of the median and assumes roughly equal sample sizes for the two medians being compared.  The interval is apparently insensitive to the underlying distributions of the samples. }
+  \item{sort}{Logical, if \code{TRUE}, then treatments are ordered by their location statistics.}
+  \item{order}{A vector of length equal to the number of factor levels, specifying the order of bars with respect to the alphanumeric order of their names.}
+  \item{int}{Type of error bar to be drawn, must be one of \code{"SE"}, \code{"CI"}, \code{\link{IQR}}, \code{"MAD"}, \code{"IQR.CI"} or \code{"bootSE"}.  IQR-derived confidence intervals are based on +/-1.58 IQR/sqrt(n) and provide an approximate 95\% confidence interval for the difference in two medians.  The measure can be attributed to Chambers et al. (1983, p. 62), given McGill et al. (1978, p. 16). It is based on asymptotic normality of the median and assumes roughly equal sample sizes for the two medians being compared.  The interval is apparently insensitive to the underlying distributions of the samples. The specification \code{"bootSE"} gives bootstrap SEs for the location measure using the function \code{\link{bootstrap}}}
   \item{conf}{Level of confidence, 1 - \emph{P}(type I error).}
   \item{uiw}{Upper \emph{y}-coordinate for the error bar, if \code{NULL} then this will be computed from \code{int}.} 
   \item{liw}{Lower \emph{y}-coordinate for the error bar, if \code{NULL} then this will be computed from \code{int}.}  
@@ -46,8 +47,10 @@ It is often desirable to display the results of a pairwise comparison procedure 
 A plot is returned.
 }
 \author{Ken Aho}
-\seealso{\code{\link{barplot}}}
-\references{Chambers, J. M., Cleveland, W. S., Kleiner, B. and Tukey, P. A. (1983) \emph{Graphical Methods for Data Analysis}. Wadsworth & Brooks/Cole.
+\seealso{\code{\link{barplot}}, \code{\link{pairw.anova}}, \code{\link{pairw.kw}}, \code{\link{pairw.fried}}}
+\references{
+Chambers, J. M., Cleveland, W. S., Kleiner, B. and Tukey, P. A. (1983) \emph{Graphical Methods for Data Analysis}. Wadsworth & Brooks/Cole.
+
 McGill, R., Tukey, J. W. and Larsen, W. A. (1978) Variations of box plots. \emph{The American Statistician} 32, 12-16.}  
 \examples{
 eggs<-c(11,17,16,14,15,12,10,15,19,11,23,20,18,17,27,33,22,26,28)

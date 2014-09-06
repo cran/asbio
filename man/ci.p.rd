@@ -60,8 +60,7 @@ This method has also been called the Wald confidence interval.
 These estimators can create extremely inaccurate confidence intervals, particulary for small sample sizes or when \eqn{\pi} is near 0 or 1 (Agresti 2012).  A better method is to 
 invert the Wald binomial test statistic and vary values for \eqn{\pi_0} in the test statistic numerator and standard error.  The interval consists of values of \eqn{\pi_0} 
 in which result in a failure to reject H\eqn{_0} at \eqn{\alpha}. Bounds can be obtained by finding the roots of a quadratic expansion of the binomial likelihood function (See Agresti 2012).
-This has been called a "score" confidence interval (Agresti 2012).  An simple approximation to this method can be obtaianed by adding the number two to the number of successes and failures (Agresti and Coull 1998).  The 
-resulting Agresti-Coull estimators for \eqn{\pi} and \eqn{\sigma_{\hat{\pi}}} are:
+This has been called a "score" confidence interval (Agresti 2012).  An simple approximation to this method can be obtained by adding the number two to the number of successes and failures (Agresti and Coull 1998).  The resulting Agresti-Coull estimators for \eqn{\pi} and \eqn{\sigma_{\hat{\pi}}} are:
 
 \deqn{\hat{\pi}=\frac{x+2}{n+4},}
 \deqn{\sigma_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n+4}}}

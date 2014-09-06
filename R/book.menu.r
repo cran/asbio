@@ -29,8 +29,8 @@ book.menu <- function ()
 
 # Self test questions
 	
-  questions1 <- tkmenu(topMenu, tearoff = FALSE)
-  questions2 <- tkmenu(topMenu, tearoff = FALSE)
+     questions1 <- tkmenu(topMenu, tearoff = FALSE)
+     questions2 <- tkmenu(topMenu, tearoff = FALSE)
 	questions3 <- tkmenu(topMenu, tearoff = FALSE)
 	questions4 <- tkmenu(topMenu, tearoff = FALSE)
 	questions5 <- tkmenu(topMenu, tearoff = FALSE)
@@ -78,6 +78,7 @@ book.menu <- function ()
 # Chapter 4
 
   tkadd(Ch4, "cascade", label = "Self-test questions", menu = questions4) #Names question menus
+     tkadd(questions4, "command", label = "Statistics and inference", command = substitute(selftest.stats.tck1())) # Ch 4 question
 	tkadd(Ch4, "command", label = "Cognitive illusions", command = substitute(example(illusions))) # Ch 4
 	tkadd(Ch4, "command", label = "Least squares", command = substitute(anm.ls.tck())) # Ch 4
 	tkadd(Ch4, "command", label = "Log-likelihood", command = substitute(anm.loglik.tck())) # Ch 4

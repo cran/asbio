@@ -1,6 +1,7 @@
-pairw.kw <- function (y, x, conf)
+pairw.kw <- function (y, x, conf = 0.95)
 {
     ranks <- rank(y)
+    fitted <- tapply(y, x, median)
     ni <- tapply(ranks, x, length)
     N <- length(ranks)
     r <- length(ni)
@@ -36,7 +37,7 @@ pairw.kw <- function (y, x, conf)
     })
     dimnames(val) <- list(lvl[upper.tri(lvl)], c("Diff", "Lower",
         "Upper", "Decision", "Adj. P-value"))
-   head<-paste(paste(as.character(conf*100),"%",sep=""),c("Confidence intervals for Kruskal-Wallis comparisons"))
+   head <- paste(paste(as.character(conf*100),"%",sep=""),c("Confidence intervals for Kruskal-Wallis comparisons"))
    ###
    res <- list()
    res$head <- head
@@ -45,6 +46,10 @@ pairw.kw <- function (y, x, conf)
    res$comp <- comp[upper.tri(comp)]
    res$summary <- val
    res$band <- cbind(diffs-hwidths, diffs+hwidths)
+   res$fitted <- fitted
+   res$x <- x
+   res$y <- y
+   res$method <- "kBonferroni"
    class(res)<-"pairw"
    res
     }

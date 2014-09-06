@@ -68,7 +68,9 @@ x<-seq(-4, 4, .05)
 g<-expand.grid(x, x)
 p<-dmvnorm(g, mu, sigma)
 dev.new(xpos = -750)
+old.par <- par(no.readonly = TRUE)
 par(mar=c(5,4.5,3,2))
+
 plot(g, type = "p", col = gray(1-(p/max(p))), xlab = expression(italic(X)[1]), ylab = expression(italic(X)[2]), main = "Underlying BVN distribution",...)
 dev.new()
 par(mar=c(5,4.5,3,2))
@@ -138,5 +140,6 @@ if(sim == "MH")
         dev.flush()
         Sys.sleep(interval)
         }
+on.exit(par(old.par))        
 }
                                                                                                                                             

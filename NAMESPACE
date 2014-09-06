@@ -7,8 +7,9 @@ exportPattern(".")
 importFrom(scatterplot3d, scatterplot3d)
 importFrom(mvtnorm, dmvnorm, rmvnorm, qmvt) 
 importFrom(lattice, wireframe)
-importFrom(deSolve,rk4)
-importFrom(plotrix,draw.circle,staxlab)
+importFrom(deSolve, rk4)
+importFrom(plotrix, draw.circle, staxlab, thigmophobe)
+importFrom(multcompView, multcompLetters)
 import(
   tcltk,
   tkrplot,

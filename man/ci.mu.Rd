@@ -11,7 +11,7 @@ These functions calculate \emph{t} and \emph{z} confidence intervals for \eqn{\m
 ci.mu.z(data, conf = 0.95, sigma = 1, summarized = FALSE, xbar = NULL,
 fpc = FALSE, N = NULL, n = NULL)
 
-ci.mu.t(data, conf = 0.95, summarized = FALSE, xbar = NULL, st.dev = NULL, 
+ci.mu.t(data, conf = 0.95, summarized = FALSE, xbar = NULL, sd = NULL, 
 fpc = FALSE, N = NULL, n = NULL)
 }
 \arguments{
@@ -22,7 +22,7 @@ fpc = FALSE, N = NULL, n = NULL)
   \item{xbar}{The sample mean.  Required if \code{summarized = TRUE}.}
   \item{fpc}{A logical statement specifying whether a finite population correction should be made.  If \code{fpc = TRUE} then both the sample size \code{n} and the population size \code{N} must be specified.}
   \item{N}{The population size.  Required if \code{fpc=TRUE}}
-  \item{st.dev}{The sample standard deviation.  Required if \code{summarized=TRUE}.}
+  \item{sd}{The sample standard deviation.  Required if \code{summarized=TRUE}.}
   \item{n}{The sample size.  Required if \code{summarized = TRUE}.}
 }
 \details{\code{ci.mu.z} and \code{ci.mu.t} calculate confidence intervals for either summarized data or a 
@@ -42,10 +42,10 @@ ci.mu.z(x,conf=.95,sigma=4,summarized=FALSE)
 ci.mu.t(x,conf=.95,summarized=FALSE)
 #With summarized = TRUE
 ci.mu.z(x,conf=.95,sigma=4,xbar=14.6,n=25,summarized=TRUE)
-ci.mu.t(x,conf=.95,st.dev=4,xbar=14.6,n=25,summarized=TRUE)
+ci.mu.t(x,conf=.95,sd=4,xbar=14.6,n=25,summarized=TRUE)
 #with finite population correction and summarized = TRUE
 ci.mu.z(x,conf=.95,sigma=4,xbar=14.6,n=25,summarized=TRUE,fpc=TRUE,N=100)
-ci.mu.t(x,conf=.95,st.dev=4,xbar=14.6,n=25,summarized=TRUE,fpc=TRUE,N=100)
+ci.mu.t(x,conf=.95,sd=4,xbar=14.6,n=25,summarized=TRUE,fpc=TRUE,N=100)
 }
 \keyword{univar}
 \keyword{htest}

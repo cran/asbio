@@ -1,7 +1,7 @@
 \name{HL.mean}
 \alias{HL.mean}
 \title{Hodges-Lehman estimator of location}
-\description{Calculates the Hodges-Lehman estimate of location, which are consistent for the true pseudomedian, using Walsh averages (Hollander and Wolfe 1999, pgs. 51-55), and if specified, provides confidence intervals for the true pseudomedian.  In a symmetric distribution the median and pseudomedian will be identical.}
+\description{Calculates the Hodges-Lehman estimate of location --which is consistent for the true pseudomedian-- using Walsh averages (Hollander and Wolfe 1999, pgs. 51-55). If requested, the function also provides confidence intervals for the true pseudomedian.  In a symmetric distribution the mean, median, and pseudomedian will be identical.}
 \usage{HL.mean(x, conf = NULL, method = "exact")}
 \arguments{
   \item{x}{A vector of quantitative data.}

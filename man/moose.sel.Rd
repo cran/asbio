@@ -3,6 +3,7 @@
 \alias{quail.sel}
 \alias{elk.sel}
 \alias{bighorn.sel}
+\alias{bighornAZ.sel}
 \alias{moose.sel}
 \alias{juniper.sel}
 \docType{data}
@@ -10,9 +11,17 @@
 Datasets for resource use and availability
 }
 \description{
-A collection of datasets which can be used to calculate and compare selection ratios
+A collection of datasets which can be used to calculate and compare selection ratios. Datasets are: \code{goat.sel, quail.sel, elk.sel, bighorn.sel, bighornAZ.sel, juniper.sel} and are described (briefly) in Manly et al. (2002) and Aho and Bowyer (in review).
 }
-\usage{data(moose.sel)}
+\usage{data(moose.sel)
+data(goat.sel)
+data(quail.sel)
+data(elk.sel)
+data(bighorn.sel)
+data(bighornAZ.sel)
+data(juniper.sel)
+}
+
 \format{
   Dataframes with observations on the following variables.
   \describe{
@@ -27,6 +36,8 @@ A collection of datasets which can be used to calculate and compare selection ra
 \source{
 Manly BF, McDonald LL, Thomas DL, McDonald TL, Erickson WP (2002) \emph{Resource Selection by Animals: Statistical Design and Analysis for Field Studies.  2nd  edn}.  Kluwer, New York
 }
+\references{
+Aho, K and Bowyer, T (in review) Confidence intervals for ratios of multinomial proportions: Implications for selection ratios.  \emph{Methods in eclogy and Evolution}.  }
 \keyword{datasets}
 
 

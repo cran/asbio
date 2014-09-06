@@ -41,7 +41,7 @@ X-axis label.  By default this is defined as the categiries in the first explana
 Legend title.  By default the conditioning variable name.
 }
   \item{leg.loc}{
-Legend location.  A \code{legend} keyword; \code{"bottomright", "bottom", "bottomleft", "left", "topleft", "top", "topright", "right"} or \code{"center"}. 
+Legend location.  A \code{legend} keyword; \code{"bottomright", "bottom", "bottomleft", "left", "topleft",}\code{"top", "topright", "right"} or \code{"center"}. 
 }
   \item{show.mname}{ Logical, indcating whether or not the words "Marginal prop" should printed in the graph above the dotted line indicating marginal proportions. 
 }

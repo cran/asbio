@@ -8,6 +8,7 @@ Sys.sleep(interval)
 }
                                                                                                                    
 samp.design<-function(n=20, main = "", lwd = 2, lcol = 2){
+old.par <- par(no.readonly = TRUE)
 plotSamp<-function(n=n,type=type, main=main, lwd = lwd, lcol = lcol){
 plot(seq(1,19),seq(1,19),xaxt="n",yaxt="n",xlab="",ylab="",type="n",xlim=c(0.5,19.5),ylim=c(0.5,19.5),main=main)
 
@@ -84,6 +85,7 @@ segments(0,10,20,10,col=lcol,lwd=lwd)
 }
 
 ##random sampling using all three designs
+
 par(mfrow=c(2,2),mar=c(0.5,1.5,2,0.5))
 plot(seq(1,19),seq(1,19),xaxt="n",yaxt="n",xlab="",ylab="",type="n",xlim=c(0.5,19.5),ylim=c(0.5,19.5),main="Sample population")
 segments(seq(0,20),rep(0,20),seq(0,20),rep(20,10),col="gray")
@@ -91,4 +93,5 @@ segments(rep(0,20),seq(0,20),rep(20,20),seq(0,20),col="gray")
 plotSamp(n,"SRS",main="Simple random sampling", lwd = lwd, lcol = lcol)
 plotSamp(n,"strat",main="Stratified random sampling", lwd = lwd, lcol = lcol)
 plotSamp(n,"clust",main="Cluster sampling", lwd = lwd, lcol = lcol)
+on.exit(par(old.par))
 }

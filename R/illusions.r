@@ -1,4 +1,5 @@
 illusions<-function(ill.no=1) {
+old.par <- par(no.readonly = TRUE)
 if(ill.no==1){
 #Illusion#1
 par(mar = c(5,0,4,0))
@@ -39,4 +40,6 @@ points(rep(x, each=10), rep(y, 10), col = "white",
 cex = 3, pch = 20)
 par(op)
 print("Code for this illusion follow from Yihui Xie's package animation")
-}}
+}
+on.exit(par(old.par))
+}

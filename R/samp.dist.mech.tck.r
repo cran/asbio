@@ -38,8 +38,10 @@ desc3 <- tklabel(tt, text = "n = 10", font=c("Helvetica","12","normal"))
 
 g1 <- read.pnm(system.file("pictures/goat3.pgm", package="asbio"))
 f <- function(){
+old.par <- par(no.readonly = TRUE)
 par(mar = c(0,2,0,2))
 plot(g1)
+old.par <- par(no.readonly = TRUE)
 }
 
 submit.but <- tkbutton(tt, text="Submit", command=function()tclvalue(done)<-0)
