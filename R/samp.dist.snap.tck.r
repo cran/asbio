@@ -287,7 +287,7 @@ if(statc == "H-L estimator"){
       }
       
 if(statc == "MAD"){
-      require(MASS)
+
       Biv.parent<-tclVar("NULL")
       Parent1<-tclVar("expression(rnorm(s.size))")
       Parent2<-tclVar("NULL")

@@ -319,10 +319,10 @@ if(method == "sinh-1"){
 
 if((x == 0 & y == 0)|(x == 0 & y != 0)|(x != 0 & y == 0)|(x == m & y == n)){
     if(x == 0 & y == 0) {CIL <- 0;  CIU <- Inf; rat = 0; varhat = NA}
-    if(x == 0 & y != 0) {rat <- (x/m)/(y/n); CIL <- 0;  x <- z.star
+    if(x == 0 & y != 0) {rat <- (x/m)/(y/n); CIL <- 0;  x <- z.star^2
     nrat <- (x/m)/(y/n); varhat <- 2 * asinh((z.star/2)*sqrt(1/x + 1/y - 1/m - 1/n))
     CIU <- exp(log(nrat) + varhat)}
-    if(x != 0 & y == 0) {rat = Inf; CIU <- Inf;  y <- z.star
+    if(x != 0 & y == 0) {rat = Inf; CIU <- Inf;  y <- z.star^2
     nrat <- (x/m)/(y/n); varhat <- 2 * asinh((z.star/2)*sqrt(1/x + 1/y - 1/m - 1/n))
     CIL <- exp(log(nrat) - varhat)}
     if(x == m & y == n) {

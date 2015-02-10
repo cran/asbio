@@ -9,7 +9,7 @@
 \alias{anm.loglik.tck}
 \title{Animated plots of log-likelihood functions}
 \description{
-Plots the normal, exponential, Poisson, binomial, and "custom" log-likelihood functions.  By definition, lLikelihoods for parameter estimates are calculated by holding data constant and varying estimates.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLEs.  
+Plots the normal, exponential, Poisson, binomial, and "custom" log-likelihood functions.  By definition, likelihoods for parameter estimates are calculated by holding data constant and varying estimates.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLEs.  
 }
 \usage{
 anm.loglik(X, dist = c("norm", "poi", "bin", "exp", "custom"), 

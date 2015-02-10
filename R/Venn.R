@@ -4,7 +4,7 @@ Venn <- function (A, B, AandB = 0, labA = "A", labB = "B", cex.text = .95, ...)
     if(B > 1) stop("Violation of probability rules! \nP(B) cannot be greater than 1")   
     if(AandB > 1) stop("Violation of probability rules! \nP(AandB) cannot be greater than 1") 
     if(A + B - AandB > 1)stop("Violation of probability rules! \nP(A) + P(B) -P(AandB) cannot be greater than 1")  
-    if(A + B + AandB > 1) stop("Violation of probability rules! \nP(A) + P(B) + P(AandB) cannot be greater than 1")   
+    # if(A + B + AandB > 1) stop("Violation of probability rules! \nP(A) + P(B) + P(AandB) cannot be greater than 1")   
     if(A < 0) stop("Violation of probability rules! \nP(A) cannot be less than 0")  
     if(B < 0) stop("Violation of probability rules! \nP(B) cannot be less than 0")
     if(AandB < 0) stop("Violation of probability rules! \nP(AandB) cannot be less than 0")    
@@ -31,16 +31,16 @@ Venn <- function (A, B, AandB = 0, labA = "A", labB = "B", cex.text = .95, ...)
     if (A + B == 1 & AandB > 0) {
         S <- plot(seq(0, 1), seq(0, 1), type = "n", xaxt = "n", 
             yaxt = "n", xlab = "", ylab = "", bty = "n",...)
-        rect(c(0, A - AandB), c(0, 0), c(A, 1), c(1, 1), col = c(rgb(0.7, 
-            0.7, 0.7, 0.8), rgb(0.3, 0.3, 0.3, 0.8)))
+        rect(c(0, 0.5, A-(AandB/2)), c(0, 0, 0), c(A, 1, A+(AandB/2)), c(1, 1, 1), col = c(rgb(0.7, 
+            0.7, 0.7, 0.8), rgb(0.3, 0.3, 0.3, 0.8), rgb(0.3, 0.3, 0.3, 0.8)))
         text(A/2, 0.5, bquote(paste(italic(P), "(", italic(.(labA)), 
             ") = ", .(A), sep = "")), cex = cex.text)
         text(A + ((1 - A)/2), 0.5, bquote(paste(italic(P), "(", 
             italic(.(labB)), ") = ", .(B), sep = "")), cex = cex.text)
         mtext(bquote(paste(italic(P), "(", italic(.(labA)), intersect(""), 
             italic(.(labB)), ") = ", .(AandB), sep = "")), side = 3, 
-            at = A - (AandB/2), cex = cex.text)
-        arrows(A - (AandB/2), 1.01, A - (AandB/2), 0.75, length = 0.05)
+            at = (A - (AandB/2) + A + (AandB/2))/2, cex = cex.text)
+        arrows((A - (AandB/2) + A + (AandB/2))/2, 1.01, (A - (AandB/2) + A + (AandB/2))/2, 0.75, length = 0.05)
     }
     if ((AandB == A | AandB == B) & (A != 0 | B != 0)) {
         S <- plot(seq(-0.55, 0.55, length = 3), seq(-0.55, 0.55, 

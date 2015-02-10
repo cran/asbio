@@ -1,15 +1,15 @@
 qq.Plot <- function(y, x = NULL, col = 1, pch = 1, main = "", R = 5000, fit.lty = 1, env.lty = 2, conf = 0.95, type = "point", ylim = NULL, xlab = "Normal quantiles", ylab = "Studentized observed quantiles", ...){
+
 boot <- NA; rm(boot)
 envelope <- NA; rm(envelope)
-require(boot)
 
 boot.envel<- function(y){
 z <- (y - mean(y))/sqrt(var(y))
 gen <- function(dat, mle) rnorm(length(dat))
-qqboot <- boot(z, sort, R = 999, sim = "parametric", ran.gen = gen)
+qqboot <- boot::boot(z, sort, R = 999, sim = "parametric", ran.gen = gen)
 qq <- qqnorm(z, plot.it = FALSE)
 qq <- lapply(qq, sort)
-env <- envelope(qqboot, level = conf)
+env <- boot::envelope(qqboot, level = conf)
 res <- list()
 res$x <- qq$x
 res$y <- qq$y

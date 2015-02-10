@@ -279,9 +279,9 @@ x.e2<-matrix(ncol=1,nrow=3)
 y.s2<-matrix(ncol=1,nrow=3)
 for(i in 1:3){
 x.e2[i]<-ifelse(x.e[i]==3,8,3) 
-if(col[i]==2){y.s2[i]=3.2}
-if(col[i]==3){y.s2[i]=2.6}
-if(col[i]==4){y.s2[i]=2.0}}
+if(x.s[i]==3){y.s2[i]=3.2}
+if(x.s[i]==5.5){y.s2[i]=2.6}
+if(x.s[i]==8){y.s2[i]=2.0}}
 arrows(x.e,y.s2,x.e2,y.s2,length=.1,col=col,lty=c(1,2,3))
   }
   }

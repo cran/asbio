@@ -3,7 +3,7 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = 
     lett = NULL, cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, ...) 
 {
 
-require(MASS)
+
 
     SE <- tapply(y, x, function(x) {
     ci.mu.t(x[!is.na(x)])$SE
@@ -35,7 +35,7 @@ require(MASS)
       CI <- CI[o]
       iqr <- iqr[o]
       iqr.ci <- iqr.ci[o]
-      MAD <- MAD[o]
+      MAD <- mad[o]
       names.arg <- names.arg[o]
 	if(!is.null(lett))lett <- lett[o]	
 	}

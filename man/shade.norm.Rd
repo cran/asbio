@@ -44,7 +44,7 @@ digits = 5, legend.cex = 0.9, shade.col = "gray", ...)
 
 \arguments{
   \item{x}{
-A quantile, i.e. \eqn{X = x}.
+A quantile, i.e. \eqn{X = x}, or if \code{tail = "two.custom"} ins \code{shade.norm}, a two element vector specifying the upper bound of the lower tail and the lower bound of the upper tail. 
 }
   \item{from}{
 To be used with \code{tail = "middle"}; the value \emph{a} in \eqn{P(a < X < b)}. 
@@ -59,7 +59,7 @@ Standard deviation for the nomral distribution.
 Mean of the normal distribution.
 }
   \item{tail}{
-One of four possibilities: \code{"lower"} provides lower tail shading, \code{"upper"} provides upper tail shading, \code{"two"} provides two tail shading, and \code{"middle"} provide shading in the middle of the pdf, between \code{"from"} and \code{"to"}.  For discrete pdfs (binomial and Poisson) the possibility \code{"X=x"} is also allowed, and will be equivalent to the density. Two tailed probability is not implemented for \code{shade.poi}.
+One of four possibilities: \code{"lower"} provides lower tail shading, \code{"upper"} provides upper tail shading, \code{"two"} provides two tail shading, and \code{"middle"} provide shading in the middle of the pdf, between \code{"from"} and \code{"to"}.  The additional option \code{"two.custom"} is allowed for \code{shade.norm}. This allows calculation of assymetric two tailed probabilities.  It requires that the argument \code{x} is a two element vector with elements denoting the upper bound of the lower tail and the lower bound of the upper tail.  For discrete pdfs (binomial and Poisson) the possibility \code{"X=x"} is also allowed, and will be equivalent to the density. Two tailed probability is not implemented for \code{shade.poi}.  
 }
   \item{show.p}{
 Logical; indicating whether probabilities are to be shown.
@@ -127,6 +127,7 @@ shade.norm(x=1.2,sigma=1,mu=0,tail="upper")
 shade.norm(x=1.2,sigma=1,mu=0,tail="two")
 shade.norm(from=-.4,to=0,sigma=1,mu=0,tail="middle")
 shade.norm(from=0,to=0,sigma=1,mu=0,tail="middle")
+shade.norm(x=c(-0.2, 2),sigma=1,mu=0,tail="two.custom")
 
 ##t
 shade.t(x=-1,nu=5,tail="lower")

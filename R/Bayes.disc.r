@@ -9,10 +9,11 @@ mtext(paste(data.name,c.data,sep="|"),side=1,at=x,cex=.9)
 f2<-plot(x,Prior,type="h",col=gray(.5),xaxt="n",lwd=6,xlab="",...);grid(f2)
 mtext(c.data,side=1,at=x,cex=.9)
 f3<-plot(x,Posterior,type="h",col=1,lwd=6,xaxt="n",xlab="",...);grid(f3)
-mtext(paste(c.data,data.name,sep="|"),side=1,at=x,cex=.9)}
+mtext(paste(c.data,data.name,sep="|"),side=1,at=x,cex=.9)
+on.exit(par(old.par))
+}
 res<-rbind(Likelihood,Prior,Posterior)
 colnames(res)<-c.data
-on.exit(par(old.par))
 res
 }
 

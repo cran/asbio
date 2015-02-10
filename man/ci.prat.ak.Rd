@@ -70,6 +70,9 @@ where \eqn{y_{1i}} and \eqn{y_{2i}} are the observed counts for use and availabi
 
 \deqn{\hat{\theta}_{i}=\frac{\hat{\pi}_{1i}}{\pi_{2i}}.}
 
+The function \code{ci.prat.ak} assumes that selection ratios are being specified (although other aplications are certainly possible).  There it assume that \eqn{y_{1i}} must be greater than 0 if \eqn{\pi_{2i} = 1}, and assumes that \eqn{y_{1i}} must = 0 if \eqn{\pi_{2i} = 0}.  Violation of these conditions will produce a warning message.   
+
+
 \tabular{ll}{
 Method \tab Algorithm \cr
 \tab \cr 
@@ -99,7 +102,7 @@ Wald-adjusted \tab \eqn{{{\hat{\theta }}_{i}}\pm {{z}_{1-(\alpha /2)}}\sqrt{{{{\
 \value{Returns a list of \code{class = "ci"}.  Default output is a matrix with the point and interval estimate. 
 }
 \references{
-Aho, K., and Bowyer, T. (In review) Confidence intervals for ratios of multinomial random variables (selection ratios). \emph{Methods in Ecology and Evolution}.
+Aho, K., and Bowyer, T. (\emph{In press}: 10/27/2014) Confidence intervals for ratios of multinomial random variables (selection ratios). \emph{Methods in Ecology and Evolution}.
 }
 \author{
 Ken Aho

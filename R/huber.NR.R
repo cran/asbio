@@ -1,5 +1,5 @@
 huber.NR<-function(x,c=1.28,iter=20){
-require(MASS)
+
 mu.k<-matrix(nrow=iter,ncol=1)
 mu.k[1]<-median(x)
 for(i in 1:iter){

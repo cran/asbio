@@ -305,7 +305,7 @@ xlvl <- x$x
 y <- x$y
 names(dec1) <- cont1
 lett <- multcompLetters(dec1)$Letters #Requires multcompView
-bplot(y, xlvl, simlett = TRUE, lett = lett, ...)
+bplot(y, xlvl, simlett = TRUE, lett = lett, xlab = xlab, ...)
 if(x$method == "kBonferroni"){
 cat(paste("The true effects of factor levels with the same letter are not", "\n", "significantly different at alpha = ", 1- x$conf, " using the ", strsplit(x$method, "k")[[1]][2], " method.", "\n\n", sep = ""))
 } else if (x$method == "mBonferroni"){

@@ -110,7 +110,7 @@ The bootstrap method currently employs percentile confidence intervals.
 \references{
 Agresti, A., Min, Y. (2001) On small-sample confidence intervals for parameters in discrete distributions.  \emph{Biometrics} 57: 963-97.
 
-Aho, K., and Bowyer, T. (In review) Confidence intervals for ratios of multinomial proportions: implications for selection ratios. \emph{Methods in Ecology and Evolution}.
+Aho, K., and Bowyer, T. (\emph{In press}: 10/27/2014) Confidence intervals for ratios of proportions: implications for selection ratios. \emph{Methods in Ecology and Evolution}.
 
 Bailey, B.J.R. (1987) Confidence limits to the risk ratio.  \emph{Biometrics} 43(1): 201-205.
 

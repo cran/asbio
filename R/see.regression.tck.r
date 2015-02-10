@@ -16,7 +16,7 @@ see.regression.tck <- function ()
 xpts<- c(5,15)
 dev.new(height = 5, width = 10)
 
-plot.it<-function(...){
+plot_it<-function(...){
 
 dev.hold()
         beta0 <- as.numeric(evalq(tclvalue(beta0), envir = slider.env))
@@ -79,7 +79,7 @@ tclServiceMode(TRUE)
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "\u03B2\u2080", font = c("Helvetica", "10", 
         "normal"), width = "10"), side = "right")
-    tkpack(sc <- tkscale(fr, command = plot.it, from = -3, 
+    tkpack(sc <- tkscale(fr, command = plot_it, from = -3, 
         to = 14, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
         side = "left")
     assign("sc", sc, envir = slider.env)
@@ -88,7 +88,7 @@ tclServiceMode(TRUE)
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "\u03B2\u2081", font = c("Helvetica", "10", 
         "normal"), width = "10"), side = "right")
-    tkpack(sc <- tkscale(fr, command = plot.it, from = -0.5, 
+    tkpack(sc <- tkscale(fr, command = plot_it, from = -0.5, 
         to = 1, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
         side = "left")
     assign("sc", sc, envir = slider.env)
@@ -97,7 +97,7 @@ tclServiceMode(TRUE)
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "\u03C3", font = c("Helvetica", "10", 
         "normal"), width = "10"), side = "right")
-    tkpack(sc <- tkscale(fr, command = plot.it, from = 0.1, 
+    tkpack(sc <- tkscale(fr, command = plot_it, from = 0.1, 
         to = 4, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
         side = "left")
     assign("sc", sc, envir = slider.env)
@@ -106,14 +106,14 @@ tclServiceMode(TRUE)
    tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "n", font = c("Helvetica", "10", 
         "normal"), width = "10"), side = "right")
-    tkpack(sc <- tkscale(fr, command = plot.it, from = 2, 
+    tkpack(sc <- tkscale(fr, command = plot_it, from = 2, 
         to = 20, orient = "horiz", resolution = 1, showvalue = TRUE), 
         side = "left")
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = n), envir = slider.env) 
     
     
-    tkpack(tkbutton(m, text = "Refresh", command = plot.it), 
+    tkpack(tkbutton(m, text = "Refresh", command = plot_it), 
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
         side = "right")

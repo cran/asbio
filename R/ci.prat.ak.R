@@ -21,138 +21,202 @@ ci.prat.ak1 <- function(y1, n1, pi2 = NULL, method = "ac", conf = .95, bonf = FA
 #--------------- Bootstrap ---------------#
 
 if(method == "boot"){
-
-pih1 <- y1/n1
-rat <- pih1/pi2
-    if((y1 == 0 & pi2 == 0)|(y1 == 0 & pi2 != 0)|(y1 != 0 & pi2 == 0)|(y1 == n1)){
-    if(y1 == 0 & pi2 == 0) {CIL <- 0;  CIU <- Inf; rat = 0; varhat = NA}
-    if(y1 == 0 & pi2 != 0) {CIL <- 0;
-	yn1 <- 0.5; pihn1 <- yn1/n1; nrat <- (yn1/n1)/pi2
-    	varhat <- (pihn1 * (1 - pihn1))/(n1 * pi2^2)
-    	CIU <- nrat + (z.star * sqrt(varhat))}
-    if(pi2 == 0 & y1 != 0) {CIU <- Inf;  pin2 <- 0.5*(1/n1); nrat <- (y1/n1)/pin2;
-    	varhat <- (pih1 * (1 - pih1))/(n1 * pin2^2);
-    	CIL <- nrat - (z.star * sqrt(varhat))}
-    if(pi2 == 1 & y1 == n1) {
-     rat <- 1; yn1 <- n1 - 0.5; pin2 =(.95*n1)/n1; pihn1 <- yn1/n1; nrat <- pihn1/pin2; varhat <- (pihn1 * (1 - pihn1))/(n1 * pin2^2); CIL <- nrat - (z.star * sqrt(varhat)); CIU <- nrat + (z.star * sqrt(varhat))
-       }
-    } else{
-num.data <- c(rep(1, y1), rep(0, (n1 - y1)))
-brat <- function(x){(sum(x)/n1)/pi2}
-b <- bootstrap(num.data, brat, R = R)
-c <- ci.boot(b, method = bootCI.method, sigma.t = sigma.t, conf = conf)$res[rn,]
-CIU <- c[2]
-CIL <- c[1]
-varhat <- b$res[4]
-}
-CI <- c(rat, CIL, CIU)
+  pih1 <- y1/n1
+  rat <- pih1/pi2
+  if((y1 == 0 & pi2 == 0)|(y1 == 0 & pi2 != 0)|(y1 != 0 & pi2 == 0)|(y1 == n1)){
+      if(y1 == 0 & pi2 == 0) {CIL <- 0;  CIU <- Inf; rat = 0; varhat = NA}
+      if(y1 == 0 & pi2 != 0){
+        if(pi2 == 1)stop("pi2 = 1 but y1 = 0?")    
+        if(pi2 != 1){
+          CIL <- 0
+          yn1 <- 0.5
+          pihn1 <- yn1/n1
+          nrat <- (yn1/n1)/pi2
+        varhat <- (pihn1 * (1 - pihn1))/(n1 * pi2^2)
+        CIU <- nrat + (z.star * sqrt(varhat))
+        }
+      }
+      if(pi2 == 0 & y1 != 0)stop("pi2 = 0 but y1 != 0?") 
+      if(pi2 != 0 & y1 == n1){
+        if(pi2 == 1){
+          varhat <- 0
+          CIL <- 1
+          CIU <- 1
+        }
+        if(pi2 != 1){
+          yn1 <- n1 - 0.5
+          pihn1 <- yn1/n1
+          nrat <- pihn1/pi2
+          varhat <- (pihn1 * (1 - pihn1))/(n1 * pi2^2)
+          CIL <- nrat - (z.star * sqrt(varhat))
+          CIU <- nrat + (z.star * sqrt(varhat))
+         }
+       } 
+    } 
+  else{
+    num.data <- c(rep(1, y1), rep(0, (n1 - y1)))
+    brat <- function(x){(sum(x)/n1)/pi2}
+    b <- bootstrap(num.data, brat, R = R)
+    c <- ci.boot(b, method = bootCI.method, sigma.t = sigma.t, conf = conf)$res[rn,]
+    CIU <- c[2]
+    CIL <- c[1]
+    varhat <- b$res[4]
+  }
+  CI <- c(rat, CIL, CIU)
 }
 
 #--------------- Manly/Wald ---------------#
 
 if(method == "wald"){
-    if((y1 == 0 & pi2 == 0)|(y1 == 0 & pi2 != 0)|(y1 != 0 & pi2 == 0)|(y1 == n1)){
+  pih1 <- y1/n1
+  rat <- pih1/pi2
+  if((y1 == 0 & pi2 == 0)|(y1 == 0 & pi2 != 0)|(y1 != 0 & pi2 == 0)|(y1 == n1)){
     if(y1 == 0 & pi2 == 0) {CIL <- 0;  CIU <- Inf; rat = 0; varhat = NA}
-    if(y1 == 0 & pi2 != 0) {CIL <- 0;  rat <- (y1/n1)/pi2
-	yn1 <- 0.5; pihn1 <- yn1/n1; nrat <- (yn1/n1)/pi2
-    	varhat <- (pihn1 * (1 - pihn1))/(n1 * pi2^2)
-    	CIU <- nrat + (z.star * sqrt(varhat))}
-    if(pi2 == 0 & y1 != 0) {CIU <- Inf;  pih1 <- y1/n1; rat <- pih1/pi2; pin2 <- 0.5*(1/n1); nrat <- (y1/n1)/pin2;
-    	varhat <- (pih1 * (1 - pih1))/(n1 * pin2^2);
-    	CIL <- nrat - (z.star * sqrt(varhat))}
-    if(pi2 == 1 & y1 == n1) {
-     rat <- 1; yn1 <- n1 - 0.5; pin2 =(.95*n1)/n1; pihn1 <- yn1/n1; nrat <- pihn1/pin2; varhat <- (pihn1 * (1 - pihn1))/(n1 * pin2^2); CIL <- nrat - (z.star * sqrt(varhat)); CIU <- nrat + (z.star * sqrt(varhat))
+    if(y1 == 0 & pi2 != 0){
+      if(pi2 == 1)stop("pi2 = 1 but y1 = 0?")    
+      if(pi2 != 1){
+        CIL <- 0
+        yn1 <- 0.5
+        pihn1 <- yn1/n1
+        nrat <- (yn1/n1)/pi2
+      varhat <- (pihn1 * (1 - pihn1))/(n1 * pi2^2)
+      CIU <- nrat + (z.star * sqrt(varhat))
+      }
+    }
+    if(pi2 == 0 & y1 != 0)stop("pi2 = 0 but y1 != 0?") 
+    if(pi2 != 0 & y1 == n1){
+      if(pi2 == 1){
+        varhat <- 0
+        CIL <- 1
+        CIU <- 1
+      }
+      if(pi2 != 1){
+        yn1 <- n1 - 0.5
+        pihn1 <- yn1/n1
+        nrat <- pihn1/pi2
+        varhat <- (pihn1 * (1 - pihn1))/(n1 * pi2^2)
+        CIL <- nrat - (z.star * sqrt(varhat))
+        CIU <- nrat + (z.star * sqrt(varhat))
        }
-    } else
-	{pih1 <- y1/n1
-	rat <- pih1/pi2
-	varhat <- (pih1 * (1 - pih1))/(n1 * pi2^2)
-	CIL <- rat - (z.star*sqrt(varhat))
-	CIU <- rat + (z.star*sqrt(varhat))
-	}
-	CIL <- ifelse(CIL < 0, 0, CIL)
-	CI <- c(rat, CIL, CIU)
-	}
+     } 
+  }
+  else{
+  varhat <- (pih1 * (1 - pih1))/(n1 * pi2^2)
+CIL <- rat - (z.star*sqrt(varhat))
+CIU <- rat + (z.star*sqrt(varhat))
+}
+CIL <- ifelse(CIL < 0, 0, CIL)
+CI <- c(rat, CIL, CIU)
+}
 
 #-------------------noether-fixed----------------#
 
 if(method == "noether-fixed"){
-    if((y1 == 0 & pi2 == 0)|(y1 == 0 & pi2 != 0)|(y1 != 0 & pi2 == 0)|(y1 == n1)){
+  pih1 <- y1/n1
+  rat <- pih1/pi2
+  if((y1 == 0 & pi2 == 0)|(y1 == 0 & pi2 != 0)|(y1 != 0 & pi2 == 0)|(y1 == n1)){
     if(y1 == 0 & pi2 == 0) {CIL <- 0;  CIU <- Inf; rat = 0; varhat = NA}
-    if(y1 == 0 & pi2 != 0) {CIL <- 0;  rat <- (y1/n1)/pi2
-	  yn1 <- 0.5; pihn1 <- yn1/n1; nrat <- (yn1/n1)/pi2
-    	varhat <- (1 - pihn1)/(n1 * pihn1)
-    	CIU <- nrat * exp(z.star * sqrt(varhat))}
-    if(pi2 == 0 & y1 != 0) {CIU <- Inf;  pih1 <- y1/n1; rat <- pih1/pi2; pin2 <- 0.5*(1/n1); nrat <- (y1/n1)/pin2;
-    	varhat <- varhat <- ((1 - pih1))/(n1 * pih1);
-    	CIL <- nrat * exp(-z.star * sqrt(varhat))}
-    if(pi2 == 1 & y1 == n1) {
-     rat <- 1; yn1 <- n1 - 0.5; pin2 =(.95*n1)/n1; pihn1 <- yn1/n1; nrat <- pihn1/pin2; varhat <- ((1 - pihn1))/(n1 * pin2); CIL <- nrat *exp(- z.star * sqrt(varhat)); CIU <- nrat * exp(z.star * sqrt(varhat))
-       }
-    } else
-    {
-
-    pih1 <- y1/n1
-    rat <- pih1/pi2
+    if(y1 == 0 & pi2 != 0){
+      if(pi2 == 1)stop("pi2 = 1 but y1 = 0?")    
+      if(pi2 != 1){
+        CIL <- 0
+        yn1 <- 0.5
+        pihn1 <- yn1/n1
+        nrat <- (yn1/n1)/pi2
+      varhat <- (1 - pihn1)/(n1 * pihn1)
+      CIU <- ((pihn1/pi2)/(1 + (z.star^2/n1))) * (1 + ((z.star^2/(2*yn1)))) + z.star * sqrt(varhat + (z.star^2/(4 * yn1^2)))
+      }
+    }
+    if(pi2 == 0 & y1 != 0)stop("pi2 = 0 but y1 != 0?") 
+    if(pi2 != 0 & y1 == n1){
+      if(pi2 == 1){
+        varhat <- 0
+        CIL <- 1
+        CIU <- 1
+      }
+      if(pi2 != 1){
+        yn1 <- n1 - 0.5
+        pihn1 <- yn1/n1
+        nrat <- pihn1/pi2
+        varhat <- (1 - pihn1)/(n1 * pihn1)
+        CIL <- ((pihn1/pi2)/(1 + (z.star^2/n1))) * ((1 + ((z.star^2/(2*yn1)))) - z.star * sqrt(varhat + (z.star^2/(4 * yn1^2))))
+        CIU <- ((pihn1/pi2)/(1 + (z.star^2/n1))) * ((1 + ((z.star^2/(2*yn1)))) + z.star * sqrt(varhat + (z.star^2/(4 * yn1^2))))
+      }
+    } 
+  }
+  else{
     varhat <- (1 - pih1)/(n1 * pih1)
-    CIL <- ((pih1/pi2)/(1 + (z.star^2/n1))) * (1 + ((z.star^2/(2*y1)))) - z.star^2 * sqrt(varhat + (z.star^2/(4 * y1^2)))
-    CIU <- ((pih1/pi2)/(1 + (z.star^2/n1))) * (1 + ((z.star^2/(2*y1)))) + z.star^2 * sqrt(varhat + (z.star^2/(4 * y1^2)))
+    CIL <- ((pih1/pi2)/(1 + (z.star^2/n1))) * ((1 + ((z.star^2/(2*y1)))) - z.star * sqrt(varhat + (z.star^2/(4 * y1^2))))
+    CIU <- ((pih1/pi2)/(1 + (z.star^2/n1))) * ((1 + ((z.star^2/(2*y1)))) + z.star * sqrt(varhat + (z.star^2/(4 * y1^2))))
     
-}
-	  CIL <- ifelse(CIL < 0, 0, CIL)
-    CI <- c(rat, CIL, CIU)
+  }
+CIL <- ifelse(CIL < 0, 0, CIL)
+  CI <- c(rat, CIL, CIU)
 }
 
 #------------------fixed-log--------------------#
 
 if(method == "fixed-log"){
-    if((y1 == 0 & pi2 == 0)|(y1 == 0 & pi2 != 0)|(y1 != 0 & pi2 == 0)|(y1 == n1)){
+  pih1 <- y1/n1
+  rat <- pih1/pi2
+  if((y1 == 0 & pi2 == 0)|(y1 == 0 & pi2 != 0)|(y1 != 0 & pi2 == 0)|(y1 == n1)){
     if(y1 == 0 & pi2 == 0) {CIL <- 0;  CIU <- Inf; rat = 0; varhat = NA}
-    if(y1 == 0 & pi2 != 0) {CIL <- 0;  rat <- (y1/n1)/pi2
-	yn1 <- 0.5; pihn1 <- yn1/n1; nrat <- (yn1/n1)/pi2
-    	varhat <- ((1 - pihn1))/(n1 * pi2)
-    	CIU <- nrat * exp(z.star * sqrt(varhat))}
-    if(pi2 == 0 & y1 != 0) {CIU <- Inf;  pih1 <- y1/n1; rat <- pih1/pi2; pin2 <- 0.5*(1/n1); nrat <- (y1/n1)/pin2;
-    	varhat <- varhat <- ((1 - pih1))/(n1 * pin2);
-    	CIL <- nrat * exp(-z.star * sqrt(varhat))}
-    if(pi2 == 1 & y1 == n1) {
-     rat <- 1; yn1 <- n1 - 0.5; pin2 =(.95*n1)/n1; pihn1 <- yn1/n1; nrat <- pihn1/pin2; varhat <- ((1 - pihn1))/(n1 * pin2); CIL <- nrat *exp(- z.star * sqrt(varhat)); CIU <- nrat * exp(z.star * sqrt(varhat))
-       }
-    } else
-     {pih1 <- y1/n1
-	rat <- pih1/pi2
-	varhat <- (1 - pih1)/(n1 * pih1)
-	CIL <- rat * exp(-z.star*sqrt(varhat))
-	CIU <- rat * exp(z.star*sqrt(varhat))
-	}
-	CIL <- ifelse(CIL < 0, 0, CIL)
-	CI <- c(rat, CIL, CIU)
-	}
+    if(y1 == 0 & pi2 != 0){
+      if(pi2 == 1)stop("pi2 = 1 but y1 = 0?")    
+      if(pi2 != 1){
+        CIL <- 0
+        yn1 <- 0.5
+        pihn1 <- yn1/n1
+        nrat <- (yn1/n1)/pi2
+      varhat <- (1 - pihn1)/(n1 * pihn1)
+      CIU <- nrat * exp(z.star * sqrt(varhat))
+      }
+    }
+    if(pi2 == 0 & y1 != 0)stop("pi2 = 0 but y1 != 0?") 
+    if(pi2 != 0 & y1 == n1){
+      if(pi2 == 1){
+        varhat <- 0
+        CIL <- 1
+        CIU <- 1
+      }
+      if(pi2 != 1){
+        yn1 <- n1 - 0.5
+        pihn1 <- yn1/n1
+        nrat <- pihn1/pi2
+        varhat <- (1 - pihn1)/(n1 * pihn1)
+        CIL <- nrat * exp(-z.star * sqrt(varhat))
+      CIU <- nrat * exp(z.star * sqrt(varhat))
+      }
+    } 
+  }
+  else{
+    varhat <- (1 - pih1)/(n1 * pih1)
+  CIL <- rat * exp(-z.star * sqrt(varhat))
+  CIU <- rat * exp(z.star * sqrt(varhat))
+}
+CIL <- ifelse(CIL < 0, 0, CIL)
+CI <- c(rat, CIL, CIU)
+}
 
 #------------------Agresti-Coull--------------------#
 
 if(method == "ac"){
-	y1 <- y1 + 2; n1 <- n1 + 4
-	if((pi2 == 0)|(pi2 == 1 & y1 == n1)){
-      if(pi2 == 0) {CIU <- Inf;  pih1 <- y1/n1; rat <- pih1/pi2; pin2 <- 0.5*(1/n1); nrat <- (y1/n1)/pin2
-    	   varhat <- (pih1 * (1 - pih1))/((n1) *  pin2^2);
-    	   CIL <- nrat - (z.star * sqrt(varhat))}
-      if(pi2 == 1 & y1 == n1) {
-        rat <- 1; yn1 <- n1 - 0.5; pin2 =(.95*n1)/n1; pihn1 <- yn1/n1; nrat <- pihn1/pin2; varhat <- (pihn1 * (1 - pihn1))/((n1) * pin2^2); CIL <- nrat - (z.star * sqrt(varhat)); CIU <- nrat + (z.star * sqrt(varhat))
-       }
-	} else
-	{pih1 <- y1/n1
-	rat <- pih1/pi2
-	varhat <- pih1 *(1 - pih1)/((n1) * pi2^2)
-	CIL <- rat - (z.star*sqrt(varhat))
-	CIU <- rat + (z.star*sqrt(varhat))
-	}
-	CIL <- ifelse(CIL < 0, 0, CIL)
-	CI <- c(rat, CIL, CIU)
-	}
+  if(pi2 == 0 & y1 != 0)stop("pi2 = 0 but y1 != 0?")
+  if(pi2 == 1 & y1 == 0)stop("pi2 = 1 but y1 = 0?")
+  
+  y1 <- y1 + 2; n1 <- n1 + 4
+  
+  pih1 <- y1/n1
+  rat <- pih1/pi2
+  varhat <- pih1 * (1 - pih1)/((n1) * pi2^2)
+  CIL <- rat - (z.star*sqrt(varhat))
+  CIU <- rat + (z.star*sqrt(varhat))
+  CIL <- ifelse(CIL < 0, 0, CIL)
+  CI <- c(rat, CIL, CIU)
+}
 
 
- #------------------- Bayes ------------------------#
+#------------------- Bayes ------------------------#
  
 if(method == "bayes"){
   alpha <- 1 - conf
@@ -164,27 +228,24 @@ if(method == "bayes"){
   CIL <- qbeta(alpha/2, a, b)/pi2 
   CIU <- qbeta(1-alpha/2, a, b)/pi2
   CI <- c(rat, CIL, CIU)
+}
+
+#--------------------------------------------------#
+
+  res <- list(CI = CI, varhat = varhat)
+  res
+}
+     
+  CI <- matrix(ncol = 3, nrow = length(y1))
+  vh <- rep(NA, length(y1))
+  for (i in 1 : length(y1)) {
+  temp <- ci.prat.ak1(y1 = y1[i], n1 = n1[i], pi2 = pi2[i], conf = conf, method = method, bonf = bonf, bootCI.method = bootCI.method, sigma.t=sigma.t, R = R)
+  CI[i,] <- temp$CI
+  vh[i] <- temp$varhat
   }
 
-res <- list(CI = CI, varhat = varhat)
-res
-}
-    
-   
-    CI <- matrix(ncol = 3, nrow = length(y1))
-    vh <- rep(NA, length(y1))
-    for (i in 1 : length(y1)) {
-       temp <- ci.prat.ak1(y1 = y1[i], n1 = n1[i], pi2 = pi2[i], conf = conf, method = method, bonf = bonf, bootCI.method = bootCI.method, sigma.t=sigma.t, R = R)
-       CI[i,] <- temp$CI
-       vh[i] <- temp$varhat
-
-	}
-
 CI <- data.frame(CI)
-
-   if (length(y1) == 1){
-	row.names(CI) <- ""
-	}
+if (length(y1) == 1)row.names(CI) <- ""
 
 head <- paste(paste(as.character(oconf * 100), "%", sep = ""), c("Confidence interval for ratio of binomial proportions"))
 head1 <- paste(paste(as.character(oconf * 100), "%", sep = ""), c("Credible interval for ratio of binomial proportions"))
@@ -196,7 +257,7 @@ head1 <- paste(paste(as.character(oconf * 100), "%", sep = ""), c("Credible inte
    if(method == "ac") head <- paste(head, "(method=AC-adjusted)")
    if(method == "noether-fixed") head <- paste(head, "(method=Noether-fixed)")
    if(bonf == TRUE) head <- paste(head, "\n Bonferroni simultaneous intervals, r = ", bquote(.(r)), 
-"\n Marginal confidence = ", bquote(.(conf)), "\n", sep = "") 
+"\n Marginal confidence = ", bquote(.(conf)), "\n", sep = "")                                                                                                                                              
 
 
 ends <- c("Estimate", paste(as.character(c((1 - oconf)/2, 1 - ((1 - oconf)/2)) * 100), "%", sep = ""))

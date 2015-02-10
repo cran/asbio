@@ -11,7 +11,7 @@ local({
         tkradiobutton <- ttkradiobutton
     }
 
-plot.lines <- function(x, y, xlab, ylab, degree, span, kernel, bandwidth, nknots, spar){
+plot_lines <- function(x, y, xlab, ylab, degree, span, kernel, bandwidth, nknots, spar){
     dev.hold()
     par(cex=1.2)
     plot(x, y, xlab=xlab, ylab=ylab)
@@ -62,7 +62,7 @@ dialog.ci <- function(){
     bandwidth <- tclvalue(bw); bandwidth <- as.numeric(bandwidth)
     spar <- tclvalue(spar); spar <- as.numeric(spar)
     knots <- tclvalue(knots); nknots <-as.numeric(knots)
-    plot.lines(x = X, y = Y, xlab = Xlab, ylab = Ylab, degree = degree, span=span, kernel=kernel, bandwidth=bandwidth, nknots = nknots, spar=spar)                            
+    plot_lines(x = X, y = Y, xlab = Xlab, ylab = Ylab, degree = degree, span=span, kernel=kernel, bandwidth=bandwidth, nknots = nknots, spar=spar)                            
     
 }  
      

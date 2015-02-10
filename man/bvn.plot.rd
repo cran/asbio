@@ -23,7 +23,7 @@ A number, indicating the covariance of the two variables.
 The diagonal elements in the variance covariance matrix.
 }
   \item{res}{
-Plot resolution.  Smaller valaues create a more detailed wireframe plot.
+Plot resolution.  Smaller values create a more detailed wireframe plot.
 }
 \item{xlab}{
 \emph{X}-axis label.

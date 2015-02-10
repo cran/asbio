@@ -336,7 +336,7 @@ if(statc == "var"){
       Col<- tclVar("gray")
       Int<-tclVar("0.01")}   
 if(statc == "MAD"){
-      require(MASS)
+
       Biv.parent<-tclVar("NULL")
       Parent1<-tclVar("expression(rnorm(s.size))")
       Parent2<-tclVar("NULL")

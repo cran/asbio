@@ -22,8 +22,7 @@ yhat1 <- yhat[iout >= 1]
 X1 <- X[iout >= 1,]
 interp <- NA
 rm(interp)
-require(akima)
-fit <- interp(X1[,1], X1[,2], yhat1, duplicate = duplicate)
+fit <- akima::interp(X1[,1], X1[,2], yhat1, duplicate = duplicate)
 persp(fit, theta = theta, phi = phi, xlab = xlab, ylab = ylab, zlab = zlab, scale = scale, expand = expand)
 }
 }

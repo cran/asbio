@@ -17,7 +17,7 @@ std.r
 
 
 see.r.dist.tck <-function(){
-plot.r <- function(rho, r, n, ...){
+plot_r <- function(rho, r, n, ...){
 vals <- r.dist(rho = rho, r = seq(-1, 1, .001) , n = n)
 dev.hold()
 plot(seq(-1, 1, .001), vals, type = "l", ylab = expression(paste(italic(f),"(",italic(r),")", sep = "")), xlab = expression(italic(r)), ...)
@@ -44,7 +44,7 @@ dev.flush()
         xmin <- as.numeric(evalq(tclvalue(xmin), envir = slider.env))
         xmax <- as.numeric(evalq(tclvalue(xmax), envir = slider.env))
   
-        plot.r(n = n, rho = rho, xlim = c(xmin, xmax))
+        plot_r(n = n, rho = rho, xlim = c(xmin, xmax))
     }
    
    
