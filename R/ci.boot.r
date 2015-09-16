@@ -45,7 +45,7 @@ if(method == "all" | method == "BCa")
 {
 pv <- pseudo.v(x$data, statistic = x$statistic)
 jk <- mean(pv[,1])
-a <- sum((jk - pv[,1])^3)/(6*((sum((jk - pv[,1])^2))^1.5))
+a <- sum((jk - pv[,1])^3)/(6*((sum((jk - pv[,1])^2))^1.5))# Eq. 3.11 Manly 
 p <- length(sB[sB > est])/R
 z0 <- qnorm(1 - p)
 zU <- (z0 - qnorm(alpha/2))/(1 - a*(z0 - qnorm(alpha/2)))+z0
@@ -53,7 +53,7 @@ zL <- (z0 + qnorm(alpha/2))/(1 - a*(z0 + qnorm(alpha/2)))+z0
 pL <- pnorm(zL)
 pU <- pnorm(zU)
 uZ <- round(pL*R, 0)
-lZ <- round(pU*R, 0)
+lZ <- round(pU*R, 0); uZ <- ifelse(uZ == 0, 1, uZ) 
 bcciU <- sB[lZ]
 bcciL <- sB[uZ]
 bcci <- c(bcciL, bcciU)

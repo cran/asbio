@@ -13,6 +13,19 @@
 \alias{selftest.sampd.tck2}
 \alias{selftest.stats.tck1}
 \alias{selftest.stats.tck2}
+\alias{selftest.H0.tck1}
+\alias{selftest.H0.tck2}
+\alias{selftest.corr.tck1}
+\alias{selftest.regdiag.tck1}
+\alias{selftest.regdiag.tck2}
+\alias{selftest.regdiag.tck3}
+\alias{selftest.regapproaches.tck1}
+\alias{selftest.regapproaches.tck2}
+\alias{selftest.regapproaches.tck3}
+\alias{selftest.regapproaches.tck4}
+\alias{selftest.ANOVAsiminf.tck1}
+\alias{selftest.ANOVAmixed.tck1}
+\alias{selftest.typeIISS.tck1}
 
 \title{
 Interactive self-testing statistical questions

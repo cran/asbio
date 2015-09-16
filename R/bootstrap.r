@@ -5,10 +5,11 @@ bootstrap <- function (data, statistic, R = 1000, prob = NULL, matrix = FALSE)
     if (matrix == TRUE)  n <- nrow(data)
     if (matrix == FALSE) n <- nrow(as.matrix(data))
     
-    boot.stat <- matrix(ncol = 1, nrow = R)
-    samples <- matrix(ncol = n, nrow = R)
+    
     
     if (matrix == TRUE) {
+	boot.stat <- matrix(ncol = 1, nrow = R)
+     samples <- matrix(ncol = n, nrow = R)
         for (i in 1:R) {
             samp <- data[sample(seq(1, n), replace = TRUE, prob = prob),]
             samples[i,] <- samp
@@ -16,11 +17,9 @@ bootstrap <- function (data, statistic, R = 1000, prob = NULL, matrix = FALSE)
         }
     }
     if (matrix == FALSE) {
-        for (i in 1:R) {
-            samp <- data[sample(seq(1, n), replace = TRUE, prob = prob)]
-            samples[i,] <- samp
-            boot.stat[i] <- statistic(samp)
-        }
+            samp <- sample(data, R, replace = TRUE, prob = prob)
+            samples <- matrix(nrow = R, ncol = n, data = samp, byrow = TRUE)
+            boot.stat <- apply(samples, 1, statistic)
     }
     
     theta.hat.B <- mean(as.vector(boot.stat))

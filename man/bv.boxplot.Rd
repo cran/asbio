@@ -13,7 +13,7 @@ bv.boxplot(X, Y, robust = TRUE, D = 7, xlab = "X", ylab="Y", pch = 21,
 pch.out = NULL, bg = "gray", bg.out = NULL, hinge.col = 1, fence.col = 1, 
 hinge.lty = 2, fence.lty = 3, xlim = NULL, ylim = NULL, names = 1:length(X), 
 ID.out = FALSE, cex.ID.out = 0.7, uni.CI = FALSE, uni.conf = 0.95, 
-uni.CI.col = 1, uni.CI.lty = 1, uni.CI.lwd = 2, ...)
+uni.CI.col = 1, uni.CI.lty = 1, uni.CI.lwd = 2, show.points = TRUE, ...)
 }
 \arguments{
   \item{X}{First of two quantitative variables making up the bivariate distribution.}
@@ -36,10 +36,11 @@ uni.CI.col = 1, uni.CI.lty = 1, uni.CI.lwd = 2, ...)
   \item{ID.out}{Logical. Whether or not outlying points should be given labels (from argument \code{name} in plot.}
   \item{cex.ID.out}{Character expansion for outlying ID labels.}
   \item{uni.CI}{Logical. If true, unviariate confidence intervals for the median at confidence \code{uni.CI} are shown.}  
-  \item{uni.conf}{Univariate confidence, only used if \code{CI.uni = TRUE}}
-  \item{uni.CI.col}{Univariate confidence bound line color, only used if \code{CI.uni = TRUE}}
-  \item{uni.CI.lty}{Univariate confidence bound line type, only used if \code{CI.uni = TRUE}}
-  \item{uni.CI.lwd}{Univariate confidence bound line width, only used if \code{CI.uni = TRUE}}
+  \item{uni.conf}{Univariate confidence, only used if \code{CI.uni = TRUE}.}
+  \item{uni.CI.col}{Univariate confidence bound line color, only used if \code{CI.uni = TRUE}.}
+  \item{uni.CI.lty}{Univariate confidence bound line type, only used if \code{CI.uni = TRUE}.}
+  \item{uni.CI.lwd}{Univariate confidence bound line width, only used if \code{CI.uni = TRUE}.}
+  \item{show.points}{Logical. Whether points should be shown in graph.}
   \item{\dots}{Additional arguments from \code{\link{points}}.}
   }
 

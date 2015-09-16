@@ -47,7 +47,7 @@ It is often desirable to display the results of a pairwise comparison procedure 
 A plot is returned.
 }
 \author{Ken Aho}
-\seealso{\code{\link{barplot}}, \code{\link{pairw.anova}}, \code{\link{pairw.kw}}, \code{\link{pairw.fried}}}
+\seealso{\code{\link{mad}},\code{\link{barplot}}, \code{\link{pairw.anova}}, \code{\link{pairw.kw}}, \code{\link{pairw.fried}}}
 \references{
 Chambers, J. M., Cleveland, W. S., Kleiner, B. and Tukey, P. A. (1983) \emph{Graphical Methods for Data Analysis}. Wadsworth & Brooks/Cole.
 

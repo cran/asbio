@@ -38,14 +38,14 @@ Returns a list with two objects.
   the test statistics, degrees of freedom and \emph{P}-values.}
 }
 \references{
-D'Agostino, R. B. (1970). Transformation to normality of the null distribution of g1, Biometrika,
+D'Agostino, R. B. (1970). Transformation to normality of the null distribution of g1, \emph{Biometrika}
 57: 679-681.
 
 Doornik, J.A. and Hansen, H. (2008). An Omnibus test for univariate and multivariate 
-normality. Oxford Bulletin of Economics and Statistics, 70, 927-939.
+normality. \emph{Oxford Bulletin of Economics and Statistics} 70, 927-939.
 
 Shenton, L. R. and Bowman, K. O. (1977). A bivariate model for the distribution of b1 and b2,
-Journal of the American Statistical Association, 72: 206.211.
+\emph{Journal of the American Statistical Association} 72: 206.211.
 }
 \author{Ken Aho}
 \note{As with all inferential normality tests our null hypothesis is that the underlying population 

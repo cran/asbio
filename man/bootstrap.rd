@@ -17,7 +17,7 @@ bootstrap(data, statistic, R = 1000, prob = NULL, matrix = FALSE)
 }
 \details{With bootstrapping we sample with replacement from a dataset of size \emph{n} with n samples \code{R} times. At each of the \code{R} iterations a statistical summary can be created resulting in a bootstrap distribution of statistics.}   
 \value{
-  Returns a list.  The utility \code{asbio:::print.bootstrap} function returns summary output.  Invisible items include the resampling distribution of the statistic, the data, the statistic, and the bootstrap samples.  
+  Returns a list.  The utility function \code{asbio:::print.bootstrap} returns summary output.  Invisible items include the resampling distribution of the statistic, the data, the statistic, and the bootstrap samples.  
 }
 \references{
 Manly, B. F. J.  (1997)  \emph{Randomization and Monte Carlo methods in biology, 2nd edition}.  

@@ -1,5 +1,7 @@
 pairw.kw <- function (y, x, conf = 0.95)
 {
+    comp <- !is.na(y)
+    y <- y[comp]; x <- x[comp]
     ranks <- rank(y)
     fitted <- tapply(y, x, median)
     ni <- tapply(ranks, x, length)

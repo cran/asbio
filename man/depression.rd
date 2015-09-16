@@ -18,7 +18,7 @@ Hollander and Wolfe (1999) presented Hamilton depression scale factor measuremen
   }
 }
 \source{
-Hollander, M., and  D. A. Wolfe. 1999. Nonparametric statistical methods. New York: John Wiley & Sons. 
+Hollander, M., and  D. A. Wolfe. 1999. \emph{Nonparametric statistical methods}. New York: John Wiley & Sons. 
 }
 
 \keyword{datasets}

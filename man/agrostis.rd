@@ -13,7 +13,7 @@ Percent cover of the grass \emph{Agrostis variablis} at 25 alpine snowbank sites
   A data frame with 25 observations on the following 2 variables.
   \describe{
     \item{site}{Site number}
-    \item{cover}{Percent cover measure}
+    \item{cover}{Percent cover}
   }
 }
 \source{

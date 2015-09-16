@@ -20,16 +20,16 @@ local({
 #------------------------ Message boxes ----------------------#
 
 I.T<-function(){
- tkmessageBox(message="Correct.  This is logical form of an argument called \U0022modus ponens\U0022 \nor \U0022 affirming the antecedent\U0022.")}
+ tkmessageBox(message="Correct.  This is a logical form of argument called \U0022modus ponens\U0022 \nor \U0022 affirming the antecedent\U0022.")}
     
 I.F<-function(){
- tkmessageBox(message="Incorrect.  This is logical form of an argument called \U0022modus ponens\U0022 \nor \U0022 affirming the antecedent\U0022.", icon="error")}
+ tkmessageBox(message="Incorrect.  This is a logical form of argument called \U0022modus ponens\U0022 \nor \U0022 affirming the antecedent\U0022.", icon="error")}
 
 II.T<-function(){
- tkmessageBox(message="Correct.  This is logical form of an argument called \U0022modus tollens\U0022 or\n\U0022 denying the consequent\U0022.")}
+ tkmessageBox(message="Correct.  This is a logical form of argument called \U0022modus tollens\U0022 or\n\U0022 denying the consequent\U0022.")}
  
 II.F<-function(){
- tkmessageBox(message="Incorrect.  This is logical form of an argument called \U0022modus tollens\U0022 or\n\U0022 denying the consequent.\U0022", icon="error")}
+ tkmessageBox(message="Incorrect.  This is a logical form of argument called \U0022modus tollens\U0022 or\n\U0022 denying the consequent.\U0022", icon="error")}
 
 III.T<-function(){
  tkmessageBox(message="Correct.  This is another logical example of \U0022modus tollens\U0022 or\n\U0022 denying the consequent\U0022.")}
@@ -38,10 +38,10 @@ III.F<-function(){
  tkmessageBox(message="Incorrect.  This is another logical example of \U0022modus tollens\U0022 or\n\U0022 denying the consequent\U0022.", icon="error")}
 
 IV.T<-function(){
- tkmessageBox(message="Incorrect.  This is example of a fallacious type of argument called \n\U0022 affirming the consequent\U0022.", icon="error")}
+ tkmessageBox(message="Incorrect.  This is an example of a fallacious type of argument called \n\U0022 affirming the consequent\U0022.", icon="error")}
  
 IV.F<-function(){
- tkmessageBox(message="Correct.  This is example of a fallacious type of argument called \n\U0022 affirming the consequent\U0022.")}
+ tkmessageBox(message="Correct.  This is an example of a fallacious type of argument called \n\U0022 affirming the consequent\U0022.")}
  
 V.T<-function(){
  tkmessageBox(message="Incorrect.  This is another example of a fallacious type of argument \ncalled \U0022 affirming the consequent\U0022.", icon="error")}

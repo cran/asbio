@@ -21,8 +21,8 @@ kurt(x,method="unbiased")
 Several types of skewness and kurtosis estimation are possible. 
 
 For method of moments estimation let: 
-\deqn{m_i = (1/n)\sum_i{X_i-\bar{X}}^i,}{%
-m_i = (1/n)sum(X_i-X.bar)^i,}
+\deqn{m_j = (1/n)\sum_i({X_i-\bar{X}})^j,}{%
+m_j = (1/n)sum(X_i-X.bar)^j,}
 
 then the method of moments skewness is: \eqn{m_3/m_{2}^{3/2}}, the method of moments kurtosis is: \eqn{m_4/m_2^2}, and the excess method of moments kurtosis is \eqn{m_4/m_2^2 -3}. 
 

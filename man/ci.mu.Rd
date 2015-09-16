@@ -16,7 +16,7 @@ fpc = FALSE, N = NULL, n = NULL)
 }
 \arguments{
   \item{data}{A vector of quantitative data.  Required if \code{summarized = FALSE}}
-  \item{conf}{Confidence level; 1 - alpha.}
+  \item{conf}{Confidence level; 1 - \emph{P}(type I error).}
   \item{sigma}{The population standard deviation.}
   \item{summarized}{A logical statement specifying whether statistical summaries are to be used.  If \code{summarized = FALSE}, then the sample mean and the sample standard deviation (\code{t.conf} only) are calculated from the vector provided in \code{data}.  If \code{summarized = FALSE} then the sample mean \code{xbar}, the sample size \code{n}, and, in the case of \code{ci.mu.t},  the sample standard deviation \code{st.dev}, must be provided by the user.}
   \item{xbar}{The sample mean.  Required if \code{summarized = TRUE}.}

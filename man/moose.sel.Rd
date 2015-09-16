@@ -1,4 +1,5 @@
 \name{moose.sel}
+\alias{mule.sel}
 \alias{goat.sel}
 \alias{quail.sel}
 \alias{elk.sel}
@@ -11,7 +12,7 @@
 Datasets for resource use and availability
 }
 \description{
-A collection of datasets which can be used to calculate and compare selection ratios. Datasets are: \code{goat.sel, quail.sel, elk.sel, bighorn.sel, bighornAZ.sel, juniper.sel} and are described (briefly) in Manly et al. (2002) and Aho and Bowyer (in review).
+A collection of datasets which can be used to calculate and compare selection ratios. Datasets are: \code{goat.sel, mule.sel, quail.sel, elk.sel, bighorn.sel, bighornAZ.sel, juniper.sel} and are described (briefly) in Manly et al. (2002) and Aho and Bowyer (in review).
 }
 \usage{data(moose.sel)
 data(goat.sel)

@@ -7,7 +7,7 @@ Ant honeydew data
 \description{
 Wright et al. (2000) examined behavior of red wood ants (\emph{Formica rufus}), a species that harvests honeydew in aphids.  
 Worker ants traveled from their nests to nearby trees to forage honeydew from homopterans.  Ants descending trees were laden with food and weighed more, given a particular ant head width, then unladen, ascending ants.  
-The authors were interested in comparing regression parameters of the ascending and descending ant to create a predictive model of honeydew foraging load for a given ant size.  
+The authors were interested in comparing regression parameters of the ascending and descending ants to create a predictive model of honeydew foraging load for a given ant size.  
 }
 \usage{data(ant.dew)}
 \format{

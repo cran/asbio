@@ -5,7 +5,7 @@
 Conversion of binary digits to decimal numbers
 }
 \description{
-Converts binary digits e.g. 10101011 to digital numbers.  Fractions, e.g. 0.11101 will be evaluated to the number of bits provided. The function will handle whole number and fractions, but not whole numbers with fractional parts, e.g. 111.100110.
+Converts binary representations to digital numbers (e.g., 10101011 = 171).  Fractions, (e.g., 0.11101) will be evaluated to the number of bits provided. The function will handle whole number and fractions, but not whole numbers with fractional parts, (e.g., 111.100110).
 }
 \usage{
 bin2dec(digits, round = 4)

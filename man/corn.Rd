@@ -5,7 +5,7 @@
 Corn yield data
 }
 \description{
-Hoshmand (2006) described a split plot design to test grain yield of corn with respect to corn hybrids (whole plots) and nitrogen (in split plots).  The experiment was replicated at two blocks.
+Hoshmand (2006) described a split plot design to test grain yield of corn with respect to corn hybrids (split plots) and nitrogen (in whole plots).  The experiment was replicated at two blocks.
 }
 \usage{data(corn)}
 \format{

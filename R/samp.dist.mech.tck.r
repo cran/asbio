@@ -47,8 +47,8 @@ old.par <- par(no.readonly = TRUE)
 submit.but <- tkbutton(tt, text="Submit", command=function()tclvalue(done)<-0)
 
 
-img <-tkrplot(tt, f, hscale=.8, vscale=.8)
-tkpack(desc1, desc2, desc3, img)
+#img <-tkrplot(tt, f, hscale=.8, vscale=.8)
+tkpack(desc1, desc2, desc3)
 tkpack(tklabel(tt,text="Iterations"), ns.entry)
 tkpack(tklabel(tt,text="Animation interval"), int.entry)
 tkpack(tklabel(tt,text="",font=c("Helvetica","2","normal")))

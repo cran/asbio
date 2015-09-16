@@ -2,7 +2,7 @@ bv.boxplot<-function(X, Y, robust=TRUE, D = 7, xlab="X", ylab="Y", pch = 21,
 pch.out = NULL, bg = "gray", bg.out = NULL, hinge.col = 1, fence.col = 1, 
 hinge.lty = 2, fence.lty = 3, xlim = NULL, ylim = NULL, names = 1:length(X), 
 ID.out = FALSE, cex.ID.out = 0.7, uni.CI = FALSE, uni.conf = 0.95, 
-uni.CI.col = 1, uni.CI.lty = 1, uni.CI.lwd = 2, ...){
+uni.CI.col = 1, uni.CI.lty = 1, uni.CI.lwd = 2, show.points = TRUE, ...){
 if(length(X) != length(Y)) stop("X and Y must have equal length")
 biweight<-function(a,const1=9,const2=36,err=0.0001){ ###From Everitt (2004)
               x<-a[,1]
@@ -177,7 +177,7 @@ if(is.null(bg.out)) bg.out <- bg
 pch <- ifelse(bool == "in", pch, pch.out)
 bg <- ifelse(bool == "in", bg, bg.out)
 
-points(X, Y, pch = pch, bg = bg, ...)
+if(show.points == TRUE) points(X, Y, pch = pch, bg = bg, ...)
 
 outl <- data.frame(X = X, Y = Y)[bool == "out",] 
 if(ID.out == TRUE){pos <- 2; if(nrow(outl) > 2) pos <-  thigmophobe(outl$X,outl$Y)

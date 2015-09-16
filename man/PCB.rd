@@ -7,7 +7,7 @@ PCBs and herring egg thickness
 \description{
 Thirteen sites in the Great Lakes were selected for a study to quantify PCB 
 concentrations in 1982 and 1996 (Hughes et al. 1998).  At each site 9-13 American 
-herring gull (Larus smithsonianus) eggs were randomly collected and tested for PCB content.
+herring gull (\emph{Larus smithsonianus}) eggs were randomly collected and tested for PCB content.
 }
 \usage{data(PCB)}
 \format{

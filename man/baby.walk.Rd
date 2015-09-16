@@ -5,10 +5,10 @@
 Baby walking times experimental data
 }
 \description{
-In general mammals are able to walk within minutes or hours after birth.  
+In general, mammals are able to walk within minutes or hours after birth.  
 Human babies, however, generally don't begin to walk until they are between 10 and 18 months of age.  
-Humans are born with rudimentary reflexes for walking, however because they are 
-unused these reflexes largely disappear by the age of eight weeks.  As a result 
+This occurs because, although humans are born with rudimentary reflexes for walking, they are 
+unused, and thus largely disappear by the age of eight weeks.  As a result 
 these movements must be relearned by an infant following significant passage of time, 
 through a process of trial and error.  Zelazo et al. (1972) performed a series of experiments 
 to determine whether certain exercises could allow infants to maintain their walking reflexes, 

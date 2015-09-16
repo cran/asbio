@@ -19,7 +19,7 @@ Agresti (2012) incldued a three way contingency table describing cigarette, alco
 }
 
 \source{
-Agresti, A.  2012.  Categorical data analysis, 3rd edition.  New York.  Wiley. 
+Agresti, A.  2012.  \emph{Categorical Data Analysis, 3rd edition}.  New York.  Wiley. 
 }
 \keyword{datasets}
 
