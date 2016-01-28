@@ -70,7 +70,7 @@ Additional arguments from \code{\link{plot}}.
 The functon returns two plots.  These are: 1) the proposal bivariate normal distribution in which darker shading indicates higher density, and 2) an animated plot showing the MCMC algorithm walking through the probability space.
 }
 \references{
-Gelman, A., Carlin, J. B., Stern, H. S., and D. B. Rubin (2003)  \emph{Bayesian data analysis, 2nd edition}.  Chapman and Hall/CRC. 
+Gelman, A., Carlin, J. B., Stern, H. S., and D. B. Rubin (2003)  \emph{Bayesian Data Analysis, 2nd edition}.  Chapman and Hall/CRC. 
 }
 \author{
 Ken Aho

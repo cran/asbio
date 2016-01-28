@@ -10,8 +10,8 @@ Mode(x)
 }
 \value{Returns the sample mode or an error message if the mode does not exist.
 }
-\references{Bain, L. J., and M. Engelhardt (1992)  \emph{Introduction to probability and mathematical 
-statistics}.  Duxbury press.  Belmont, CA, USA.
+\references{Bain, L. J., and M. Engelhardt (1992)  \emph{Introduction to Probability and Mathematical 
+Statistics}.  Duxbury press.  Belmont, CA, USA.
 }
 \author{Ken Aho}
 \seealso{\code{\link{H.mean}}, \code{\link{HL.mean}}, \code{\link{mean}}, \code{\link{median}}, \code{\link{huber.mu}}}

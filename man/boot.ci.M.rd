@@ -30,7 +30,7 @@ boot.ci.M(X1, X2, alpha = 0.05, est = huber.one.step, R = 1000)
    
   }
 \references{
-Manly, B. F. J.  (1997)  \emph{Randomization and Monte Carlo methods in biology, 2nd edition}.  
+Manly, B. F. J.  (1997)  \emph{Randomization and Monte Carlo methods in Biology, 2nd edition}.  
 Chapman and Hall, London.
 
 Wilcox, R. R. (2005) \emph{Introduction to Robust Estimation and Hypothesis Testing, 2nd edition}.  Elsevier, 

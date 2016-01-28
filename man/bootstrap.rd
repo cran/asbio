@@ -20,7 +20,7 @@ bootstrap(data, statistic, R = 1000, prob = NULL, matrix = FALSE)
   Returns a list.  The utility function \code{asbio:::print.bootstrap} returns summary output.  Invisible items include the resampling distribution of the statistic, the data, the statistic, and the bootstrap samples.  
 }
 \references{
-Manly, B. F. J.  (1997)  \emph{Randomization and Monte Carlo methods in biology, 2nd edition}.  
+Manly, B. F. J.  (1997)  \emph{Randomization and Monte Carlo Methods in Biology, 2nd edition}.  
 Chapman and Hall, London.
 }
 \author{Ken Aho}

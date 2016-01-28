@@ -33,7 +33,7 @@ Returns a list of \code{class = "pairw"}.  The utility print function returns a 
 6) the adjusted \emph{P}-value.
 }
 \seealso{\code{\link{pairw.anova}}, \code{\link{pairw.fried}}, \code{\link{plot.pairw}}}
-\references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston.}
+\references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li (2005)  \emph{Applied Linear Statistical Models, 5th edition}.  McGraw-Hill, Boston.}
 \author{Ken Aho and Richard Boyce \url{http://www.nku.edu/~boycer/}.  Richard provided an adjustment for ties.  Thanks to Paule Bodson-Clermont for pointing out issues with the default behaviour of \code{\link{rank}}, 
 leading to incorrect answers from \code{pair.kw} given missing vaues.
 }

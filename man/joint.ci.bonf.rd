@@ -18,7 +18,7 @@ are exceedingly conservative and thus are prone to type II error.
 }
 \value{Returns a dataframe with the upper and lower confidence bounds for each parameter in a linear model.
 }
-\references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li. (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston.}
+\references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li. (2005)  \emph{Applied Linear Statistical Models, 5th edition}.  McGraw-Hill, Boston.}
 \author{Ken Aho}
 \seealso{\code{\link{confint}}, \code{\link{p.adjust}}}
 \examples{

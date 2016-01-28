@@ -57,7 +57,7 @@ Returns a list with two items:
 
 }
 \references{
-Lohr, S. L. (1999) \emph{Sampling: design and analysis}.  Duxbury Press.  Pacific Grove, USA.
+Lohr, S. L. (1999) \emph{Sampling: Design and Analysis}.  Duxbury Press.  Pacific Grove, USA.
 
 Siniff, D. B., and Skoog, R. O. (1964)  Aerial censusing of caribou using stratified 
 random sampling.  \emph{Journal of Wildlife Management} 28: 391-401.

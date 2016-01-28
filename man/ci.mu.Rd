@@ -32,7 +32,7 @@ provides some value for \code{N}.}
 \value{Returns a list of \code{class = "ci"}.  Default printed results are the parameter estimate and confidence bounds.  Other \code{invisible} objects include:
   \item{Margin}{the confidence margin.}
 }
-\references{Lohr, S. L. (1999)  \emph{Sampling: design and analysis}.  Duxbury Press.  Pacific Grove, USA.}
+\references{Lohr, S. L. (1999)  \emph{Sampling: Design and Analysis}.  Duxbury Press.  Pacific Grove, USA.}
 \author{Ken Aho}
 \seealso{\code{\link{pnorm}}, \code{\link{pt}}}
 \examples{

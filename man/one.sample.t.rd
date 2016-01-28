@@ -21,7 +21,7 @@ alternative = "two.sided", conf = 0.95)
 
 \value{Returns a test statistic and a \emph{p}-value.
 }
-\author{Ken Aho}
+\author{Ken Aho.  Thanks to Samuel Hale for identifying a function bug.}
 \seealso{\code{\link{pt}}}
 \examples{
 one.sample.t(null.mu = 131, xbar = 126, sd = 12, n = 85, 

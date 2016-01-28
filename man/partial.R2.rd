@@ -19,7 +19,7 @@ Coefficients of partial determination measure the proportional reduction in sums
 The partial \eqn{R^2} is returned.
 }
 \references{
-Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li. (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston.
+Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li. (2005)  \emph{Applied Linear Statistical Models, 5th edition}.  McGraw-Hill, Boston.
 
 }
 \author{Ken Aho}

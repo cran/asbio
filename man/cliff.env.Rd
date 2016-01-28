@@ -26,7 +26,7 @@ This data frame contains the following columns:
 Two categorical environmental variables are described for 54 sites.  \code{sub} describes the substrate; there are two levels: \code{"Andesite"} and \code{"Lime"}.  \code{water} describes distance of samples from waterfalls which drain the cliff faces; there are three levels \code{"W"} indicating wet, \code{"I"} indicating intermediate, and \code{"D"} indicating dry.
 }
 \source{
-Aho, K.(2006)  \emph{Alpine ecology and subalpine cliff ecology in the Northern Rocky 
+Aho, K.(2006)  \emph{Alpine Ecology and Subalpine Cliff Ecology in the Northern Rocky 
 Mountains}.  Doctoral dissertation, Montana State University, 458 pgs.
 }
 \keyword{datasets}

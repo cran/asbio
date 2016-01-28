@@ -17,7 +17,7 @@ Polyamines are a class of organic compounds having two or more primary amino gro
   }
 }
 \source{
-Hollander, M., and  D. A. Wolfe  (1999) \emph{Nonparametric statistical methods}. New York: John Wiley & Sons. 
+Hollander, M., and  D. A. Wolfe  (1999) \emph{Nonparametric Statistical Methods}. New York: John Wiley & Sons. 
 }
 \keyword{datasets}
 

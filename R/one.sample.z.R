@@ -1,7 +1,7 @@
 one.sample.z<-function(data=NULL, null.mu=0, xbar=NULL, sigma, n=NULL, alternative= "two.sided", conf=.95)
 {
 alt <- c("two.sided", "less", "greater")
-if(alternative != alt[1] & alternative != alt[2] &  alternative != alt[2]) stop(c("In alternative use one of: ", paste("'", alt, "' ", sep = "")))
+if(alternative != alt[1] & alternative != alt[2] &  alternative != alt[3]) stop(c("In alternative use one of: ", paste("'", alt, "' ", sep = "")))
 if(!is.null(data)){
 xbar<-mean(data)
 n<-nrow(as.matrix(data))}

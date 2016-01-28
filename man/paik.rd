@@ -50,7 +50,7 @@ Additional arguments from \code{\link{plot}}.
 }
 }
 \references{
-Agresti, A. (2012) \emph{Categorical data analysis, 3rd edition}.  New York.  Wiley. 
+Agresti, A. (2012) \emph{Categorical Data Analysis, 3rd edition}.  New York.  Wiley. 
 
 Paik M. (1985) A graphical representation of a three-way contingency table: Simpson's paradox and correlation.
 \emph{American Statistician} 39:53-54.

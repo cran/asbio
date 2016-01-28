@@ -58,7 +58,7 @@ The function \code{mcmc.summary} provides statsitical summaries for the output a
 The function \code{mcmc.norm.hier} reurns a three dimensional (step x variable x chain) array.  The function \code{mcmc.summary} returns a summary table containing credible intervals and the Gelman/Rubin convergence criterion, \eqn{\hat{R}}.
 }
 \references{
-Gelman, A., Carlin, J. B., Stern, H. S., and D. B. Rubin (2003) \emph{Bayesian data analysis, 2nd edition}.  Chapman and Hall/CRC.
+Gelman, A., Carlin, J. B., Stern, H. S., and D. B. Rubin (2003) \emph{Bayesian Data Analysis, 2nd edition}.  Chapman and Hall/CRC.
 }
 \author{
 Ken Aho

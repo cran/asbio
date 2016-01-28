@@ -20,7 +20,7 @@ Creates partial residual plots (see Kutner et al. 2002).  Smoother lines from \c
 \value{
 Returns \emph{p} partial residual plots, where \emph{p} = the number of explanatory variables.
 }
-\references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li. (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston.}
+\references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li. (2005)  \emph{Applied Linear Statistical Models, 5th edition}.  McGraw-Hill, Boston.}
 \author{Ken Aho}
 \seealso{\code{\link{partial.R2}}}
 \examples{

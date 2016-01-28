@@ -32,7 +32,7 @@ Confidence level; 1 - \emph{P}(Type I error).
 }
 
 \references{
-Manly, B. F. J.  (1997)  \emph{Randomization and Monte Carlo methods in biology, 2nd edition}.  
+Manly, B. F. J.  (1997)  \emph{Randomization and Monte Carlo Methods in Biology, 2nd edition}.  
 Chapman and Hall, London.
 }
 \author{

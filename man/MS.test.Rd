@@ -21,7 +21,7 @@ When we have more than one replication within a block, and the number of replica
 Campbell, J. A., and O. Pelletier (1962)  Determination of niacin (niacinamide) in cereal 
 products.  \emph{J. Assoc.  Offic. Anal.  Chem.}  45: 449-453. 
 
-Hollander, M., and  D. A. Wolfe (1999) \emph{Nonparametric statistical methods}. New York: John Wiley & Sons. 
+Hollander, M., and  D. A. Wolfe (1999) \emph{Nonparametric Statistical Methods}. New York: John Wiley & Sons. 
 
 Mack, G. A., and J. H. Skillings (1980)  A Friedman-type rank test for main effects in a 
 two-factor ANOVA.  \emph{Journal of the American Statistical Association}.  75: 947-951.

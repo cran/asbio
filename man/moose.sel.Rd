@@ -38,7 +38,7 @@ data(juniper.sel)
 Manly BF, McDonald LL, Thomas DL, McDonald TL, Erickson WP (2002) \emph{Resource Selection by Animals: Statistical Design and Analysis for Field Studies.  2nd  edn}.  Kluwer, New York
 }
 \references{
-Aho, K and Bowyer, T (in review) Confidence intervals for ratios of multinomial proportions: Implications for selection ratios.  \emph{Methods in eclogy and Evolution}.  }
+Aho, K., and Bowyer, T. 2015. Confidence intervals for ratios of proportions: implications for selection ratios. \emph{Methods in Ecology and Evolution} 6: 121-132.  }
 \keyword{datasets}
 
 

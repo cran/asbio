@@ -23,6 +23,6 @@ The dataframe contains a repeated measures dataset describing the strength of 37
     }  
 }
 \source{
-Fitzmaurice, G. M., Laird, N. M, and Waird, J. H.  (2004) \emph{Applied longitudinal analysis}.  Wiley.
+Fitzmaurice, G. M., Laird, N. M, and Waird, J. H.  (2004) \emph{Applied Longitudinal Analysis}.  Wiley.
 }
 \keyword{datasets}

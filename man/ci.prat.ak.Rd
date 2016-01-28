@@ -56,7 +56,7 @@ The level of confidence, i.e. 1 - \emph{P}(type I error).
 }
 
 \details{
-Koopman et al. (1984) suggested methods for handling extreme cases of \eqn{y_1}, \eqn{n_1}, \eqn{y_2}, and \eqn{n_2} (see below).  These are applied through exception handling here (see Aho and Bowyer in review). 
+Koopman et al. (1984) suggested methods for handling extreme cases of \eqn{y_1}, \eqn{n_1}, \eqn{y_2}, and \eqn{n_2} (see below).  These are applied through exception handling here (see Aho and Bowyer 2015). 
 
 Let \eqn{Y_1} and \eqn{Y_2} be multinomial random variables with parameters \eqn{n_1, \pi_{1i}},  and  \eqn{n_2, \pi_{2i}}, respectively; where \eqn{i = \{1, 2, 3, \dots, r\}}.  This encompasses the binomial case in which \eqn{r = 1}. We define the true selection ratio for the \emph{i}th resource of \emph{r} total resources to be:
  \deqn{\theta_{i}=\frac{\pi _{1i}}{\pi _{2i}}}
@@ -102,7 +102,7 @@ Wald-adjusted \tab \eqn{{{\hat{\theta }}_{i}}\pm {{z}_{1-(\alpha /2)}}\sqrt{{{{\
 \value{Returns a list of \code{class = "ci"}.  Default output is a matrix with the point and interval estimate. 
 }
 \references{
-Aho, K., and Bowyer, T. (\emph{In press}: 10/27/2014) Confidence intervals for ratios of multinomial random variables (selection ratios). \emph{Methods in Ecology and Evolution}.
+Aho, K., and Bowyer, T. 2015. Confidence intervals for ratios of proportions: implications for selection ratios. \emph{Methods in Ecology and Evolution} 6: 121-132.
 }
 \author{
 Ken Aho

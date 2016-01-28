@@ -21,12 +21,12 @@ Dataset detailing death penalty 674 homicide trials in the state of Florida from
 A reversal of associations or comparisons may occur as a result of lurking variables or aggregating groups.  This is called Simpson's Paradox.  
 }
 \source{
-Agresti, A.  (2012)  \emph{Categorical data analysis, 3rd edition}.  New York.  Wiley. 
+Agresti, A.  (2012)  \emph{Categorical Data Analysis, 3rd edition}.  New York.  Wiley. 
 
 Radelet, M. L., and G. L. Pierce  (1991) Choosing those who will die: race and the death 
 penalty in Florida.  \emph{Florida Law Review}  43(1):1-34.
 
-Simpson, E. H. (1951) The Interpretation of Interaction in Contingency Tables. \emph{Journal of the Royal Statistical Society} Ser. B 13: 238-241.
+Simpson, E. H. (1951) The Interpretation of interaction in contingency tables. \emph{Journal of the Royal Statistical Society} Ser. B 13: 238-241.
 }
 
 \keyword{datasets}

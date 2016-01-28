@@ -12,7 +12,7 @@ D.sq(g1, g2)
   \item{g2}{Community vector for site 2} 
 }
 \references{
-Legendre, P, and L. Legendre  (1998)  \emph{Numerical ecology, 2nd English edition}.  Elsevier, 
+Legendre, P, and L. Legendre  (1998)  \emph{Numerical Ecology, 2nd English Edition}.  Elsevier, 
 Amsterdam, The Netherlands. 
 }
 \author{Ken Aho}

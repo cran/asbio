@@ -36,7 +36,7 @@ Returns a list of \code{class = "pairw"}.  The utility print function returns a 
 \references{
 Fox, J. R., and Randall, J. E. (1970)  Relationship between forearm tremor and the biceps electromyogram.  \emph{Journal of Applied Physiology}  29: 103-108.
 
-Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston.}
+Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li (2005)  \emph{Applied Linear Statistical Models, 5th edition}.  McGraw-Hill, Boston.}
 \author{Ken Aho}
 \seealso{\code{\link{friedman.test}}, \code{\link{plot.pairw}}}
 \examples{

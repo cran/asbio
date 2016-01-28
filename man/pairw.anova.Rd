@@ -71,7 +71,7 @@ Other \code{invisible} objects include:
 
 The \code{pairw} class also has a utility function \code{\link{plot.pairw}} which provides either a barplot of location measures with errors and letters indicating whether true effects are significant and the defined significance level (argument \code{type = 1}) or confidence intervals for the true difference of each comparison (argument \code{type = 2}).  See code below and and \code{\link{plot.pairw}} for examples.    
 }
-\references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and Li., W  (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston.
+\references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and Li., W  (2005)  \emph{Applied Linear Statistical Models, 5th edition}.  McGraw-Hill, Boston.
 }
 \author{Ken Aho}
 \note{Different forms of these functions have existed for years without implementation into libraries.  My version here, based on the function \code{\link{outer}} is unique.}

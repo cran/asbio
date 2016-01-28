@@ -25,9 +25,9 @@ Returns a dataframe with the test statistic (which follows a chi-square distribu
 the chi-square degrees of freedom, and the calculated \emph{p}-value.  Invisible objects include the within group dispersion matrix.
 }
 \references{
-Kullback, S. (1959)  \emph{Information theory and statistics}.  John Wiley and Sons.
+Kullback, S. (1959)  \emph{Information Theory and Statistics}.  John Wiley and Sons.
 
-Legendre, P, and Legendre, L.  (1998) \emph{Numerical ecology, 2nd English edition}.  Elsevier, 
+Legendre, P, and Legendre, L.  (1998) \emph{Numerical Ecology, 2nd English edition}.  Elsevier, 
 Amsterdam, The Netherlands. 
 }
 \author{Pierre Legendre is the author of the most recent version of this function asbio ver >= 1.0. Stephen Ousley discovered an error in the original code. Ken Aho was the author of the original function}

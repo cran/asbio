@@ -26,7 +26,7 @@ Control (C):  No exercises were specified, and infants were only tested at weeks
   A data frame with 22 observations on the following 2 variables.
   \describe{
     \item{\code{date}}{Age when baby first started walking (in months)}
-    \item{\code{treatment}}{a factor with levels \code{AE} \code{C} \code{PE} \code{TO}}
+    \item{\code{treatment}}{A factor with levels \code{AE} \code{C} \code{PE} \code{TO}}
   }
 }
 

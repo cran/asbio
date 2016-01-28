@@ -45,8 +45,8 @@ Indicates what side the one sided confidence limit should be calculated for.  Ch
 }
 \value{Returns a list of \code{class = "ci"}.  Default output is a matrix with the sample mean and either the upper or lower confidence limit.
 }
-\references{Bain, L. J., and Engelhardt, M. (1992) \emph{Introduction to probability and mathematical 
-statistics}.  Duxbury press.  Belmont, CA, USA.
+\references{Bain, L. J., and Engelhardt, M. (1992) \emph{Introduction to Probability and Mathematical 
+Statistics}.  Duxbury press, Belmont, CA, USA.
 }
 \author{
 Ken Aho

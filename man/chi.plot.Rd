@@ -35,7 +35,7 @@ Returns a chi-plot.
 }
 
 \references{
-Everitt, B.  (2005)  \emph{R and S-plus companion to multivariate analysis}.  Springer.
+Everitt, B.  (2005)  \emph{R and S-plus Companion to Multivariate Analysis}.  Springer.
 
 Fisher, N. I, and Switzer, P. (1985)  Chi-plots for assessing dependence.  \emph{Biometrika}, 72: 
 253-265.

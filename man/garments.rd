@@ -19,7 +19,7 @@ Four materials (A, B, C, D) used in permenant press garments are subjected to a 
 }
 
 \source{
-Littell, R. C., Stroup, W. W., and R. J. Fruend (2002)  \emph{SAS for linear models}.  John 
+Littell, R. C., Stroup, W. W., and R. J. Fruend (2002)  \emph{SAS for Linear Models}.  John 
 Wiley and Associates.
 }
 \keyword{datasets}

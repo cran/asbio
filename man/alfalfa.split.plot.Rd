@@ -28,5 +28,5 @@ The dataframe contains four variables:
     \item{block}{The block (whole plot replicate).  A factor with six levels: "1", "2", "3", "4", "5", and "6".}
       }
 }
-\source{Snedecor, G. W. and Cochran, G. C.  (1967)  \emph{Statistical methods, 6th edition}.  Iowa State University Press.} 
+\source{Snedecor, G. W. and Cochran, G. C.  (1967)  \emph{Statistical Methods, 6th edition}.  Iowa State University Press.} 
 \keyword{datasets}

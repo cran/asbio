@@ -86,7 +86,7 @@ Agresti (2012) reccomends the Agresti-Coull method over the normal approximation
   \item{ci}{Confidence interval.}
 }
 \references{
-Agresti, A.  (2012) \emph{Categorical data analysis, 3rd edition}.  New York.  Wiley. 
+Agresti, A.  (2012) \emph{Categorical Data Analysis, 3rd edition}.  New York.  Wiley. 
 
 Agresti, A., and Coull, B . A. (1998) Approximate is better than 'exact' for interval 
 estimation of binomial proportions. \emph{The American Statistician}. 52: 119-126.
@@ -94,7 +94,7 @@ estimation of binomial proportions. \emph{The American Statistician}. 52: 119-12
 Clopper, C. and Pearson, S. (1934) The use of confidence or fiducial limits illustrated in 
 the case of the Binomial. \emph{Biometrika} 26: 404-413.
 
-Ott, R. L., and Longnecker, M. T. (2004) \emph{A first course in statistical methods}.  
+Ott, R. L., and Longnecker, M. T. (2004) \emph{A First Course in Statistical Methods}.  
 Thompson.
 
 Wilson, E. B.(1927) Probable inference, the law of succession, and statistical inference. 

@@ -71,7 +71,7 @@ The term \eqn{r_hN_h} describes exponential growth for the host (prey) species. 
 \references{
 Molles, M. C. (2010) \emph{Ecology, Concepts and Applications, 5th edition}.  McGraw Hill.
 
-Crawley, M. J.  (2007) \emph{The R book}.  Wiley
+Crawley, M. J.  (2007) \emph{The R Book}.  Wiley
 }
 
 \author{Ken Aho, based on a concept elucidated by M. Crawley}

@@ -10,7 +10,7 @@ Resistance on the chips was measured in four different positions (four different
 chips) on each wafer.  Mode of processing and position of chips were fixed 
 factors, while wafer was a random effect.    The experimental units with respect 
 to process are the wafers.  The experimental units with respect to position 
-are individual chips.  Thus the wafer is the whole plot, while the positions 
+are individual chips.  Thus the wafer is the whole plot, whereas the positions 
 (chips) are split plot units 
 }
 \usage{data(Semiconductor)}
@@ -25,6 +25,6 @@ The dataframe contains four columns:
 }
 \source{
 Littell, R. C., Milliken, G. A., Stroup, W. W., Wolfinger, R. D., and O. Schabenberger  
-(2006)  \emph{SAS for mixed models 2nd ed}.  SAS press.
+(2006)  \emph{SAS for Mixed Models 2nd ed}.  SAS press.
 }
 \keyword{datasets}

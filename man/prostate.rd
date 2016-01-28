@@ -18,7 +18,7 @@ Data in the experiment were collected from 97 men who were about to undergo radi
   }
 }
 \source{
-Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li  (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston. 
+Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li  (2005)  \emph{Applied Linear Statistical Models, 5th edition}.  McGraw-Hill, Boston. 
 }
 \references{
 Hastie, T., R. Tibshirani, and J. Friedman (2009) \emph{The Elements of Statistical Learning: Data Mining, Inference, and Prediction, Second Edition}. Springer.

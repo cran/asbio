@@ -17,8 +17,8 @@ ci.sigma(data, conf = 0.95, S.sq = NULL, n = NULL, summarized = FALSE)
 }
 }
 \value{Returns a list of \code{class = "ci"}.  Default printed results are the point estimate and confidence bounds.  Other objects are \code{invisible}.}
-\references{Bain, L. J., and M. Engelhardt.  1992.  \emph{Introduction to probability and mathematical 
-statistics}.  Duxbury press.  Belmont, CA, USA.
+\references{Bain, L. J., and M. Engelhardt.  1992.  \emph{Introduction to Probability and Mathematical 
+Statistics}.  Duxbury press.  Belmont, CA, USA.
 
 }
 \author{Ken Aho

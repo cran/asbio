@@ -33,9 +33,9 @@ Manly (1997) recommends methods a, b, d, or e. Methods a and b are currently imp
 A dataframe is returned describing initial \emph{F} test statistics for main effects and interactions, degrees of freedom, and permutation \emph{P}-values.
 }
 \references{
-Edgington, E. S. (1995)  \emph{Randomization tests, 3rd edition}.  Marcel Dekker, New York.  
+Edgington, E. S. (1995)  \emph{Randomization Tests, 3rd edition}.  Marcel Dekker, New York.  
 
-Manly, B. F. J. (1997)  \emph{Randomization and Monte Carlo methods in biology, 2nd edition}.  
+Manly, B. F. J. (1997)  \emph{Randomization and Monte Carlo Methods in Biology, 2nd edition}.  
 Chapman and Hall, London.
 
 Still, A. W., and A. P. White  (1981)  The approximate randomization test as an 

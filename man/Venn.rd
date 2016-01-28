@@ -12,9 +12,9 @@ Venn(A, B, AandB = 0, labA = "A", labB = "B", cex.text = .95, ...)
 Venn.tck()
 }
 \arguments{
-  \item{A}{probability of event A}
-  \item{B}{probability of event B}
-  \item{AandB}{probability of the intersection of A and B}
+  \item{A}{Probability of event A}
+  \item{B}{Probability of event B}
+  \item{AandB}{Probability of the intersection of A and B}
   \item{labA}{Label assigned to event A in the diagram}
   \item{labB}{Label assigned to event B in the diagram}
   \item{cex.text}{Character expansion for text.}
@@ -23,8 +23,8 @@ Venn.tck()
 \value{
 A Venn diagram is returned.  
 }
-\references{Bain, L. J., and M. Engelhardt (1992)  \emph{Introduction to probability and mathematical 
-statistics}.  Duxbury press.  Belmont, CA, USA.
+\references{Bain, L. J., and M. Engelhardt (1992)  \emph{Introduction to Probability and Mathematical 
+Statistics}.  Duxbury press.  Belmont, CA, USA.
 }
 \author{K. Aho}
 \examples{

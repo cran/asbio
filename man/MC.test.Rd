@@ -37,7 +37,7 @@ Returns a list with the following items:
 \item{alternative}{The alternative hypothesis}
 }
 \references{
-Manly, B. F. J. (1997) \emph{Randomization and Monte Carlo methods in biology, 2nd edition}.  Chapman and Hall, London.
+Manly, B. F. J. (1997) \emph{Randomization and Monte Carlo Methods in Biology, 2nd edition}.  Chapman and Hall, London.
 }
 \author{Ken Aho}
 \seealso{\code{\link{t.test}}}

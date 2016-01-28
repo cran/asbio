@@ -2,21 +2,23 @@
 \alias{qq.Plot}
 
 \title{
-Normal quantile plots for multiple factor levels
+Normal quantile plots for single or multiple factor levels
 }
 \description{
-Provides quantile plots for one or more factor levels overlaid on a single graph.
+Provides quantile plots for one or more factor levels overlaid on a single graph.  If \code{plot.CI = TRUE}, then 
+code for bootsrapped confidence provided in the documentation for \code{\link{boot}} is applied to create confidence envelopes. If \code{plot.CI = FALSE}, \code{\link{qqnorm}} and \code{\link{qqline}} are used to create overlaid normal probability plots given multiple categories in \code{x}.
 }
+
 \usage{
 
-qq.Plot(y, x = NULL, col = 1, pch = 1, main = "", R = 5000, fit.lty = 1, env.lty = 2, 
-conf = 0.95, type = "point", ylim = NULL, xlab = "Normal quantiles", 
-ylab = "Studentized observed quantiles", ...)
+qq.Plot(y, x = NULL, col = NULL, pch = NULL, main = "", R = 5000, fit.lty = 1, 
+env.lty = 2, conf = 0.95, type = "point", ylim = NULL, xlim = NULL, xlab = NULL, 
+ylab = NULL, plot.CI = FALSE, ...)
 }
 
 \arguments{
 
-  \item{y}{
+\item{y}{
 The response variable
 }
   \item{x}{
@@ -46,6 +48,9 @@ Level of confidence in confidence envelopes.
   \item{type}{
 Type of bootstrapped confidence envelope.  One of \code{"point"} or \code{"overall"}. 
 }
+  \item{xlim}{
+A two element vector defining the lower and upper \emph{x}-axis limits . 
+}
   \item{ylim}{
 A two element vector defining the lower and upper \emph{y}-axis limits . 
 }
@@ -55,6 +60,9 @@ A two element vector defining the lower and upper \emph{y}-axis limits .
   \item{ylab}{
 \emph{Y}-axis label. 
 }
+  \item{plot.CI}{
+Logical, specifying whether or not confidence ellipses should be plotted. 
+}
   \item{\dots}{
 Other arguments from \code{\link{plot}}. 
 }
@@ -63,13 +71,9 @@ Other arguments from \code{\link{plot}}.
 \author{
 Ken Aho
 }
-\note{
-Unlike \code{\link{qqnorm}} observed quantiles are studentized.
-}
-
 
 \seealso{
-\code{\link{qqnorm}}, \code{\link{qqline}},  \code{\link{envelope}}
+\code{\link{qqnorm}}, \code{\link{qqline}},  \code{\link{envelope}}, \code{\link{boot}}
 }
 \examples{
 y <- rnorm(50)

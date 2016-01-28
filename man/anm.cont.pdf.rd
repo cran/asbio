@@ -15,7 +15,7 @@ see.pdf.conc.tck()
 \arguments{
 
   \item{part}{
-parent distribution, options are \code{"norm"} = \emph{N}(0, 1), \code{"t"} = \emph{t}(10), 
+Parent distribution, options are \code{"norm"} = \emph{N}(0, 1), \code{"t"} = \emph{t}(10), 
 \code{"exp"} = EXP(1), and \code{"unif"} = UNIF(0,1)
 }
   \item{interval}{

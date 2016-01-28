@@ -32,8 +32,8 @@ test = c("two.tail", "one.tail"), strict = FALSE)
   \item{test}{The type of test prescribed.}
   \item{effect}{The effect size.}
 }
-\references{Bain, L. J., and M. Engelhardt (1992)  \emph{Introduction to probability and mathematical 
-statistics}.  Duxbury press.  Belmont, CA, USA.
+\references{Bain, L. J., and M. Engelhardt (1992)  \emph{Introduction to Probability and Mathematical 
+Statistics}.  Duxbury press.  Belmont, CA, USA.
 }
 \author{Ken Aho}
 \seealso{\code{\link{pnorm}}}

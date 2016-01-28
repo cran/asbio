@@ -24,7 +24,7 @@ Data Analysis}.  Duxbury Press, Belmont, CA.
 }
 \references{
 Weindruch, R., Walford, R. L., Fligiel, S., and D. Guthrie  (1986)  The retardation of aging in mice by dietary restriction: 
-longevity, cancer, immunity and lifetime energy intake.  \emph{The Journal of nutrition} 116 (4): 641-54.
+longevity, cancer, immunity and lifetime energy intake.  \emph{The Journal of Nutrition} 116 (4): 641-54.
 
 }
 \examples{

@@ -7,7 +7,7 @@ method of Kaplan-Meier; cf. Pollock et al. (1989).
 }
 \usage{
 km(r, d, var = "O", conf = 0.95,age.seq=seq(1,length(r)),
-ylab="Pr(survivorship from 1st age class)",xlab="Age class", ...)
+ylab="Survivorship",xlab="Age class", ...)
 }
 \arguments{
 
@@ -31,7 +31,7 @@ Returns a list with the following components
   \item{CI}{Upper and lower confidence bound to the true survivorship.}     
 }
 \references{Pollock, K. H., Winterstein, S. R., and Curtis, P. D. (1989) Survival 
-analysis in telemetry studies: the staggered entry design.  \emph{Journal of wildlife 
+analysis in telemetry studies: the staggered entry design.  \emph{Journal of Wildlife 
 Management}.  53(1):7-1.}
 \author{Ken Aho}
 \examples{

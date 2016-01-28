@@ -18,8 +18,8 @@ Soil temperature and water availabilty from Mt. Washburn in Yellowstone National
   }
 }
 \source{
-Aho, K. (2006)  Alpine ecology and subalpine cliff ecology in the Northern Rocky 
-Mountains.  Doctoral dissertation, Montana State University, 458 pgs.
+Aho, K. (2006)  \emph{Alpine Ecology and Subalpine Cliff Ecology in the Northern Rocky 
+Mountains}.  Doctoral dissertation, Montana State University, 458 pgs.
 }
 \keyword{datasets}
 

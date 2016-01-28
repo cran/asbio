@@ -19,7 +19,7 @@ The desired level of confidence 1 - \emph{P}(type I error).
   \item{coverage}{The true coverage of the interval.}
   }
 \references{
-Ott, R. L., and M. T. Longnecker (2004) \emph{A first course in statistical methods}.  
+Ott, R. L., and M. T. Longnecker (2004) \emph{A First Course in Statistical Methods}.  
 Thompson.
 
 }

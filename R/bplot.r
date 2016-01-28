@@ -1,6 +1,6 @@
 bplot<-function (y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = NULL, int = "SE", conf = 0.95, 
     uiw = NULL, liw = NULL, sfrac = 0.1, slty = 1, scol = 1, slwd = 1, exp.fact = 1.5, simlett = FALSE, lett.side = 3,  
-    lett = NULL, cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, ...) 
+    lett = NULL, cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, xpd = FALSE,...) 
 {
 
 
@@ -35,7 +35,7 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = 
       CI <- CI[o]
       iqr <- iqr[o]
       iqr.ci <- iqr.ci[o]
-      MAD <- mad[o]
+      MAD <- MAD[o]
       names.arg <- names.arg[o]
 	if(!is.null(lett))lett <- lett[o]	
 	}
@@ -66,8 +66,8 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = 
                 if(simlett == FALSE & is.null(ylim)){
                   ylim <- c(min(0, loc.vec - (margin)), max(0, loc.vec + (margin)))}
                                      
-                if(horiz == FALSE) b <- barplot(loc.vec, ylim = ylim , col = bar.col, names.arg = names.arg,...)
-                if(horiz == TRUE) b <- barplot(loc.vec, xlim = ylim , col = bar.col, horiz = TRUE, names.arg = names.arg,...)
+                if(horiz == FALSE) b <- barplot(loc.vec, ylim = ylim , col = bar.col, names.arg = names.arg, xpd = xpd, ...)
+                if(horiz == TRUE) b <- barplot(loc.vec, xlim = ylim , col = bar.col, horiz = TRUE, names.arg = names.arg, xpd = xpd, ...)
                 if(horiz == FALSE){
                     arrows(b, liw, b, uiw, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)
                     arrows(b, liw, b, uiw, code = 1, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)}

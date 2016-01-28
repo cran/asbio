@@ -99,7 +99,7 @@ Noether \tab \eqn{\hat{\theta}_i\pm z_1-\alpha/2\hat{\sigma}_N},   \cr
 \tab where \eqn{\hat{\sigma }_{N}^{2}=\hat{\theta }_{i}^{2}\left( \frac{1}{{{y}_{1i}}}-\frac{1}{{{n}_{1}}}+\frac{1}{{{y}_{2i}}}-\frac{1}{{{n}_{2}}} \right)}.  
 }
 
-Exception handling strategies are generally necessary in the cases \eqn{y_1} = 0, \eqn{n_1} = \eqn{y_1}, \eqn{y_2} = 0, and \eqn{n_2} = \eqn{y_2} (see Aho and Bowyer, in review).  
+Exception handling strategies are generally necessary in the cases \eqn{y_1} = 0, \eqn{n_1} = \eqn{y_1}, \eqn{y_2} = 0, and \eqn{n_2} = \eqn{y_2} (see Aho and Bowyer 2015).  
 
 The bootstrap method currently employs percentile confidence intervals.
 
@@ -110,7 +110,7 @@ The bootstrap method currently employs percentile confidence intervals.
 \references{
 Agresti, A., Min, Y. (2001) On small-sample confidence intervals for parameters in discrete distributions.  \emph{Biometrics} 57: 963-97.
 
-Aho, K., and Bowyer, T. (\emph{In press}: 10/27/2014) Confidence intervals for ratios of proportions: implications for selection ratios. \emph{Methods in Ecology and Evolution}.
+Aho, K., and Bowyer, T. 2015. Confidence intervals for ratios of proportions: implications for selection ratios. \emph{Methods in Ecology and Evolution} 6: 121-132.
 
 Bailey, B.J.R. (1987) Confidence limits to the risk ratio.  \emph{Biometrics} 43(1): 201-205.
 

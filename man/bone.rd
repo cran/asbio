@@ -13,13 +13,13 @@ At the start of the experiment 3 children were assigned to each of the six treat
 \format{
   A data frame with 14 observations on the following 3 variables.
   \describe{
-    \item{\code{gender}}{a factor with levels \code{F} \code{M}}
-    \item{\code{devel}}{a factor with levels \code{1} \code{2} \code{3}}
+    \item{\code{gender}}{A factor with levels \code{F} \code{M}}
+    \item{\code{devel}}{A factor with levels \code{1} \code{2} \code{3}}
     \item{\code{growth}}{A numeric vector descibing the growth difference before and after hormone therapy}
   }
 }
 \source{
-Neter, J., Kutner, M. H., Nachtsheim, C. J., and Wasserman, W  (1996)  \emph{Applied linear Statistical Models}.  McGraw-Hill, Boston MA, USA. 
+Neter, J., Kutner, M. H., Nachtsheim, C. J., and Wasserman, W  (1996)  \emph{Applied Linear Statistical Models}.  McGraw-Hill, Boston MA, USA. 
 }
 \keyword{datasets}
 

@@ -24,7 +24,7 @@ Fitted probabilities from some model.
 Logical, indicating whether or not ROC curve plot should be created.}
 }
 \references{
-Agresti, A.  (2012) \emph{Categorical data analysis, 3rd edition}.  New York.  Wiley. 
+Agresti, A.  (2012) \emph{Categorical Data Analysis, 3rd edition}.  New York.  Wiley. 
 }
 \author{
 Ken Aho

@@ -19,8 +19,8 @@ anm.samp.design.tck()
   \item{interval}{Time length spent on each frame in animation (in seconds).}
   \item{iter}{Number of random iterations in animation.}
   \item{main}{Main heading.}
-  \item{lwd}{line width to distinguish strata in stratified and cluster designs.}
-  \item{lcol}{line width to distinguish strata in stratified and cluster designs.}
+  \item{lwd}{Line width to distinguish strata in stratified and cluster designs.}
+  \item{lcol}{Line width to distinguish strata in stratified and cluster designs.}
 }
 \details{
 Returns a plot comparing outcomes of random sampling, stratified random sampling and cluster sampling from a population

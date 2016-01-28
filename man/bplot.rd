@@ -6,13 +6,13 @@ Barplots with error bars for pairwise comparisons.
 \description{
 Creates barplots for displaying statistical summaries by treatment (e.g. means, medians, \emph{M}-estimates of location, standard deviation, variance, etc.) and 
 their error estimates by treatment (i.e. standard errors, confidence intervals, \emph{IQR}s, \emph{IQR} confidence intervals, and \emph{MAD} intervals). Custom intervals can also be created.  
-The function can also display letters indicating if results are significant after adjustment for simultaneous inference.
+The function can also be used to display letters indicating if comparisons of locations are significant after adjustment for simultaneous inference (see \code{\link{pairw.anova}}, \code{\link{pairw.kw}}, and/or \code{\link{pairw.fried}}).
 }
 \usage{
 bplot(y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = NULL, int = "SE",
  conf = 0.95, uiw = NULL, liw = NULL, sfrac = 0.1, slty = 1, scol = 1,
  slwd = 1, exp.fact = 1.5, simlett = FALSE, lett.side = 3, lett = NULL,
- cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, ...)
+ cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, xpd = FALSE, ...)
 }
 
 \arguments{
@@ -38,6 +38,7 @@ bplot(y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = NULL, int =
   \item{names.arg}{A vector of names to be plotted below each bar or error bar. If this argument is omitted, then the names are taken from the names attribute of \code{y}.}
   \item{ylim}{Upper and lower limits of the \emph{Y}-axis}
   \item{horiz}{Logical value. If \code{FALSE}, then bars are drawn vertically with the first bar to the left. If \code{TRUE}, then bars are drawn horizontally with the first at the bottom.}
+  \item{xpd}{Logical value. If \code{FALSE}, this overrides \code{\link{barplot}} designation \code{xpd = TRUE}, which may cause bars to extend off the plot if \code{ylim} is modified.}
   \item{\dots}{Additional arguments from \code{\link{barplot}}.}
 }
 \details{
@@ -47,7 +48,7 @@ It is often desirable to display the results of a pairwise comparison procedure 
 A plot is returned.
 }
 \author{Ken Aho}
-\seealso{\code{\link{mad}},\code{\link{barplot}}, \code{\link{pairw.anova}}, \code{\link{pairw.kw}}, \code{\link{pairw.fried}}}
+\seealso{\code{\link{mad}}, \code{\link{barplot}}, \code{\link{pairw.anova}}, \code{\link{pairw.kw}}, \code{\link{pairw.fried}}}
 \references{
 Chambers, J. M., Cleveland, W. S., Kleiner, B. and Tukey, P. A. (1983) \emph{Graphical Methods for Data Analysis}. Wadsworth & Brooks/Cole.
 

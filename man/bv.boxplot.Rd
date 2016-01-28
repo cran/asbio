@@ -91,7 +91,7 @@ A diagnostic plot is returned.  Invisible objects from the function include loca
 estimates for \eqn{E_m} and \eqn{E_{max}}, and a list of outliers (that exceed \eqn{E_{max}}).
 }
 \references{
-Everitt, B.  (2004) \emph{An R and S-plus companion to multivariate analysis}.  Springer.
+Everitt, B.  (2004) \emph{An R and S-plus Companion to Multivariate Analysis}.  Springer.
 
 Goldberg, K. M., and B. Ingelwicz  (1992)  Bivariate extensions of the boxplot.  
 \emph{Technometrics} 34: 307-320.

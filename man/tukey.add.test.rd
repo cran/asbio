@@ -22,9 +22,9 @@ Tukey's test for additivity is best for detecting simple block x treatment inter
 Returns a table with test results.
 }
 \references{
-Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li. (2005)  \emph{Applied linear statistical models, 5th edition}.  McGraw-Hill, Boston.
+Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li. (2005)  \emph{Applied Linear Statistical Models, 5th edition}.  McGraw-Hill, Boston.
 
-Kirk, R. E.  1995.  \emph{Experimental design}.  Brooks/Cole.  Pacific Grove, CA.
+Kirk, R. E.  1995.  \emph{Experimental Design}.  Brooks/Cole.  Pacific Grove, CA.
 }
 \author{Orginal author unknown.  Modified by K. Aho}
 \examples{

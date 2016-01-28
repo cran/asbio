@@ -17,7 +17,7 @@ importFrom(stats, AIC, IQR, anova, chisq.test, coef,
 			 pexp, pf, pgamma, pgeom, phyper, plnorm, plogis, pnbinom, pnorm, ppois, predict, pt, ptukey, punif, pweibull, qbeta, qbinom, qchisq, qf, qnorm, qqnorm, 
 			 qsignrank, qt, qtukey, quantile, qweibull, rbinom, rchisq, resid, rexp, rnorm, rt, runif, sd, smooth.spline, t.test, terms, uniroot, var, xtabs)
 importFrom(utils, compareVersion, head, write.table, stack, tail)
-
+importFrom(stats, qqline)
 import(
   tcltk,
   pixmap
