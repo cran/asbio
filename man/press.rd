@@ -9,11 +9,14 @@ Calculates PREdiction Sum of Squares (\emph{PRESS}) for a linear model.
 }
 \usage{
 
-press(lm)
+press(lm, as.R2 = FALSE)
 }
 \arguments{
   \item{lm}{
 An object of class \code{lm}.
+}
+  \item{as.R2}{ 
+Logical.  Whether or not output should be expressed as predicted \eqn{R^2}, i.e., \eqn{PRESS/TSS}.   
 }
 }
 \details{

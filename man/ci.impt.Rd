@@ -75,7 +75,7 @@ Ken Aho
 Method will perform poorly given unbalanced sample sizes.
 }
 \references{
-Aho, K., and Bowyer, T. 2016. Confidence intervals for a product of proportions: Implications for importance values. \emph{Ecosphere, In press}.
+Aho, K., and Bowyer, T. 2015. Confidence intervals for a product of proportions: Implications for importance values. \emph{Ecosphere} 6(11): 1-7.
 }
 
 \seealso{

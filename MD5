@@ -1,5 +1,5 @@
-f0df493fe3f1d9705561ed8a4fadb592 *DESCRIPTION
-5045525a8e2592705d0f3ebe33dfc728 *NAMESPACE
+2d9fe64fe74634f67750d09fb4f89388 *DESCRIPTION
+2c2a6d5c0d47b66baf55067852a5312a *NAMESPACE
 ffe620b83b8fd0b32dddac28baaa6e77 *R/AP.test.R
 1206fc5923286f82354ba1938bb135de *R/BDM.test.R
 afa95a66cae8dfc1332b286e9488f79a *R/Bayes.disc.r
@@ -91,13 +91,14 @@ b90439cbf00b5b6bfadca5a3c7cb19cb *R/pairs.panel.functions.R
 7d6201dafb48473ded6af36792693737 *R/pairw.anova.R
 e34f180bf820b7068af6dc114ffe709d *R/pairw.fried.R
 95373133b8abc20e192335adceb2a031 *R/pairw.kw.R
+842a86639bfb05e4a843be917f808a9b *R/pairw_oneway.R
 bd4f40c4c8747407a30724e15a5e0cf4 *R/partial.R2.R
 96871f7f781c0c1cbe085e4bbf3d152e *R/partial.resid.plot.r
 c2073f368adff5c40dbae61fe6c74d07 *R/perm.fact.test.R
 de3f9245fd828878ea60a71e3ff4358b *R/plotAncova.r
 a593e137ab83f2efabd76d12d7470898 *R/plotCI.reg.R
 b180607d6de8edecfb0c7fda2412933b *R/power.z.test.R
-49e3c3d4b57e902ef41aa24d49019d48 *R/press.R
+7db53e21fcfe7ec85db9b11521303357 *R/press.R
 d35180c16802bec2c32c9ee518ed8703 *R/print.ci.R
 8494ba09cc695bcd92a8f1e11ba7540b *R/print.prp.index.r
 438922b8a8a27552f4c78059d6362ca9 *R/prp.r
@@ -181,7 +182,7 @@ a8ca07289bf7b5819d8ff85e2242eca0 *R/stan.error.R
 9728b2a19d069ec869cce60d0efb89b7 *R/trim.test.R
 1fbdad871e13114cc5b53b7fd2fe0733 *R/tukey.add.test.r
 48d2a2c418b557b94625d7058049ab14 *R/win.R
-2e8401ec1bc5b2015533d1f3444f30ee *build/vignette.rds
+ebdf2d5e2c8478dd9c5a48badc407ad8 *build/vignette.rds
 5d5373febbd5e587ed3578edc8dee1cb *data/BCI.count.rda
 27fb884c08cfb11676654a1edf238061 *data/BCI.plant.rda
 6874babfcd301e907ec2b9c11c7f43f6 *data/C.isotope.rda
@@ -355,7 +356,7 @@ c8d28542451f284dc9827d464e03deef *man/bvn.plot.rd
 ddadd0d39307dcabe842ed28e6b9ff76 *man/chi.plot.Rd
 b665366f590c2df990444a12b639f82b *man/chronic.rd
 194518088f02dcc562e7e6780ea6a486 *man/ci.boot.rd
-a5e87761a771fb82fd3ecbef41409e44 *man/ci.impt.Rd
+2f375fa9010df77e8b88faf2a06bafde *man/ci.impt.Rd
 a25c9ecd8f95c4381ae3bb7d99438652 *man/ci.median.rd
 fdff3df0ba0f82f6522f8a41f16b69e5 *man/ci.mu.Rd
 f45a6f38ddeb71091a6a1ab907a3b429 *man/ci.mu.oneside.rd
@@ -414,6 +415,7 @@ b372d051dfcb4e06e9cdd68ab17f54b7 *man/near.bound.rd
 8a3f36cbc77f855a0a4dd86a3b5d0e7b *man/pairw.anova.Rd
 96a0e45f77a0a57b03489a0d85895c91 *man/pairw.fried.rd
 600eab484796d8a377fa0cb83c770e9c *man/pairw.kw.rd
+ec4452a269936b8558f7ed30c5f03371 *man/pairw.oneway.Rd
 c82b5b6a48f61e196d7b003325c5d044 *man/panel.cor.res.Rd
 79c1875312facc1bb122b23b8a33a721 *man/partial.R2.rd
 8e94369695b6f5875839782c128ed381 *man/partial.resid.plot.rd
@@ -428,7 +430,7 @@ c82b5b6a48f61e196d7b003325c5d044 *man/panel.cor.res.Rd
 bc993001aa30e3c5fc30bbe448c0f1a0 *man/potash.Rd
 4dce5345a5e8608258ea761811f596b1 *man/potato.rd
 2cb1c22ebe9c7b40779a6bdf044aa87f *man/power.z.test.Rd
-55e4bee9c525b3b7dc34bdb650ec9dd3 *man/press.rd
+553e5e76295badb98f0eb0b2a31242ba *man/press.rd
 ab3043504adc3fbd5a21b6ec0b388424 *man/prostate.rd
 c0e35f828bd4266d6c57dca47e0afed3 *man/prp.rd
 83b7c34b55011c6ebd197f0e4916aa6b *man/pseudo.v.Rd

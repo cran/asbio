@@ -13,7 +13,7 @@ importFrom(graphics, abline, arrows, axis, barplot, box, curve, grid, hist, iden
 			polygon, rect, segments, symbols, text)
 importFrom(stats, AIC, IQR, anova, chisq.test, coef,
              complete.cases, cor, cor.test, cov, dbeta, dbinom, dchisq, density, dexp, df, dgamma, dgeom, dhyper, dist, dlnorm, dlogis, dnbinom, dnorm,
-             dpois, dt, dunif, dweibull, fitted, glm, integrate, ksmooth, lm, loess, lowess, mad, median, model.matrix, na.omit, nls, pbeta, pbinom, pchisq, 
+             dpois, dt, dunif, dweibull, fitted, glm, integrate, ksmooth, lm, loess, lowess, mad, median, model.matrix, na.omit, nls, p.adjust, pbeta, pbinom, pchisq, 
 			 pexp, pf, pgamma, pgeom, phyper, plnorm, plogis, pnbinom, pnorm, ppois, predict, pt, ptukey, punif, pweibull, qbeta, qbinom, qchisq, qf, qnorm, qqnorm, 
 			 qsignrank, qt, qtukey, quantile, qweibull, rbinom, rchisq, resid, rexp, rnorm, rt, runif, sd, smooth.spline, t.test, terms, uniroot, var, xtabs)
 importFrom(utils, compareVersion, head, write.table, stack, tail)
