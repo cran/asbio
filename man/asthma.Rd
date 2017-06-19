@@ -9,21 +9,21 @@ This dataset was used by Littell (2002) to demonstrate repeated measures analyse
 \format{
   The dataframe has 11 columns:
   \describe{
-    \item{PATIENT}{The subjects (there were 24 patients).}
-    \item{BASEFEV1}{A numerical variable; the baseline forced expiratory volume.} 
-    \item{FEV11H}{Forced expiratory volume at 11 hours.}
-    \item{FEV12H}{Forced expiratory volume at 12 hours.}
-    \item{FEV13H}{Forced expiratory volume at 13 hours.}
-    \item{FEV14H}{Forced expiratory volume at 14 hours.}
-    \item{FEV15H}{Forced expiratory volume at 15 hours.}
-    \item{FEV16H}{Forced expiratory volume at 16 hours.}
-    \item{FEV17H}{Forced expiratory volume at 17 hours.}
-    \item{FEV18H}{Forced expiratory volume at 18 hours.}
-    \item{DRUG}{A factor with three levels \code{"a"} = a standard drug treatment, \code{"c"} = the drug under development, and \code{"p"} = a placebo.}   	
+    \item{\code{PATIENT}}{The subjects (there were 24 patients).}
+    \item{\code{BASEFEV1}}{A numerical variable; the baseline forced expiratory volume.} 
+    \item{\code{FEV11H}}{Forced expiratory volume at 11 hours.}
+    \item{\code{FEV12H}}{Forced expiratory volume at 12 hours.}
+    \item{\code{FEV13H}}{Forced expiratory volume at 13 hours.}
+    \item{\code{FEV14H}}{Forced expiratory volume at 14 hours.}
+    \item{\code{FEV15H}}{Forced expiratory volume at 15 hours.}
+    \item{\code{FEV16H}}{Forced expiratory volume at 16 hours.}
+    \item{\code{FEV17H}}{Forced expiratory volume at 17 hours.}
+    \item{\code{FEV18H}}{Forced expiratory volume at 18 hours.}
+    \item{\code{DRUG}}{A factor with three levels \code{"a"} = a standard drug treatment, \code{"c"} = the drug under development, and \code{"p"} = a placebo.}   	
     }
 }
 \source{
-Littell, R. C., Stroup, W. W., and R. J. Fruend (2002)  \emph{SAS for Linear Models}.  John 
+Littell, R. C., Stroup, W. W., and R. J. Freund (2002)  \emph{SAS for Linear Models}.  John 
 Wiley and Associates.
 }
 \keyword{datasets}

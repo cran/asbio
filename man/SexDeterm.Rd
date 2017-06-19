@@ -5,7 +5,7 @@
 Fern environmental sex determination data
 }
 \description{
-Sex determination (male and female) data at ecologically relevant glucose, N, and P conctrations and stoichiometries, at both ambient and elevated CO2. The term "ameristic" denotes gametophytes with only male gametangia, while the term "meristic" refers to gametophytes with female or female and male gametangia.
+Sex determination (male and female) data at ecologically relevant glucose, N, and P concentrations and stoichiometries, at both ambient and elevated levels of CO\eqn{_2}. The term "ameristic" denotes gametophytes with only male gametangia, while the term "meristic" refers to gametophytes with female or female and male gametangia.
 }
 
 \usage{data("SexDeterm")}
@@ -19,22 +19,17 @@ Sex determination (male and female) data at ecologically relevant glucose, N, an
     \item{\code{P.Level}}{the number of P atoms relative to the number of N atoms}
     \item{\code{C.N.P}}{the ratio of C to N to P atoms, a factor with levels \code{1:1} \code{1:2} \code{1:3} \code{1:4} \code{16:1} \code{16:2} \code{16:3} \code{16:4} \code{32:1} \code{32:2} \code{32:3} \code{32:4} \code{48:1} \code{48:2} \code{48:3} \code{48:4} \code{5:1:1} \code{5:1:2} \code{5:1:3} \code{5:1:4} \code{5:16:1} \code{5:16:2} \code{5:16:3} \code{5:16:4} \code{5:32:1} \code{5:32:2} \code{5:32:3} \code{5:32:4} \code{5:48:1} \code{5:48:2} \code{5:48:3} \code{5:48:4}}
     \item{\code{Total.Gametophyte.No.}}{the total number of gametophytes in each population}
-    \item{\code{No..of.Ameristic.Gametophytes}}{the number of ameristic (male) gametophytes in each gametophyte populatoin}
+    \item{\code{No..of.Ameristic.Gametophytes}}{the number of ameristic (male) gametophytes in each gametophyte population}
     \item{\code{No..of.Meristic.Gametophytes}}{the number of meristic (female and hermaphrodite) gametophytes in each gametophyte population}
-    \item{\code{Ameristic.Meristic.Ratio}}{the ratio of ameristic gametophytes to meristic gametophtyes (sex ratio)}
+    \item{\code{Ameristic.Meristic.Ratio}}{the ratio of ameristic gametophytes to meristic gametophytes (sex ratio)}
     \item{\code{Pct..Ameristic.Gametophytes}}{the percentage of ameristic gametophytes per total gametophyte population}
   }
 }
-
-\source{
-Effects of Variation in Carbon, Nitrogen, and Phosphorus Molarity and Stoichiometry on Sex Determination in the \emph{Fern Ceratopteris} richardii, doi: 10.1139/cjb-2015-0187
-}
 \references{
-Goodnoe, T. T., Hill, J. P., Aho, K. (In press)  Effects of variation in carbon, nitrogen and phosphorous molarity and stoichiometry on sex determination in the fern \emph{Ceratopteris richardii}.  \emph{Botany}.  
+Goodnoe, T. T., Hill, J. P., Aho, K. (2016)  Effects of variation in carbon, nitrogen and phosphorous molarity and stoichiometry on sex determination in the fern \emph{Ceratopteris richardii}.  \emph{Botany} 94(4): 249-259.  
 }
 \examples{
 data(SexDeterm)
-## maybe str(SexDeterm) ; plot(SexDeterm) ...
 }
 \keyword{datasets}
 

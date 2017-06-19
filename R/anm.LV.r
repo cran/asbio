@@ -1,23 +1,38 @@
 #--------------------------- Lotka-Volterra Competition -------------------------#
 
 anm.LVcomp<-function(n1,n2,r1,r2,K1,K2,a2.1,a1.2,time=seq(0,200),ylab="Abundance",xlab="Time",interval=0.1,...){
+
 y<-xstart<-c(n1=n1,n2=n2)
 pars<-c(r1=r1,r2=r2,K1=K1,K2=K2,a2.1=a2.1,a1.2=a1.2) 
+if(n1 >= K1 | n2 >= K2) stop("Initial population size cannot equal or exceed carrying capacity")
 
-pr<-as.list(pars)
+time=seq(0,200); ylab="Abundance"; xlab="Time"; interval=0.1
+
+pr <- as.list(pars)
 func<-function(time=time,xstart=xstart,pars=pars){
-    n1<-xstart[1]
-    n2<-xstart[2]
+    n1 <- xstart[1]
+    n2 <- xstart[2]
     with(as.list(pars),{
-    dn1<-r1*n1*((K1-n1-(a1.2*n2))/K1)
-    dn2<-r2*n2*((K2-n2-(a2.1*n1))/K2)
-    res<-list(c(dn1,dn2))
+    dn1 <- r1*n1*((K1-n1-(a1.2*n2))/K1)
+    dn2 <- r2*n2*((K2-n2-(a2.1*n1))/K2)
+    res <- list(c(dn1,dn2))
     })}
 
-out<-as.data.frame(rk4(xstart,time,func,pars))
-r1.lab<-bquote(paste(r[1],"=",.(pr$r1)));r2.lab<-bquote(paste(r[2],"=",.(pr$r2)))
-K1.lab<-bquote(paste(K[1],"=",.(pr$K1)));K2.lab<-bquote(paste(K[2],"=",.(pr$K2)))
-a21.lab<-bquote(paste(alpha[21],"=",.(pr$a2.1)));a12.lab<-bquote(paste(alpha[12],"=",.(pr$a1.2)))
+out <- as.data.frame(rk4(xstart, time, func, pars))
+
+#------------------------------------------------------ exception handling ---------------------------------------------------------#
+if(any(out$n1 < 0)| any(out$n1 > K1) | any(out$n2 < 0)| any(out$n2 > K2)){																#
+if(any(out$n1[!is.na(out$n1)] < 0)){t <- min(which(out$n1 < 0)) ; out$n1 <- c(out$n1[1:t-1], rep(0, (length(time) - (t - 1))))}			#
+if(any(out$n1[!is.na(out$n1)] > K1)){ t <- min(which(out$n1 > K1)) ; out$n1 <- c(out$n1[1:t-1], rep(K1, (length(time) - (t - 1))))}		#
+if(any(out$n2[!is.na(out$n2)] < 0)){t <- min(which(out$n2 < 0)) ; out$n2 <- c(out$n2[1:t-1], rep(0, (length(time) - (t - 1))))}			#
+if(any(out$n2[!is.na(out$n2)] > K2)) {t <- min(which(out$n2 > K2)) ; out$n2 <- c(out$n2[1:t-1], rep(K2, (length(time) - (t - 1))))}		#
+}																																	#
+#-----------------------------------------------------------------------------------------------------------------------------------#
+
+
+r1.lab <- bquote(paste(r[1],"=",.(pr$r1))); r2.lab <- bquote(paste(r[2],"=",.(pr$r2)))
+K1.lab <- bquote(paste(K[1],"=",.(pr$K1))); K2.lab <- bquote(paste(K[2],"=",.(pr$K2)))
+a21.lab <- bquote(paste(alpha[21],"=",.(pr$a2.1))); a12.lab<-bquote(paste(alpha[12],"=",.(pr$a1.2)))
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){
     dev.hold()

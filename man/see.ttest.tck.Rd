@@ -5,7 +5,7 @@
 Visualize t-tests
 }
 \description{
-Interactive GUI for demonstrating t-tests
+Interactive GUI for demonstrating \emph{t}-tests
 }
 \usage{
 

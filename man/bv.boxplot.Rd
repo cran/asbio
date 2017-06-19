@@ -4,8 +4,8 @@
 \description{
 Creates diagnostic bivariate quelplot ellipses (bivariate boxplots) using the method of Goldberg and Iglewicz (1992).  
 The output can be used to check assumptions of bivariate normality and to identify multivariate outliers.  The default \code{robust=TRUE}
-option relies on on a biweight correlation estimator function written by Everitt (2004).  Quelplots, 
-are potentially assymetric, although the method currently employed here uses a 
+option relies on on a biweight correlation estimator function written by Everitt (2006).  Quelplots, 
+are potentially asymmetric, although the method currently employed here uses a 
 single "fence" definition and creates symmetric ellipses.  
 }
 \usage{
@@ -28,14 +28,14 @@ uni.CI.col = 1, uni.CI.lty = 1, uni.CI.lwd = 2, show.points = TRUE, ...)
   \item{fence.col}{Fence color.}
   \item{hinge.lty}{Hinge line type.}
   \item{fence.lty}{Fence line type.}
-  \item{xlim}{A two element vector defining the limits of the plot.}
-  \item{ylim}{The y limits of the plot.}
+\item{xlim}{A two element vector defining the \emph{X}-limits of the plot.}
+  \item{ylim}{The \emph{Y}-limits of the plot.}
   \item{bg}{Background color for points in scatterplot, defaults to black if \code{pch} is not in the range 21:26.}
   \item{bg.out}{Background color for outlying points in scatterplot, defaults to black if \code{pch} is not in the range 21:26.}
   \item{names}{An optional vector of names for \emph{X}, \emph{Y} coordinates.}  
   \item{ID.out}{Logical. Whether or not outlying points should be given labels (from argument \code{name} in plot.}
   \item{cex.ID.out}{Character expansion for outlying ID labels.}
-  \item{uni.CI}{Logical. If true, unviariate confidence intervals for the median at confidence \code{uni.CI} are shown.}  
+  \item{uni.CI}{Logical. If true, univariate confidence intervals for the true median at confidence \code{uni.CI} are shown.}  
   \item{uni.conf}{Univariate confidence, only used if \code{CI.uni = TRUE}.}
   \item{uni.CI.col}{Univariate confidence bound line color, only used if \code{CI.uni = TRUE}.}
   \item{uni.CI.lty}{Univariate confidence bound line type, only used if \code{CI.uni = TRUE}.}
@@ -82,8 +82,8 @@ The Cartesian coordinates of the "hinge" and "fence" are:
 \deqn{X=T^*_X=(\Theta_1+\Theta_2)S^*_X,}
 \deqn{Y=T^*_Y=(\Theta_1-\Theta_2)S^*_Y.}
 
-Quelplots, are potentially assymetric, although the current (and only) method used here defines a single value for \eqn{E_{max}} 
-and hence creates symmetric ellipses.  Under this implemention at least one point will define \eqn{E_{max}}, 
+Quelplots, are potentially asymmetric, although the current (and only) method used here defines a single value for \eqn{E_{max}} 
+and hence creates symmetric ellipses.  Under this implementation at least one point will define \eqn{E_{max}}, 
 and lie on the "fence".        
 }
 \value{
@@ -91,12 +91,12 @@ A diagnostic plot is returned.  Invisible objects from the function include loca
 estimates for \eqn{E_m} and \eqn{E_{max}}, and a list of outliers (that exceed \eqn{E_{max}}).
 }
 \references{
-Everitt, B.  (2004) \emph{An R and S-plus Companion to Multivariate Analysis}.  Springer.
+Everitt, B.  (2006) \emph{An R and S-plus Companion to Multivariate Analysis}.  Springer.
 
 Goldberg, K. M., and B. Ingelwicz  (1992)  Bivariate extensions of the boxplot.  
 \emph{Technometrics} 34: 307-320.
 }
-\author{Ken Aho, the function relies on an Everitt (2004) function for robust \emph{M}-estimation.}
+\author{Ken Aho, the function relies on an Everitt (2006) function for robust \emph{M}-estimation.}
 \seealso{\code{\link{boxplot}}}
 \examples{
 Y1<-rnorm(100, 17, 3)

@@ -21,22 +21,22 @@ anm.LVe.tck()
 }
 
 \arguments{
-\item{n1}{Initial abundance values for species one.  To be used in the competition function \code{anm.LVcomp}, i.e. \eqn{N_1} in the competition equations below.}
-\item{n2}{Initial abundance values for species two in the competition function, i.e. \eqn{N_2} in the competition equations below.}
-\item{r1}{Maximum intrinsic rate of increase for species one, i.e. \eqn{r_{max1}}.}
-\item{r2}{Maximum intrinsic rate of increase for species two in the competition model \code{anm.LVcomp}, i.e. \eqn{r_{max2}}.}
-\item{K1}{Carrying capacity for species one, i.e. \eqn{K_1}.} 
-\item{K2}{Carrying capacity for species two, i.e. \eqn{K_2} .}
-\item{a2.1}{The interspecific effect of species one on species two, i.e. the term \eqn{\alpha_{21}}.} 
-\item{a1.2}{The interspecific effect of species two on species one, i.e. the term \eqn{\alpha_{12}}.} 
+\item{n1}{Initial abundance values for species one.  To be used in the competition function \code{anm.LVcomp}, i.e., \eqn{N_1} in the competition equations below.}
+\item{n2}{Initial abundance values for species two in the competition function, i.e., \eqn{N_2} in the competition equations below.}
+\item{r1}{Maximum intrinsic rate of increase for species one, i.e., \eqn{r_{max1}}.}
+\item{r2}{Maximum intrinsic rate of increase for species two in the competition model \code{anm.LVcomp}, i.e., \eqn{r_{max2}}.}
+\item{K1}{Carrying capacity for species one, i.e., \eqn{K_1}.} 
+\item{K2}{Carrying capacity for species two, i.e., \eqn{K_2}.}
+\item{a2.1}{The interspecific effect of species one on species two, i.e., the term \eqn{\alpha_{21}}.} 
+\item{a1.2}{The interspecific effect of species two on species one, i.e., the term \eqn{\alpha_{12}}.} 
 
 
-\item{nh}{Initial abundance values for the host (prey) species.  To be used in the the exploitation model \code{anm.LVexp}, i.e. the term \eqn{n_h}.}
-\item{np}{Initial abundance values for the predator species in the the exploitation model, i.e. the term \eqn{h_p}.}
-\item{rh}{The intrinsic rate of increase for the host (prey) species, i.e. the term \eqn{r_h}.}
-\item{con}{The conversion rate of prey to predator, i.e. the term \eqn{c}.}
-\item{p}{The predation rate, i.e. the term \eqn{p}.}
-\item{d.p}{The death rate of predators, i.e. the term \eqn{d_p}.} 
+\item{nh}{Initial abundance values for the host (prey) species.  To be used in the the exploitation model \code{anm.LVexp}, i.e., the term \eqn{N_h} at \eqn{t = 1}.}
+\item{np}{Initial abundance values for the predator species in the the exploitation model, i.e., the term \eqn{N_p} at \eqn{t = 1}.}
+\item{rh}{The intrinsic rate of increase for the host (prey) species, i.e., the term \eqn{r_h}.}
+\item{con}{The conversion rate of prey to predator, i.e., the term \eqn{c}.}
+\item{p}{The predation rate, i.e., the term \eqn{p}.}
+\item{d.p}{The death rate of predators, i.e., the term \eqn{d_p}.} 
 
 
 \item{time}{A time sequence for which competition or exploitation is to be evaluated.}

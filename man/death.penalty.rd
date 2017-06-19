@@ -5,7 +5,7 @@
 Florida state death penalty data
 }
 \description{
-Dataset detailing death penalty 674 homicide trials in the state of Florida from 1976-1987 with repect to verdict, and victim and defendant race.  The data were previously used (Agresti 2012) to demonstrate Simpson's Paradox.
+Dataset detailing death penalty 674 homicide trials in the state of Florida from 1976-1987 with respect to verdict, and victim and defendant race.  The data were previously used (Agresti 2012) to demonstrate Simpson's Paradox.
 }
 \usage{data(death.penalty)}
 \format{

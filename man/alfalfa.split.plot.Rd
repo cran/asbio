@@ -17,15 +17,15 @@ chosen split plots within the whole plots. Replication was accomplished using si
 \format{
 The dataframe contains four variables: 
   \describe{
-    \item{yield}{
+    \item{\code{yield}}{
      Alfalfa yield (tons per acre). 
     }
-    \item{variety}{
+    \item{\code{variety}}{
       Alfalfa variety.  A factor with three levels "L"= Ladak, "C" = Cosack, and "R" = Ranger describing the variety of alfalfa seed used.
     }
-    \item{cut.time}{Time of last cutting. A factor with three levels: "None" = field not cut, "S1" = Sept 1, "S20" = Sept. 20, or "O7" = Oct. 7.
+    \item{\code{cut.time}}{Time of last cutting. A factor with three levels: "None" = field not cut, "S1" = Sept 1, "S20" = Sept. 20, or "O7" = Oct. 7.
           }
-    \item{block}{The block (whole plot replicate).  A factor with six levels: "1", "2", "3", "4", "5", and "6".}
+    \item{\code{block}}{The block (whole plot replicate).  A factor with six levels: "1", "2", "3", "4", "5", and "6".}
       }
 }
 \source{Snedecor, G. W. and Cochran, G. C.  (1967)  \emph{Statistical Methods, 6th edition}.  Iowa State University Press.} 

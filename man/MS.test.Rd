@@ -13,7 +13,7 @@ MS.test(Y, X, reps)
   \item{reps}{The number of replicates in each treatment (unbalanced designs cannot be analyzed).}
 }
 \details{
-When we have more than one replication within a block, and the number of replications is equal for all treatments, we can use the Mack-Skillings test (Mack and Skillings 1980) as a rank based permutation procedure to test for main effect differences.  If ties occur the value of the significance level is only approximate.  Hollander and Wolfe (1996) provide a method for finding exact \emph{p}-values by deriving a test statistic distribution allowing ties.  
+When we have more than one replication within a block, and the number of replications is equal for all treatments, we can use the Mack-Skillings test (Mack and Skillings 1980) as a rank based permutation procedure to test for main effect differences.  If ties occur the value of the significance level is only approximate.  Hollander and Wolfe (1996) provide a method for finding exact \emph{P}-values by deriving a test statistic distribution allowing ties.  
 }
 \value{Returns a dataframe summarizing the degrees of freedom, test statistic and \emph{p}-value.
 }
@@ -21,7 +21,9 @@ When we have more than one replication within a block, and the number of replica
 Campbell, J. A., and O. Pelletier (1962)  Determination of niacin (niacinamide) in cereal 
 products.  \emph{J. Assoc.  Offic. Anal.  Chem.}  45: 449-453. 
 
+
 Hollander, M., and  D. A. Wolfe (1999) \emph{Nonparametric Statistical Methods}. New York: John Wiley & Sons. 
+
 
 Mack, G. A., and J. H. Skillings (1980)  A Friedman-type rank test for main effects in a 
 two-factor ANOVA.  \emph{Journal of the American Statistical Association}.  75: 947-951.

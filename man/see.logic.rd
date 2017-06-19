@@ -4,7 +4,7 @@
 Interactive worksheet for logical and fallacious arguments
 }
 \description{
-It is vital that scientists understand what logical and fallacious arguments are.  This worksheet provides a predagogical tool for logic.
+It is vital that scientists understand what logical and fallacious arguments are.  This worksheet provides a pedagogical tool for considering logic.
 }
 \usage{
 see.logic()

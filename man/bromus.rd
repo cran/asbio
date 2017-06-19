@@ -9,9 +9,9 @@ Cheatgrass (\emph{Bromus tectorum}) is an introduced annual graminoid that has i
 \format{
   The dataframe has 3 columns:
   \describe{
-    \item{Plot}{Plot number.}
-    \item{Biomass}{Grass biomass in grams per meter squared.} 
-    \item{Trt}{Treatment.  C = Control, LN = Low nitrogen, HN = Hi Nitrogen, SR = Shrub removal.}
+    \item{\code{Plot}}{Plot number.}
+    \item{\code{Biomass}}{Grass biomass in grams per meter squared.} 
+    \item{\code{Trt}}{Treatment.  \code{C} = Control, \code{LN} = Low nitrogen, \code{HN} = High Nitrogen, \code{SR} = Shrub removal.}
     }
 }
 \keyword{datasets}

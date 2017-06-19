@@ -10,10 +10,10 @@
 \format{
 This data frame contains the following columns:
    \describe{
-    \item{pollen}{
+    \item{\code{pollen}}{
       A numeric vector indicating the proportion of pollen removed.
          }
-    \item{caste}{
+    \item{\code{caste}}{
       A character string vector indicating whether a bee was a worker \code{"W"} or a queen \code{"Q"}.
          }
     }

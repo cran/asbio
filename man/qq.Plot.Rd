@@ -6,7 +6,7 @@ Normal quantile plots for single or multiple factor levels
 }
 \description{
 Provides quantile plots for one or more factor levels overlaid on a single graph.  If \code{plot.CI = TRUE}, then 
-code for bootsrapped confidence provided in the documentation for \code{\link{boot}} is applied to create confidence envelopes. If \code{plot.CI = FALSE}, \code{\link{qqnorm}} and \code{\link{qqline}} are used to create overlaid normal probability plots given multiple categories in \code{x}.
+code for bootstrapped confidence provided in the documentation for \code{\link{boot}} is applied to create confidence envelopes. If \code{plot.CI = FALSE}, \code{\link{qqnorm}} and \code{\link{qqline}} are used to create overlaid normal probability plots given multiple categories in \code{x}.
 }
 
 \usage{
@@ -25,10 +25,10 @@ The response variable
 A categorical variables to subset \emph{y}
 }
   \item{col}{
-A scalar or vector with length equivelent to the number of levels in \emph{x}, describing colors of points and lines for levels in \emph{x}. 
+A scalar or vector with length equivalent to the number of levels in \emph{x}, describing colors of points and lines for levels in \emph{x}. 
 }
   \item{pch}{
-A scalar or vector with length equivelent to the number of levels in \emph{x}, describing symbols for levels in \emph{x}. 
+A scalar or vector with length equivalent to the number of levels in \emph{x}, describing symbols for levels in \emph{x}. 
 }
   \item{main}{
 Main title.

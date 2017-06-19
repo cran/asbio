@@ -38,7 +38,7 @@ A 2 x 2 matrix specifying the variance covariance matrix for the proposal distri
 The length of the MCMC chain.
 }
   \item{sim}{
-Simulation method used.  Must be one of \code{"G"} idicating Gibbs sampling, \code{"M"} indicating the Metropolis algorithm, or \code{"MH"} indicating the Metropolis-Hastings algorithm (Gibbs sampling is not implemented for \code{anm.mc.norm}).
+Simulation method used.  Must be one of \code{"G"} indicating Gibbs sampling, \code{"M"} indicating the Metropolis algorithm, or \code{"MH"} indicating the Metropolis-Hastings algorithm (Gibbs sampling is not implemented for \code{anm.mc.norm}).
 }
   \item{jump.kernel}{
 A number > 0 that will serve as a (squared) multiplier for the proposal variance covariance.  The result of this multiplication will be used as the variance covariance matrix for the jumping distribution.   
@@ -67,7 +67,7 @@ Additional arguments from \code{\link{plot}}.
 
 
 \value{
-The functon returns two plots.  These are: 1) the proposal bivariate normal distribution in which darker shading indicates higher density, and 2) an animated plot showing the MCMC algorithm walking through the probability space.
+The function returns two plots.  These are: 1) the proposal bivariate normal distribution in which darker shading indicates higher density, and 2) an animated plot showing the MCMC algorithm walking through the probability space.
 }
 \references{
 Gelman, A., Carlin, J. B., Stern, H. S., and D. B. Rubin (2003)  \emph{Bayesian Data Analysis, 2nd edition}.  Chapman and Hall/CRC. 

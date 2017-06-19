@@ -5,7 +5,7 @@
 Random draws from a scaled inverse chi-square distribution
 }
 \description{
-The distribution is an important component of Bayesian normal hierchical models with uniform priors.
+The distribution is an important component of Bayesian normal hierarchical models with uniform priors.
 }
 \usage{
 

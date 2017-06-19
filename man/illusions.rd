@@ -1,7 +1,7 @@
 \name{illusions}
 \alias{illusions}
 \title{
-Visual illusions illustrating human preception errors.
+Visual illusions illustrating human perception errors.
 }
 \description{
 In development, currently displays three illusions.  Illusion 3 is from Yihui Xie's package \pkg{animation}.

@@ -9,12 +9,12 @@ Mount goat (\emph{Oreomnos americanus}) feces data and soil nutrient data for ei
 \format{
   The dataframe has 3 columns:
   \describe{
-    \item{feces}{feces concentration (Percent occurance per 0.1, m^2 plot).}
-    \item{NO3}{Nitrate concentration in ppm.} 
-    \item{organic.matter}{Organic matter concentration (LOI) as a percentage.} 
+    \item{\code{feces}}{feces concentration (Percent occurrence per 0.1, m^2 plot).}
+    \item{\code{NO3}}{Nitrate concentration in ppm.} 
+    \item{\code{organic.matter}}{Organic matter concentration (LOI) as a percentage.} 
         }
 }
 \source{
-Aho, K. (2012)  \emph{Management of introduced mountain goats in Yellowstone National Park (vegetation analysis along a mountain goat gradient).  PMIS:  105289}.  Report prepared for USDA National Park Service. 150 Pgs.
+Aho, K. (2012)  \emph{Management of introduced mountain goats in Yellowstone National Park (vegetation analysis along a mountain goat gradient).  PMIS:  105289}.  Report prepared for USDA National Park Service. 150 pp.
 }
 \keyword{datasets}

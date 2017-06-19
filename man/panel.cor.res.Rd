@@ -19,7 +19,7 @@ col.line = 2,lty = par("lty"))
   \item{x}{variable 1 in  correlation}
   \item{y}{variable 2 in correlation}
   \item{digits}{number of digits in text for \code{panel.cor.res}}
-  \item{meth}{type of correlation coefficeint from \code{panel.cor.res}, one of \code{"pearson"}, \code{"spearman"}, \code{"kendall"}}
+  \item{meth}{type of correlation coefficient from \code{panel.cor.res}, one of \code{"pearson"}, \code{"spearman"}, \code{"kendall"}}
   \item{cex.cor}{size of text in \code{panel.lm}}
   \item{col}{color of points in \code{panel.lm}}
   \item{bg}{background color of points in \code{panel.lm}}

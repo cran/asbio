@@ -6,7 +6,7 @@
 Animated depiction of six-sided die throws.
 }
 \description{
-Convergence in probablity for fair (or loaded) six-sided die.
+Convergence in probability for fair (or loaded) six-sided die.
 }
 \usage{
 

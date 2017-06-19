@@ -53,7 +53,7 @@ boot.envel<- function(y){
 		lines(br$x, br$ub, col = ifelse(is.null(col), 1, col), lty = env.lty)
 		}
 			else{
-			qqnorm(y, ylim = ylim, col = ifelse(is.null(col), 1, col), pch = ifelse(is.null(pch), 1, pch), xlab = ifelse(is.null(xlab), "Theoretical quantiles", xlab), 
+			qqnorm(y, col = ifelse(is.null(col), 1, col), pch = ifelse(is.null(pch), 1, pch), xlab = ifelse(is.null(xlab), "Theoretical quantiles", xlab), 
 			ylab = ifelse(is.null(ylab), "Sample quantiles", ylab), main = main,...)
 			qqline(y, col = ifelse(is.null(col), 1, col), lty = fit.lty)
 			}
@@ -104,7 +104,7 @@ boot.envel<- function(y){
 				}
 				if(is.null(ylim)) ylim <- c(min(ynew), max(ynew))
 				if(is.null(xlim)) xlim <- c(min(xnew), max(xnew))
-			plot(ynew[,1], xnew[,1], ylim = ylim, xlab = ifelse(is.null(xlab), "Theoretical quantiles", xlab), 
+			plot(xnew[,1], ynew[,1], ylim = ylim, xlim = xlim, xlab = ifelse(is.null(xlab), "Theoretical quantiles", xlab), 
 				ylab = ifelse(is.null(ylab), "Sample quantiles", ylab), col = col[1], pch = pch[1], main = main, ...)
 			suppressWarnings(qqline(y[x == levels[1]], col = col[1]))
 				for(i in 2 : nlev){

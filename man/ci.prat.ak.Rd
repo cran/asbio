@@ -10,8 +10,8 @@ For instance, in remotely sensed imagery with sub-meter resolution, the areal co
 resources can be quantified to a high degree of precision, at even large spatial scales.  
 Included in this function are six methods for computation of confidence intervals for 
 a true ratio of proportions when the denominator proportion is known.  The first (adjusted-Wald) 
-results from the variance of the estimator \eqn{\sigma_{\hat{\pi}}} after multiplication by a constant.  
-Similarly, the second method(Agresti-Coull-adjusted) adjusts the variance of the estimator \eqn{\sigma_{\hat{\pi}_{AC}}}, 
+results from the variance of the estimator \eqn{\hat{\sigma}_{\hat{\pi}}} after multiplication by a constant.  
+Similarly, the second method(Agresti-Coull-adjusted) adjusts the variance of the estimator \eqn{\hat{\sigma}_{\hat{\pi}_{AC}}}, 
 where \eqn{\hat{\pi}_{AC}=(y+2)/(n+4)}.  The third method (fixed-log) is based on delta derivations of the logged ratio.
 The fourth method is Bayesian and based on the beta posterior distribution derived from a binomial likelhood function and a beta prior distribution.  The fifth procedure is an older method based on Noether (1959).  Sixth, bootstrapping methods can also be implemented.  
 }
@@ -70,7 +70,7 @@ where \eqn{y_{1i}} and \eqn{y_{2i}} are the observed counts for use and availabi
 
 \deqn{\hat{\theta}_{i}=\frac{\hat{\pi}_{1i}}{\pi_{2i}}.}
 
-The function \code{ci.prat.ak} assumes that selection ratios are being specified (although other aplications are certainly possible).  There it assume that \eqn{y_{1i}} must be greater than 0 if \eqn{\pi_{2i} = 1}, and assumes that \eqn{y_{1i}} must = 0 if \eqn{\pi_{2i} = 0}.  Violation of these conditions will produce a warning message.   
+The function \code{ci.prat.ak} assumes that selection ratios are being specified (although other applications are certainly possible).  There it assume that \eqn{y_{1i}} must be greater than 0 if \eqn{\pi_{2i} = 1}, and assumes that \eqn{y_{1i}} must = 0 if \eqn{\pi_{2i} = 0}.  Violation of these conditions will produce a warning message.   
 
 
 \tabular{ll}{

@@ -2,7 +2,7 @@
 \alias{anm.ls.reg}
 \alias{anm.ls.reg.tck}
 \title{
-Animated plot of least squares function.
+Animated plot of the least squares function.
 }
 \description{Depicts the process of least squares estimation of simple linear regression parameters by plotting the least squares function with respect to estimate possibilities for the intercept or slope.
 }
@@ -31,7 +31,7 @@ Additional arguments to \code{\link{plot}}
 }
 
 \value{
-An animated plot of the plot pssible regression lines is created along with an animated plot of the residual sum of squares. The function \code{anm.ls.reg.tck} provides a GUI to run the function.
+An animated plot of the plot possible regression lines is created along with an animated plot of the residual sum of squares. The function \code{anm.ls.reg.tck} provides a GUI to run the function.
 }
 \author{
 Ken Aho

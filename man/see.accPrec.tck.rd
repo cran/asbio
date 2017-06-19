@@ -5,7 +5,7 @@
 Interactive depiction of precision and accuracy
 }
 \description{
-Slider GUI for examing the interaction of precision and accuracy.
+Slider GUI for examining the interaction of precision and accuracy.
 }
 \usage{
 

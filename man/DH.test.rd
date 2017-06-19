@@ -1,8 +1,8 @@
 \name{DH.test}
 \alias{DH.test}
-\title{Doornick-Hansen test for multivariate normality.}
+\title{Doornik-Hansen test for multivariate normality.}
 \description{
-The Doornick-Hansen test for multivariate normality is a powerful alternative to the 
+The Doornik-Hansen test for multivariate normality is a powerful alternative to the 
 Shapiro-Wilk test.
 }
 \usage{

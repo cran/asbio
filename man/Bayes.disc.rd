@@ -31,7 +31,7 @@ Logical, indicating whether a plot should be made.
 A character string of names for discrete classes
 }
   \item{\dots}{
-Additional arguements to \code{\link{plot}}.
+Additional arguments to \code{\link{plot}}.
 }
 }
 

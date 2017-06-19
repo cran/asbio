@@ -16,12 +16,12 @@ activity under varying levels of the fluorescent phospholipase substrate PED6.
   A data frame with 10 observations on the following 3 variables.
   \describe{
     \item{\code{substrate}}{PED6 concentration (in micromoles).}
-    \item{\code{rate}}{enzymatic rate (nmol of cleaved of PED6 per mg EXoU).}
+    \item{\code{rate}}{enzymatic rate (nmol of cleaved of PED6 per mg ExoU).}
     \item{\code{sd}}{standard deviation of rate for each level of substrate.}
   }
 }
 \source{
-Benson, M. A., Schmalzer, K. M., and D. W. Frank (2009) A sensitive flouresence-based assay for the detection of ExoU mediated PLA2 activity.  \emph{Clin Chim Acta} 411(3-4): 190-197.
+Benson, M. A., Schmalzer, K. M., and D. W. Frank (2009) A sensitive fluorescence-based assay for the detection of ExoU mediated PLA2 activity.  \emph{Clin Chim Acta} 411(3-4): 190-197.
 }
 
 \keyword{datasets}

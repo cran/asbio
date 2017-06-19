@@ -51,7 +51,7 @@ Other \code{invisible} objects include:
 }
 
 \note{
-Note that while \emph{P}-values will be adjusted for simultaneous inference (unless \code{method = "none"}), confidence interval width are generally \emph{not adjusted}.  In particular, CI widths correspond to Welch SEs and Satterthwaite \emph{t} degrees of freedoms  Thus they control for heteroscedasticity, however they do not control for family-wise levels of \eqn{\alpha} unless \code{method = "bonferroni"}, under which the restrictive level \eqn{1 - \alpha/2r} is used, wherein \emph{r} is the number of comparisons. 
+Note that while \emph{P}-values will be adjusted for simultaneous inference (unless \code{method = "none"}), confidence interval width are generally \emph{not adjusted}.  In particular, CI widths correspond to Welch SEs and Satterthwaite \emph{t} degrees of freedoms  Thus they control for heteroscedasticity, however they do not control for family-wise levels of \eqn{\alpha} unless \code{method = "bonferroni"}, under which the restrictive confidence level \eqn{1 - (\alpha/2r)} is used, where \emph{r} is the number of comparisons. 
 }
 
 \references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and Li., W  (2005)  \emph{Applied Linear Statistical Models, 5th edition}.  McGraw-Hill, Boston.

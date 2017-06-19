@@ -14,7 +14,7 @@ ylab = expression(y[2]), zlab = expression(paste("f(", y[1], ",", y[2], ")")), .
 
 \arguments{
   \item{mu}{
-A vector cotanining the joint distribution means.
+A vector containing the joint distribution means.
 }
   \item{cv}{
 A number, indicating the covariance of the two variables.  

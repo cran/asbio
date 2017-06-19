@@ -5,7 +5,7 @@
 Garment Latin square data from Littell et al. (2002)
 }
 \description{
-Four materials (A, B, C, D) used in permenant press garments are subjected to a test fro shrinkag.  The four materials are placed are placed in a heat chamber with with four settings (pos).  The test is conducted in four runs (run). 
+Four materials (A, B, C, D) used in permanent press garments were subjected to a test for shrinkage.  The four materials were placed in a heat chamber with with four settings (pos).  The test was then conducted in four runs (run). 
 }
 \usage{data(garments)}
 \format{
@@ -19,7 +19,7 @@ Four materials (A, B, C, D) used in permenant press garments are subjected to a 
 }
 
 \source{
-Littell, R. C., Stroup, W. W., and R. J. Fruend (2002)  \emph{SAS for Linear Models}.  John 
+Littell, R. C., Stroup, W. W., and R. J. Freund (2002)  \emph{SAS for Linear Models}.  John 
 Wiley and Associates.
 }
 \keyword{datasets}

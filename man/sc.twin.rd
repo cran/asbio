@@ -9,8 +9,8 @@ Scientists have long been concerned with identifying physiological characteristi
 \format{
   The dataframe has 2 columns:
   \describe{
-    \item{unaffected}{Left hippocampus volumes for unaffected twins.}
-    \item{affected}{Left hippocampus volumes for affected twins.}
+    \item{\code{unaffected}}{Left hippocampus volumes for unaffected twins.}
+    \item{\code{affected}}{Left hippocampus volumes for affected twins.}
     }
   } 
 \keyword{datasets}

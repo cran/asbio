@@ -5,7 +5,7 @@
 Salsify height dataset
 }
 \description{
-Heights of slasify \emph{Tragapogon dubius} at the Barton Road long term experiental site in Pocatello Idaho. 
+Heights of salsify \emph{Tragapogon dubius} at the Barton Road long term experimental site in Pocatello Idaho. 
 }
 
 \usage{data(trag)}

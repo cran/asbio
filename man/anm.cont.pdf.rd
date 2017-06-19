@@ -25,7 +25,7 @@ Animation interval
 \author{
 Ken Aho}
 \note{
-May not work every time becasue random values may exceed histogram range.
+May not work every time because random values may exceed histogram range.
 }
 \keyword{graphs}
 

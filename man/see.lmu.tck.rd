@@ -4,7 +4,7 @@
 \title{
 Unbalanced and balanced linear models
 }
-\description{The default design is balanced, as a result Type I = Type II = Type III SS.  A student can then delete one or more Y responses, and corresponding X responses to see create an unallanced design.  Now the types of SS will no longer be equal.  Furthermore, the order that X1 and X2 are specified will now matter in the case of Type I SS, although it will not matter for type II and III SS. 
+\description{The default design is balanced, as a result Type I = Type II = Type III SS.  A student can then delete one or more Y responses, and corresponding X responses to see create an unbalanced design.  Now the types of SS will no longer be equal.  Furthermore, the order that X1 and X2 are specified will now matter in the case of Type I SS, although it will not matter for type II and III SS. 
 }
 \usage{
 

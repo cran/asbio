@@ -5,7 +5,7 @@
 Contingency data for high school marijuana, alcohol, and cigarette use
 }
 \description{
-Agresti (2012) incldued a three way contingency table describing cigarette, alcohol, and marijuana use of high school students in Dayton Ohio.
+Agresti (2012) included a three way contingency table describing cigarette, alcohol, and marijuana use of high school students in Dayton Ohio.
 }
 \usage{data(drugs)}
 \format{

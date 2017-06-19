@@ -58,14 +58,14 @@ Under delta derivation, the log of the products of \eqn{\pi_{1i}} and \eqn{\pi_{
 and variance \eqn{(1 - \pi_{1i})/\pi_{1i}n_1 + (1 - \pi_{2i})/ \pi_{2i}n_2}. Thus, an asymptotic \eqn{(1 - \alpha)100} percent confidence interval for \eqn{\pi_{1i} \times \pi_{2i}} is given by:
 
 \deqn{
-\hat{\pi}_{1i} \times \hat{\pi}_{2i} \times exp(\pm z_{1-(\alpha/2)}\hat{\sigma}_i)
+\hat{\pi}_{1i} \times \hat{\pi}_{2i} \times \exp(\pm z_{1-(\alpha/2)}\hat{\sigma}_i)
 }
 where: \eqn{\hat{\sigma}^2_i = \frac{(1 - \hat{\pi}_{1i})}{\hat{\pi}_{1i}n_1} + \frac{(1 - \hat{\pi}_{2i})}{\hat{\pi}_{2i}n_2}} and \eqn{z_{1-(\alpha/2)}} 
 is the standard normal inverse CDF at probability \eqn{1 - \alpha}.
 }
 
 
-\value{Returns a list of \code{class = "ci"}.  Printed results are the paramter estimate and confidence bounds. }
+\value{Returns a list of \code{class = "ci"}.  Printed results are the parameter estimate and confidence bounds. }
 
 
 \author{

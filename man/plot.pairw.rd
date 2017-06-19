@@ -5,7 +5,7 @@
 Plots confidence intervals and/or bars with letters indicating significant differences for objects from class pairw 
 }
 \description{
-Provides a utility confidence interval plotting function for objects of \code{class = "pairw"}, i.e. objects from \code{pairw.anova}, \code{pair.fried}, and \code{pairw.kw}. 
+Provides a utility confidence interval plotting function for objects of \code{class = "pairw"}, e.g., objects from \code{pairw.anova}, \code{pair.fried}, and \code{pairw.kw}. 
 }
 \usage{
 \method{plot}{pairw}(x, type = 1, lcol = 1, lty = NULL, lwd = NULL, 
@@ -35,7 +35,7 @@ Widths for caps on interval bars (in inches).
 X-axis label.
 }
   \item{main}{
-Main cpation.  Defaults to a descriptive head.
+Main caption.  Defaults to a descriptive head.
 }
   \item{\dots}{
 Additional arguments from \code{\link{bplot}} or \code{\link{barplot}} for type 1 and 2 graphs, respectively.

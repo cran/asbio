@@ -14,7 +14,7 @@ Hollander and Wolfe (1999) presented Hamilton depression scale factor measuremen
   \describe{
     \item{\code{subject}}{Experimental subject.}
     \item{\code{scale}}{Hamilton depression scale score.  0-7 is considered to be normal. Scores of 20 or higher indicate moderate to very severe depression}
-    \item{\code{time}}{A factor with levels \code{post} \code{pre} indicating before and after tranqulizer treatment.}
+    \item{\code{time}}{A factor with levels \code{post} \code{pre} indicating before and after tranquilizer treatment.}
   }
 }
 \source{

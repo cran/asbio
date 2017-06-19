@@ -18,7 +18,7 @@ g.test(y, correct = FALSE, pi.null = NULL)
 A vector of at least 2 elements, or a matrix.  Must contain only non-negative integers.
 }
   \item{correct}{
-Logial.  Indicating whether Yates correction for continuity should be used.
+Logical.  Indicating whether Yates correction for continuity should be used.
 }
   \item{pi.null}{
 Optional vector or matrix of null proportions.  Must sum to one.

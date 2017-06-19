@@ -17,7 +17,7 @@ Kullback(Y, X)
 \details{
 Multivariate general linear models assume equal covariance matrices for all 
 factor levels or factor level combinations. Legendre and Legendre (1998) recommend 
-this test for verifying homoscedsticiy.  \emph{P}-values concern a null hypothesis of 
+this test for verifying homoscedasticity.  \emph{P}-values concern a null hypothesis of 
 equal population covariance matrices.  \emph{P}-values from the test are conservative with respect to type I error. 
 }
 \value{

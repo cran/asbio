@@ -20,12 +20,12 @@ anm.ExpDesign.tck()
   \item{titles}{A logical argument specifying whether or not plots should have \code{main} titles.}
   \item{interval}{Time length spent on each frame in animation (in seconds).}
   \item{iter}{Number of random iterations in animation.}
-  \item{cex.text}{Text character expanasion plots.}
+  \item{cex.text}{Text character expansion plots.}
   \item{mp.col}{Arrow colors in \code{"matched"} plot.  Either a vector of length 3 or a single color.}
   \item{\dots}{Additional arguments from \code{\link{plot}}.}
 }
 \details{
-The function returns a plot or series of plots illustrating the workings of experimental designs. Random apportionment of treatments of experimental units (EUs) is illustrated for each of twelve experimental designs.  A character string can be specified in the \code{method} arguement using a subset of any of the following: \cr
+The function returns a plot or series of plots illustrating the workings of experimental designs. Random apportionment of treatments of experimental units (EUs) is illustrated for each of twelve experimental designs.  A character string can be specified in the \code{method} argument using a subset of any of the following: \cr
  \code{"CRD"}: a one-way completely randomized design,\cr
  \code{"factorial2by2"}: a 2 x 2 design with four EUs,\cr
  \code{"factorial2by2by2"}: a 2 x 2 x 2 factorial designs with 8 EUs,\cr 

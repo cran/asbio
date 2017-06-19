@@ -14,14 +14,14 @@ and 1971.
 \format{
 The dataset contains 8 variables:
   \describe{
-\item{City}{US city.}
-\item{Y}{Average annual SO\eqn{_2} concentration per m\eqn{^3}.}   
-\item{X1}{Average annual temperature (degrees Celsius).}
-\item{X2}{Number of industrial companies with more than 20 employees.}
-\item{X3}{Population size (1970 census) in thousands.}
-\item{X4}{Average Annual average wind speed.}
-\item{X5}{Average Annual precipitation (cm).}
-\item{X6}{Average number of days with precipitation.}
+\item{\code{City}}{US city.}
+\item{\code{Y}}{Average annual SO\eqn{_2} concentration per m\eqn{^3}.}   
+\item{\code{X1}}{Average annual temperature (degrees Celsius).}
+\item{\code{X2}}{Number of industrial companies with more than 20 employees.}
+\item{\code{X3}}{Population size (1970 census) in thousands.}
+\item{\code{X4}}{Average Annual average wind speed.}
+\item{\code{X5}}{Average Annual precipitation (cm).}
+\item{\code{X6}}{Average number of days with precipitation.}
   }
 }
 \source{

@@ -9,22 +9,22 @@ The US department of energy has compiled data since 1980 detailing total carbon 
 \format{
 The dataframe contains 16 columns
 \describe{
-\item{Year}{The year of CO\eqn{_2} measure (1980-2006)}.   
-\item{Afghanistan}{CO\eqn{_2} emissions in Afghanistan from 1980-2006 (1x\eqn{10^6} metric tons).}         
-\item{Belgium}{CO\eqn{_2} emissions in Belgium...}        
-\item{Brazil}{CO\eqn{_2} emissions in Brazil...}
-\item{Canada}{CO\eqn{_2} emissions in Canada...}
-\item{China}{CO\eqn{_2} emissions in China...}
-\item{Finland}{CO\eqn{_2} emissions in Finland...}
-\item{Ghana}{CO\eqn{_2} emissions in Ghana...}
-\item{Italy}{CO\eqn{_2} emissions in Italy...}        
-\item{Japan}{CO\eqn{_2} emissions in Japan...}
-\item{Kenya}{CO\eqn{_2} emissions in Kenya...}
-\item{Mexico}{CO\eqn{_2} emissions in Mexico...}        
-\item{Saudi.Arabia}{CO\eqn{_2} emissions in Saudi Arabia...}
-\item{United.Arab.Emirates}{CO\eqn{_2} emissions in the United Arab Emirates..}
-\item{United.States}{CO\eqn{_2} emissions in United States...}
-\item{World.Total}{CO\eqn{_2} emissions totals for the world...}
+\item{\code{Year}}{The year of CO\eqn{_2} measure (1980-2006)}.   
+\item{\code{Afghanistan}}{CO\eqn{_2} emissions in Afghanistan from 1980-2006 (1x\eqn{10^6} metric tons).}         
+\item{\code{Belgium}}{CO\eqn{_2} emissions in Belgium...}        
+\item{\code{Brazil}}{CO\eqn{_2} emissions in Brazil...}
+\item{\code{Canada}}{CO\eqn{_2} emissions in Canada...}
+\item{\code{China}}{CO\eqn{_2} emissions in China...}
+\item{\code{Finland}}{CO\eqn{_2} emissions in Finland...}
+\item{\code{Ghana}}{CO\eqn{_2} emissions in Ghana...}
+\item{\code{Italy}}{CO\eqn{_2} emissions in Italy...}        
+\item{\code{Japan}}{CO\eqn{_2} emissions in Japan...}
+\item{\code{Kenya}}{CO\eqn{_2} emissions in Kenya...}
+\item{\code{Mexico}}{CO\eqn{_2} emissions in Mexico...}        
+\item{\code{Saudi.Arabia}}{CO\eqn{_2} emissions in Saudi Arabia...}
+\item{\code{United.Arab.Emirates}}{CO\eqn{_2} emissions in the United Arab Emirates..}
+\item{\code{United.States}}{CO\eqn{_2} emissions in United States...}
+\item{\code{World.Total}}{CO\eqn{_2} emissions totals for the world...}
   }
 }
 \source{US Department of energy; \url{www.eia.doe.gov/emeu/iea/}}

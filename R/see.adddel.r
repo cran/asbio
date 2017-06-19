@@ -1,5 +1,5 @@
 see.adddel<-function(){
-
+message("Click on plot to add or delete points.  To stop function, click stop, then click on a point in the plot.")
 action<-tclVar("add") 
 pts <- matrix(c(12, 56,
                 20, 94,
@@ -23,10 +23,12 @@ legend(pu[2]+.5,pu[4],legend=c(paste(" Y int = ",round(co[1],4)),paste(" Slope =
 box()
 
 add.points<-function(){
+if(action=="delete")m<-delete.points()
+else{
 loc<-locator(1)
 x<-c(x,loc$x)
 y<-c(y,loc$y)
-cbind(x,y) 
+cbind(x,y) }
 } 
 
 delete.points<-function(){
@@ -35,13 +37,14 @@ x<-x[-ans]
 y<-y[-ans]
 cbind(x,y)
 }
- 
+
 repeat{
     refresh<-function(){
         
         action<-tclvalue(action)
-        if(action=="add")m<-add.points()
-        if(action=="delete")m<-delete.points()
+	   if(action=="stop") {stop()}	
+        else if(action=="add")m<-add.points()
+        else if(action=="delete")m<-delete.points()
         tkdestroy(tt)
         x<<-m[,1];y<<-m[,2]
         dev.hold()
@@ -65,7 +68,7 @@ tkwm.title(tt, "Demonstration of least squares regression -- Add/delete points")
 tkpack(tklabel(tt,text="Adding/deleting points in\nsimple linear regression"))
 tkpack(tklabel(tt,text=""))
 tkpack(tklabel(tt, text = "  Action: "), side = "top")
-        for ( i in c("add", "delete")){                           
+        for ( i in c("add", "delete", "stop")){                           
             tmp <- tkradiobutton(tt, text=i, variable=action, value=i)
             tkpack(tmp, anchor = "w")}
 tkpack(tkbutton(tt, text = "Exit", command = function()tkdestroy(tt))) 

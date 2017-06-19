@@ -1,32 +1,32 @@
 \name{world.pop}
 \alias{world.pop}
 \docType{data}
-\title{Population levels in various countries since 1980}
+\title{Population levels in various countries from 1980-2006}
 \description{
-Population levels of 13 countries since 1980.  Population numbers are rounded to the nearest 100,000.
+Population levels of 13 countries from 1980-2006.  Population numbers are rounded to the nearest 100,000.
 }
 \usage{data(world.pop)}
 \format{
 The dataframe contains 14 columns
 \describe{
-\item{Year}{The year of population measurements (1980-2006)}   
-\item{Afghanistan}{Population in Afghanistan from 1980-2006, rounded to the nearest 100,000.}         
-\item{Brazil}{Population in Brazil...}
-\item{Canada}{Population in Canada...}
-\item{China}{Population in China...}
-\item{Finland}{Population in Finland...}
-\item{Italy}{Population in Italy...}        
-\item{Japan}{Population in Japan...}
-\item{Kenya}{Population in Kenya...}
-\item{Mexico}{Population in Mexico...}        
-\item{Saudi.Arabia}{Population in Saudi Arabia...}
-\item{United.Arab.Emirates}{Population in the United Arab Emirates...}
-\item{United.States}{Population in United States...}
-\item{World.Total}{Population totals for the world...}
+\item{\code{Year}}{The year of population measurements (1980-2006)}   
+\item{\code{Afghanistan}}{Population in Afghanistan from 1980-2006, rounded to the nearest 100,000.}         
+\item{\code{Brazil}}{Population in Brazil...}
+\item{\code{Canada}}{Population in Canada...}
+\item{\code{China}}{Population in China...}
+\item{\code{Finland}}{Population in Finland...}
+\item{\code{Italy}}{Population in Italy...}        
+\item{\code{Japan}}{Population in Japan...}
+\item{\code{Kenya}}{Population in Kenya...}
+\item{\code{Mexico}}{Population in Mexico...}        
+\item{\code{Saudi.Arabia}}{Population in Saudi Arabia...}
+\item{\code{United.Arab.Emirates}}{Population in the United Arab Emirates...}
+\item{\code{United.States}}{Population in United States...}
+\item{\code{World.Total}}{Population totals for the world...}
   }
 }
 
 \source{
-US census bureau; \url{http://www.census.gov/ipc/www/idb/idbsprd.html}
+US census bureau: \url{www.census.gov/population/international/data/idb/informationGateway.php}
 }
 \keyword{datasets}

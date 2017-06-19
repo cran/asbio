@@ -28,13 +28,13 @@ A scalar, or a vector of length \emph{n} defining line types for treatments.
 A scalar, or a vector of length \emph{n} defining color for symbols and lines. 
 }
   \item{leg.loc}{
-Location of the legend. \code{"n"} supresses the legend.
+Location of the legend. \code{"n"} suppresses the legend.
 }
   \item{leg.cex}{
 Character expansion from \code{\link{legend}}.
 }
   \item{leg.bty}{
-Box typefrom \code{\link{legend}}.
+Box type from \code{\link{legend}}.
 }
   \item{leg.bg}{
 Background color from \code{\link{legend}}.

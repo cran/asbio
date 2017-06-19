@@ -23,7 +23,7 @@ anm.ci.tck()
   \item{conf}{Confidence level: 1-\emph{P}(type I error).}
   \item{sigma}{\eqn{\sigma} from the normal pdf, if known.}
   \item{par.type}{The parameter whose confidence intervals to be estimated.  There are 
-  currently four choices c("mu", "median", "sigma.sq", "p").  These are the normal pdf 
+  currently four choices \code{c("mu", "median", "sigma.sq", "p")}.  These are the normal pdf 
   parameters \eqn{\mu} and \eqn{\sigma^{2}}, the population median, and the binomial 
   parameter, \eqn{\pi}.}
   \item{n.est}{The number of confidence intervals to be created.}
@@ -37,7 +37,7 @@ anm.ci.tck()
 Provides an animated plot showing confidence intervals with respect to a known parameter.  Intervals which do not contain the parameter are emphasized with different colors.  Loading package \pkg{tcltk} allows use of function \code{anm.ci.tck} which provides an interactive GUI to run the function. 
 }
 \value{
-Returns a plot.
+Returns an animated plot.
 }
 \author{Ken Aho}
 \seealso{Additional documentation for methods provided in: \code{\link{ci.mu.t}}, \code{\link{ci.mu.z}}, \code{\link{ci.median}}, \code{\link{ci.sigma}}, and \code{\link{ci.p}}.

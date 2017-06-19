@@ -6,7 +6,7 @@ Confidence intervals for the ratio of binomial and multinomial proportions
 }
 
 \description{
-A number of methods have been develeloped for obtaining confidence intervals for the ratio of two binomial proportions.  These include the Wald/Katz-log method (Katz et al. 1978), 
+A number of methods have been developed for obtaining confidence intervals for the ratio of two binomial proportions.  These include the Wald/Katz-log method (Katz et al. 1978), 
 adjusted-log (Walter 1975, Pettigrew et al. 1986), Koopman asymptotic score (Koopman 1984), Inverse hyperbolic sine transformation (Newman 2001), the Bailey method (Bailey (1987), 
 and the Noether (1957) procedure. Koopman results are found iteratively for most intervals using root finding.   
 }
@@ -41,7 +41,7 @@ Confidence interval method.  One of \code{"adj.log"}, \code{"bailey"},
   \item{bonf}{
 Logical, indicating whether or not Bonferroni corrections should be applied for simultaneous inference if \code{y1, y2, n1} and \code{n2} are vectors.
 }  
-  \item{tol}{The desired accuracy (convergence tolerance) for the iterative root finding procedure when finding Koopman intevals. The default is taken to be the smallest positive floating-point number of the workstation implementing the function, raised to the 0.25 power, and will normally be approximately 0.0001.
+  \item{tol}{The desired accuracy (convergence tolerance) for the iterative root finding procedure when finding Koopman intervals. The default is taken to be the smallest positive floating-point number of the workstation implementing the function, raised to the 0.25 power, and will normally be approximately 0.0001.
 }
 \item{R}{If method \code{"boot"} is chosen, the number of bootstrap iterations.
 }

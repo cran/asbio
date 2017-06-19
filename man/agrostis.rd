@@ -5,7 +5,7 @@
 Agrostis variabilis cover measurements
 }
 \description{
-Percent cover of the grass \emph{Agrostis variablis} at 25 alpine snowbank sites in the Absaroka-Bearthooth Mountains.
+Percent cover of the grass \emph{Agrostis variablis} at 25 alpine snowbank sites in the Absaroka-Beartooth Mountains.
 }
 
 \usage{data(agrostis)}
@@ -17,7 +17,7 @@ Percent cover of the grass \emph{Agrostis variablis} at 25 alpine snowbank sites
   }
 }
 \source{
-Aho, K.  (2006)  \emph{Alpine and Cliff Ecosystems in the North-Central Rocky Mountains}.  PhD dissertation, Montana State Univeristy, Bozeman, MT.
+Aho, K.  (2006)  \emph{Alpine and Cliff Ecosystems in the North-Central Rocky Mountains}.  PhD dissertation, Montana State University, Bozeman, MT.
 }
 \keyword{datasets}
 

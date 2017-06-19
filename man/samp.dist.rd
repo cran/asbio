@@ -15,7 +15,7 @@ This help page describes a series of \pkg{asbio} functions for depicting samplin
 The function \code{samp.dist} shows this distribution as an animated \code{anim = TRUE} or non-animated \code{anim = FALSE} density histogram.   
 Sampling distributions for up to four different statistics utilizing two different parent distributions are possible using \code{samp.dist}.  
 Sampling distributions can be combined in various ways by specifying a function in \code{func} (see below). 
-The function \code{samp.dist.n} was designed to show (with animation) how sampling disributions vary with sample size, and is still under development.  
+The function \code{samp.dist.n} was designed to show (with animation) how sampling distributions vary with sample size, and is still under development.  
 The function \code{samp.dist.snap} creates snapshots, i.e. simultaneous views of a sampling distribution at particular sample sizes. 
 The function \code{dirty.dist} can be used to create contaminated parent distributions.
 }
@@ -53,14 +53,14 @@ samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = expression(
 
   \item{parent}{A vector or vector generating function, describing the parental distribution.  
   Any collection of values can be used. When using random value generators for 
-  parental distributions, for CPU effiency (and accuracy) one should use 
+  parental distributions, for CPU efficiency (and accuracy) one should use 
   \code{parent = expression(rpdf(s.size, ...))}. Datasets exceeding 100000 observations are not recommended.}
   \item{parent2}{An optional second parental distribution (see \code{parent} above), 
   useful for the construction of sampling distributions of test statistics.  
   When using random value generators use \code{parent2 = expression(rpdf(s.size2, ...))}.}
   \item{biv.parent}{A bivariate (two column) distribution.}
   \item{s.size}{An integer defining sample size (or a vector of integers in the case of \code{samp.dist.snap}) to be taken at each of \code{R} iterations from the parental distribution.}
-  \item{s.size2}{An optional integer definining a second sample size if a second statistic is to be calculated.  Again, this will be a vector of integers in the of \code{samp.dist.snap}.}
+  \item{s.size2}{An optional integer defining a second sample size if a second statistic is to be calculated.  Again, this will be a vector of integers in the of \code{samp.dist.snap}.}
   \item{R}{The number of samples to be taken from parent distribution(s).}
   \item{nbreaks}{Number of breaks in the histogram.}
   \item{stat}{The statistic whose sampling distribution is to be represented.  Will work for any summary statistic that only requires a call to data; e.g. \code{\link{mean}}, \code{\link{var}}, \code{\link{median}}, etc.}
@@ -69,10 +69,10 @@ samp.dist.n(parent, R = 500, n.seq = seq(1, 30), stat = mean, xlab = expression(
   \item{stat4}{An optional fourth statistic. The sampling distribution is created from the same sample data used for \code{stat2}.}
   \item{xlab}{\emph{X}-axis label.}  
   \item{func}{An optional function used to manipulate a sampling distribution or to combine the sampling distributions of two or more statistics.  
-  The function must contain the following arguemets (although they needn't all be used in the function):  
+  The function must contain the following arguments (although they needn't all be used in the function):  
   \code{s.dist}, \code{s.dist2}, \code{s.size}, and \code{s.size2}.  When sampling from a 
   single parent distribution use \code{s.dist3} in the place of \code{s.dist2}.  
-  For an estimator invovlving two parent distributions and four statistics, six arguments will be required: 
+  For an estimator involving two parent distributions and four statistics, six arguments will be required: 
   \code{s.dist}, \code{s.dist2}, \code{s.dist3}, \code{s.dist4}. 
   \code{s.size}, and \code{s.size2} , \code{s.dist3}, and  as non-fixed arguments (see example below).}
   \item{show.n}{A logical command, \code{TRUE} indicates that sample size for \code{parent} will be displayed.}

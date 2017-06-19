@@ -7,21 +7,21 @@
 \format{
   This data frame contains the following columns:
   \describe{
-    \item{Subject}{
+    \item{\code{Subject}}{
       a factor with levels
       \code{1} to \code{7} identifying the subject whose glucose
       level is measured. 
     }
-    \item{Date}{
+    \item{\code{Date}}{
       a factor with levels
       \code{1} 
       \code{2}
       indicating the occasion in which the experiment was conducted.
     }
-    \item{Time}{
+    \item{\code{Time}}{
       a numeric vector giving the time since alcohol ingestion (in min/10).
     }
-    \item{glucose}{
+    \item{\code{glucose}}{
       a numeric vector giving the blood glucose level (in mg/dl).
     }
   }

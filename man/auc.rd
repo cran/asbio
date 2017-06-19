@@ -2,10 +2,10 @@
 \alias{auc}
 
 \title{
-Area under a reciever operating characterisitic (ROC) curve
+Area under a receiver operating characteristic (ROC) curve
 }
 \description{
-A simple algortihm for calculating \emph{AUC}.
+A simple algorithm for calculating \emph{AUC}.
 }
 \usage{
 

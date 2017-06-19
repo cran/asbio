@@ -9,8 +9,8 @@ Data from northern myotis bats (\emph{Myotis septentrionalis}) captured in the f
 \format{
   The dataframe has 2 columns:
   \describe{
-    \item{days}{The age of the bats in days.}
-    \item{forearm.length}{The length of the forearm in millimeters.} 
+    \item{\code{days}}{The age of the bats in days.}
+    \item{\code{forearm.length}}{The length of the forearm in millimeters.} 
         }
 }
 \source{

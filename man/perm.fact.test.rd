@@ -14,7 +14,7 @@ perm.fact.test(Y, X1, X2, X3 = NA, perm = 100, method = "a")
   \item{X2}{A vector of factor levels describing factor two.}
   \item{X3}{If necessary, a vector of factor levels describing factor three.}
   \item{perm}{Number of permutations.}
-  \item{method}{Either "a" or "b", see below.}
+  \item{method}{Either \code{"a"} or \code{"b"}, see below.}
 }
 \details{
 Manly (1997) describes five factorial permutation methods which allow testing of interactions.  None of these should be considered to be extensively tested or strongly supported by the statistical literature.
@@ -24,8 +24,8 @@ Permutation distributions of the \emph{F} statistics for A, B, and AB are used f
 (c) Edgington (1995) recommended a restricted randomization procedure where observations within a main effect are randomized while holding other effects constant.  
 Either mean squares or \emph{F} statistics can be used to create permutation distributions.  
 Edgington emphasized that testing interactions with this method are not possible, but that by randomizing over all AB combinations (as in alternative "a" above) provides a test statistic sensitive to interactions.       
-(d) Still and White (1981) recommended a restricted testing procedure (as in "c" above) but recommended testing interactions after "subtracting" main effects.  
-(e) Ter Braak (1992) recommended replacing observations by their residuals from the initial linear model.  These are then permutated, assuming that sample sizes were equal to original sample sizes across interactions of treatments.  Permutation distributions of the \emph{F} statistics for A, B, and AB are then used for statistical tests.
+(d) Still and White (1981) recommended a restricted testing procedure (as in (c) above) but recommended testing interactions after "subtracting" main effects.  
+(e) Ter Braak (1992) recommended replacing observations by their residuals from the initial linear model.  These are then permuted, assuming that sample sizes were equal to original sample sizes across interactions of treatments.  Permutation distributions of the \emph{F} statistics for A, B, and AB are then used for statistical tests.
 Manly (1997) recommends methods a, b, d, or e. Methods a and b are currently implemented.
 
 }

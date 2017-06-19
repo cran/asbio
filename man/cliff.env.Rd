@@ -9,11 +9,11 @@ The data here are a subset of a dataset collected by Aho (2006) which describe t
 \format{
 This data frame contains the following columns:
   \describe{
-    \item{sub}{
+    \item{\code{sub}}{
       a factor with 2 levels
       \code{"Andesite"} and \code{"Lime"} describing substrate type. 
     }
-    \item{water}{
+    \item{\code{water}}{
       a factor with 3 levels
       \code{"W"} 
       \code{"I"}

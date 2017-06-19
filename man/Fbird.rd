@@ -14,10 +14,10 @@ Eighteen of these observations are in this dataset.
 \format{
 The dataframe contains two variables: 
   \describe{
-    \item{vol}{
+    \item{\code{vol}}{
      Pouch volume (in cm\eqn{^3}). 
     }
-    \item{freq}{
+    \item{\code{freq}}{
      Frequency of drumming (in Hz)
     }
     }

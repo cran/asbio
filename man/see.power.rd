@@ -20,7 +20,7 @@ see.power.tck()
 
   \item{alpha}{Type I error.
 }
-  \item{sigma}{Standard deiviation of underlying population.
+  \item{sigma}{Standard deviation of underlying population.
 }
   \item{n}{
 sample size

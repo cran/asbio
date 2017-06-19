@@ -2,7 +2,7 @@
 \alias{anscombe}
 \docType{data}
 \title{
-Anscobe's quartet
+Anscombe's quartet
 }
 \description{
 A set of four bivariate datasets with the same conditional means, conditional variances, linear regressions, and correlations, but with dramatically different forms of association. 
@@ -22,7 +22,7 @@ A set of four bivariate datasets with the same conditional means, conditional va
   }
 }
 \details{
-Anscombe (1973) used these datasets to demonstrate that summary statsitics are inadequate for describing association.
+Anscombe (1973) used these datasets to demonstrate that summary statistics are inadequate for describing association.
 }
 \source{
 Anscombe, F. J.  (1973)  Graphs in statistical analysis. \emph{American Statistician} 27 (1): 17-21.

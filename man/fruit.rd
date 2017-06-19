@@ -17,7 +17,7 @@ Valencia orange tree fruit weights are measured at harvest with respect to five 
   }
 }
 \source{
-Littell, R. C., Stroup, W. W., and R. J. Fruend (2002)  \emph{SAS for linear models}.  John 
+Littell, R. C., Stroup, W. W., and R. J. Freund (2002)  \emph{SAS for linear models}.  John 
 Wiley and Associates.
 }
 \keyword{datasets}

@@ -15,7 +15,7 @@ r.bw(X, Y=NULL)
 }
 }
 \details{
-Biweight statistics are robust to violations of normality.   Like the sample median the sample midvariance has a breakdown point of approximately 0.5.  The triefficeincy of the biweight midvariance was the highest for any of the 150 measures of scale compared by Lax (1985). 
+Biweight statistics are robust to violations of normality.   Like the sample median the sample midvariance has a breakdown point of approximately 0.5.  The triefficiency of the biweight midvariance was the highest for any of the 150 measures of scale compared by Lax (1985). 
 }
 \value{
 Returns the biweight variance if one variable is given, and the biweight midvariances, midcovariance and midcorrelation if two variables are given. 

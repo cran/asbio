@@ -15,7 +15,7 @@ modlevene.test(x, groups)
   \item{groups}{Vector of factor levels.}
 }
 \details{
-The modified Levene's test is a test for homoscedsticity that (unlike the classic \emph{F}-test) is robust to violations of normality (Conover et al. 1981).  In a Modified Levene's test we calculate \eqn{d_{ij}=|e_{ij} - \tilde{e}_{i}|} where \eqn{\tilde{e}_i} is the \emph{i}th factor level residual median.  We then run an ANOVA on the \eqn{d_{ij}}'s.  If the \emph{p}-value is < \eqn{\alpha}, we reject the null and conclude that the population error variances are not equal.  
+The modified Levene's test is a test for homoscedasticity that (unlike the classic \emph{F}-test) is robust to violations of normality (Conover et al. 1981).  In a Modified Levene's test we calculate \eqn{d_{ij}=|e_{ij} - \tilde{e}_{i}|} where \eqn{\tilde{e}_i} is the \emph{i}th factor level residual median.  We then run an ANOVA on the \eqn{d_{ij}}'s.  If the \emph{p}-value is < \eqn{\alpha}, we reject the null and conclude that the population error variances are not equal.  
 }
 \value{
 An ANOVA table is returned with the modified Levene's test results.

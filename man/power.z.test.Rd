@@ -2,10 +2,10 @@
 \alias{power.z.test}
 \title{Power analysis for a one sample z-test}
 \description{
-A power analysis for a one sample z-test. The function requires \eqn{\alpha}, \eqn{\sigma}, 
+A power analysis for a one sample \emph{z}-test. The function requires \eqn{\alpha}, \eqn{\sigma}, 
 the effect size, the type of test (one tailed or two-tailed), and either power 
 (1 - \eqn{\beta}) or \emph{n} (sample size).  If \emph{n} is provided, then power is calculated.  Conversely, 
-if one provides power, but not \emph{n}, then n is calculated.
+if one provides power, but not \emph{n}, then the required \emph{n} is calculated.
 }
 \usage{
 

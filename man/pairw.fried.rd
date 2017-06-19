@@ -2,7 +2,7 @@
 \alias{pairw.fried}
 \alias{FR.multi.comp}
 \title{Multiple pairwise comparison procedure to accompany a Friedman test.}
-\description{Replaces now defunct \code{FR.multi.comp}.  As with ANOVA we can examine multiple pairwise comparisons from a Friedman test after we have rejected othe overall null hypothesis.  
+\description{Replaces now defunct \code{FR.multi.comp}.  As with ANOVA we can examine multiple pairwise comparisons from a Friedman test after we have rejected the overall null hypothesis.  
 However we will need to account for family-wise type I error in these comparisons which will be non-orthogonal.  A conservative multiple comparison method used here is based on the Bonferroni procedure.
 }
 \usage{

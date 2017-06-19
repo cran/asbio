@@ -18,8 +18,8 @@ A compilation of taxonomic (species and genus) counts for a wide array of organi
     \item{\code{Obs.S.G}}{Observed species/genus (S/G) ratio}
     \item{\code{E.S.G.}}{Expected S/G ratio, based on random sampling from mainland pool of species.}
     \item{\code{prop..obs..cogeners}}{The proportion of observed cogeners, only reported for bird species.}
-    \item{\code{prop..exp..cogeners}}{The proportion of expected cogeners based on raindom sampling from the associated mainland pool of species, only reported for bird species.}
-    \item{\code{Authority}}{Sourc of infomration for compilation,}
+    \item{\code{prop..exp..cogeners}}{The proportion of expected cogeners based on random sampling from the associated mainland pool of species, only reported for bird species.}
+    \item{\code{Authority}}{Source of information for compilation.}
     \item{\code{Life.form}}{A factor with levels \code{Ants} \code{Land birds} \code{Passerine birds} \code{Vascular plants}.}
     \item{\code{Notes.1}}{Notes from Simberloff (1970)}
     \item{\code{Notes.2}}{Additional notes from Simberloff (1970)}

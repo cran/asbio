@@ -14,7 +14,7 @@ n.h = NULL, x.bar.h = NULL, var.h = NULL)
   \item{data}{A vector of quantitative data.  Required if \code{summarized=FALSE}.}
   \item{strat}{A vector describing strata.}
   \item{N.h}{
-A vector dexcribing the number of experimental units for each of the \emph{k} strata.}
+A vector describing the number of experimental units for each of the \emph{k} strata.}
   \item{conf}{Level of confidence; 1 - \emph{P}(type I error).}
   \item{summarized}{Logical.  Indicates whether summarized data are to be used.}
   \item{use.t}{Logical.  Indicates whether \emph{t} or \emph{z} confidence intervals should be built.}

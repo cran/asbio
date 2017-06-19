@@ -3,7 +3,7 @@
 \alias{see.HW.tck}
 
 \title{
-Visualize the Hardy Weinberg equlibrium
+Visualize the Hardy Weinberg equilibrium
 }
 \description{
 Allows interactive depiction of the Hardy Weinberg equilibrium.

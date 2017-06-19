@@ -5,7 +5,7 @@
 Paik diagrams
 }
 \description{
-Paik diagrmas for the representation of Simpsons Paradox in three way tables.
+Paik diagrams for the representation of Simpsons Paradox in three way tables.
 }
 \usage{
 
@@ -32,10 +32,10 @@ Dataframe containing variables in \code{formula}.
 Multiplier for circle radii in the diagram.
 }
   \item{xlab}{
-X-axis label.  By default this is defined as the categiries in the first explanatory variable, \code{X1}.
+\emph{X}-axis label.  By default this is defined as the categories in the first explanatory variable, \code{X1}.
 }
   \item{ylab}{
-\emph{Y}-axis label.  By default these will be proportions with repsect to the specified level of interest in the response. 
+\emph{Y}-axis label.  By default these will be proportions with respect to the specified level of interest in the response. 
 }
   \item{leg.title}{
 Legend title.  By default the conditioning variable name.
@@ -43,7 +43,7 @@ Legend title.  By default the conditioning variable name.
   \item{leg.loc}{
 Legend location.  A \code{legend} location keyword; \code{"bottomright"}, \code{"bottom"}, \code{"bottomleft"}, \code{"left"}, \code{"topleft"}, \code{"top"}, \code{"topright"}, \code{"right"} or \code{"center"}. 
 }
-  \item{show.mname}{ Logical, indcating whether or not the words "Marginal prop" should printed in the graph above the dotted line indicating marginal proportions. 
+  \item{show.mname}{ Logical, indicating whether or not the words "Marginal prop" should printed in the graph above the dotted line indicating marginal proportions. 
 }
   \item{\dots}{
 Additional arguments from \code{\link{plot}}.

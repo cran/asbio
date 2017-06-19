@@ -6,8 +6,9 @@
 Visualize the sampling distribution of Pearson's product moment correlation
 }
 \description{
-A stumbling point for many methods of inference for true correlation and independence is the 1) assymetry, 2) explicit bounds and 3) dependence on sample size, of the sampling distribution of \emph{r}.  
-The functions hwew allow visualization of these characteristics.  The algorithm used for the sampling distribution of \emph{r} is based on the first two steps in an asympotic series (see Kenney and Keeping 1951).    
+Stumbling points for many methods of inference for the true correlation \eqn{\rho} and for independence are: 1) asymmetry, 2) explicit bounds on \eqn{\rho},  and 3) dependence on sample size, of the sampling distribution of \emph{r}.  
+
+The functions here allow visualization of these characteristics.  The algorithm used for the sampling distribution of \emph{r} is based on the first two steps in an asymptotic series (see Kenney and Keeping 1951).    
 }
 \usage{
 r.dist(rho, r, n)

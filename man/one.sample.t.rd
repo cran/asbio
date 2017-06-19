@@ -16,7 +16,7 @@ alternative = "two.sided", conf = 0.95)
   \item{alternative}{Type of test.  One of three must be specified \code{"two.sided", "less"}, or \code{"greater"}}
   \item{conf}{Confidence level.}
 }
-\details{The function can use either raw data \code{is.null(data)==FALSE} or summarized data if \code{is.null(data)==TRUE}.  With the later \code{xbar}\code{s}, and \code{n} must be specified by the user.
+\details{The function can use either raw data \code{is.null(data)==FALSE} or summarized data if \code{is.null(data)==TRUE}.  With the later \code{xbar}, and \code{n} must be specified by the user.
 }
 
 \value{Returns a test statistic and a \emph{p}-value.

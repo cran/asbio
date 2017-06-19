@@ -5,7 +5,7 @@
 Veneer data from Littell et al. (2002)
 }
 \description{
-Four examples of each of five brands of a synthetic wool veneer material were subjected to a friction test, and a measure of wear was determined for each experimental unit. 
+Four examples of each of five brands of a synthetic wool veneer material were subjected to a friction test and a measure of wear was determined for each experimental unit. 
 }
 \usage{data(veneer)}
 \format{
@@ -16,6 +16,6 @@ Four examples of each of five brands of a synthetic wool veneer material were su
   }
 }
 \source{
-Littell, R. C., Stroup, W. W., and R. J. Fruend (2002)  \emph{SAS for Linear Models}.  John 
+Littell, R. C., Stroup, W. W., and R. J. Freund (2002)  \emph{SAS for Linear Models}.  John 
 Wiley and Associates. }
 \keyword{datasets}

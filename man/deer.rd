@@ -9,12 +9,12 @@ Monteith et al. (2009) examined the maternal life history characteristics of whi
 \format{
 The dataframe contains 6 columns
 \describe{
-\item{Birth.Yr}{Year of birth.}   
-\item{Litter.size}{Number of offspring.}         
-\item{Region}{Categorical variable with two factor levels.  BH = Black Hills, ER = Eastern Region.}        
-\item{Dam.weight}{Dam weight in kg.}
-\item{Total.birth.mass}{Mass of litter in kg.}
-\item{Prop.mass}{Total birth mass divided by dam weight.}
+\item{\code{Birth.Yr}}{Year of birth.}   
+\item{\code{Litter.size}}{Number of offspring.}         
+\item{\code{Region}}{Categorical variable with two factor levels.  BH = Black Hills, ER = Eastern Region.}        
+\item{\code{Dam.weight}}{Dam weight in kg.}
+\item{\code{Total.birth.mass}}{Mass of litter in kg.}
+\item{\code{Prop.mass}}{Total birth mass divided by dam weight.}
   }
 }
 \source{Monteith, K. L, Schmitz, L. E., Jenks, J. A., Delger, J. A., and R. T. Bowyer.  2009.  Growth of male white tailed deer: consequences of maternal effects.  \emph{Journal of Mammalogy} 90(3): 651-660.}

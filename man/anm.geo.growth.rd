@@ -69,7 +69,7 @@ The carrying capacity
 
 where \eqn{N_t} is the number of individuals at time \emph{y}, \eqn{\lambda} is the geometric growth rate, and \emph{t} is time.
 
-Exponential growth allows simultaneous existience of multiple generations, and is computed as:
+Exponential growth allows simultaneous existence of multiple generations, and is computed as:
 
 \deqn{\frac{dN}{dt}=r_{max}N,}
 
@@ -79,7 +79,7 @@ where \eqn{r_{max}} is the maximum intrinsic rate of increase, i.e. max(birth ra
 
 where \eqn{r_{max}} is the maximum rate of intrinsic increase, \eqn{N} is the population size, and \eqn{K} is the carrying capacity
 
-Installation of package \pkg{tcltk} allows implementation of all three models using GUIs.
+Package \pkg{tcltk} allows implementation of all three models using GUIs.
 }
 
 \author{

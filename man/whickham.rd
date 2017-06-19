@@ -23,7 +23,7 @@ and age at the time of the original study (1 = 18-24, 2 = 35-64, 3 = >65).
   }
 }
 \source{
-Appleton, D. R., French, J. M., Vanderpump, M. P. J.  (1996)  Ignoring a covariate: AN example of Simpson's paradox.  \emph{The American Statstician} 50(4): 340-341.
+Appleton, D. R., French, J. M., Vanderpump, M. P. J.  (1996)  Ignoring a covariate: AN example of Simpson's paradox.  \emph{The American Statistician} 50(4): 340-341.
 }
 \keyword{datasets}
 

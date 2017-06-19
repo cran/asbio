@@ -48,14 +48,14 @@ We assume that the data from each group are independent and from normal populati
 are normally distributed with an unknown mean, \eqn{\mu}, and an unknown variance , \eqn{\tau^2}.  
 A uniform prior distribution is assumed for \eqn{\mu, log\sigma} and \eqn{\tau}; \eqn{\sigma} is 
 logged to facilitate conjugacy.  The function \code{mcmc.norm.hier} provides posterior distributions 
-of \eqn{\theta[j]}'s, \eqn{\mu, \sigma} and \eqn{\tau}.  The distributions are dervided from univariate 
+of \eqn{\theta[j]}'s, \eqn{\mu, \sigma} and \eqn{\tau}.  The distributions are derived from univariate 
 conditional distributions from the multivariate likelihood function.  These conditional distributions 
 provide a situation conducive to MCMC Gibbs sampling. Gelman et al. (2003) provide excellent summaries of these sorts of models.  
 
-The function \code{mcmc.summary} provides statsitical summaries for the output array from \code{mcmc.norm.hier} including credible intervals (empirically derived directly from chains) and the Gelman/Rubin convergence criterion, \eqn{\hat{R}}.
+The function \code{mcmc.summary} provides statistical summaries for the output array from \code{mcmc.norm.hier} including credible intervals (empirically derived directly from chains) and the Gelman/Rubin convergence criterion, \eqn{\hat{R}}.
 }
 \value{
-The function \code{mcmc.norm.hier} reurns a three dimensional (step x variable x chain) array.  The function \code{mcmc.summary} returns a summary table containing credible intervals and the Gelman/Rubin convergence criterion, \eqn{\hat{R}}.
+The function \code{mcmc.norm.hier} returns a three dimensional (step x variable x chain) array.  The function \code{mcmc.summary} returns a summary table containing credible intervals and the Gelman/Rubin convergence criterion, \eqn{\hat{R}}.
 }
 \references{
 Gelman, A., Carlin, J. B., Stern, H. S., and D. B. Rubin (2003) \emph{Bayesian Data Analysis, 2nd edition}.  Chapman and Hall/CRC.

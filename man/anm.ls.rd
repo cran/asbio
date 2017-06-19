@@ -21,7 +21,7 @@ anm.ls.tck()
 A numeric vector containing sample data.
 }
   \item{poss}{
-An ordered numeric sequence of possible parameter estimates.  Inclusion of the least squares estimate in the vector (e.g. \eqn{bar{X}} for \eqn{mu} will cause the least squares function be minimized at this value.
+An ordered numeric sequence of possible parameter estimates.  Inclusion of the least squares estimate in the vector (e.g. \eqn{\bar{X}} for \eqn{\mu} will cause the least squares function be minimized at this value.
 }
   \item{parameter}{
 Parameter to be estimated.  Only estimation for \emph{E}(\emph{X}) is currently implemented.  Note that if  \emph{X} ~ \emph{N}(\eqn{\mu},\eqn{\sigma^2}) then \emph{E}(\emph{X}) =  \eqn{\mu}.}

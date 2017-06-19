@@ -11,7 +11,7 @@ Dissolved O\eqn{_2} readings in ppm for 15 random locations above and below a ri
 \format{
   A data frame with 30 observations on the following 2 variables.
   \describe{
-    \item{\code{O2}}{Dissolved O\eqn{2} levels in ppm.}
+    \item{\code{O2}}{Dissolved O\eqn{_2} levels in ppm.}
     \item{\code{location}}{River flow location with respect to town.  Levels are \code{Above} \code{Below}.}
   }
 }

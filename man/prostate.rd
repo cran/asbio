@@ -4,14 +4,15 @@
 \title{
 Prostate cancer data
 }
-\description{Hastie et al. (2001) describe a cancer research study that attempted to associate prostate specific antigenand and a number of prognostic measures in mean with advanced prostate cancer.  
+\description{Hastie et al. (2001) describe a cancer research study that attempted to associate prostate specific antigens and and a number of prognostic measures in the context of advanced prostate cancer.
+
 Data in the experiment were collected from 97 men who were about to undergo radial prostectomies. 
 }
 \usage{data(prostate)}
 \format{
  A data frame with 97 observations on the following 4 variables.
   \describe{
-    \item{\code{PSA}}{Serum prostate-specific albumin levle (mg/ml).}
+    \item{\code{PSA}}{Serum prostate-specific albumin level (mg/ml).}
     \item{\code{vol}}{Tumor volume (cc).}
     \item{\code{weight}}{Prostate weight (g).}
     \item{\code{Gleason}}{Pathologically determined grade of disease.  Summed scores were either 6, 7, or 8 with higher scores indicating worse prognosis.}

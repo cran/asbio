@@ -9,9 +9,9 @@ In the early 1990s an oil refinery northeast of San Francisco agreed with local 
 \format{
 The dataframe contains three columns:
   \describe{
-\item{CO}{Carbon monoxide.  Measured in ppm.}
-\item{Source}{The source of measurements; either refinery or BAAQMD.}
-\item{Date}{Month/Day/Year}
+\item{\code{CO}}{Carbon monoxide.  Measured in ppm.}
+\item{\code{Source}}{The source of measurements; either refinery or BAAQMD.}
+\item{\code{Date}}{Month/Day/Year}
 }
 }
 \source{

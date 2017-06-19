@@ -11,7 +11,7 @@ The dataframe contains 4 columns
 \describe{
 \item{obs}{Observation number.}   
 \item{relative length}{Relative strand strand length after heat application.}         
-\item{temp.C}{Temp in degrees celsius.}        
+\item{temp.C}{Temp in degrees Celsius.}        
 \item{residuals}{Residuals from the linear model length~temp.C.}
   }
 }

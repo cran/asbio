@@ -5,7 +5,7 @@
 Animated demonstration of frequentist binomial convergence of probability using a coin flip.
 }
 \description{
-Creates an animated plot showing the results from coin flips, and the resulting converence in \emph{P}(Head) as the number of flips grows large.
+Creates an animated plot showing the results from coin flips, and the resulting convergence in \emph{P}(Head) as the number of flips grows large.
 }
 \usage{
 
@@ -17,7 +17,7 @@ anm.coin.tck()
 
 \arguments{
   \item{flips}{The number of desired coin flips.}
-  \item{p.head}{User defined probability of a head; e.g. for a fair coin \code{p.head} = 0.5.}
+  \item{p.head}{User defined probability of a head; e.g., for a fair coin \code{p.head = 0.5}.}
   \item{interval}{The time between animation frames, in seconds.}
   \item{show.coin}{Logical if \code{show.coin=TRUE} shows a second plot with coin flip results (head or tail).}
   \item{\dots}{Additional arguments to \code{\link{plot}}.}

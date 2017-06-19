@@ -9,7 +9,7 @@ huber.NR(x, c = 1.28, iter = 20)
 }
 \arguments{
   \item{x}{A vector of quantitative data}
-  \item{c}{Bend criterion.  The value \code{c = 1.28} gives 95 percent efficiency of the mean given normality.
+  \item{c}{Bend criterion.  The value \code{c = 1.28} gives 95\% efficiency of the mean given normality.
   }
   \item{iter}{Maximum number of iterations}
 }

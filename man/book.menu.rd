@@ -3,7 +3,7 @@
 \title{Pulldown menus for 'asbio' interactive graphical functions
 }
 \description{
-Provides a pulldown GUI menus to allow access to \pkg{asbio} statistical and biological graphical demos, e.g. \code{\link{anm.ci}}, \code{\link{samp.dist}}, \code{\link{anm.loglik}}, etc.  The function \code{demos} is deprecated.  The function \code{table.menu} currently provides links to over 100 distinct GUIs (many of these are slaves to other GUIs), which in turn provide distinct graphical demonstrations. The GUIs work best with an SDI R interface.   
+Provides a pulldown GUI menus to allow access to \pkg{asbio} statistical and biological graphical demos, e.g. \code{\link{anm.ci}}, \code{\link{samp.dist}}, \code{\link{anm.loglik}}, etc.  The function \code{demos} is deprecated.  The function \code{book.menu} currently provides links to over 100 distinct GUIs (many of these are slaves to other GUIs), which in turn provide distinct graphical demonstrations. The GUIs work best with an SDI R interface.   
 }
 \usage{
 book.menu()

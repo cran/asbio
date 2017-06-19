@@ -5,7 +5,7 @@
 Bayesian linear models with uniform priors 
 }
 \description{
-Gelman et al. (2002) describe general methods for Bayeisan implementation of simple linear models (e.g. simple and multiple regression and fixed effect one way ANOVA) with standard non-informative priors uniform on \eqn{\alpha, \sigma^2}. The function is not yet suited for multifactor or multivariance (random effect) ANOVAs. 
+Gelman et al. (2002) describe general methods for Bayesian implementation of simple linear models (e.g. simple and multiple regression and fixed effect one way ANOVA) with standard non-informative priors uniform on \eqn{\alpha, \sigma^2}. The function is not yet suited for multifactor or multivariance (random effect) ANOVAs. 
 }
 \usage{
 

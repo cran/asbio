@@ -7,7 +7,7 @@
 Simple functions for MCMC demonstrations
 }
 \description{
-Function \code{MC} creates random MArkov Chain from a transitions matrix.  Function \code{Rf} presents proportional summaries of discrete states from \code{MC}.  Function \code{mat.pow} finds the exponential expnasion of a martix.  Required for finding the expectations of a transition matrix. 
+Function \code{MC} creates random Markov Chain from a transitions matrix.  Function \code{Rf} presents proportional summaries of discrete states from \code{MC}.  Function \code{mat.pow} finds the exponential expansion of a matrix.  Required for finding the expectations of a transition matrix. 
 }
 \usage{
 MC(T, start, length)

@@ -18,7 +18,7 @@ ConDis.matrix(Y1, Y2)
 \details{
 Consider all possible combinations of \eqn{(Y_{1i}, Y_{ij})} and \eqn{(Y_{2i}, Y_{ij})} where \eqn{1<=i<j<=n}.  A pair is concordant if \eqn{Y_{1i} > Y_{1j}} and \eqn{Y_{2i} > Y_{2j}} or if \eqn{Y_{1i} < Y_{1j}} and  \eqn{Y_{2i} < Y_{2j}}.  Conversely, a pair is discordant if \eqn{Y_{1i} < Y_{1j}} and \eqn{Y_{2i} > Y_{2j}} or if \eqn{Y_{1i} > Y_{1j}} and \eqn{Y_2i < Y_2j}.  This information has a number of important uses including calculation of Kendall's \eqn{\tau}.}
 \value{
-A matrix is returned.  The lower triangle indicates whether observations are concordant (element = 1), disconcordant (element = -1) or neither (element = 0).
+A matrix is returned.  Elements in the lower triangle indicate whether observations are concordant (element = \code{1}), discordant (element = \code{-1}) or neither (element = \code{0}).
 }
 \references{
 Hollander, M., and  Wolfe, D. A. (1999) \emph{Nonparametric statistical methods}. New York: John Wiley & Sons. 

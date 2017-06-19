@@ -8,7 +8,7 @@ huber.mu(x, c = 1.28, iter = 20, conv = 1e-07)
 }
 \arguments{
   \item{x}{A vector of quantitative data.}
-  \item{c}{Stop criterion.  The value \code{c = 1.28} gives 95 percent efficiency of the mean given normality.}
+  \item{c}{Stop criterion.  The value \code{c = 1.28} gives 95\% efficiency of the mean given normality.}
   \item{iter}{Maximum number of iterations.}
   \item{conv}{Convergence criterion.}
 }
@@ -23,7 +23,7 @@ Edition}.  Elsevier, Burlington, MA.
 }
 \author{Ken Aho}
 \examples{
-x<-rnorm(100)
+x <- rnorm(100)
 huber.mu(x)
 }
 

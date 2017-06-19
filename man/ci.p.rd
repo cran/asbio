@@ -49,34 +49,34 @@ Logical.  Should likelihood ratio plot be created with estimate from \code{metho
 For the binomial distribution the parameter of interest is the probability of success, \eqn{\pi}.  ML estimators for the parameter, \eqn{\pi}, and its standard deviation, \eqn{\sigma_\pi} are: 
 \deqn{\hat{\pi}=\frac{x}{n},}
 \deqn{\sigma_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n}}}
-where \emph{x} is the number of succeses and \emph{n} is the number of observations.
+where \emph{x} is the number of successes and \emph{n} is the number of observations.
 
-Becasue the sampling distribution of any ML estimator is asymptotically normal an "asymptotic" 100(1 - \eqn{\alpha})\% confidence interval for \eqn{\pi} is found using:
+Because the sampling distribution of any ML estimator is asymptotically normal an "asymptotic" 100(1 - \eqn{\alpha})\% confidence interval for \eqn{\pi} is found using:
 
 \deqn{\hat{\pi}\pm z_{1-(\alpha/2)}.}
 
 This method has also been called the Wald confidence interval.
 
-These estimators can create extremely inaccurate confidence intervals, particulary for small sample sizes or when \eqn{\pi} is near 0 or 1 (Agresti 2012).  A better method is to 
+These estimators can create extremely inaccurate confidence intervals, particularly for small sample sizes or when \eqn{\pi} is near 0 or 1 (Agresti 2012).  A better method is to 
 invert the Wald binomial test statistic and vary values for \eqn{\pi_0} in the test statistic numerator and standard error.  The interval consists of values of \eqn{\pi_0} 
 in which result in a failure to reject H\eqn{_0} at \eqn{\alpha}. Bounds can be obtained by finding the roots of a quadratic expansion of the binomial likelihood function (See Agresti 2012).
 This has been called a "score" confidence interval (Agresti 2012).  An simple approximation to this method can be obtained by adding the number two to the number of successes and failures (Agresti and Coull 1998).  The resulting Agresti-Coull estimators for \eqn{\pi} and \eqn{\sigma_{\hat{\pi}}} are:
 
 \deqn{\hat{\pi}=\frac{x+2}{n+4},}
-\deqn{\sigma_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n+4}}}
+\deqn{\sigma_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n+4}}.}
 
 As above the 100(1 - \eqn{\alpha})\% confidence interval for the binomial parameter \eqn{\pi} is found using:
 
 \deqn{\hat{\pi}\pm z_{1-(\alpha/2)}.}
 
 
-The likelihood ratio method \code{method = "LR"} finds points in the binomial log-likelhood function where the difference between the maximum likelihood and likelihood function is closest to \eqn{\chi_1^{2}(1 - \alpha)/2} 
+The likelihood ratio method \code{method = "LR"} finds points in the binomial log-likelihood function where the difference between the maximum likelihood and likelihood function is closest to \eqn{\chi_1^{2}(1 - \alpha)/2} 
 for support given in \eqn{\pi_0}.  As support the function uses \code{seq(0.00001, 0.99999, by = 0.00001)}. 
 
 
 The "exact" method of Clopper and Pearson (1934) is bounded at the nominal limits, but actual coverage may be well below this level, particularly when \emph{n} is small and \eqn{\pi} is near 0 or 1.  
 
-Agresti (2012) reccomends the Agresti-Coull method over the normal approximation, the score method over the Agresti-Coull method, and the likelihood ratio method over all others.  The Clopper Pearson has been repeatedly criticized as being too conservative (Agresti and Coull 2012).   
+Agresti (2012) recommends the Agresti-Coull method over the normal approximation, the score method over the Agresti-Coull method, and the likelihood ratio method over all others.  The Clopper Pearson has been repeatedly criticized as being too conservative (Agresti and Coull 2012).   
 }
 
 \value{Returns a list of \code{class = "ci"}.  
