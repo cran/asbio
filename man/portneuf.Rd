@@ -2,7 +2,7 @@
 \alias{portneuf}
 \docType{data}
 \title{
-Portneuf River longitudinal N and P data.
+Portneuf River longitudinal N and P data
 }
 \description{
 Portneuf River data from the Siphon Road site near Pocatello Idaho, downstream from an elemental P refinery.

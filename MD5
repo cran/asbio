@@ -1,4 +1,4 @@
-3f4abace82ff9df92a3366e929eb0fdc *DESCRIPTION
+314cdfb7c83855cba747c0c8ddd0da93 *DESCRIPTION
 2c2a6d5c0d47b66baf55067852a5312a *NAMESPACE
 ffe620b83b8fd0b32dddac28baaa6e77 *R/AP.test.R
 1206fc5923286f82354ba1938bb135de *R/BDM.test.R
@@ -55,7 +55,7 @@ f2f6f8cf482fe063602adc3db17b2980 *R/bin2dec.r
 976c2f135bc143caf48d5ae299022e5d *R/boot.ci.M.R
 57fccc8b2bed68bb5bf48a7b67d1f580 *R/bootstrap.r
 5dff0f61b65fe1b3f2bee0e3e660a59d *R/bound.angle.r
-0b852f60469e53aa6ca26d106850fce8 *R/bplot.r
+37a38c67c32a32f954949ae026da46f5 *R/bplot.r
 632e1617c4b9f2cd559c9f2aab741a57 *R/bv.boxplot.R
 e71de1c7521b880e222f9b76222cf1c9 *R/bvn.plot.r
 b627c3751a70952c446dbb90f9159662 *R/chi.plot.R
@@ -182,7 +182,7 @@ a8ca07289bf7b5819d8ff85e2242eca0 *R/stan.error.R
 9728b2a19d069ec869cce60d0efb89b7 *R/trim.test.R
 1fbdad871e13114cc5b53b7fd2fe0733 *R/tukey.add.test.r
 48d2a2c418b557b94625d7058049ab14 *R/win.R
-dda03d0727d178e5c2abf1c56b06f23a *build/vignette.rds
+2e2d5b1af97ecf542f7f51027179c591 *build/vignette.rds
 5d5373febbd5e587ed3578edc8dee1cb *data/BCI.count.rda
 27fb884c08cfb11676654a1edf238061 *data/BCI.plant.rda
 6874babfcd301e907ec2b9c11c7f43f6 *data/C.isotope.rda
@@ -286,10 +286,10 @@ ada771ca1b87264108e32791a7fa8ad4 *data/wine.rda
 14bad26fe22a056c23b2735b594fd423 *data/world.co2.rda
 2a2bb19db449069d2935266faa04e1ae *data/world.pop.rda
 a8c6c9a7cd3cebabfd9d79f0e70d816a *inst/doc/ranef.cov.R
-722810c6083ea3c3c7bce772acd31abd *inst/doc/ranef.cov.pdf
+44517812ba5ce419c92c6c3a55247e9b *inst/doc/ranef.cov.pdf
 f8437cdccb07d418c6eeb3423a01bd2d *inst/doc/ranef.cov.rnw
 0798bdbf038efe20357f00e6f883cbae *inst/doc/simpson.R
-d1fae28f512d096f4698e1f21710accb *inst/doc/simpson.pdf
+5ef25ce97227086b2bd4519a1971faf3 *inst/doc/simpson.pdf
 9bb7dddf457b790a8a5cd4304aa99bae *inst/doc/simpson.rnw
 0bf33f6b3b89c1650d81a9d8959a1d7c *inst/pictures/goat1.pgm
 b4a97a18ffc76072a4fc53f3bdc0bd41 *inst/pictures/goat3.pgm
@@ -322,7 +322,7 @@ f7cf3d45a1b9bc7b2308f6b389f3f8e8 *man/Preston.dist.Rd
 efef0e33fbfcb78a843bed3559c23dff *man/R.hat.rd
 82d904e0b9463374f7c42ae8dc832055 *man/Rabino_CO2.Rd
 f2ca421c67e2b3b78af5d153986dda53 *man/SM.temp.moist.Rd
-84ac83934012f933ddd1fb327d9002ac *man/Semiconductor.rd
+11597c64b7665e077a7c86617a974437 *man/Semiconductor.rd
 592e856f27c91b3c1befd073f177bbe1 *man/SexDeterm.Rd
 6330e606b55b7bb88acb8aa1373d6c2f *man/Venn.rd
 4696de5fd37f7b9ac6345e57ee2eafc4 *man/agrostis.rd
@@ -358,7 +358,7 @@ d0eb9b21f02f0e345ea28c5e13ca051b *man/book.menu.rd
 a8d9996487acfaec0cf5bd69b10d3d1c *man/boot.ci.M.rd
 eae1c21eb0ae38b96b04218496747dc3 *man/bootstrap.rd
 7ca844be12790e14c3aca45314868481 *man/bound.angle.rd
-3400482a125ecae28cd087ede995c2da *man/bplot.rd
+0591a3498bf17ae1379dc93914b100da *man/bplot.rd
 38e08f485dc3a36dd4b469d000971490 *man/bromus.rd
 cbe2891e5c0d95170aa5fb29bd801651 *man/bv.boxplot.Rd
 4bde2d10f83b6e22a97629d3fcb9d024 *man/bvn.plot.rd
@@ -372,7 +372,7 @@ b665366f590c2df990444a12b639f82b *man/chronic.rd
 b02a23be9b32d02ac4099403e147b032 *man/ci.median.rd
 fdff3df0ba0f82f6522f8a41f16b69e5 *man/ci.mu.Rd
 f45a6f38ddeb71091a6a1ab907a3b429 *man/ci.mu.oneside.rd
-ae75617fff8c2636a6b59d0c086445b4 *man/ci.p.rd
+257c692bed1a09241fc71d96ae2b61b7 *man/ci.p.rd
 7518fe85ba09a1d6588bc332e89548d0 *man/ci.prat.ak.Rd
 32fbf3351cd4148158fbbdeda055331c *man/ci.prat.rd
 f601e73f1a66eeb04f17b990623d5bd6 *man/ci.sigma.rd
@@ -412,7 +412,7 @@ c7fab9764adc5edb2436b3e94ca29bbc *man/huber.mu.rd
 b9a5acc02683863899c3697935210926 *man/joint.ci.bonf.rd
 6b25ad551e500dbdbb77ad06600157a5 *man/km.Rd
 cc7f54a012d077a82ef6b6451193fa6e *man/larrea.rd
-d2cce7a85fe77a3454e33ec423a3f12d *man/life.exp.Rd
+b473a6a409473e5fc3746667729a9a6d *man/life.exp.Rd
 2f8a85f62ea5820e99c75a715f7dbf81 *man/lm.select.rd
 072883caca19b5a729e6bdf119776532 *man/loess.surf.rd
 8b8a323412c15801ffc0473430a7b334 *man/magnets.rd
@@ -426,7 +426,7 @@ b372d051dfcb4e06e9cdd68ab17f54b7 *man/near.bound.rd
 083b35e6244fc0d09fd62888e0c047e6 *man/one.sample.t.rd
 8975eaa09fcd0a256c78ff02b6d08bfe *man/one.sample.z.Rd
 6f7fef504fa1b059f1bbbc9322abaec1 *man/paik.rd
-8a3f36cbc77f855a0a4dd86a3b5d0e7b *man/pairw.anova.Rd
+7ec2239f4a74c91a360a4acee2942e3f *man/pairw.anova.Rd
 2f64cd34dcbb3bd698605f991428ae7a *man/pairw.fried.rd
 600eab484796d8a377fa0cb83c770e9c *man/pairw.kw.rd
 05f2d6fdc1a3078b5751d4d6e7446ea5 *man/pairw.oneway.Rd
@@ -434,13 +434,13 @@ b372d051dfcb4e06e9cdd68ab17f54b7 *man/near.bound.rd
 79c1875312facc1bb122b23b8a33a721 *man/partial.R2.rd
 8e94369695b6f5875839782c128ed381 *man/partial.resid.plot.rd
 a5b7368a8c9b5d8d006de634cf1958d7 *man/perm.fact.test.rd
-65e0458f5f5651c5381006ea8b767d2f *man/pika.rd
+a39b1f450da1916ccb91583ec30c1caf *man/pika.rd
 484185f9b008886ddfa740f6af1d7251 *man/plantTraits.rd
 f5c47fd635b962071facbdd403f9c875 *man/plot.pairw.rd
 49a3795faf14db63ddfda3ce86e8aeaf *man/plotAncova.rd
 9bbb1f3ba880d55b03f87f01b947a2c9 *man/plotCI.reg.rd
 91df0c290526d5a147dd678e64b63614 *man/polyamine.rd
-2cb6963b2ae7db5d7ec79d62d5ca22d4 *man/portneuf.Rd
+6d5d11c1c5bd7274bf5ba2586310488b *man/portneuf.Rd
 bc993001aa30e3c5fc30bbe448c0f1a0 *man/potash.Rd
 4dce5345a5e8608258ea761811f596b1 *man/potato.rd
 b0dfbc32cd7b7997830a8d98920be420 *man/power.z.test.Rd
@@ -452,7 +452,7 @@ c0e35f828bd4266d6c57dca47e0afed3 *man/prp.rd
 06b36e3a7b4853fbe02f33d7adb10819 *man/r.bw.rd
 13b6b24160714b1df9cbda12647b462b *man/r.dist.rd
 1be741728b3b3cb068931efcbba50723 *man/r.pb.rd
-84ddc1bb885bec40e4b5365c17434948 *man/rat.Rd
+5115f8396f5c468b94b721ee5fd11da1 *man/rat.Rd
 d1f013cf6acfe7e7c4534bfdab317668 *man/refinery.rd
 04f2b8305621480b75e05ff5082b5de4 *man/rinvchisq.rd
 dd95f0f28df3da867d1d6b911b91adaf *man/rmvm.Rd
@@ -494,7 +494,7 @@ b566abb021e73708025230f14604548a *man/skew.kurt.rd
 d1865e261b37c0d83446563687728fbb *man/snore.Rd
 24b4b5f07befc91a854ccb1ffed5d2d1 *man/so2.us.cities.rd
 e50a185018b1b3bbb923ee4a42b517ae *man/stan.error.Rd
-da9affa2a0a02515d1281a6885cc2c86 *man/starkey.Rd
+290f9e1b5d4ba0572a07c36428238915 *man/starkey.Rd
 fe1667ecdef69a14f6974087e4be3016 *man/suess.Rd
 d88b26cc2bb8bf74e75f1ebaf249bec6 *man/trag.rd
 f957f9d49cf107359e9ca93a1c1a98b0 *man/transM.rd

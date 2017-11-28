@@ -2,7 +2,7 @@
 \alias{pika}
 \docType{data}
 \title{
-Nitrogen content of soils under pika haypiles.
+Nitrogen content of soils under pika haypiles
 }
 \description{
 Aho (1998) hypothesized that pikas worked as ecosystem engineers by building relatively rich soils (via decomposing haypiles and fecal accumulations) in otherwise barren scree.  

@@ -47,7 +47,7 @@ MSE = NULL, df.err = NULL, comps = 1)
   \item{lvl}{A two element vector defining two factor levels to be compared using Scheffe's and the Bonferroni method.}
   \item{comps}{The number of comparisons to be made in the Bonferroni method.}
 }  
-\details{Adjustment of comparison type I error for simultaneous inference is a contentious subject and will not be discussed here.  For description of methods go to Kutner et al. (2005). For models where the number of factors is >= 2, MSE and the residual degrees of freedom (used in the computation of confidence intervals for all pairwise methods used here) will vary depending on the experimental design and the number of factors.  
+\details{Adjustment of comparison type I error for simultaneous inference is a contentious subject and will not be discussed here.  For description of methods go to Kutner et al. (2005). For models where the number of factors is \eqn{\ge 2}, MSE and the residual degrees of freedom (used in the computation of confidence intervals for all pairwise methods used here) will vary depending on the experimental design and the number of factors.  
 Thus, for multifactor designs the user should specify the residual degrees of freedom and MSE from the overall ANOVA.  This will be unnecessary for one-way ANOVAs.}
 \value{
 The function \code{pairw.anova} and the confidence interval functions it calls return a list of \code{class = "pairw"}.  For all but the LSD test (which also returns LSD) and Dunnett's test (which does not return adjusted \emph{P}-values), the utility function \code{print.pairw} returns a descriptive head and a six column summary dataframe containing: 

@@ -2,7 +2,7 @@
 \alias{life.exp}
 \docType{data}
 \title{
-Mouse life expectancy data.
+Mouse life expectancy data
 }
 \description{
 Weindruch et al. (1986) compared life expectancy of field mice given different diets.  To accomplish this, the authors randomly assigned 244 mice to one of four diet treatments.   

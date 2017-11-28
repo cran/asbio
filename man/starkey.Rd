@@ -1,7 +1,7 @@
 \name{starkey}
 \alias{starkey}
 \docType{data}
-\title{DEM data from the Starkey experimental forest in NE Oregon.}
+\title{DEM data from the Starkey experimental forest in NE Oregon}
 \description{
 UTM northing and easting data along with 18 other environmental variables describing the
 Starkey experimental forest. 

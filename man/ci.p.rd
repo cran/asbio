@@ -18,7 +18,7 @@ fpc = FALSE, n = NULL, N = NULL, method="agresti.coull", plot = TRUE)
 A vector of binary data.  Required if \code{summarized = FALSE}.
 }
   \item{conf}{
-Level of confidence 1 \emph{P}(type I error).
+Level of confidence 1 - \emph{P}(type I error).
 }
   \item{summarized}{
 Logical; indicate whether raw data or summary stats are to be used. 
@@ -53,7 +53,7 @@ where \emph{x} is the number of successes and \emph{n} is the number of observat
 
 Because the sampling distribution of any ML estimator is asymptotically normal an "asymptotic" 100(1 - \eqn{\alpha})\% confidence interval for \eqn{\pi} is found using:
 
-\deqn{\hat{\pi}\pm z_{1-(\alpha/2)}.}
+\deqn{\hat{\pi}\pm z_{1-(\alpha/2)}\sigma_{\hat{\pi}}.}
 
 This method has also been called the Wald confidence interval.
 
@@ -65,13 +65,14 @@ This has been called a "score" confidence interval (Agresti 2012).  An simple ap
 \deqn{\hat{\pi}=\frac{x+2}{n+4},}
 \deqn{\sigma_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n+4}}.}
 
-As above the 100(1 - \eqn{\alpha})\% confidence interval for the binomial parameter \eqn{\pi} is found using:
+As above, the 100(1 - \eqn{\alpha})\% confidence interval for the binomial parameter \eqn{\pi} is found using:
 
-\deqn{\hat{\pi}\pm z_{1-(\alpha/2)}.}
+\deqn{\hat{\pi}\pm z_{1-(\alpha/2)}\sigma_{\hat{\pi}}.}
 
 
 The likelihood ratio method \code{method = "LR"} finds points in the binomial log-likelihood function where the difference between the maximum likelihood and likelihood function is closest to \eqn{\chi_1^{2}(1 - \alpha)/2} 
-for support given in \eqn{\pi_0}.  As support the function uses \code{seq(0.00001, 0.99999, by = 0.00001)}. 
+for support given in \eqn{\pi_0}.  As support the function uses 
+\code{seq(0.00001, 0.99999, by = 0.00001)}. 
 
 
 The "exact" method of Clopper and Pearson (1934) is bounded at the nominal limits, but actual coverage may be well below this level, particularly when \emph{n} is small and \eqn{\pi} is near 0 or 1.  

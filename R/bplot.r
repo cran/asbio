@@ -1,6 +1,6 @@
 bplot<-function (y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = NULL, int = "SE", conf = 0.95, 
     uiw = NULL, liw = NULL, sfrac = 0.1, slty = 1, scol = 1, slwd = 1, exp.fact = 1.5, simlett = FALSE, lett.side = 3,  
-    lett = NULL, cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, xpd = FALSE,...) 
+    lett = NULL, cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, xpd = FALSE, print.summary = TRUE,...) 
 {
 
 
@@ -76,8 +76,10 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = 
                     arrows(liw, b, uiw, b, code = 1, angle = 90, col = scol, lty = slty, lwd = slwd, length = sfrac)}
 			if(simlett == TRUE){
                     mtext(lett, side = lett.side, cex = cex.lett, at = b, line = ifelse(lett.side == 3, 0.5, -0.5), las = ifelse(horiz == TRUE, 2, 1))}
-			if(int != "CI"){
-			    cat(paste("\n","Bars are ", deparse(substitute(loc.meas)), "s.  Errors are ", int, "s.", "\n\n", sep = ""))}
-			if(int == "CI"){
-			    cat(paste("\n", "Bars are ", deparse(substitute(loc.meas)), "s.  Errors are ", conf * 100, "% confidence intervals for the true mean.", "\n\n", sep = ""))}
+			if(print.summary == TRUE){
+				if(int != "CI"){
+					cat(paste("\n","Bars are ", deparse(substitute(loc.meas)), "s.  Errors are ", int, "s.", "\n\n", sep = ""))}
+				if(int == "CI"){
+					cat(paste("\n", "Bars are ", deparse(substitute(loc.meas)), "s.  Errors are ", conf * 100, "% confidence intervals for the true mean.", "\n\n", sep = ""))}
+				}
 }				

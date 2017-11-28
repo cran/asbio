@@ -1,7 +1,7 @@
 \name{bplot}
 \alias{bplot}
 \title{
-Barplots with error bars for pairwise comparisons.
+Barplots with error bars (including interval plots)
 }
 \description{
 Creates barplots for displaying statistical summaries by treatment (e.g. means, medians, \emph{M}-estimates of location, standard deviation, variance, etc.) and 
@@ -12,7 +12,8 @@ The function can also be used to display letters indicating if comparisons of lo
 bplot(y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = NULL, int = "SE",
  conf = 0.95, uiw = NULL, liw = NULL, sfrac = 0.1, slty = 1, scol = 1,
  slwd = 1, exp.fact = 1.5, simlett = FALSE, lett.side = 3, lett = NULL,
- cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, xpd = FALSE, ...)
+ cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, xpd = FALSE, 
+ print.summary = TRUE, ...)
 }
 
 \arguments{
@@ -39,6 +40,7 @@ bplot(y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = NULL, int =
   \item{ylim}{Upper and lower limits of the \emph{Y}-axis}
   \item{horiz}{Logical value. If \code{FALSE}, then bars are drawn vertically with the first bar to the left. If \code{TRUE}, then bars are drawn horizontally with the first at the bottom.}
   \item{xpd}{Logical value. If \code{FALSE}, this overrides \code{\link{barplot}} designation \code{xpd = TRUE}, which may cause bars to extend off the plot if \code{ylim} is modified.}
+  \item{print.summary}{Logical value.  If \code{TRUE} a summary of the location and dispersion measures used in the plot is printed.}
   \item{\dots}{Additional arguments from \code{\link{barplot}}.}
 }
 \details{

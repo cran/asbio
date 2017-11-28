@@ -1,7 +1,7 @@
 \name{Semiconductor}
 \alias{Semiconductor}
 \docType{data}
-\title{Split plot computer chip data from Littell et al. (2006).}
+\title{Split plot computer chip data from Littell et al. (2006)}
 \description{
 Littell et al. (2006) use the data here to introduce analysis of split plot 
 designs using mixed models.  Twelve silicon wafers were randomly selected from 
