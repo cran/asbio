@@ -4,12 +4,12 @@ method <- match.arg(method, indices)
 alpha <-1-conf 
 z.star<-qnorm(1-(alpha/2)) 
 
-if(summarized==FALSE){
-  n<-length(as.matrix(data))
-  phat<-ifelse(method == "agresti.coull", (sum(data) + 2)/(n + 4), sum(data)/n)
-  Var.phat<-ifelse(method == "agresti.coull", (phat * (1 - phat))/(n + 4), (phat * (1 - phat))/n)
-  S.phat<-ifelse(fpc == FALSE, sqrt(Var.phat), sqrt((1-(n/N)) * Var.phat))
-}
+if (summarized == FALSE) {
+   n <- length(as.matrix(data))
+   phat <- ifelse(method == "agresti.coull", (sum(data) + (z.star^2/2))/(n + (z.star^2)), sum(data)/n)
+   Var.phat <- ifelse(method == "agresti.coull", (phat * (1 - phat))/(n + (z.star^2)), (phat * (1 - phat))/n)
+   S.phat <- ifelse(fpc == FALSE, sqrt(Var.phat), sqrt((1 - (n/N)) * Var.phat))
+    }
 
 if(summarized==TRUE){
   S.phat<-ifelse(fpc==FALSE,S.phat,sqrt((1-(n/N))*S.phat))}

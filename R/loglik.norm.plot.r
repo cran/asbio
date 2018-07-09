@@ -66,9 +66,9 @@ loglik.norm.plot <- function (X, parameter = c("mu", "sigma.sq"), poss = NULL, p
     }
     if (anim == TRUE) {
         nm <- which(logl == max(logl))[1]
-        if (plot.likfunc == TRUE & plot.density == TRUE) 
-            dev.new(height = 4, width = 8)
-        par(mfrow = c(1, 2), mar = c(4.4, 4.5, 1, 0.5), cex = 0.9)
+        if (plot.likfunc == TRUE & plot.density == TRUE){ 
+          dev.new(height = 4, width = 8)
+          par(mfrow = c(1, 2), mar = c(4.4, 4.5, 1, 0.5), cex = 0.9)}
         for (i in 1:(nm - 1)) {
             dev.hold()
             if (plot.likfunc == TRUE) {

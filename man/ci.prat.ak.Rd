@@ -70,7 +70,7 @@ where \eqn{y_{1i}} and \eqn{y_{2i}} are the observed counts for use and availabi
 
 \deqn{\hat{\theta}_{i}=\frac{\hat{\pi}_{1i}}{\pi_{2i}}.}
 
-The function \code{ci.prat.ak} assumes that selection ratios are being specified (although other applications are certainly possible).  There it assume that \eqn{y_{1i}} must be greater than 0 if \eqn{\pi_{2i} = 1}, and assumes that \eqn{y_{1i}} must = 0 if \eqn{\pi_{2i} = 0}.  Violation of these conditions will produce a warning message.   
+The function \code{ci.prat.ak} assumes that selection ratios are being specified (although other applications are certainly possible).  Therefore it assume that \eqn{y_{1i}} must be greater than 0 if \eqn{\pi_{2i} = 1}, and assumes that \eqn{y_{1i}} must = 0 if \eqn{\pi_{2i} = 0}.  Violation of these conditions will produce a warning message.   
 
 
 \tabular{ll}{
@@ -78,8 +78,9 @@ Method \tab Algorithm \cr
 \tab \cr 
 
 % AC	
-Agresti Coull-Adjusted  \tab \eqn{{{\hat{\theta}}_{ACi}}\pm {{z}_{1-(\alpha /2)}}\sqrt{{{{\hat{\pi }}}_{AC1i}}(1-{{{\hat{\pi }}}_{AC1i}})/({{n}_{1}}+4){{{\hat{\pi }}}_{AC1i}}\pi _{2i}^{2}}}, \cr
-\tab where \eqn{{{\hat{\pi}}_{AC1i}}=\frac{{{y}_{1}}+2}{{{n}_{1}}+4}}, and \eqn{{{\hat{\theta }}_{ACi}}=\frac{{{\hat{\pi}}_{AC1i}}}{{{\pi }_{2i}}}}.  \cr 
+Agresti Coull-Adjusted  \tab \eqn{{{\hat{\theta}}_{ACi}}\pm {{z}_{1-(\alpha /2)}}\sqrt{{{{\hat{\pi }}}_{AC1i}}(1-{{{\hat{\pi }}}_{AC1i}})/({{n}_{1}}+4){{{\hat{\pi }}}_{AC1i}}\pi _{2i}^{2}}}, \cr 
+\tab where \eqn{{{\hat{\pi}}_{AC1i}}=\frac{{{y}_{1}}+z^2/2}{{{n}_{1}}+z^2}}, and \eqn{{{\hat{\theta }}_{ACi}}=\frac{{{\hat{\pi}}_{AC1i}}}{{{\pi }_{2i}}}}, \cr
+\tab where \eqn{z} is the standard normal inverse cdf at probability \eqn{1 - \alpha/2} (\eqn{\approx 2} when \eqn{\alpha= 0.05}).  \cr 
 \tab \cr
 %Bayes
 Bayes-beta \tab \eqn{(\frac{X_{\alpha/2}}{\pi_{2i}}} , \eqn{\frac{X_{1-(\alpha/2)}}{\pi_{2i}})}, \cr

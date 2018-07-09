@@ -1,7 +1,7 @@
-anm.ExpDesign<-function(method= "all", titles =  TRUE, cex.text = 1, mp.col = NULL, interval = 0.5, iter = 30){
+anm.ExpDesign<-function(method = "all", titles =  TRUE, cex.text = 1, mp.col = NULL, lwda = 1, interval = 0.5, iter = 30){
 old.par <- par(no.readonly = TRUE)
-    if(any(method == "all")) method = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
-    m<-matrix(nrow=iter,ncol=length(method),rep(method,iter),byrow=TRUE)
+    if(any(method == "all")) method1 = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
+    m<-matrix(nrow=iter,ncol=length(method1),rep(method,iter),byrow=TRUE)
     for(i in 1:nrow(m)){
 	    dev.hold()
       ExpDesign(method=m[i,],titles=titles, cex.text = cex.text, mp.col = mp.col)
@@ -12,7 +12,7 @@ on.exit(par(old.par))
 invisible()	
 }
 
-ExpDesign<-function(method= "all",titles=TRUE, cex.text = 1, mp.col = NULL,...){
+ExpDesign<-function(method= "all",titles=TRUE, cex.text = 1, mp.col = NULL, lwda = 1,...){
 if(any(method == "all")) method = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
 L<-length(method)
 if(L==2) {par(mfrow=c(2,1),mar=c(0.1,1.5,2,1.5))} else
@@ -34,7 +34,7 @@ x.s<-sample(c(3,5.5,8),3,replace=FALSE)
 x.e<-sample(c(3,8),3,replace=TRUE)
 x.e[3]<-ifelse(x.e[1]==x.e[2]&x.e[1]==3,8,x.e[3])
 x.e[3]<-ifelse(x.e[1]==x.e[2]&x.e[1]==8,3,x.e[3])
-arrows(x.s,rep(8.5,3),x.e,rep(4.5,3),length=.1)
+arrows(x.s,rep(8.5,3),x.e,rep(4.5,3),length=.1, lwd = lwda)
   }
 
 #Factorial 2 by 2
@@ -98,8 +98,8 @@ x.s1<-sample(c(2,4.3),2,replace=FALSE)
 x.s2<-sample(c(6.7,9.2),2,replace=FALSE)
 x.e1<-sample(c(2,4.3),2,replace=FALSE)
 x.e2<-sample(c(6.7,9.2),2,replace=FALSE)
-arrows(x.s1,rep(8.5,2),x.e1,rep(4.5,2),length=.1)
-arrows(x.s2,rep(8.5,2),x.e2,rep(4.5,2),length=.1)
+arrows(x.s1,rep(8.5,2),x.e1,rep(4.5,2),length=.1, lwd = lwda)
+arrows(x.s2,rep(8.5,2),x.e2,rep(4.5,2),length=.1, lwd = lwda)
   }
 
 #RIBD
@@ -118,9 +118,9 @@ x.s3<-sample(c(8.025,9.55),2,replace=FALSE)
 x.e1<-sample(c(1.4,3.15),2,replace=FALSE)
 x.e2<-sample(c(4.85,6.475),2,replace=FALSE)
 x.e3<-sample(c(8.025,9.55),2,replace=FALSE)
-arrows(x.s1,rep(8.5,2),x.e1,rep(4.5,2),length=.1)
-arrows(x.s2,rep(8.5,2),x.e2,rep(4.5,2),length=.1)
-arrows(x.s3,rep(8.5,2),x.e3,rep(4.5,2),length=.1)
+arrows(x.s1,rep(8.5,2),x.e1,rep(4.5,2),length=.1, lwd = lwda)
+arrows(x.s2,rep(8.5,2),x.e2,rep(4.5,2),length=.1, lwd = lwda)
+arrows(x.s3,rep(8.5,2),x.e3,rep(4.5,2),length=.1, lwd = lwda)
   }
                                                                   
 #Split plot
@@ -177,22 +177,22 @@ text(c(3,8),y=matrix(nrow=4,ncol=2,sym.y,byrow=TRUE)[i,],whole.txt[s3],cex=1.1*c
 mtext(c("Block 1","Block 2","Block 3","Block 4"), side = 2,at=c(1.85,4.3,6.7,9.2),cex=ifelse(L>5,1/(L*0.2*cex.text),0.7*cex.text))
   }
 
-#Strip plot
-if(any(method=="strip")){
-plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",type="n",main=ifelse(titles==TRUE,"Strip Plot",""),...)
-segments(5.5,0,5.5,10.5,col="gray")
-segments(0,5.5,10.5,5.5,col="gray")
-symbols(x=c(3,8),y=c(5.5,5.5),rectangles=matrix(nrow=2,ncol=2,c(1.5,1.5,.75,.75)),add=TRUE,
-inches=FALSE,fg="white",bg="white")
-symbols(x=c(5.5,5.5),y=c(3,8),rectangles=matrix(nrow=2,ncol=2,c(.75,.75,1.5,1.5)),add=TRUE,
-inches=FALSE,fg="white",bg="white")
-a<-c(expression(A[1]),expression(A[2]))
-s<-sample(seq(1,2),2,replace=FALSE)
-text(x=c(3,8),y=c(5.5,5.5),a[s],cex=1.1*cex.text)
-s<-sample(seq(1,2),2,replace=FALSE)
-m<-c(expression(B[1]),expression(B[2]))
-text(y=c(3,8),x=c(5.5,5.5),m[s],cex=1.1*cex.text)
-  }
+## Strip plot
+# if(any(method=="strip")){
+# plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",type="n",main=ifelse(titles==TRUE,"Strip Plot",""),...)
+# segments(5.5,0,5.5,10.5,col="gray")
+# segments(0,5.5,10.5,5.5,col="gray")
+# symbols(x=c(3,8),y=c(5.5,5.5),rectangles=matrix(nrow=2,ncol=2,c(1.5,1.5,.75,.75)),add=TRUE,
+# inches=FALSE,fg="white",bg="white")
+# symbols(x=c(5.5,5.5),y=c(3,8),rectangles=matrix(nrow=2,ncol=2,c(.75,.75,1.5,1.5)),add=TRUE,
+# inches=FALSE,fg="white",bg="white")
+# a<-c(expression(A[1]),expression(A[2]))
+# s<-sample(seq(1,2),2,replace=FALSE)
+# text(x=c(3,8),y=c(5.5,5.5),a[s],cex=1.1*cex.text)
+# s<-sample(seq(1,2),2,replace=FALSE)
+# m<-c(expression(B[1]),expression(B[2]))
+# text(y=c(3,8),x=c(5.5,5.5),m[s],cex=1.1*cex.text)
+#  }
 
 #Split block/Strip split plot (2 way) # Littell et al. Mixed Models in SAS
 if(any(method=="split.block")){
@@ -218,6 +218,46 @@ text(whole.x[i,],y=whole.y[i,],whole.txt[s3],cex=1.1*cex.text)
 mtext(c("Block 1","Block 2"), side = 2,at=c(3,8),cex=ifelse(L>5,1/(L*0.2*cex.text),0.7*cex.text))
 mtext(c("Block 3","Block 4"), side = 4,at=c(3,8),cex=ifelse(L>5,1/(L*0.2*cex.text),0.7*cex.text),line=0)
   }
+
+
+
+
+#Strip plot 3 x 3
+if(any(method=="strip")){
+plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",
+type="n",main="Strip Plot")
+segments(4,0,4,11,col="gray")
+segments(7.25,0,7.25,11,col="gray")
+segments(0,4,11,4,col="gray")
+segments(0,7.25,11,7.25,col="gray")
+
+
+x<-rep(c(2.25,5.75,8.75),3)
+y<-c(8.75,8.75,8.75,5.75,5.75,5.75,2.25,2.25,2.25)
+
+s <- sample(1:2,1)
+if(s == 1){
+m2<-c(expression(paste(A[3],B[1])),expression(paste(A[1],B[1])),expression(paste(A[2],B[1])),
+expression(paste(A[3],B[3])),expression(paste(A[1],B[3])),expression(paste(A[2],B[3])),
+expression(paste(A[3],B[2])),expression(paste(A[1],B[2])),expression(paste(A[2],B[2])))
+mtx.2 <- c(expression(A[3]),expression(A[1]),expression(A[2]))
+mty.2 <- c(expression(B[2]),expression(B[3]),expression(B[1]))
+}
+
+if(s == 2){
+m2<-c(expression(paste(A[1],B[3])),expression(paste(A[2],B[3])),expression(paste(A[3],B[3])),
+expression(paste(A[1],B[2])), expression(paste(A[2],B[2])),expression(paste(A[3],B[2])),
+expression(paste(A[1],B[1])),expression(paste(A[2],B[1])), expression(paste(A[3],B[1])))
+mtx.2 <-  c(expression(A[1]),expression(A[2]),expression(A[3]))
+mty.2 <-  c(expression(B[1]),expression(B[2]),expression(B[3]))
+}
+
+text(x,y,m2)
+
+if(length(method) == 1){
+mtext(side = 1, cex = 1.2, font = 2, at = c(2.25,5.75,8.75), line = 1, mtx.2)
+mtext(side = 2, cex = 1.2, font = 2, at = c(2.25,5.75,8.75), line = 1, mty.2, las = 2)
+}}
 
 
 #Strip split plot (3 way) # Milliken et al. Analysis of Messy Data Vol. 1
@@ -274,7 +314,7 @@ if(x.s[i]==5.5){col[i]=3}
 if(x.s[i]==8){col[i]=4}}
 if(is.null(mp.col))col=col
 else col=mp.col
-arrows(x.s,rep(8.5,3),x.e,rep(4.5,3),length=.1,col=col,lty=c(1,2,3))
+arrows(x.s,rep(8.5,3),x.e,rep(4.5,3),length=.1,col=col,lty=c(1,2,3), lwd = lwda)
 x.e2<-matrix(ncol=1,nrow=3)
 y.s2<-matrix(ncol=1,nrow=3)
 for(i in 1:3){
@@ -282,6 +322,6 @@ x.e2[i]<-ifelse(x.e[i]==3,8,3)
 if(x.s[i]==3){y.s2[i]=3.2}
 if(x.s[i]==5.5){y.s2[i]=2.6}
 if(x.s[i]==8){y.s2[i]=2.0}}
-arrows(x.e,y.s2,x.e2,y.s2,length=.1,col=col,lty=c(1,2,3))
+arrows(x.e,y.s2,x.e2,y.s2,length=.1,col=col,lty=c(1,2,3), lwd = lwda)
   }
   }

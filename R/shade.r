@@ -37,7 +37,7 @@ if(tail=="two.custom"){
 polygon(c(xv[xv<=x[1]],x[1]),c(yv[xv<=x[1]],yv[xv==mu-4*sigma]),col=shade.col)
 polygon(c(x[2],xv[xv>=x[2]]),c(yv[xv==mu+4*sigma],yv[xv>=x[2]]),col=shade.col)
 p<-round(pnorm(x[1],mu,sigma),digits) + round(pnorm(x[2],mu,sigma, lower.tail = FALSE),digits)
-if(show.p==TRUE)legend("topright",bty="n",cex=legend.cex,legend=bquote(paste(italic(P),"(",.(x[1]) <= "", italic(X)>=.(x[2]),") = ",.(p), sep = "")))
+if(show.p==TRUE)legend("topright",bty="n",cex=legend.cex,legend=bquote(paste(italic(P),"(",.(x[1]) >= "", italic(X)>=.(x[2]),") = ",.(p), sep = "")))
 if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(N),"(",.(mu)," , ",.(sigma^2),")", sep = "")),bty="n",cex=legend.cex)
 }
 

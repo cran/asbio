@@ -6,14 +6,14 @@ Normal quantile plots for single or multiple factor levels
 }
 \description{
 Provides quantile plots for one or more factor levels overlaid on a single graph.  If \code{plot.CI = TRUE}, then 
-code for bootstrapped confidence provided in the documentation for \code{\link{boot}} is applied to create confidence envelopes. If \code{plot.CI = FALSE}, \code{\link{qqnorm}} and \code{\link{qqline}} are used to create overlaid normal probability plots given multiple categories in \code{x}.
+code for bootstrapped confidence provided in the documentation for \code{\link{boot}} is applied to create confidence envelopes. If \code{plot.CI = FALSE}, \code{\link{qqnorm}} and \code{\link{qqline}} are used to create overlaid normal probability plots given multiple categories in \code{x}.  
 }
 
 \usage{
 
 qq.Plot(y, x = NULL, col = NULL, pch = NULL, main = "", R = 5000, fit.lty = 1, 
 env.lty = 2, conf = 0.95, type = "point", ylim = NULL, xlim = NULL, xlab = NULL, 
-ylab = NULL, plot.CI = FALSE, ...)
+ylab = NULL, plot.CI = FALSE, standy = TRUE, ...)
 }
 
 \arguments{
@@ -62,6 +62,9 @@ A two element vector defining the lower and upper \emph{y}-axis limits .
 }
   \item{plot.CI}{
 Logical, specifying whether or not confidence ellipses should be plotted. 
+}
+  \item{standy}{
+Logical, specifying if observations should be standardized.  
 }
   \item{\dots}{
 Other arguments from \code{\link{plot}}. 

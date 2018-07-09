@@ -32,22 +32,22 @@ II.F<-function(){
  tkmessageBox(message="Incorrect.  This is a logical form of argument called \U0022modus tollens\U0022 or\n\U0022 denying the consequent.\U0022", icon="error")}
 
 III.T<-function(){
- tkmessageBox(message="Correct.  This is another logical example of \U0022modus tollens\U0022 or\n\U0022 denying the consequent\U0022.")}
+ tkmessageBox(message="Incorrect.  This is an example of a fallacious type of argument \ncalled \U0022 affirming the consequent\U0022.", icon="error")}
  
 III.F<-function(){
- tkmessageBox(message="Incorrect.  This is another logical example of \U0022modus tollens\U0022 or\n\U0022 denying the consequent\U0022.", icon="error")}
+ tkmessageBox(message="Correct.  This is an example of a fallacious type of argument \ncalled \U0022 affirming the consequent\U0022.")}
 
 IV.T<-function(){
- tkmessageBox(message="Incorrect.  This is an example of a fallacious type of argument called \n\U0022 affirming the consequent\U0022.", icon="error")}
+ tkmessageBox(message="Correct.  This is an example of a fallacious type of argument \ncalled \U0022 affirming the consequent\U0022.")}
  
 IV.F<-function(){
- tkmessageBox(message="Correct.  This is an example of a fallacious type of argument called \n\U0022 affirming the consequent\U0022.")}
+  tkmessageBox(message="Inorrect.  This is a logical example of \U0022modus tollens\U0022 or\n\U0022 denying the consequent\U0022.", icon="error")}
  
 V.T<-function(){
- tkmessageBox(message="Incorrect.  This is another example of a fallacious type of argument \ncalled \U0022 affirming the consequent\U0022.", icon="error")}
+ tkmessageBox(message="Incorrect.  This is an example of a fallacious type of argument \ncalled \U0022 affirming the consequent\U0022.", icon="error")}
  
 V.F<-function(){
- tkmessageBox(message="Correct.  This is another example of a fallacious type of argument called \n\U0022 affirming the consequent\U0022.")} 
+ tkmessageBox(message="Correct.  This is an example of a fallacious type of argument called \n\U0022 affirming the consequent\U0022.")} 
  
 VI.T<-function(){
  tkmessageBox(message="Incorrect.  No causality has been established. This is an example of a fallacious type of argument called \U0022post hoc ergo propter hoc\U0022.  Translated this means: \U0022 after this; therefore, because of this\U0022.", icon="error")}
@@ -130,12 +130,12 @@ tkcreate(canvas, "text", 205, 165, text="Argument 2",
 
  tkcreate(canvas, "text", 205, 310, text="Argument 3",
              font=plotFont2)
-    tkcreate(canvas, "text", 20, 340, text="If A then not B.   }Premise 1",
+    tkcreate(canvas, "text", 20, 340, text="If A then B.   }Premise 1",
              font=plotFont,anchor="w")
-    tkcreate(canvas, "text", 20, 365, text="B.                         }Premise 2",
+    tkcreate(canvas, "text", 20, 365, text="B.                  }Premise 2",
              font=plotFont, anchor="w")
     tkcreate(canvas, "line", 20, 375, 350, 375, width=1)
-    tkcreate(canvas, "text", 20, 390, text="not A.                   }Conclusion",
+    tkcreate(canvas, "text", 20, 390, text="A.                   }Conclusion",
              font=plotFont, anchor="w")
     tkcreate(canvas, "text", 125, 430, text="Logically correct",
              font=plotFont2, anchor="w")
@@ -254,7 +254,7 @@ tkcreate(canvas, "text", 595, 455, text="Argument 8",
     tkcreate(canvas, "text", 410, 510, text="We disprove not A                              }Premise 2",
              font=plotFont, anchor="w")
     tkcreate(canvas, "line", 410, 520, 740, 520, width=1)
-    tkcreate(canvas, "text", 410, 535, text="conclude A.                                          }Conclusion",
+    tkcreate(canvas, "text", 410, 535, text="Conclude A.                                          }Conclusion",
              font=plotFont, anchor="w")
     tkcreate(canvas, "text", 510, 575, text="Logically correct",
              font=plotFont2, anchor="w")

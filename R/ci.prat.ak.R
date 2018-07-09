@@ -204,7 +204,7 @@ if(method == "ac"){
   if(pi2 == 0 & y1 != 0)stop("pi2 = 0 but y1 != 0?")
   if(pi2 == 1 & y1 == 0)stop("pi2 = 1 but y1 = 0?")
   
-  y1 <- y1 + 2; n1 <- n1 + 4
+  y1 <- y1 + z.star^2/2; n1 <- n1 + z.star^2
   
   pih1 <- y1/n1
   rat <- pih1/pi2

@@ -2,7 +2,7 @@
 \alias{Bayes.disc}
 \alias{Bayes.disc.tck}
 \title{
-Bayesian graphical summaries for discrete data.
+Bayesian graphical summaries for discrete or categorical data.
 }
 \description{
 An simple function for for summarizing a Bayesian analysis given discrete or categorical variables and priors.
