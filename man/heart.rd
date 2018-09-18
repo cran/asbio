@@ -25,7 +25,7 @@ Milliken, G. A., and D. E. Johnson (2008) \emph{Analysis of Messy Data: Vol. I. 
 \examples{
 \dontrun{
 #data(heart)
-#aov(rate ~ drug * time + Error(subject%in%drug), data = heart)
+#aov(rate ~ drug * time + Error(subject\%in\%drug), data = heart)
 }
 }
 \keyword{datasets}

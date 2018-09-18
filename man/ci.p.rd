@@ -9,7 +9,7 @@ Confidence interval formulae for \eqn{\mu} are not appropriate for variables des
  }
 \usage{
 
-ci.p(data, conf = 0.95, summarized = FALSE, phat = NULL, S.phat = NULL, 
+ci.p(data, conf = 0.95, summarized = FALSE, phat = NULL, 
 fpc = FALSE, n = NULL, N = NULL, method="agresti.coull", plot = TRUE)
 }
 \arguments{
@@ -26,8 +26,7 @@ Logical; indicate whether raw data or summary stats are to be used.
   \item{phat}{
 Estimate of \eqn{\pi}.  Required if \code{summarized = TRUE}.
 }
-  \item{S.phat}{Estimate of \eqn{\sigma_{\hat{\pi}}}.  Required if \code{summarized = TRUE}.
-}
+
   \item{fpc}{
 Logical.  Indicates whether finite population corrections should be used.  If \code{fpc = TRUE} then \code{N} must be specified.  Finite population corrections are not possible for \code{method = "exact"} or \code{method = "score"}.
 }
@@ -48,12 +47,12 @@ Logical.  Should likelihood ratio plot be created with estimate from \code{metho
 \details{
 For the binomial distribution, the parameter of interest is the probability of success, \eqn{\pi}.  ML estimators for the parameter, \eqn{\pi}, and its standard deviation, \eqn{\sigma_\pi} are: 
 \deqn{\hat{\pi}=\frac{x}{n},}
-\deqn{\sigma_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n}}}
+\deqn{\hat{\sigma}_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n}}}
 where \emph{x} is the number of successes and \emph{n} is the number of observations.
 
 Because the sampling distribution of any ML estimator is asymptotically normal, an "asymptotic" 100(1 - \eqn{\alpha})\% confidence interval for \eqn{\pi} is found using:
 
-\deqn{\hat{\pi}\pm z_{1-(\alpha/2)}\sigma_{\hat{\pi}}.}
+\deqn{\hat{\pi}\pm z_{1-(\alpha/2)}\hat{\sigma}_{\hat{\pi}}.}
 
 This method has also been called the Wald confidence interval.
 
@@ -62,13 +61,13 @@ in which result in a failure to reject null at \eqn{\alpha}. Bounds can be obtai
 This has been called a "score" confidence interval (Agresti 2012).  An simple approximation to this method can be obtained by adding \eqn{z_{1-(\alpha/2)} (\approx 2} for \eqn{\alpha = 0.05}) to the number of successes and failures (Agresti and Coull 1998).  The resulting Agresti-Coull estimators for \eqn{\pi} and \eqn{\sigma_{\hat{\pi}}} are:
 
 \deqn{\hat{\pi}=\frac{x+z^2/2}{n+z^2},}
-\deqn{\sigma_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n+z^2}}.}
+\deqn{\hat{\sigma}_{\hat{\pi}}=\sqrt{\frac{\hat{\pi}(1-\hat{\pi})}{n+z^2}}.}
 
-where \eqn{z} is the standard normal inverse cdf at propbability 1 - \eqn{\alpha/2}.
+where \eqn{z} is the standard normal inverse cdf at probability 1 - \eqn{\alpha/2}.
 
 As above, the 100(1 - \eqn{\alpha})\% confidence interval for the binomial parameter \eqn{\pi} is found using:
 
-\deqn{\hat{\pi}\pm z_{1-(\alpha/2)}\sigma_{\hat{\pi}}.}
+\deqn{\hat{\pi}\pm z_{1-(\alpha/2)}\hat{\sigma}_{\hat{\pi}}.}
 
 
 The likelihood ratio method \code{method = "LR"} finds points in the binomial log-likelihood function where the difference between the maximum likelihood and likelihood function is closest to \eqn{\chi_1^{2}(1 - \alpha)/2} 
@@ -103,7 +102,7 @@ Wilson, E. B.(1927) Probable inference, the law of succession, and statistical i
 \emph{Journal of the American Statistical Association} 22: 209-212.
 
 }
-\author{Ken Aho
+\author{Ken Aho. thanks to Simon Thelwall for finding an error with summarized data under fpc.
 }
 \note{This function contains only a few of the many methods that have been proposed for confidence interval estimation for \eqn{\pi}.
 }
@@ -112,8 +111,21 @@ Wilson, E. B.(1927) Probable inference, the law of succession, and statistical i
 #In 2001, it was estimated that 56,200 Americans would be diagnosed with 
 # non-Hodgkin's lymphoma and that 26,300 would die from it (Cernan et al. 2002).  
 # Here we find the 95% confidence interval for the probability of diagnosis, pi. 
-ci.p(c(rep(0, 56200-26300),rep(1,26300)))
-ci.p(c(rep(0, 56200-26300),rep(1,26300)), method = "LR")
+
+ci.p(c(rep(0, 56200-26300),rep(1,26300))) # Agresti-Coull
+ci.p(c(rep(0, 56200-26300),rep(1,26300)), method = "LR") # Likelihood Ratio
+
+# summarized = TRUE
+n = 56200
+x = 26300
+phat = x/n
+
+ci.p(summarized = TRUE, phat = phat, n = n) # Agresti-Coull
+
+# Use 2001 US population size as N
+N <- 285 * 10^6
+ci.p(c(rep(0, 56200-26300),rep(1,26300)), fpc = TRUE, N = N) # Agresti-Coull
+ci.p(summarized = TRUE, phat = phat, n = n, N = N, fpc = TRUE) # Agresti-Coull
 } 
 \keyword{univar}
 \keyword{htest}

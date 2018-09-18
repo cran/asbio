@@ -14,7 +14,4 @@ The dataframe contains three columns:
 \item{\code{Date}}{Month/Day/Year}
 }
 }
-\source{
-\url{http://lib.stat.cmu.edu/DASL/Stories/MeasuringAirPollution.html}; accessed 6/29/110
-}
 \keyword{datasets}

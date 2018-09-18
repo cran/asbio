@@ -1,4 +1,4 @@
-ci.p<-function(data,conf=.95,summarized=FALSE, phat=NULL,S.phat=NULL,fpc=FALSE,n=NULL,N=NULL,method="agresti.coull",plot=TRUE){
+ci.p<-function(data,conf=.95, summarized=FALSE, phat=NULL, fpc=FALSE, n=NULL, N=NULL, method="agresti.coull", plot=TRUE){
 indices <- c("agresti.coull","asymptotic","exact","LR","score")
 method <- match.arg(method, indices)
 alpha <-1-conf 
@@ -9,16 +9,21 @@ if (summarized == FALSE) {
    phat <- ifelse(method == "agresti.coull", (sum(data) + (z.star^2/2))/(n + (z.star^2)), sum(data)/n)
    Var.phat <- ifelse(method == "agresti.coull", (phat * (1 - phat))/(n + (z.star^2)), (phat * (1 - phat))/n)
    S.phat <- ifelse(fpc == FALSE, sqrt(Var.phat), sqrt((1 - (n/N)) * Var.phat))
-    }
+   x <- n * phat
+       }
+
 
 if(summarized==TRUE){
-  S.phat<-ifelse(fpc==FALSE,S.phat,sqrt((1-(n/N))*S.phat))}
-  
+  x <- n * phat
+  phat <- ifelse(method == "agresti.coull", (x + (z.star^2/2))/(n + (z.star^2)), x/n)
+  Var.phat <- ifelse(method == "agresti.coull", (phat * (1 - phat))/(n + (z.star^2)), (phat * (1 - phat))/n)
+  S.phat<-ifelse(fpc == FALSE, sqrt(Var.phat), sqrt((1-(n/N)) * Var.phat))}
+
   m <- S.phat * z.star
     
-if(method=="agresti.coull"|method=="asymptotic")CI<-c(phat,phat-m,phat+m)
+if(method == "agresti.coull"| method == "asymptotic") CI <- c(phat, phat - m, phat + m)
   
-  x <- n * phat
+  
 
 if(method == "exact") {
    cl <- qbeta(alpha/2, x, n - x + 1)
@@ -52,7 +57,7 @@ if(method=="LR"){
 head<-paste(paste(as.character(conf*100),"%",sep=""),c("Confidence interval for binomial parameter pi"))
 if(method=="agresti.coull")head<-paste(head,"(method=Agresti-Coull)")
 if(method=="exact")head<-paste(head,"(method=Clopper-Pearson)")
-if(method=="asymptotic")head<-paste(head,"(method= asymptotic normal approximation)")
+if(method=="asymptotic")head<-paste(head,"(method= asymptotic (Wald) normal approximation)")
 if(method=="score")head<-paste(head,"(method=score)")
 if(method=="LR")head<-paste(head,"(method=likelihood ratio)")
 

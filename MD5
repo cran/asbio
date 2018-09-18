@@ -1,4 +1,4 @@
-87411f362d7562dcc5a7194e5b4bb5f8 *DESCRIPTION
+4d2b5db4494a547fb47ea0bf030b69ed *DESCRIPTION
 2c2a6d5c0d47b66baf55067852a5312a *NAMESPACE
 ffe620b83b8fd0b32dddac28baaa6e77 *R/AP.test.R
 1206fc5923286f82354ba1938bb135de *R/BDM.test.R
@@ -64,7 +64,7 @@ c9717fe25c1c0ff8a942513537929b16 *R/ci.boot.r
 c208869ae36b6d55348a206078676ad6 *R/ci.median.R
 fd64008be194a20ce1e1d6ac09ef9357 *R/ci.mu.R
 826ab8729cec012b616d6948bcc02ec1 *R/ci.mu.oneside.R
-a02e15a16e1ac0b2177f88fa6616375d *R/ci.p.r
+64aed86100940f6b4aade6d959e5ab0f *R/ci.p.r
 138b0ec6fdad26e2f793789f8e4706ad *R/ci.prat.ak.R
 e19ff007a30e1d4b6b88c8b55a509c6a *R/ci.prat.r
 0e4c7438a4fca0250f0215548576908b *R/ci.sigma.r
@@ -286,10 +286,10 @@ ada771ca1b87264108e32791a7fa8ad4 *data/wine.rda
 14bad26fe22a056c23b2735b594fd423 *data/world.co2.rda
 2a2bb19db449069d2935266faa04e1ae *data/world.pop.rda
 a8c6c9a7cd3cebabfd9d79f0e70d816a *inst/doc/ranef.cov.R
-e6dfdd137246c2640f1755d987627e6a *inst/doc/ranef.cov.pdf
+a626ebb394224ae888f2aae4f7c3c748 *inst/doc/ranef.cov.pdf
 f8437cdccb07d418c6eeb3423a01bd2d *inst/doc/ranef.cov.rnw
 0798bdbf038efe20357f00e6f883cbae *inst/doc/simpson.R
-94c9acb65897c59a22019de4150042a6 *inst/doc/simpson.pdf
+9ce2227ef1b89ddba71ddc6498df246e *inst/doc/simpson.pdf
 9bb7dddf457b790a8a5cd4304aa99bae *inst/doc/simpson.rnw
 0bf33f6b3b89c1650d81a9d8959a1d7c *inst/pictures/goat1.pgm
 b4a97a18ffc76072a4fc53f3bdc0bd41 *inst/pictures/goat3.pgm
@@ -372,7 +372,7 @@ b665366f590c2df990444a12b639f82b *man/chronic.rd
 b02a23be9b32d02ac4099403e147b032 *man/ci.median.rd
 fdff3df0ba0f82f6522f8a41f16b69e5 *man/ci.mu.Rd
 f45a6f38ddeb71091a6a1ab907a3b429 *man/ci.mu.oneside.rd
-d7478ed30177ca2016b8118a4dd74ac1 *man/ci.p.rd
+b5841a4b0abe52ad1d2354f90b51080c *man/ci.p.rd
 f5031e9d2f41fab4d28b375f17e8ca06 *man/ci.prat.ak.Rd
 32fbf3351cd4148158fbbdeda055331c *man/ci.prat.rd
 f601e73f1a66eeb04f17b990623d5bd6 *man/ci.sigma.rd
@@ -403,7 +403,7 @@ e7fe49e7195d9aab33462883c328245c *man/exercise.repeated.Rd
 644b0088d4f02d0a85d4861c63240c27 *man/garments.rd
 71e3870162e234168b4e9eaaf59417f4 *man/goats.rd
 8790ec32166e0b6805439ed7a3920624 *man/grass.rd
-4fc633fb1096a8dffcb5b4caf266f407 *man/heart.rd
+ed88842a7bcf352e65263373a7dcde84 *man/heart.rd
 1cd43de90f1ecde5daaa0d523357b86b *man/huber.NR.Rd
 c7fab9764adc5edb2436b3e94ca29bbc *man/huber.mu.rd
 2e83919608528c5d31bf32a430979b9f *man/huber.one.step.rd
@@ -453,7 +453,7 @@ ab54eb603b978c938046afeba4968e5c *man/qq.Plot.Rd
 13b6b24160714b1df9cbda12647b462b *man/r.dist.rd
 1be741728b3b3cb068931efcbba50723 *man/r.pb.rd
 5115f8396f5c468b94b721ee5fd11da1 *man/rat.Rd
-d1f013cf6acfe7e7c4534bfdab317668 *man/refinery.rd
+a6908880cf3e7269b108d9317a425371 *man/refinery.rd
 04f2b8305621480b75e05ff5082b5de4 *man/rinvchisq.rd
 dd95f0f28df3da867d1d6b911b91adaf *man/rmvm.Rd
 27700039d03c0ddc631d539dc12aeaf8 *man/samp.dist.mech.rd
