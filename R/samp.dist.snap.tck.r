@@ -1,5 +1,8 @@
 samp.dist.snap<-function(parent = NULL, parent2 = NULL, biv.parent = NULL, stat = mean,stat2 = NULL, stat3 = NULL, stat4 = NULL, s.size=c(1,3,6,10,20,50), s.size2 = NULL, R=1000, 
 func = NULL, xlab = expression(bar(x)),show.SE = TRUE, fits = NULL, show.fits = TRUE, xlim = NULL, ylim = NULL,...){
+
+old.par <- par(no.readonly = TRUE)  
+  
 if(!is.null(s.size2)&(length(s.size)!=length(s.size2))) stop("length of s.size must equal length of size2")
 L <- length(s.size)
 if(L>12) {stop("L must be <= 12")} else
@@ -24,9 +27,12 @@ s.size2 = s.size2[i], func = func, R = R, xlab = xlab, show.SE = show.SE, anim =
 if(show.fits == TRUE){
 if(!is.null(fits))fits(s.size[i], s.size2[i])}
 }
+
+on.exit(par(old.par))
+
 }
 
-#--------------------------------- Simples stats -------------------------------------#
+#--------------------------------- Simple stats -------------------------------------#
 
 
 samp.dist.snap.tck1<-function(statc = "mean"){

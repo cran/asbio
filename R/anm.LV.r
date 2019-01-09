@@ -33,6 +33,9 @@ if(any(out$n2[!is.na(out$n2)] > K2)) {t <- min(which(out$n2 > K2)) ; out$n2 <- c
 r1.lab <- bquote(paste(r[1],"=",.(pr$r1))); r2.lab <- bquote(paste(r[2],"=",.(pr$r2)))
 K1.lab <- bquote(paste(K[1],"=",.(pr$K1))); K2.lab <- bquote(paste(K[2],"=",.(pr$K2)))
 a21.lab <- bquote(paste(alpha[21],"=",.(pr$a2.1))); a12.lab<-bquote(paste(alpha[12],"=",.(pr$a1.2)))
+
+old.par <- par(no.readonly = TRUE)
+
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){
     dev.hold()
@@ -52,6 +55,7 @@ for(i in min(time):max(time)){
  dev.flush()
  Sys.sleep(interval)
 }
+on.exit(par(old.par))
 }
 
 
@@ -76,6 +80,9 @@ out<-as.data.frame(rk4(xstart,time,func,pars))
 rh.lab<-bquote(paste(r[h],"=",.(pr$rh)));c.lab<-bquote(paste(c,"=",.(pr$con)));p.lab<-bquote(paste(p,"=",.(pr$con)))
 p.lab<-bquote(paste(p,"=",.(pr$p)));dp.lab<-bquote(paste(d[p],"=",.(pr$d.p)))
 ccol<-rainbow(max(time)-min(time)+1)
+
+old.par <- par(no.readonly = TRUE)
+
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){
     dev.hold()
@@ -103,6 +110,7 @@ for(i in min(time):max(time)){
     dev.flush()
     Sys.sleep(interval)
 }
+on.exit(par(old.par))
 }
 
 

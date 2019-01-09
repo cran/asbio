@@ -1,4 +1,6 @@
 see.HW<-function(parg){
+old.par <- par(no.readonly = TRUE)
+  
 p<-seq(0,1,length=1000);pp<-p^2;q<-1-p;qq<-q^2;twoqp<-2*q*p
 pn<-parg;qn<-round(1-pn,3);ppn<-round(pn^2,3);qqn<-round(qn^2,3);twoqpn<-signif(2*qn*pn,3)
 dev.hold()
@@ -16,6 +18,7 @@ points(seq(0,1,length=1000),twoqp,col="slateblue1","l",lwd=2)
 points(seq(0,1,length=1000),qq,col="salmon4","l",lwd=2)
 abline(v=parg,lwd=2)
 dev.flush()
+on.exit(par(old.par))
 }
 
 see.HW.tck<-function (){

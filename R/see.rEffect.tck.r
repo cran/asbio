@@ -1,4 +1,5 @@
 r.eff <- function(){
+old.par <- par(no.readonly = TRUE)
 varA = 1
 dev.hold()
 layout(matrix(c(1,1,1,1,2,3,3,3,3,4,5,5,5,5,6),3,5,byrow=TRUE))
@@ -54,6 +55,7 @@ plot(seq(1,20),xaxt="n",yaxt="n",col="white",bty="n")
 text(8,12.5, expression(paste("Mean = ",mu[2])),cex=1.5)
 text(8,8.5, expression(paste("Var = ",sigma^2)),cex=1.5)
 dev.flush()
+on.exit(par(old.par))
 }
 
 

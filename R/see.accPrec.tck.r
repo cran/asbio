@@ -1,6 +1,6 @@
 see.accPrec.tck <- function(){
 
-
+  old.par <- par(no.readonly = TRUE)
 
     if (!exists("slider.env")) 
         slider.env <- NULL
@@ -70,5 +70,7 @@ norm.refresh <- function(...){
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
         side = "right")
 
-}
+    on.exit(par(old.par))
+    
+    }
 

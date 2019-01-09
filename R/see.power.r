@@ -1,4 +1,5 @@
 see.power<-function(alpha=NULL,sigma=NULL,n=NULL,effect=NULL,test="lower",xlim=c(-3,3),strict=FALSE){
+  old.par <- par(no.readonly = TRUE)
     upper.titlel<-bquote(paste("Distribution assuming ",H[0],": ",mu >= 0))
     upper.titleu<-bquote(paste("Distribution assuming ",H[0],": ",mu <= 0))
     upper.titleb<-bquote(paste("Distribution assuming ",H[0],": ",mu," = 0"))
@@ -81,7 +82,8 @@ if(test == "two"){
     text(-qpower,0.5*dnorm(0,mean=0,sd=sigma/sqrt(n)),"rejection region \u2190", adj = 1)
     dev.flush()
     }
-}
+    on.exit(par(old.par))
+    }
 
 
  

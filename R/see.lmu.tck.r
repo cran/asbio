@@ -1,5 +1,5 @@
 pm<-function(Y, X1, X2, X1X2, change.order=FALSE, delete = 0){
-
+old.par <- par(no.readonly = TRUE)  
 if(delete != 0){
 Y <- Y[-delete]
 X1 <- X1[-delete]
@@ -93,7 +93,7 @@ if(change.order== TRUE)P.val <- c(pf(SSE.X2/MSE, 1, Dfe, lower.tail = FALSE), pf
 
 legend("bottom", title="P-value", legend=c(ifelse(change.order == FALSE, paste("X1 = ",round(P.val[1],6)), paste("X2 = ",round(P.val[1],6))), ifelse(change.order == FALSE, paste("X2 = ",round(P.val[2],6)), paste("X1 = ",round(P.val[2],6))),
 paste("X1:X2 = ",round(P.val[3],6))),bty="n",inset=.2)
-
+on.exit(par(old.par))
 
 }
 

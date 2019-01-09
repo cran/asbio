@@ -1,6 +1,6 @@
 see.smooth.tck <- function(){
 
-
+old.par <- par(no.readonly = TRUE)
 
 local({
     have_ttk <- as.character(tcl("info", "tclversion")) >= "8.5"
@@ -137,5 +137,5 @@ dialog.ci <- function(){
         Xl <- parse(text = tclvalue(X))[[1]]; n <- length(Xl)
         dialog.ci()
 })
-  
+on.exit(par(old.par))  
 }

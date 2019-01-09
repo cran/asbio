@@ -1,6 +1,6 @@
 see.ancova.tck <- function () 
 {
-
+  old.par <- par(no.readonly = TRUE)
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
 
@@ -23,6 +23,8 @@ see.ancova.tck <- function ()
         alpha2 <- rep(mu2 - mu, n)
         alpha3 <- rep(mu3 - mu, n)
         alpha <- c(alpha1, alpha2, alpha3)
+        
+        
         
         dev.hold()
         layout(matrix(c(1,2,3,4,4,4),2,3, byrow = TRUE))
@@ -94,6 +96,8 @@ norm.refresh <- function(...){
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
         side = "right")
+    
+    on.exit(par(old.par))
 }
 
                                                                                                                     

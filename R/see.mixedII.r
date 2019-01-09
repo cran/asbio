@@ -1,5 +1,5 @@
 see.mixedII <- function(){
-
+old.par <- par(no.readonly = TRUE)
 if(dev.capabilities("locator")$locator == FALSE) stop("Device cannot implement function")
 
 #--------------------- SETUP -------------------#
@@ -124,6 +124,7 @@ ans <- locator(1)
 fl()
 }
 setup.mixed()
+on.exit(par(old.par))
 }
 
 

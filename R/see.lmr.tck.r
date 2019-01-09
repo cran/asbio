@@ -1,4 +1,6 @@
 pm1<-function(Y,X,sz=1,showXY=TRUE){
+old.par <- par(no.readonly = TRUE)
+  
 X<-matrix(nrow=length(Y),data=X)
 Y<-as.matrix(Y)
 n<-length(Y)
@@ -35,6 +37,7 @@ plot(seq(1,10),seq(1,10),type="n",xlab="",ylab="",xaxt="n",yaxt="n")
 text(5,9.5,"Fitted values",cex=1.6*sz)
 text(1.8,8.1,expression(paste(hat(Y)," = X", hat(beta)," = ")),cex=1.4*sz,adj=0)
 legend(5,9,Yhat,cex=1.3*sz,bty="n")
+on.exit(par(old.par))
 }
 
 see.lmr.tck<-function (){

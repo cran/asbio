@@ -1,6 +1,9 @@
 anm.ls.reg<-function (X, Y, parameter = "slope",  
     nmax=50, interval = 0.1, col = "red",...) 
 {
+    
+  old.par <- par(no.readonly = TRUE)
+  
     lin.mod <- lm(Y ~ X)
     b0 <- summary(lin.mod)$coefficients[1]
     b1 <- summary(lin.mod)$coefficients[2]
@@ -61,5 +64,5 @@ anm.ls.reg<-function (X, Y, parameter = "slope",
            abline(v=ifelse(parameter=="intercept",b0,b1),lty=2)
            if(parameter=="intercept") legend("center",legend = bquote(paste(hat(beta[0])," = ",.(b0))),box.col="white", bg = "white",)
            if(parameter=="slope") legend("center",legend = bquote(paste(hat(beta[1])," = ",.(b1))),box.col="white", bg = "white")
-          
+           on.exit(par(old.par))
 }

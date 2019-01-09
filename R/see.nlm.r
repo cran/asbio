@@ -1,4 +1,5 @@
 see.nlm<-function(){
+old.par <- par(no.readonly = TRUE)
 if(any(dev.list()>1)) graphics.off()
 options()$device(xpos=20)
 par(mar=c(.1,.1,.1,.1))
@@ -151,6 +152,6 @@ com <- fp()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
         side = "right")
-   
+on.exit(par(old.par))   
 }
 

@@ -10,6 +10,9 @@ pts <- matrix(c(12, 56,
                 98, 223), ncol=2, byrow=TRUE)
 x<-pts[,1]
 y<-pts[,2]
+
+old.par <- par(no.readonly = TRUE)
+
 dev.new(height=5,width=5*1.4)
 par(mar=c(5,4,1,9),xpd=FALSE,bg="gray90")
 plot(x,y,xlab=expression(italic(x)),ylab=expression(italic(y)),type="n")
@@ -74,6 +77,7 @@ tkpack(tklabel(tt, text = "  Action: "), side = "top")
 tkpack(tkbutton(tt, text = "Exit", command = function()tkdestroy(tt))) 
 refresh()
 }
+on.exit(par(old.par))
 }
 
                 

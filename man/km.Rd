@@ -5,9 +5,11 @@
 Calculates survivorship for individuals in a population over time based on the 
 method of Kaplan-Meier; cf. Pollock et al. (1989).
 }
+
 \usage{
-km(r, d, var = "O", conf = 0.95,age.seq=seq(1,length(r)),
-ylab="Survivorship",xlab="Age class", ...)
+km(r, d, var = "O", conf = 0.95, age.seq=seq(1,length(r)),
+ylab = "Survivorship", xlab = "Age class", type = "b", 
+plot.km = TRUE, plot.CI = TRUE, ...)
 }
 \arguments{
 
@@ -18,6 +20,9 @@ ylab="Survivorship",xlab="Age class", ...)
   \item{age.seq}{A sequence of numbers indicating the age classes used.}
   \item{ylab}{\emph{Y}-axis label.}
   \item{xlab}{\emph{X}-axis label.}
+  \item{type}{\code{type} argument from \code{\link{plot}}.}
+  \item{plot.km}{Logical. Should plot be created?}
+  \item{plot.CI}{Logical. Should confidence interval be overlaid on plot?}
   \item{\dots}{Additional arguments from \code{\link{plot}}.}
 }
 \details{

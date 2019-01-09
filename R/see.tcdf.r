@@ -1,6 +1,6 @@
 see.tcdf.tck<-function () 
 {
-
+  old.par <- par(no.readonly = TRUE)
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     nu <- 5
@@ -69,7 +69,8 @@ see.tcdf.tck<-function ()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
         side = "right")
-}
+    on.exit(par(old.par))
+    }
 
 
 see.t.tck<-function () 
