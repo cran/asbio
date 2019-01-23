@@ -71,7 +71,7 @@ see.bincdf.tck<-function ()
     
     show.norm<-tclVar(0)
     
-    old.par <- par(no.readonly = TRUE)
+ #   old.par <- par(no.readonly = TRUE)
     
     dev.new(height=4,width=8)
     par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.5,0))
@@ -130,7 +130,7 @@ see.bincdf.tck<-function ()
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
         side = "right")
 
-    on.exit(par(old.par))
+#    on.exit(par(old.par))
     
     }
  

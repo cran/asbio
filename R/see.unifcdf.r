@@ -71,7 +71,7 @@ see.unif.tck<-function ()
 
 see.unifcdf.tck<-function () 
 {
-  old.par <- par(no.readonly = TRUE)
+#  old.par <- par(no.readonly = TRUE)
     if (!exists("slider.env")) 
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     minX <- 2.5
@@ -138,5 +138,5 @@ see.unifcdf.tck<-function ()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
         side = "right")
-    on.exit(par(old.par))
+#    on.exit(par(old.par))
 }

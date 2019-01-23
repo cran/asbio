@@ -56,7 +56,7 @@ tkpack(fr <- tkframe(m), side = "top")
  
 see.hypercdf.tck<-function () 
 {
-  old.par <- par(no.readonly = TRUE)
+#  old.par <- par(no.readonly = TRUE)
     if (!exists("slider.env")) 
     slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
     n <- 1
@@ -114,5 +114,5 @@ tkpack(fr <- tkframe(m), side = "top")
         side = "left")
     assign("sc", sc, envir= slider.env)
     evalq(tkconfigure(sc, variable = N), envir= slider.env)  
-    on.exit(par(old.par))
+#    on.exit(par(old.par))
 }     

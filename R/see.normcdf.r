@@ -18,7 +18,7 @@ see.normcdf.tck <- function ()
     ymax <- round(dnorm(0, 0, 0.5), 2)
     assign("ymax", tclVar(ymax), envir = slider.env)
     
-    old.par <- par(no.readonly = TRUE)
+#    old.par <- par(no.readonly = TRUE)
     
     dev.new(height = 4, width = 8)
     par(mar = c(4.4, 4.5, 1, 0.5), cex = 0.85, oma = c(0, 0, 
@@ -97,7 +97,7 @@ see.normcdf.tck <- function ()
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
         side = "right")
 
-    on.exit(par(old.par))
+#    on.exit(par(old.par))
     }
 
 
