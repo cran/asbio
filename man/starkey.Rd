@@ -8,6 +8,6 @@ Starkey experimental forest.
 }
 \usage{data(starkey)}
 \source{
-\url{www.fs.fed.us/pnw/starkey/data/tables/Starkey_OR_Main_Habitat_1993-1996_Data.txt
+\url{https://www.fs.fed.us/pnw/starkey/data/tables/Starkey_OR_Main_Habitat_1993-1996_Data.txt
 }}
 \keyword{datasets}

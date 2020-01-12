@@ -27,6 +27,6 @@ The dataframe contains 14 columns
 }
 
 \source{
-US census bureau: \url{www.census.gov/population/international/data/idb/informationGateway.php}
+US census bureau: \url{https://www.census.gov/programs-surveys/international-programs/about/idb.html}
 }
 \keyword{datasets}

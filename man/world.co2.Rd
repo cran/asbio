@@ -3,7 +3,7 @@
 \docType{data}
 \title{World CO2 levels, by country, from 1980 to 2006}
 \description{
-The US department of energy has compiled data since 1980 detailing total carbon dioxide emissions from the consumption and flaring of fossil fuels (in millions of metric tons of carbon dioxide).  Data can be broken down by country.
+The Carbon Dioxide Information Analysis Center (CDIAC) has compiled extensive data, detailing total carbon dioxide emissions from the consumption and flaring of fossil fuels (in millions of metric tons of carbon dioxide).  Data can be broken down by country.
 }
 \usage{data(world.co2)}
 \format{
@@ -27,5 +27,5 @@ The dataframe contains 16 columns
 \item{\code{World.Total}}{CO\eqn{_2} emissions totals for the world...}
   }
 }
-\source{US Department of energy; \url{www.eia.doe.gov/emeu/iea/}}
+\source{Carbon Dioxide Information Analysis Center (CDIAC); \url{https://cdiac.ess-dive.lbl.gov/trends/emis/tre_coun.html}}
 \keyword{datasets}

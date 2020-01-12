@@ -9,7 +9,7 @@ Provides a utility confidence interval plotting function for objects of \code{cl
 }
 \usage{
 \method{plot}{pairw}(x, type = 1, lcol = 1, lty = NULL, lwd = NULL, 
-cap.length = 0.1, xlab = "", main = NULL, ...)
+cap.length = 0.1, xlab = "", main = NULL, explanation = TRUE,...)
 }
 \arguments{
 
@@ -36,6 +36,9 @@ X-axis label.
 }
   \item{main}{
 Main caption.  Defaults to a descriptive head.
+}
+  \item{explanation}{
+Logical.  If \code{TRUE} (default) provides plot explanation with text.
 }
   \item{\dots}{
 Additional arguments from \code{\link{bplot}} or \code{\link{barplot}} for type 1 and 2 graphs, respectively.

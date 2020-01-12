@@ -38,7 +38,7 @@ III.F<-function(){
  tkmessageBox(message="Correct.  This is an example of a fallacious type of argument \ncalled \U0022 affirming the consequent\U0022.")}
 
 IV.T<-function(){
- tkmessageBox(message="Correct.  This is an example of a fallacious type of argument \ncalled \U0022 affirming the consequent\U0022.")}
+ tkmessageBox(message="Correct.  This is an example of a logical type of argument \ncalled \U0022 modus tollens\U0022.")}
  
 IV.F<-function(){
   tkmessageBox(message="Inorrect.  This is a logical example of \U0022modus tollens\U0022 or\n\U0022 denying the consequent\U0022.", icon="error")}

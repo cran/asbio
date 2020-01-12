@@ -25,8 +25,8 @@ book.menu <- function ()
 	Biology <- tkmenu(topMenu, tearoff = FALSE)
 
 # Self test questions
-     questions1 <- tkmenu(topMenu, tearoff = FALSE)
-     questions2 <- tkmenu(topMenu, tearoff = FALSE)
+  questions1 <- tkmenu(topMenu, tearoff = FALSE)
+  questions2 <- tkmenu(topMenu, tearoff = FALSE)
 	questions3 <- tkmenu(topMenu, tearoff = FALSE)
 	questions4 <- tkmenu(topMenu, tearoff = FALSE)
 	questions5 <- tkmenu(topMenu, tearoff = FALSE)
@@ -50,7 +50,7 @@ book.menu <- function ()
 
 # Chapter 2
 	tkadd(Ch2, "cascade", label = "Self-test questions", menu = questions2) #Names question menus
-		tkadd(questions2, "command", label = "Probability", command = substitute(selftest.prob.tck1())) # Ch 2 question
+		tkadd(questions2, "command", label = "Probability", command = substitute(selftest.prob.tck())) # Ch 2 question
 	tkadd(Ch2, "command", label = "Bayesian analysis of discrete data", 
         command = substitute(print(Bayes.disc.tck()))) # Ch 2
 	tkadd(Ch2, "command", label = "Coin flips", command = substitute(anm.coin.tck())) # Ch 2
@@ -60,7 +60,7 @@ book.menu <- function ()
 
 # Chapter 3
 	tkadd(Ch3, "cascade", label = "Self-test questions", menu = questions3) #Names question menus
-		tkadd(questions3, "command", label = "Pdfs", command = substitute(selftest.pdfs.tck1())) # Ch 3 question
+		tkadd(questions3, "command", label = "Pdfs", command = substitute(selftest.pdfs.tck())) # Ch 3 question
 	tkadd(Ch3, "command", label = "Continuous pdf conceptualization", command = substitute(see.pdf.conc.tck())) # Ch 3 
 	tkadd(Ch3, "command", label = "Exponential power function", 
 		command = substitute(see.exppower.tck())) # Ch 3
@@ -70,14 +70,16 @@ book.menu <- function ()
 	
 # Chapter 4
 	tkadd(Ch4, "cascade", label = "Self-test questions", menu = questions4) #Names question menus
-		tkadd(questions4, "command", label = "Statistics and inference", command = substitute(selftest.stats.tck1())) # Ch 4 question
+		tkadd(questions4, "command", label = "Statistics and parameters", command = substitute(selftest.stats.tck())) # Ch 4 questions
+		tkadd(questions4, "command", label = "ML and OLS estimation", command = substitute(selftest.ML_OLS.tck())) # Ch 4 questions
+		tkadd(questions4, "command", label = "Transformations of random variables", command = substitute(selftest.stats.tck1())) # Ch 4 questions
 	tkadd(Ch4, "command", label = "Cognitive illusions", command = substitute(example(illusions))) # Ch 4
 	tkadd(Ch4, "command", label = "Least squares", command = substitute(anm.ls.tck())) # Ch 4
 	tkadd(Ch4, "command", label = "Log-likelihood", command = substitute(anm.loglik.tck())) # Ch 4
 	tkadd(Ch4, "command", label = "M-estimation", command = substitute(see.M())) # Ch 4	
 	tkadd(topMenu, "cascade", label = "Chapter 4", menu = Ch4) # Names Ch 4
 
-    # Shaded Distributions
+  # Shaded Distributions
 	tkadd(dists1, "command", label = "Normal", command = substitute(shade.norm.tck()))  
 	tkadd(dists1, "command", label = "Binomial", command = substitute(shade.bin.tck()))
 	tkadd(dists1, "command", label = "Chi-square", command = substitute(shade.chi.tck()))
@@ -88,9 +90,9 @@ book.menu <- function ()
 # Chapter 5
 	tkadd(Ch5, "cascade", label = "Self-test questions", menu = questions5) #Names question menus
 		tkadd(questions5, "command", label = "Sampling distributions", 
-			command = substitute(selftest.sampd.tck1())) # Ch 5 question
+			command = substitute(selftest.sampd.tck1())) # Ch 5 questions
 		tkadd(questions5, "command", label = "Confidence intervals", 
-			command = substitute(selftest.conf.tck1())) # Ch 5 question
+			command = substitute(selftest.conf.tck1())) # Ch 5 questions
 	tkadd(Ch5, "command", label = "Confidence intervals", command = substitute(anm.ci.tck())) # Ch 5
 	tkadd(Ch5, "command", label = "MCMC simulation", command = substitute(anm.mc.bvn.tck())) # Ch 5
 	tkadd(Ch5, "command", label = "Sampling distribution basics", 

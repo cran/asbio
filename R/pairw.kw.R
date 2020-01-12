@@ -34,9 +34,8 @@ pairw.kw <- function (y, x, conf = 0.95)
         2] < 0 & val[, 3] < 0, "Reject H0", "FTR H0")
     val <- as.data.frame(cbind(val, Decision, p.adj))
     lvl <- outer(levels(x), levels(x), function(x1, x2) {
-        paste(paste("Avg.rank", x1, sep = ""), paste("Avg.rank",
-            x2, sep = ""), sep = "-")
-    })
+        paste(x1, x2, sep = "-")
+      })
     dimnames(val) <- list(lvl[upper.tri(lvl)], c("Diff", "Lower",
         "Upper", "Decision", "Adj. P-value"))
    head <- paste(paste(as.character(conf*100),"%",sep=""),c("Confidence intervals for Kruskal-Wallis comparisons"))

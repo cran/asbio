@@ -19,6 +19,7 @@ importFrom(stats, AIC, IQR, anova, chisq.test, coef,
 importFrom(utils, compareVersion, head, write.table, stack, tail)
 importFrom(stats, qqline)
 import(
+  gWidgets,
   tcltk,
   pixmap
 )

@@ -293,35 +293,37 @@ print(rq)
 invisible(x)
 }
 
-plot.pairw <- function(x, type = 1, lcol = 1, lty = NULL, lwd = NULL, cap.length = 0.1, xlab = "", main = NULL, ...){
+plot.pairw <- function(x, type = 1, lcol = 1, lty = NULL, lwd = NULL, cap.length = 0.1, xlab = "", main = NULL, explanation = TRUE, ...){
 if(class(x)!="pairw") stop("Requires object of class pairw")
-if(type == 1){
-levels <- factor(names(x$fitted))
-cont <- outer(levels, levels, function(x1,x2)paste(x1,x2,sep="-"))
-cont1 <- cont[upper.tri(cont)]
-dec <- x$summary$Decision
-dec1 <- ifelse(dec=="FTR H0", FALSE, TRUE)
-xlvl <- x$x
-y <- x$y
-names(dec1) <- cont1
-lett <- multcompLetters(dec1)$Letters #Requires multcompView
-bplot(y, xlvl, simlett = TRUE, lett = lett, xlab = xlab, ...)
-if(x$method == "kBonferroni"){
-cat(paste("The true effects of factor levels with the same letter are not", "\n", "significantly different at alpha = ", 1- x$conf, " using the ", strsplit(x$method, "k")[[1]][2], " method.", "\n\n", sep = ""))
-} else if (x$method == "mBonferroni"){
-cat(paste("The true effects of factor levels in blocks with the same letter are not", "\n", "significantly different at alpha = ", 1- x$conf, " using the ", strsplit(x$method, "m")[[1]][2], " method.", "\n\n", sep = ""))
-} else{
-cat(paste("The population means of factor levels with the same letter are not", "\n", "significantly different at alpha = ", 1- x$conf, " using the ", x$method, " method.", "\n\n", sep = ""))
-}
-}
-if(type == 2){
-ci <- x$band
-w <- diff(range(min(ci[,1]),max(ci[,2])))*.05
-r <- nrow(x$summary)
-b <- barplot(rep(0, r), names.arg = x$comp, main = ifelse(is.null(main), x$head, main), xlab = xlab, horiz = TRUE, xlim = c(min(ci[,1]) - w , max(ci[,2])), border=NA, axis.lty = 1, ...)
-abline(h = b, col = "gray")
-arrows(ci[,1], b, ci[,2], b, angle = 90, col = lcol, lty = lty, lwd = lwd, length = cap.length, code = 3)
-abline(v=0, col="gray", lty=2)
-points(apply(x$band,1,mean), b, pch = 19)
-}
+    if(type == 1){
+        levels <- factor(names(x$fitted))
+        cont <- outer(levels, levels, function(x1,x2)paste(x1,x2,sep="-"))
+        cont1 <- cont[upper.tri(cont)]
+        dec <- x$summary$Decision
+        dec1 <- ifelse(dec=="FTR H0", FALSE, TRUE)
+        xlvl <- x$x
+        y <- x$y
+        names(dec1) <- cont1
+        lett <- multcompLetters(dec1)$Letters #Requires multcompView
+        bplot(y, xlvl, simlett = TRUE, lett = lett, xlab = xlab, ...)
+            if(explanation){
+                if(x$method == "kBonferroni"){
+                    cat(paste("The true effects of factor levels with the same letter are not", "\n", "significantly different at alpha = ", 1- x$conf, " using the ", strsplit(x$method, "k")[[1]][2], " method.", "\n\n", sep = ""))
+                } else if (x$method == "mBonferroni"){
+                    cat(paste("The true effects of factor levels in blocks with the same letter are not", "\n", "significantly different at alpha = ", 1- x$conf, " using the ", strsplit(x$method, "m")[[1]][2], " method.", "\n\n", sep = ""))
+                } else{
+                    cat(paste("The population means of factor levels with the same letter are not", "\n", "significantly different at alpha = ", 1- x$conf, " using the ", x$method, " method.", "\n\n", sep = ""))
+                }
+            }
+    }
+    if(type == 2){
+        ci <- x$band
+        w <- diff(range(min(ci[,1]),max(ci[,2])))*.05
+        r <- nrow(x$summary)
+        b <- barplot(rep(0, r), names.arg = x$comp, main = ifelse(is.null(main), x$head, main), xlab = xlab, horiz = TRUE, xlim = c(min(ci[,1]) - w , max(ci[,2])), border=NA, axis.lty = 1, ...)
+        abline(h = b, col = "gray")
+        arrows(ci[,1], b, ci[,2], b, angle = 90, col = lcol, lty = lty, lwd = lwd, length = cap.length, code = 3)
+        abline(v=0, col="gray", lty=2)
+        points(apply(x$band,1,mean), b, pch = 19)
+        }
 }
