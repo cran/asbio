@@ -1,7 +1,7 @@
 selftest.ML_OLS.tck <- function(){
   options(guiToolkit="tcltk")
   w <- gwindow(title = "OLS and ML estimation")
-  size(w) <- c(700, 600)
+  size(w) <- c(700, 400)
   g <- ggroup(container=w, horizontal=FALSE, use.scrollwindow = TRUE)
   q1 <- gexpandgroup("Question 1", container=g, anchor=c(-1,1))
   q2 <- gexpandgroup("Question 2", container=g, anchor=c(-1,1))
@@ -56,6 +56,7 @@ selftest.ML_OLS.tck <- function(){
     if(tail(svalue(r2),1)== ans2[2]){
       gmessage(message="Correct.  Densities cannot be interpreted as probabilities.  For instance, it is possible for a likelihood to be greater than 1")
     }
+    svalue(r2) <- character(0)
   })   
   
   #------------- Question 3 -----------#
@@ -75,6 +76,7 @@ selftest.ML_OLS.tck <- function(){
     if(tail(svalue(r3),1)== ans3[2]){
       gmessage(message="Incorrect",  icon = "error")
     }
+    svalue(r3) <- character(0)
   })   
   
   
@@ -104,6 +106,7 @@ selftest.ML_OLS.tck <- function(){
     if(tail(svalue(r4),1)== ans4[4]){
       gmessage(message="Incorrect",  icon = "error")
     }
+    svalue(r4) <- character(0)
   }) 
   
   #------------- Question 5 -----------#
@@ -130,6 +133,7 @@ selftest.ML_OLS.tck <- function(){
     if(tail(svalue(r5),1)== ans5[4]){
       gmessage(message="Correct")
     }
+    svalue(r5) <- character(0)
   })
 }
 

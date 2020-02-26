@@ -1,7 +1,7 @@
 selftest.sampd.tck1 <- function(){
   options(guiToolkit="tcltk")
   w <- gwindow(title = "Sampling distributions")
-  size(w) <- c(700, 400)
+  size(w) <- c(700, 450)
   g <- ggroup(container=w, horizontal=FALSE, use.scrollwindow = TRUE)
   q1 <- gexpandgroup("Question 1", container=g, anchor=c(-1,1))
   q2 <- gexpandgroup("Question 2", container=g, anchor=c(-1,1))
@@ -138,7 +138,7 @@ selftest.sampd.tck1 <- function(){
          ",  container = gp5, anchor = c(-1,1))
   addSpace(gp5, .5, horizontal=FALSE)
   ans5 <- c("(a)  N(0,1)",
-            "(b)  F(n - 1, n - 1)",
+            "(b)  F(n\u2082 - 1, n\u2082 - 1)",
             "(c)  t(n - 1)",
             "(d)  t(n)")
   
@@ -164,11 +164,11 @@ selftest.sampd.tck1 <- function(){
   #------------- Question 6 -----------#
   
   gp6 <- ggroup(container = q6, spacing = 2, pos = 0, horizontal = FALSE)
-  glabel("Given the assumptions in Question 4, what is the sampling distribution of \u221an(\u0232 - \u03bc\u2080)/\u03c3",
+  glabel("Given the assumptions in Question 5, what is the sampling distribution of \u221an(\u0232 - \u03bc\u2080)/\u03c3",
          container = gp6, anchor = c(-1,1))
   addSpace(gp6, .5, horizontal=FALSE)
   ans6 <- c("(a)  N(0,1)",
-            "(b)  F(n - 1, n - 1)",
+            "(b)  F(n\u2082 - 1, n\u2082 - 1)",
             "(c)  t(n - 1)",
             "(d)  t(n)")
   
@@ -196,7 +196,7 @@ selftest.sampd.tck1 <- function(){
          container = gp7, anchor = c(-1,1))
   addSpace(gp7, .5, horizontal=FALSE)
   ans7 <- c("(a)  N(0,1)",
-            "(b)  F(n - 1, n - 1)",
+            "(b)  F(n\u2081 - 1, n\u2082 - 1)",
             "(c)  t(n - 1)",
             "(d)  t(n)")
   
@@ -218,8 +218,5 @@ selftest.sampd.tck1 <- function(){
     }
     svalue(r7) <- character(0)
   })
-  
-  
-  
 }
 

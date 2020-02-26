@@ -1,4 +1,4 @@
-anm.ExpDesign<-function(method = "all", titles =  TRUE, cex.text = 1, mp.col = NULL, lwda = 1, interval = 0.5, iter = 30){
+anm.ExpDesign<-function(method = "all", titles =  TRUE, cex.text = 1, mp.col = NULL, lwda = 1, n = 10, EUcol = hcl.colors(n, palette = "Dark 3"), interval = 0.5, iter = 30){
 old.par <- par(no.readonly = TRUE)
     if(any(method == "all")) method1 = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
     m<-matrix(nrow=iter,ncol=length(method1),rep(method,iter),byrow=TRUE)
@@ -12,7 +12,7 @@ on.exit(par(old.par))
 invisible()	
 }
 
-ExpDesign<-function(method= "all",titles=TRUE, cex.text = 1, mp.col = NULL, lwda = 1,...){
+ExpDesign <-function(method= "all",titles=TRUE, cex.text = 1, mp.col = NULL, lwda = 1, n = 10, EUcol = hcl.colors(n, palette = "Dark 3"),...){
 if(any(method == "all")) method = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
 L<-length(method)
 if(L==2) {par(mfrow=c(2,1),mar=c(0.1,1.5,2,1.5))} else
@@ -25,16 +25,17 @@ if(L==13|L==14) {par(mfrow=c(5,3),mar=c(0.1,1.0,1.5,1.0))}
 
 #CRD
 if(any(method=="CRD")){
+x.seq <- seq(1,10, length = n+2)
+x <- x.seq[2:(length(x.seq)-1)]
 plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",type="n",main=ifelse(titles==TRUE,"CRD",""),...)
-text(c(3,5.5,8),rep(9,3),c("EU1","EU2","EU3"),cex=cex.text)
+text(x,rep(9,n),paste("EU",1:n, sep = ""),cex=cex.text, col = EUcol)
 segments(5.5,0,5.5,7.5,col="gray")
 segments(0,7.5,11,7.5,col="gray")
 text(c(3,8),c(4,4),cex=1.2*cex.text,c(expression(A[1]),expression(A[2])))
-x.s<-sample(c(3,5.5,8),3,replace=FALSE)
-x.e<-sample(c(3,8),3,replace=TRUE)
-x.e[3]<-ifelse(x.e[1]==x.e[2]&x.e[1]==3,8,x.e[3])
-x.e[3]<-ifelse(x.e[1]==x.e[2]&x.e[1]==8,3,x.e[3])
-arrows(x.s,rep(8.5,3),x.e,rep(4.5,3),length=.1, lwd = lwda)
+x.s<-sample(x,n,replace=FALSE)
+o <- rank(x.s)
+x.e<-(c(3,8))
+arrows(x.s,rep(8.5,n),x.e,rep(4.5,n),length=.1, lwd = lwda, col = EUcol[o])
   }
 
 #Factorial 2 by 2

@@ -7,11 +7,12 @@
 Describes random treatment allocation for fifteen experimental designs.}
 \usage{
 
-anm.ExpDesign(method="all", titles =  TRUE, cex.text = 1, mp.col = NULL, lwda = 1,  
-interval = 0.5, iter = 30)
+anm.ExpDesign(method="all", titles =  TRUE, cex.text = 1, mp.col = NULL, lwda = 1, 
+n = 10, EUcol = hcl.colors(n, palette = "Dark 3"), interval = 0.5, iter = 30)
 
 
-ExpDesign(method="all", titles = TRUE, cex.text = 1, mp.col = NULL, lwda = 1, ...)
+ExpDesign(method="all", titles = TRUE, cex.text = 1, mp.col = NULL, lwda = 1, n = 10, 
+EUcol = hcl.colors(n, palette = "Dark 3"),...)
 
 anm.ExpDesign.tck()
 }
@@ -23,6 +24,8 @@ anm.ExpDesign.tck()
   \item{cex.text}{Text character expansion plots.}
   \item{mp.col}{Arrow colors in \code{"matched"} plot.  Either a vector of length 3 or a single color.}
   \item{lwda}{Arrow line widths.}
+  \item{n}{Sample size (number of experimental units).  Currently only implemented for \code{method = CRD}}
+  \item{EUcol}{Color of text identifying experimental units.  Currently only implemented for \code{method = CRD}}
   \item{\dots}{Additional arguments from \code{\link{plot}}.}
 }
 \details{

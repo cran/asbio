@@ -44,13 +44,13 @@ book.menu <- function ()
 
 # Chapter 1
 	tkadd(Ch1, "cascade", label = "Self-test questions", menu = questions1) #Names question menus
-		tkadd(questions1, "command", label = "Logic", command = substitute(see.logic())) # Ch 1 question
+		tkadd(questions1, "command", label = "Logic", command = substitute(see.logic())) # Ch 1 questions
 	tkadd(Ch1, "command", label = "Accuracy and precision", command = substitute(see.accPrec.tck())) # Ch 1
 	tkadd(topMenu, "cascade", label = "Chapter 1", menu = Ch1) # Names Ch 1
 
 # Chapter 2
 	tkadd(Ch2, "cascade", label = "Self-test questions", menu = questions2) #Names question menus
-		tkadd(questions2, "command", label = "Probability", command = substitute(selftest.prob.tck())) # Ch 2 question
+		tkadd(questions2, "command", label = "Probability", command = substitute(selftest.prob.tck())) # Ch 2 questions
 	tkadd(Ch2, "command", label = "Bayesian analysis of discrete data", 
         command = substitute(print(Bayes.disc.tck()))) # Ch 2
 	tkadd(Ch2, "command", label = "Coin flips", command = substitute(anm.coin.tck())) # Ch 2
@@ -60,7 +60,7 @@ book.menu <- function ()
 
 # Chapter 3
 	tkadd(Ch3, "cascade", label = "Self-test questions", menu = questions3) #Names question menus
-		tkadd(questions3, "command", label = "Pdfs", command = substitute(selftest.pdfs.tck())) # Ch 3 question
+		tkadd(questions3, "command", label = "Pdfs", command = substitute(selftest.pdfs.tck())) # Ch 3 questions
 	tkadd(Ch3, "command", label = "Continuous pdf conceptualization", command = substitute(see.pdf.conc.tck())) # Ch 3 
 	tkadd(Ch3, "command", label = "Exponential power function", 
 		command = substitute(see.exppower.tck())) # Ch 3
@@ -73,6 +73,7 @@ book.menu <- function ()
 		tkadd(questions4, "command", label = "Statistics and parameters", command = substitute(selftest.stats.tck())) # Ch 4 questions
 		tkadd(questions4, "command", label = "ML and OLS estimation", command = substitute(selftest.ML_OLS.tck())) # Ch 4 questions
 		tkadd(questions4, "command", label = "Transformations of random variables", command = substitute(selftest.stats.tck1())) # Ch 4 questions
+		tkadd(questions4, "command", label = "Bayesian applications", command = substitute(selftest.bayes4.tck())) # Ch 4 questions		
 	tkadd(Ch4, "command", label = "Cognitive illusions", command = substitute(example(illusions))) # Ch 4
 	tkadd(Ch4, "command", label = "Least squares", command = substitute(anm.ls.tck())) # Ch 4
 	tkadd(Ch4, "command", label = "Log-likelihood", command = substitute(anm.loglik.tck())) # Ch 4
@@ -93,6 +94,9 @@ book.menu <- function ()
 			command = substitute(selftest.sampd.tck1())) # Ch 5 questions
 		tkadd(questions5, "command", label = "Confidence intervals", 
 			command = substitute(selftest.conf.tck1())) # Ch 5 questions
+		tkadd(questions5, "command", label = "Bootstrapping and jackknifing", 
+		      command = substitute(selftest.jack.tck())) # Ch 5 questions
+		tkadd(questions5, "command", label = "Bayesian applications", command = substitute(selftest.bayes5.tck())) # Ch 5 questions
 	tkadd(Ch5, "command", label = "Confidence intervals", command = substitute(anm.ci.tck())) # Ch 5
 	tkadd(Ch5, "command", label = "MCMC simulation", command = substitute(anm.mc.bvn.tck())) # Ch 5
 	tkadd(Ch5, "command", label = "Sampling distribution basics", 
@@ -104,7 +108,13 @@ book.menu <- function ()
 # Chapter 6
 	tkadd(Ch6, "cascade", label = "Self-test questions", menu = questions6) #Names question menus
 	tkadd(questions6, "command", label = "Null hypothesis tests", 
-			command = substitute(selftest.H0.tck1())) # Ch 6 question
+			command = substitute(selftest.H0.tck())) # Ch 6 questions
+	tkadd(questions6, "command", label = "t-tests", 
+	      command = substitute(selftest.ttest.tck())) # Ch 6 questions
+	tkadd(questions6, "command", label = "Using t-tests in R", 
+	      command = substitute(selftest.codettest.tck())) # Ch 6 questions
+	tkadd(questions6, "command", label = "Nonparametric alternatives to t-tests", 
+	      command = substitute(selftest.nonparametric6.tck())) # Ch 6 questions
 	tkadd(Ch6, "command", label = "Power", command = substitute(see.power.tck())) # Ch 6
 	tkadd(Ch6, "command", label = "t-test mechanics", command = substitute(see.ttest.tck())) # Ch 6
 	tkadd(Ch6, "command", label = "Type I and II error", command = substitute(see.typeI_II())) # Ch 6
@@ -112,8 +122,10 @@ book.menu <- function ()
 
 # Chapter 7
 	tkadd(Ch7, "cascade", label = "Self-test questions", menu = questions7) #Names question menus
-	   tkadd(questions7, "command", label = "Experimental and sampling design", 
-     command = substitute(selftest.se.tck1()))   # Ch 7 question
+	   tkadd(questions7, "command", label = "Experimental and sampling design fundamentals", 
+     command = substitute(selftest.se.tck1()))   # Ch 7 questions
+	   tkadd(questions7, "command", label = "ANOVA designs", 
+	         command = substitute(selftest.ANVOVA_design.tck()))   # Ch 7 questions
 	tkadd(Ch7, "command", label = "Experimental designs", command = substitute(anm.ExpDesign.tck())) # Ch 7
 	tkadd(Ch7, "command", label = "Regression (Add/delete points)", 
         command = substitute(see.adddel())) # Ch 7 (also in Ch 9)
@@ -125,17 +137,19 @@ book.menu <- function ()
 # Chapter 8
 	tkadd(Ch8, "cascade", label = "Self-test questions", menu = questions8) #Names question menus
 	tkadd(questions8, "command", label = "Correlation", 
-			command = substitute(selftest.corr.tck1())) # Ch 8 question
+			command = substitute(selftest.corr.tck1())) # Ch 8 questions
 	tkadd(Ch8, "command", label = "Effect of range on correlation", command = substitute(see.cor.range.tck())) # Ch 8
 	tkadd(Ch8, "command", label = "Pearson correlation sampling distribution", command = substitute(see.r.dist.tck())) # Ch 8
 	tkadd(topMenu, "cascade", label = "Chapter 8", menu = Ch8) # Names Ch 8
 
 # Chapter 9
 	tkadd(Ch9, "cascade", label = "Self-test questions", menu = questions9) #Names question menus
-	tkadd(questions9, "command", label = "Approaches", 
-			command = substitute(selftest.regapproaches.tck1())) # Ch 9 question
-	tkadd(questions9, "command", label = "Diagnostics", 
-			command = substitute(selftest.regdiag.tck1())) # Ch 9 question
+	tkadd(questions9, "command", label = "Basic regression characteristics", 
+	      command = substitute(selftest.regchar.tck1())) # Ch 9 questions
+	tkadd(questions9, "command", label = "Regression assumptions and diagnostics", 
+			command = substitute(selftest.regdiag.tck1())) # Ch 9 questions
+	tkadd(questions9, "command", label = "Regression approaches", 
+	      command = substitute(selftest.regapproaches.tck1())) # Ch 9 questions
 	tkadd(Ch9, "command", label = "Linear models (Regression)", 
 		command = substitute(see.lmr.tck())) # Ch 9
 	tkadd(Ch9, "command", label = "Non-linear models", 
@@ -157,11 +171,11 @@ book.menu <- function ()
 # Chapter 10
 	tkadd(Ch10, "cascade", label = "Self-test questions", menu = questions10) #Names question menus
 	tkadd(questions10, "command", label = "Simultaneous inference", 
-			command = substitute(selftest.ANOVAsiminf.tck1())) # Ch 10 question
+			command = substitute(selftest.ANOVAsiminf.tck1())) # Ch 10 questions
 	tkadd(questions10, "command", label = "Mixed effect models", 
-			command = substitute(selftest.ANOVAmixed.tck1()))
+			command = substitute(selftest.ANOVAmixed.tck1())) # Ch 10 questions
 	tkadd(questions10, "command", label = "Type II and III SS", 
-			command = substitute(selftest.typeIISS.tck1()))
+			command = substitute(selftest.typeIISS.tck1())) # Ch 10 questions
 	tkadd(Ch10, "command", label = "ANOVA mechanics", 
 		command = substitute(see.anova.tck())) # Ch 10
 	tkadd(Ch10, "command", label = "ANCOVA mechanics", 

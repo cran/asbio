@@ -8,7 +8,7 @@ importFrom(lattice, wireframe)
 importFrom(deSolve, rk4)
 importFrom(plotrix, draw.circle, staxlab, thigmophobe)
 importFrom(multcompView, multcompLetters)
-importFrom(grDevices, col2rgb, dev.capabilities, dev.cur, dev.flush, dev.hold, dev.list, dev.new, dev.off, dev.set, graphics.off, gray, heat.colors, rainbow, rgb)
+importFrom(grDevices, hcl.colors, col2rgb, dev.capabilities, dev.cur, dev.flush, dev.hold, dev.list, dev.new, dev.off, dev.set, graphics.off, gray, heat.colors, rainbow, rgb)
 importFrom(graphics, abline, arrows, axis, barplot, box, curve, grid, hist, identify, image, layout, legend, lines, locator, mtext, par, persp, plot.new, points, 
 			polygon, rect, segments, symbols, text)
 importFrom(stats, AIC, IQR, anova, chisq.test, coef,
@@ -19,7 +19,9 @@ importFrom(stats, AIC, IQR, anova, chisq.test, coef,
 importFrom(utils, compareVersion, head, write.table, stack, tail)
 importFrom(stats, qqline)
 import(
+  tkrplot,
   gWidgets,
+  gWidgetstcltk,
   tcltk,
   pixmap
 )

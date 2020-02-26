@@ -30,8 +30,8 @@ Agresti, A.  (2012) \emph{Categorical Data Analysis, 3rd edition}.  New York.  W
 Ken Aho
 }
 \examples{
+\dontrun{
 obs <-rbinom(30, 1, 0.5)
 fit <- rbeta(30, 1, 2)
-
-auc(obs, fit)
+auc(obs, fit)}
 }
