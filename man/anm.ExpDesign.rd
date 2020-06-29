@@ -24,8 +24,8 @@ anm.ExpDesign.tck()
   \item{cex.text}{Text character expansion plots.}
   \item{mp.col}{Arrow colors in \code{"matched"} plot.  Either a vector of length 3 or a single color.}
   \item{lwda}{Arrow line widths.}
-  \item{n}{Sample size (number of experimental units).  Currently only implemented for \code{method = CRD}}
-  \item{EUcol}{Color of text identifying experimental units.  Currently only implemented for \code{method = CRD}}
+  \item{n}{Sample size (number of experimental units).  Currently only implemented for \code{method = "CRD"}}
+  \item{EUcol}{Color of text identifying experimental units (or in some designs, treatments).  Currently only implemented for \code{method = "CRD"},  \code{method = "factorial2by2"}, \code{method = "RCBD"},  and \code{method = "nested"}}
   \item{\dots}{Additional arguments from \code{\link{plot}}.}
 }
 \details{

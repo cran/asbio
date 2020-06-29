@@ -1,56 +1,42 @@
 selftest.typeIISS.tck1 <-function(){
+  options(guiToolkit="tcltk")
+  w <- gwindow(title = "Type II and III SS")
+  size(w) <- c(700, 950)
+  g <- ggroup(container=w, horizontal=FALSE, use.scrollwindow = TRUE)
+  
+  #------------- Question 1 -----------#
 
-tclServiceMode(FALSE)
-tt <- tktoplevel()
-have_ttk <- as.character(tcl("info", "tclversion")) >=
-            "8.5"
- if (have_ttk) {
-            tkbutton <- ttkbutton
-            tkcheckbutton <- ttkcheckbutton
-            tkentry <- ttkentry
-            tkframe <- ttkframe
-            tklabel <- ttklabel
-            tkradiobutton <- ttkradiobutton
-        }
+  
+  gp1 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
+  gp1.1 <- ggroup(container = gp1, spacing = 2, pos = 0, horizontal = TRUE)
+  q <- glabel("1) ", container = gp1.1, horizontal = TRUE)
+  font(q) <- list(weight = "bold")
+  qq <- glabel("We would use type II or III sums of squares whenever...", container = gp1.1, anchor = c(-1,1))
+  font(qq) <- list(family = "cambria", size = 11)
+  
 
-rb1 <- tkradiobutton(tt)
-rb2 <- tkradiobutton(tt)
-rb3 <- tkradiobutton(tt)
-rb4 <- tkradiobutton(tt)
-
-rbValue <- tclVar("")
-tkconfigure(rb1,variable=rbValue,value="a")
-tkconfigure(rb2,variable=rbValue,value="b")
-tkconfigure(rb3,variable=rbValue,value="c")
-tkconfigure(rb4,variable=rbValue,value="d")
-
-tkwm.title(tt, "Type II and III SS")
-tkgrid(tklabel(tt,text=""))
-tkgrid(tklabel(tt, text = "We would use type II or III SS whenever..."), columnspan = 2)
-tkgrid(tklabel(tt,text=""))
-tkgrid(tklabel(tt,text="  a.    We have an unbalanced one way ANOVA format."),rb1, sticky = "w")
-tkgrid(tklabel(tt,text="  b.    We have a quantitative predictor."),rb2, sticky = "w")
-tkgrid(tklabel(tt,text="  c.    We have a balanced multiway ANOVA format."),rb3, sticky = "w")
-tkgrid(tklabel(tt,text="  d.    We have either an unbalanced multiway ANOVA format, or some other multiple X format with at least one quantitative X."),rb4, sticky = "w")
-
-tkgrid(tklabel(tt,text=""))
-OnOK <- function()
-{
-    rbVal <- as.character(tclvalue(rbValue))
-    if (rbVal=="a")
-      tkmessageBox(message="Incorrect.", icon = "error")
-    if (rbVal=="b")
-     	tkmessageBox(message="Incorrect.", icon = "error")
-    if (rbVal=="c")
-    	tkmessageBox(message="Incorrect.", icon = "error")
-    if (rbVal=="d")
-      tkmessageBox(message="Correct.")
+  ans1 <- c("(a)  We have an unbalanced one way ANOVA format.",
+            "(b)  We have a quantitative predictor.",
+            "(c)  We have a balanced multiway ANOVA format.",
+            "(d)  We have either an unbalanced multiway ANOVA format, or some other multiple X format with at least one \n       quantitative X variable.")
+  
+  
+  f1 <- function(h,....){
+    if(tail(svalue(r1),1) == ans1[1]){
+      gmessage(msg="Incorrect", icon = "error")
     }
-
-
-OK.but <- tkbutton(tt,text="OK",command=OnOK)
-tkgrid(OK.but,columnspan=2)
-tkgrid(tklabel(tt,text=""))
-tkgrid(tkbutton(tt,text="Next question",command=function()tkmessageBox(message="No further questions.")),tkbutton(tt,text="Exit",command=function()tkdestroy(tt)),sticky ="w")
-invisible(tclServiceMode(TRUE))
+    if(tail(svalue(r1),1)== ans1[2]){
+      gmessage(msg="Incorrect",  icon = "error")
+    }
+    if(tail(svalue(r1),1)== ans1[3]){
+      gmessage(msg="Incorrect", icon = "error")
+    }
+    if(tail(svalue(r1),1)== ans1[4]){
+      gmessage(msg="Correct")
+    }
+    svalue(r1) <- character(0)
+  }
+  
+  r1 <- gcheckboxgroup(ans1, container = gp1, checked = FALSE, where = "beginning", handler = f1)
+  
 }

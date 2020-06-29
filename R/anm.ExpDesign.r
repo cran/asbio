@@ -1,10 +1,12 @@
 anm.ExpDesign<-function(method = "all", titles =  TRUE, cex.text = 1, mp.col = NULL, lwda = 1, n = 10, EUcol = hcl.colors(n, palette = "Dark 3"), interval = 0.5, iter = 30){
 old.par <- par(no.readonly = TRUE)
-    if(any(method == "all")) method1 = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
-    m<-matrix(nrow=iter,ncol=length(method1),rep(method,iter),byrow=TRUE)
+method1 = method    
+if(any(method == "all")) 
+      method1 = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
+    m <- matrix(nrow=iter, ncol = length(method1), rep(method,iter), byrow = TRUE)
     for(i in 1:nrow(m)){
 	    dev.hold()
-      ExpDesign(method=m[i,],titles=titles, cex.text = cex.text, mp.col = mp.col)
+      ExpDesign(method=m[i,], titles = titles, cex.text = cex.text, mp.col = mp.col)
 	    dev.flush()
 	    Sys.sleep(interval)
     }
@@ -47,7 +49,9 @@ text(x=c(1.45,6.4,1.45,6.4),y=c(9.75,4.75,4.75,9.75),c("EU1","EU2","EU3","EU4"),
 m<-matrix(nrow=4,ncol=2,c(2.75,2.75,7.75,2.75,7.75,7.75,2.75,7.75),byrow=TRUE)
 s<-sample(seq(1,4),4,replace=FALSE)
 m.s<-m[s,]
-text(x=m.s[,1],y=m.s[,2],c(expression(paste(A[1],B[1])),expression(paste(A[2],B[1])),expression(paste(A[1],B[2])),expression(paste(A[2],B[2]))),cex=1.1*cex.text)
+n <- 4
+col <- EUcol[c(1,2,3,4)]
+text(x=m.s[,1],y=m.s[,2],c(expression(paste(A[1],B[1])),expression(paste(A[2],B[1])),expression(paste(A[1],B[2])),expression(paste(A[2],B[2]))),cex=1.1*cex.text, col=col)
   }
 
 #Factorial 2 by 2 by 2
@@ -73,16 +77,20 @@ x0<-c(3,3,8,8,1.75,1.75,4.25,4.25,6.75,6.75,9.25,9.25)
 x1<-c(1.75,4.25,6.75,9.25,1.25,2.25,3.75,4.75,6.25,7.25,8.75,9.75)
 y0<-c(7.75,7.75,7.75,7.75,5.5,5.5,5.5,5.5,5.5,5.5,5.5,5.5)
 y1<-c(5.5,5.5,5.5,5.5,2.75,2.75,2.75,2.75,2.75,2.75,2.75,2.75)
-segments(x0,y0,x1,y1)
-symbols(x=c(5.5,5.5,5.5),y=c(7.75,5.5,2.75),rectangles=matrix(ncol=2,nrow=3,data=c(9,9,9,.75,.75,.75)),add=TRUE,
-inches=FALSE,fg="white",bg="white")
-segments(5.5,0,5.5,10.5,col="gray")
+n = 4
+col = EUcol[c(1,4)]
 a<-c(expression(A[1]),expression(A[2]))
 b<-c(expression(B[1]),expression(B[2]))
 c<-c(expression(C[1]),expression(C[2]))
 s<-sample(seq(1,2),2,replace=FALSE);s1<-sample(seq(1,2),2,replace=FALSE);s2<-sample(seq(1,2),2,replace=FALSE)
 s3<-sample(seq(1,2),2,replace=FALSE);s4<-sample(seq(1,2),2,replace=FALSE);s5<-sample(seq(1,2),2,replace=FALSE)
 s6<-sample(seq(1,2),2,replace=FALSE)
+segments(x0,y0,x1,y1)
+symbols(x=c(5.5,5.5,5.5),y=c(7.75,5.5,2.75),rectangles=matrix(ncol=2,nrow=3,data=c(9,9,9,.75,.75,.75)),add=TRUE,
+        inches=FALSE,fg="white",bg="white")
+rect(0.5,0.5,5.5,10.5, density = 3.5, lwd = 2.5, col = col[s[1]], angle = 0, lty= 2)
+rect(5.5,0.5,10.5,10.5, density = 3.5, lwd = 2.5, col = col[s[2]], angle = 0, lty =2)
+
 A<-a[s];B1<-b[s1];B2<-b[s2];C1<-c[s3];C2<-c[s4];C3<-c[s5];C4<-c[s6]
 text(x=c(3,8,1.75,4.25,6.75,9.25,1.25,2.25,3.75,4.75,6.25,7.25,8.75,9.75),y=c(7.75,7.75,5.5,5.5,5.5,5.5,2.75,2.75,2.75,2.75,2.75,2.75,2.75,2.75),c(A[1],
 A[2],B1[1],B1[2],B2[1],B2[2],C1[1],C1[2],C2[1],C2[2],C3[1],C3[2],C4[1],C4[2]),cex=cex.text)
@@ -90,17 +98,15 @@ A[2],B1[1],B1[2],B2[1],B2[2],C1[1],C1[2],C2[1],C2[2],C3[1],C3[2],C4[1],C4[2]),ce
 
 #RCBD
 if(any(method=="RCBD")){
+n = 4
 plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",type="n",main=ifelse(titles==TRUE,"RCBD",""),...)
-text(c(2,4.3,6.7,9.2),rep(9,3),c("EU1","EU2","EU3","EU4"),cex=cex.text)
+text(c(2,4.3,6.7,9.2),rep(9,3),c("EU1","EU2","EU3","EU4"),cex = cex.text, col = EUcol)
 segments(c(5.5,0,3,8),c(0,7.5,0,0),c(5.5,11,3,8),c(11,7.5,7.5,7.5),col="gray")
 text(c(3,8),c(9.9,9.9),c("Block 1","Block 2"),cex=.9*cex.text,col="gray")
 text(c(2,4.3,6.7,9.2),c(4,4,4,4),cex=1.1*cex.text,c(expression(A[1]),expression(A[2]),expression(A[1]),expression(A[2])))
-x.s1<-sample(c(2,4.3),2,replace=FALSE)
-x.s2<-sample(c(6.7,9.2),2,replace=FALSE)
 x.e1<-sample(c(2,4.3),2,replace=FALSE)
 x.e2<-sample(c(6.7,9.2),2,replace=FALSE)
-arrows(x.s1,rep(8.5,2),x.e1,rep(4.5,2),length=.1, lwd = lwda)
-arrows(x.s2,rep(8.5,2),x.e2,rep(4.5,2),length=.1, lwd = lwda)
+arrows(c(2,4.3,6.7,9.2),rep(8.5,4),c(x.e1,x.e2),rep(4.5,4),length=.1, lwd = lwda, col = EUcol)
   }
 
 #RIBD
@@ -129,15 +135,35 @@ if(any(method=="split")){
 plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",type="n",main=ifelse(titles==TRUE,"Split Plot",""),...)
 segments(5.5,0,5.5,10.5,col="gray")
 segments(0,5.5,10.5,5.5,col="gray")
-symbols(x=c(3,8),y=c(5.5,5.5),rectangles=matrix(nrow=2,ncol=2,c(1.5,1.5,.75,.75)),add=TRUE,
-inches=FALSE,fg="white",bg="white")
-a<-c(expression(A[1]),expression(A[2]))
-s<-sample(seq(1,2),2,replace=FALSE)
-text(x=c(3,8),y=c(5.5,5.5),a[s],cex=1.1*cex.text)
-s<-sample(seq(1,2),2,replace=FALSE)
+
+n <- 4
+bcol <- EUcol[c(3,4)]
+sb1<-sample(seq(1,2),2,replace=FALSE)
+sb2<-sample(seq(1,2),2,replace=FALSE)
 m<-c(expression(B[1]),expression(B[2]))
-text(x=c(3,3),y=c(3,8),m[s],cex=1.1*cex.text)
-text(x=c(8,8),y=c(3,8),m[s],cex=1.1*cex.text)
+
+sa<-sample(seq(1,2),2,replace=FALSE)
+a<-c(expression(A[1]),expression(A[2]))
+
+rect(0.5,0.5,5.5,10.5, density = 5, angle = 45, col = sa[1], lwd = 2)
+rect(5.5,0.5,10.5,10.5, density = 5, angle = 45, col = sa[2], lwd = 2)
+rect(0.5,0.5,5.5,5.5, density = 5, angle = 135, col = bcol[sb1[1]], lty = 2, lwd = 2)
+rect(0.5,5.5,5.5,10.5, density = 5, angle = 135, col = bcol[sb1[2]], lty = 2, lwd = 2)
+rect(5.5,0.5,10.5,5.5, density = 5, angle = 135, col = bcol[sb2[1]], lty = 2, lwd = 2)
+rect(5.5,5.5,10.5,10.5, density = 5, angle = 135, col = bcol[sb2[2]], lty = 2, lwd = 2)
+symbols(x=c(3,8),y=c(5.5,5.5),rectangles=matrix(nrow=2,ncol=2,c(1,1,1,1)),add=TRUE,
+        inches=FALSE,fg="white",bg="white")
+symbols(x=c(3,8,3,8),y=c(3,3,8,8),rectangles=matrix(nrow=4,ncol=2,c(1,1,1,1,1,1,1,1)),add=TRUE,
+        inches=FALSE,fg="white",bg="white")
+if(sa[1]==1) acol <- c(1,2)
+  else acol = c(2,1)
+if(sb1[1]==1) bcol1 <- bcol
+else bcol1 = bcol[2:1]
+if(sb2[1]==1) bcol2 <- bcol
+else bcol2 = bcol[2:1]
+text(x=c(3,8),y=c(5.5,5.5),a[sa],cex=1.1*cex.text, col = acol)
+text(x=c(3,3),y=c(3,8),m[sb1],cex=1.1*cex.text, col = bcol1)
+text(x=c(8,8),y=c(3,8),m[sb2],cex=1.1*cex.text, col = bcol2)
   }
 
 #Split split plot
@@ -226,7 +252,7 @@ mtext(c("Block 3","Block 4"), side = 4,at=c(3,8),cex=ifelse(L>5,1/(L*0.2*cex.tex
 #Strip plot 3 x 3
 if(any(method=="strip")){
 plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",
-type="n",main="Strip Plot")
+type="n",main=ifelse(titles==TRUE,"Strip plot"))
 segments(4,0,4,11,col="gray")
 segments(7.25,0,7.25,11,col="gray")
 segments(0,4,11,4,col="gray")

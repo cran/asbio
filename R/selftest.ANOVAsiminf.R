@@ -1,56 +1,45 @@
 selftest.ANOVAsiminf.tck1 <-function(){
 
-tclServiceMode(FALSE)
-tt <- tktoplevel()
-have_ttk <- as.character(tcl("info", "tclversion")) >=
-            "8.5"
- if (have_ttk) {
-            tkbutton <- ttkbutton
-            tkcheckbutton <- ttkcheckbutton
-            tkentry <- ttkentry
-            tkframe <- ttkframe
-            tklabel <- ttklabel
-            tkradiobutton <- ttkradiobutton
-        }
-
-rb1 <- tkradiobutton(tt)
-rb2 <- tkradiobutton(tt)
-rb3 <- tkradiobutton(tt)
-rb4 <- tkradiobutton(tt)
-
-rbValue <- tclVar("")
-tkconfigure(rb1,variable=rbValue,value="a")
-tkconfigure(rb2,variable=rbValue,value="b")
-tkconfigure(rb3,variable=rbValue,value="c")
-tkconfigure(rb4,variable=rbValue,value="d")
-
-tkwm.title(tt, "Simultaneous inference")
-tkgrid(tklabel(tt,text=""))
-tkgrid(tklabel(tt, text = "What is the set of comparisons for which Scheff\u00E9's procedure will control family-wise type I error?"), columnspan = 2)
-tkgrid(tklabel(tt,text=""))
-tkgrid(tklabel(tt,text="  a.    All possible comparisons."),rb1, sticky = "w")
-tkgrid(tklabel(tt,text="  b.    All possible pairwise comparisons."),rb2, sticky = "w")
-tkgrid(tklabel(tt,text="  c.    All possible comparisons to a control."),rb3, sticky = "w")
-tkgrid(tklabel(tt,text="  d.    None of the above."),rb4, sticky = "w")
-
-tkgrid(tklabel(tt,text=""))
-OnOK <- function()
-{
-    rbVal <- as.character(tclvalue(rbValue))
-    if (rbVal=="a")
-      tkmessageBox(message="Correct.")
-    if (rbVal=="b")
-     	tkmessageBox(message="Incorrect.", icon = "error")
-    if (rbVal=="c")
-    	tkmessageBox(message="Incorrect.", icon = "error")
-    if (rbVal=="d")
-      tkmessageBox(message="Incorrect.", icon = "error")
+  options(guiToolkit="tcltk")
+  w <- gwindow(title = "Simultaneous inference")
+  size(w) <- c(700, 400)
+  
+  g <- ggroup(container=w, horizontal=FALSE, use.scrollwindow = TRUE)
+  
+  
+  #------------- Question 1 -----------#
+  
+  f1 <- function(h,....){
+    if(svalue(r1) == ans1[1]){
+      gmessage(msg="Correct", parent = gp1)
     }
+    if(svalue(r1)== ans1[2]){
+      gmessage(msg="Inorrect", icon = "error", parent = gp1)
+    }
+    if(svalue(r1)== ans1[3]){
+      gmessage(msg="Incorrect", icon = "error", parent = gp1)
+    }
+    if(svalue(r1)== ans1[4]){
+      gmessage(msg="Inorrect", icon = "error", parent = gp1)
+    }
+    svalue(r1) <- character(0)
+  }
+  
+  
+  gp1 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
+  gp1.1 <- ggroup(container = gp1, spacing = 2, pos = 0, horizontal = TRUE)
+  q <- glabel("1) ", container = gp1.1, horizontal = TRUE)
+  font(q) <- list(weight = "bold")
+  qq <- glabel("What is the set of comparisons for which Scheff\u00E9's procedure will control family-wise type I error?", container = gp1.1, anchor = c(-1,1))
+  font(qq) <- list(family = "cambria", size = 11)
+  #addSpace(gp1, .5)
+  
+  ans1 <- c("(a)  All possible comparisons.",
+            "(b)  All possible pairwise comparisons.",
+            "(c)  All possible comparisons to a control.",
+            "(d)  None of the above.")
+  
+  r1 <- gcheckboxgroup(ans1, container = gp1, where = "beginning", handler = f1)
+  
 
-
-OK.but <- tkbutton(tt,text="OK",command=OnOK)
-tkgrid(OK.but,columnspan=2)
-tkgrid(tklabel(tt,text=""))
-tkgrid(tkbutton(tt,text="Next question",command=function()tkmessageBox(message="No further questions.")),tkbutton(tt,text="Exit",command=function()tkdestroy(tt)),sticky ="w")
-invisible(tclServiceMode(TRUE))
 }

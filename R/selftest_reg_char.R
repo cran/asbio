@@ -3,52 +3,46 @@ selftest.regchar.tck1 <-function(){
   w <- gwindow(title = "Basic regression characteristics")
   size(w) <- c(700, 650)
   g <- ggroup(container=w, horizontal=FALSE, use.scrollwindow = TRUE)
-  q1 <- gexpandgroup("Question 1", container=g, anchor=c(-1,1))
-  # q2 <- gexpandgroup("Question 2", container=g, anchor=c(-1,1))
-  # q3 <- gexpandgroup("Question 3", container=g, anchor=c(-1,1))
-  # q4 <- gexpandgroup("Question 4", container=g, anchor=c(-1,1))
-  # q5 <- gexpandgroup("Question 5", container=g, anchor=c(-1,1))
-  # q6 <- gexpandgroup("Question 6", container=g, anchor=c(-1,1))
-  # q7 <- gexpandgroup("Question 7", container=g, anchor=c(-1,1))
-  # q8 <- gexpandgroup("Question 8", container=g, anchor=c(-1,1))
-  # q9 <- gexpandgroup("Question 9", container=g, anchor=c(-1,1))
-  # q10 <- gexpandgroup("Question 10", container=g, anchor=c(-1,1))
-  # q11 <- gexpandgroup("Question 11", container=g, anchor=c(-1,1))
-  
-  
+
   #------------- Question 1 -----------#
  
-  gp1 <- ggroup(container = q1, spacing = 2, pos = 0, horizontal = FALSE)
-  glabel("We of the following is a (are) linear models(s)?",
-         container = gp1, anchor = c(-1,1))
-  addSpace(gp1, .5, horizontal=FALSE)
+  gp1 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
+  gp1.1 <- ggroup(container = gp1, spacing = 2, pos = 0, horizontal = TRUE)
+  q <- glabel("1) ", container = gp1.1, horizontal = TRUE)
+  font(q) <- list(weight = "bold")
+  qq <- glabel("Which of the following is a (are) linear model(s)?",
+         container = gp1.1, anchor = c(-1,1))
+  font(qq) <- list(family = "cambria", size = 11)
+  
+  
   ans1 <- c("(a)  Y\u1d62 = \u03b2\u2092 + \u03b2\u2081X\u2081\u1d62 + \u03b2\u2082X\u2082\u1d62 + \u03b5\u1d62 ",
             "(b)  Y\u1d62 = \u03b2\u2092 + \u03b2\u2081X\u2081\u1d62 + \u03b2\u2082X\u00b2\u2081\u1d62 + \u03b5\u1d62 ",
             "(c)  Y\u1d62 = \u03b2\u2092X\u1d62/(\u03b2\u2081 + X\u1d62) + \u03b5\u1d62",
             "(d)  All of the above.",
             "(e)  (a) and (b) above.")
-  
-  r1 <- gcheckboxgroup(ans1, container = gp1, checked = FALSE, where = "beginning")
-  
-  
-  addhandlerclicked(r1, handler = function(h,....){
+
+  f1 <- function(h,....){ 
     if(tail(svalue(r1),1) == ans1[1]){
-      gmessage(message="Partially correct",  icon = "error")
+      gmessage(msg="Partially correct",  icon = "error")
     }
     if(tail(svalue(r1),1)== ans1[2]){
-      gmessage(message="Partially correct",  icon = "error")
+      gmessage(msg="Partially correct",  icon = "error")
     }
     if(tail(svalue(r1),1)== ans1[3]){
-      gmessage(message="Incorrect",  icon = "error")
+      gmessage(msg="Incorrect",  icon = "error")
     }
     if(tail(svalue(r1),1)== ans1[4]){
-      gmessage(message="Incorrect",  icon = "error")
+      gmessage(msg="Incorrect",  icon = "error")
     }
     if(tail(svalue(r1),1)== ans1[5]){
-      gmessage(message="Correct")
+      gmessage(msg="Correct")
     }
     svalue(r1) <- character(0)
-  })
+  }
+  
+  
+  r1 <- gcheckboxgroup(ans1, container = gp1, checked = FALSE, where = "beginning", handler = f1)
+  
    
   # gp1 <- ggroup(container = q1, spacing = 2, pos = 0, horizontal = FALSE)
   # glabel("For general linear regression models, we assume...", container = gp1, anchor = c(-1,1))
