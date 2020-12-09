@@ -1,6 +1,6 @@
-4a455f47fec612f1d58cea557c572962 *DESCRIPTION
-e4e8d065858c1113b267f599991b5515 *NAMESPACE
-ffe620b83b8fd0b32dddac28baaa6e77 *R/AP.test.R
+1b233d2f42a4ea896e91599317392bf1 *DESCRIPTION
+acfbbf47b29f7f51b7e2896711c380e9 *NAMESPACE
+45a25a74a3b6286e150292f0449adc68 *R/AP.test.R
 1206fc5923286f82354ba1938bb135de *R/BDM.test.R
 afa95a66cae8dfc1332b286e9488f79a *R/Bayes.disc.r
 be9b4b373c46c5868d723585de845173 *R/Bayes.disc.tck.r
@@ -35,7 +35,7 @@ bd0145249156943056e3891a78c4fd26 *R/anm.ci.r
 e26f7ba35910d46a9cefc4224826ad1c *R/anm.cont.pdf.r
 ced97f206860536121d4057eaea556cb *R/anm.die.r
 60009c1d68dc19e87a2af16a725c8dd6 *R/anm.die.tck.r
-07828909acc56807cb5a30997e13679d *R/anm.loglik.r
+a68fb304717d5938eccfa412d242414d *R/anm.loglik.r
 296cf86e6f517a16debb47d06ba3804a *R/anm.loglik.tck.r
 4cf76042212f66405d16a99337abf7b3 *R/anm.ls.r
 f2818b4926761a7224db73bfaf9cfd73 *R/anm.ls.reg.r
@@ -143,7 +143,7 @@ aaa1cb56803cd2e0b09ae25f2b4ea51c *R/see.move.r
 f48c063061452dfceb8af873edbf5a11 *R/see.nbincdf.r
 8b94d2d2116f26c911d0f6467da5c7a1 *R/see.nlm.r
 8b9028f90ad05e8893ee593f2d9df06e *R/see.normcdf.r
-78eb6c48ae0e006275bb7e91d1a68928 *R/see.pdfdriver.r
+a445ad7f5c5972613988949a9682c68a *R/see.pdfdriver.r
 61f61d05f4f67bc88df4b9bb31a459c2 *R/see.poiscdf.r
 01231b51509f9bf3c96ef226e9b2a0c0 *R/see.power.r
 538bea93afdfe8b3d7ee9981490adb8d *R/see.rEffect.tck.r
@@ -155,6 +155,7 @@ df30b9fc824936dcd9d71f3e1a8ecdc6 *R/see.smooth.tck.r
 7d81b957f79fd564d232fe20cb8a1f5d *R/see.typeI_II.r
 08da0320176951b232c0d67399d2f497 *R/see.unifcdf.r
 1cf8c863b55bcb35e571e6a784c0e400 *R/see.weibcdf.r
+a59ed9bfb3350150bf57fb850eeaee0f *R/see_discunifcdf.R
 be66d00a108b88c6e2e8d8e9cdcd10ee *R/selftest.ANOVAmixed.R
 e3af039a56e1e42b035c3c43bb0c282a *R/selftest.ANOVAsiminf.R
 e61eff7235aa7134e57c1a6e2c0f259a *R/selftest.H0.R
@@ -163,11 +164,11 @@ d5d6305feb666a12dae366268a8cc46a *R/selftest.corr.R
 dc9656acfe60b9e698ed8c6232a5700e *R/selftest.pdfs.r
 b6d3199487456b4c0ea2c5d98a4cf16e *R/selftest.prob.r
 bf85c08e734f718e33e166f200f2f252 *R/selftest.regapproaches.R
-5dc18fa58f315d7fbbf881ea674a10f5 *R/selftest.regdiag.R
+2b973227faf0aaf90ef5de032a31c5d1 *R/selftest.regdiag.R
 400356f570dcc32c1bba3feada923751 *R/selftest.sampd.r
 6c6fb191fb09942a53df7cf8cb385ce3 *R/selftest.stats.tck.R
 09702351c032023b01174929dd9bdbdd *R/selftest.typeIISS.R
-e6a1dfdc290bd98904dbdb750c6aaa48 *R/selftestANOVAdesign.R
+337d241640627b76fbc2d60e162db0d9 *R/selftestANOVAdesign.R
 dcfe31de212482d583f83ab9f36404c0 *R/selftest_Bayes4.R
 e8ed960ef89f0fb1cb9022452051d098 *R/selftest_Bayes5.R
 c46388b68163706ca3cf7e29777016c4 *R/selftest_MLOLS.R
@@ -176,7 +177,7 @@ e0aabe5584097118d15e90030e350bf5 *R/selftest_nonparametric6.R
 b09f0749495e4c7f3dc3a11965a54116 *R/selftest_reg_char.R
 09496635354cda1662ffdd05a884f09f *R/selftest_se_tck1.R
 80282517b0b6ff6586eef34419272387 *R/selftest_ttest_R.R
-a61e97be3425913ba691f10c7fcfb34b *R/selftest_ttest_tck.R
+76c86d84c01634cf7eccb81d0d143089 *R/selftest_ttest_tck.R
 ec7fe096420bbfc3c2761049ce92d3a6 *R/shade.F.tck.r
 42fd80ff7b627d3e1f46ca42e84efb24 *R/shade.bin.tck.r
 9a51432522a64d1a92ce68166c6fa4c7 *R/shade.chi.tck.r
@@ -192,7 +193,7 @@ a8ca07289bf7b5819d8ff85e2242eca0 *R/stan.error.R
 9728b2a19d069ec869cce60d0efb89b7 *R/trim.test.R
 1fbdad871e13114cc5b53b7fd2fe0733 *R/tukey.add.test.r
 48d2a2c418b557b94625d7058049ab14 *R/win.R
-f547bed6851361d8ce9b674e78218a80 *build/vignette.rds
+2a7a9c6fefec1b913ff9e14f39b1f59f *build/vignette.rds
 5d5373febbd5e587ed3578edc8dee1cb *data/BCI.count.rda
 27fb884c08cfb11676654a1edf238061 *data/BCI.plant.rda
 6874babfcd301e907ec2b9c11c7f43f6 *data/C.isotope.rda
@@ -296,16 +297,16 @@ ada771ca1b87264108e32791a7fa8ad4 *data/wine.rda
 14bad26fe22a056c23b2735b594fd423 *data/world.co2.rda
 2a2bb19db449069d2935266faa04e1ae *data/world.pop.rda
 a8c6c9a7cd3cebabfd9d79f0e70d816a *inst/doc/ranef.cov.R
-666b67fb494574994244f8aa3dfbdc2e *inst/doc/ranef.cov.pdf
+4f1b9dc8e656498a099637dc735ac027 *inst/doc/ranef.cov.pdf
 f8437cdccb07d418c6eeb3423a01bd2d *inst/doc/ranef.cov.rnw
 0798bdbf038efe20357f00e6f883cbae *inst/doc/simpson.R
-90747dbe914dd70ae7fc335c615f70ca *inst/doc/simpson.pdf
+0820954db55a38cc501b12cd0f6917ae *inst/doc/simpson.pdf
 9bb7dddf457b790a8a5cd4304aa99bae *inst/doc/simpson.rnw
 0bf33f6b3b89c1650d81a9d8959a1d7c *inst/pictures/goat1.pgm
 b4a97a18ffc76072a4fc53f3bdc0bd41 *inst/pictures/goat3.pgm
 e0ca3da18dda2664def9f46da3711774 *man/AP.test.rd
-6e65c866fb82b99b535e601fa3579283 *man/BCI.count.rd
-9f8f732ea4fde18e88908a2507a161b5 *man/BCI.plant.rd
+160562c3679f86c1c5017eb5a30916eb *man/BCI.count.rd
+f058879d766612a00f283bdb49f6c6f0 *man/BCI.plant.rd
 1226eb4adfda90c0dffe6401fe91db16 *man/BDM.test.rd
 eb0cd995d59a277474bf931be72a11e4 *man/Bayes.disc.rd
 9e44915b38f220b186b755948f1c087a *man/C.isotope.rd
@@ -439,7 +440,7 @@ b372d051dfcb4e06e9cdd68ab17f54b7 *man/near.bound.rd
 6f7fef504fa1b059f1bbbc9322abaec1 *man/paik.rd
 7ec2239f4a74c91a360a4acee2942e3f *man/pairw.anova.Rd
 2f64cd34dcbb3bd698605f991428ae7a *man/pairw.fried.rd
-600eab484796d8a377fa0cb83c770e9c *man/pairw.kw.rd
+ad4916a3edf4b3f36a6989748691eaea *man/pairw.kw.rd
 05f2d6fdc1a3078b5751d4d6e7446ea5 *man/pairw.oneway.Rd
 121cd408c01fab9df125c366f1eaf4cb *man/panel.cor.res.Rd
 79c1875312facc1bb122b23b8a33a721 *man/partial.R2.rd
@@ -467,7 +468,7 @@ ab54eb603b978c938046afeba4968e5c *man/qq.Plot.Rd
 a6908880cf3e7269b108d9317a425371 *man/refinery.rd
 04f2b8305621480b75e05ff5082b5de4 *man/rinvchisq.rd
 dd95f0f28df3da867d1d6b911b91adaf *man/rmvm.Rd
-27700039d03c0ddc631d539dc12aeaf8 *man/samp.dist.mech.rd
+ebfa3dbee78dcc84cd817ed987609d61 *man/samp.dist.mech.rd
 3e760912f6eccfcd64aa71bc9f9b65b3 *man/samp.dist.rd
 1da817dfdd0b7a5ce23c9bba54a2f050 *man/savage.Rd
 7c2b341866ad306e98764fd7528018d7 *man/sc.twin.rd
@@ -478,7 +479,7 @@ dd95f0f28df3da867d1d6b911b91adaf *man/rmvm.Rd
 d3da71fabcf18b46af37b7487dab37de *man/see.accPrec.tck.rd
 5e606f99d638fa587a727e2dd72cd1b2 *man/see.ancova.tck.rd
 ae6a9b205f1227a4d0868a530854f4d2 *man/see.anova.tck.rd
-d76f7291899de39202006405b8f4c3bc *man/see.cor.range.tck.rd
+9aca14d81d77173f2e0869c14e52ccec *man/see.cor.range.tck.rd
 67ffdcd8a5ac7caafbc24869adc0436b *man/see.exppower.tck.rd
 dea60dba08b6dbc3b821a487bff276f5 *man/see.lma.tck.rd
 5d16afa23b2ba8864a282cea954f2421 *man/see.lmr.tck.rd
@@ -488,7 +489,7 @@ ae41cfc79ffc96c612a458cf1299ca26 *man/see.logic.rd
 5e2a9fab3a16ba6f9b39386a9f332128 *man/see.mnom.tck.rd
 008f88cd95dd6346022ee15c2b417dbe *man/see.move.rd
 b8cc99ea116a5467b7c36fc1133dda1f *man/see.nlm.rd
-b8b09946797e3d84db2ca63b5e46e6bb *man/see.norm.tck.rd
+3d7fdd85e2d2e706eb326a53d00f8d4a *man/see.norm.tck.rd
 a85be47190fcb349c880daa599af85da *man/see.power.rd
 c96c6a9b4381b0da2632a25e51815a4c *man/see.rEffect.tck.rd
 2c8ab5cb09be1f6e88db833ee5d9ba72 *man/see.regression.tck.rd

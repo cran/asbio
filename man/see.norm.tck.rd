@@ -6,6 +6,8 @@
 \alias{see.bincdf.tck}
 \alias{see.chi.tck}
 \alias{see.chicdf.tck}
+\alias{see.disc.unif.tck}
+\alias{see.disc.unifcdf.tck}
 \alias{see.exp.tck}
 \alias{see.expcdf.tck}
 \alias{see.F.tck}
@@ -48,6 +50,8 @@ see.bin.tck()
 see.bincdf.tck()
 see.chi.tck()
 see.chicdf.tck()
+see.disc.unif.tck()
+see.disc.unifcdf.tck()
 see.exp.tck()
 see.expcdf.tck()
 see.F.tck()

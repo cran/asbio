@@ -54,7 +54,7 @@ selftest.regdiag.tck1 <-function(){
   Fits <- rep(1:20,2)
   Residuals <- rnorm(40, 0, sd=Fits)
   gp2.1 <- getWidget(gp2)
-  img <- tkrplot(gp2.1, function(){ 
+  img <- tkrplot::tkrplot(gp2.1, function(){ 
     par(bg = "white", mar = c(4.5,4.1,1,1))
     plot(Fits, Residuals, xlab = "Fitted value", ylab = "Residual",
          cex.lab =.9)
@@ -106,7 +106,7 @@ selftest.regdiag.tck1 <-function(){
   x <- c(0.08, 0.92, 1.01, 1.1,  0.57, 0.11, 2.44, 0.88, 0.93, 1.21, 4.01, 2.78, 0.65, 2.45, 0.9,  2.58, 0.76, 0.05, 0.43, 0.42, 0.45, 0.56, 0.03, 0.83, 3.43, 0.06, 0.7,  0.02, 1.97, 0.37, 2.19, 2.8,  0.55, 1.02, 0.46, 0.37, 1.36, 1.14, 0.72, 0.01,
 2.54, 1.88, 0.6,  1.12, 0.68, 0.66, 0.16, 0.28, 0.54, 0.41, 0.04, 0.37, 0.44, 0.54, 0.88, 0.43, 1.26, 0.86, 0.04, 2.29)
   gp3.1 <- getWidget(gp3)
-  img <- tkrplot(gp3.1, function(){ 
+  img <- tkrplot::tkrplot(gp3.1, function(){ 
     par(bg = "white", mar = c(4.5,4.1,1,1))
     qqnorm(x, cex.lab =.9, main = "")
     qqline(x, col = 2, lty = 2)
@@ -156,7 +156,7 @@ selftest.regdiag.tck1 <-function(){
   y <- 3*x +rnorm(20,sd = 2)
   y[17] <- 10; y[19] <- 8
   gp4.1 <- getWidget(gp4)
-  img <- tkrplot(gp4.1, function(){ 
+  img <- tkrplot::tkrplot(gp4.1, function(){ 
     par(bg = "white", mar = c(4.5,4.1,1,1))
     plot(x, y, xlab = expression(paste("Soil N", O[3], sep ="")),
          ylab = "Plant aboveground biomass (g)", pch = 19,
@@ -208,7 +208,7 @@ selftest.regdiag.tck1 <-function(){
   Fits <- rep(1:20,2)
   Residuals <- rnorm(40, 0, sd=Fits)
   gp5.1 <- getWidget(gp5)
-  img <- tkrplot(gp5.1, function(){ 
+  img <- tkrplot::tkrplot(gp5.1, function(){ 
     par(bg = "white", mar = c(4.5,4.1,1,1))
     plot(Fits, Residuals, xlab = "Order that data were collected", ylab = "Residual",
          cex.lab =.9)
@@ -262,7 +262,7 @@ selftest.regdiag.tck1 <-function(){
   rate <-c(0.373633,7.033800,12.840830,18.355000,23.471830,31.429080,28.827680,34.361570,38.074800,38.166300)
 
   gp6.1 <- getWidget(gp6)
-  img <- tkrplot(gp6.1, function(){ 
+  img <- tkrplot::tkrplot(gp6.1, function(){ 
     par(bg = "white", mar = c(4.5,4.1,1,1))
     plot(substrate, rate, xlab = expression(paste("Substrate (", mu,"mols)", sep = "")),
                                                                , ylab = expression(paste("Lipid breakdown (nmol/mg enzyme)",sep = "")) ,cex.lab =.9)

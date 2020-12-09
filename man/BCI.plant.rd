@@ -24,7 +24,7 @@ The presence of the tropical trees \emph{Alchornea costaricensis} and \emph{Anac
 }
 
 \source{
-\url{http://www.sciencemag.org/cgi/content/full/295/5555/666/DC1}
+\url{https://science.sciencemag.org/content/suppl/2002/01/24/295.5555.666.DC1}
 }
 \references{
 Pyke CR, Condit R, Aguilar S and Lao S. (2001). Floristic composition across a climatic gradient in a neotropical lowland forest. \emph{Journal of Vegetation Science} 12: 553-566.

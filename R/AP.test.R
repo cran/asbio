@@ -11,6 +11,6 @@ F.star<-b/(a-1)*t(C%*%R)%*%(solve(C%*%S%*%t(C)))%*%C%*%R
 nu1<-a-1
 nu2<-(a-1)*(b-1)
 AP.Table<-data.frame(df1=nu1,df2=nu2,F=F.star,p.val=pf(F.star,nu1,nu2,lower.tail=FALSE),row.names="X")
-colnames(AP.Table)<-c("df1","df2","F*","P(>F)")
+colnames(AP.Table)<-c("df1","df2","F*","P(F>F*)")
 AP.Table
 }

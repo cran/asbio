@@ -527,7 +527,7 @@ selftest.ttest.tck <- function(){
   
   x <- rnorm(20)
   gp15.1a <- getWidget(gp15)
-  img <- tkrplot(gp15.1a, function(){ 
+  img <- tkrplot::tkrplot(gp15.1a, function(){ 
     par(bg = "white", mar = c(4.5,4.1,1,1))
     qqnorm(x, cex.lab =.9, main = "")
     qqline(x, col = 2, lty = 2)

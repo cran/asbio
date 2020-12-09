@@ -29,6 +29,8 @@ if(pdf=="t"&show.cdf==TRUE)see.tcdf.tck()
 if(pdf=="t"&show.cdf==FALSE)see.t.tck()
 if(pdf=="uniform"&show.cdf==TRUE)see.unifcdf.tck()
 if(pdf=="uniform"&show.cdf==FALSE)see.unif.tck()
+if(pdf=="discrete uniform"&show.cdf==TRUE)see.disc.unifcdf.tck()
+if(pdf=="discrete uniform"&show.cdf==FALSE)see.disc.unif.tck()  
 if(pdf=="weibull"&show.cdf==TRUE)see.weibcdf.tck()
 if(pdf=="weibull"&show.cdf==FALSE)see.weib.tck()
 }
@@ -69,7 +71,7 @@ local({
         tkgrid(tklabel(tt,text=""),columnspan=2)
         cdf.cbut <- tkcheckbutton(tt, text="Show cdf", variable=show.cdf)
         tkgrid(tklabel(tt, text="pdf"))
-        pdfs<- c("beta","binomial","chisq","exponential","F","gamma","geometric", "hypergeometric","logistic","lognormal","negative binomial","normal","poisson","t","uniform","weibull")
+        pdfs<- c("beta","binomial","chisq","exponential","F","gamma","geometric", "hypergeometric","logistic","lognormal","negative binomial","normal","poisson","t", "uniform","discrete uniform", "weibull")
             comboBox <- tkwidget(tt,"ComboBox", editable=FALSE, values=pdfs, textvariable = Pdf, width = 17)
         
         

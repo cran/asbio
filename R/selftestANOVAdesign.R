@@ -17,7 +17,7 @@ selftest.ANVOVA_design.tck <-function(){
   
   
   gp1.1a <- getWidget(gp1)
-  img <- tkrplot(gp1.1a, function(){ 
+  img <- tkrplot::tkrplot(gp1.1a, function(){ 
     par(bg = "white", mar = c(1,1,1,1))
     ExpDesign("CRD",n = 6, cex.text = .85,titles = FALSE)
   }
@@ -72,7 +72,7 @@ selftest.ANVOVA_design.tck <-function(){
   
   
   gp2.1a <- getToolkitWidget(gp2)
-  img <- tkrplot(gp2.1a, function(){ 
+  img <- tkrplot::tkrplot(gp2.1a, function(){ 
     par(bg = "white", mar = c(1,1,1,1))
     ExpDesign("SPRB",cex.text = .85,titles = FALSE)
   }
@@ -122,7 +122,7 @@ selftest.ANVOVA_design.tck <-function(){
   font(qq) <- list(family = "cambria", size = 11)
   
   gp3.1a <- getToolkitWidget(gp3)
-  img <- tkrplot(gp3.1a, function(){ 
+  img <- tkrplot::tkrplot(gp3.1a, function(){ 
     par(bg = "white", mar = c(1,1,1,1))
     ExpDesign("factorial2by2",cex.text = .95,titles = FALSE)
   }
@@ -172,7 +172,7 @@ selftest.ANVOVA_design.tck <-function(){
   font(qq) <- list(family = "cambria", size = 11)
   
   gp4.1a <- getToolkitWidget(gp4)
-  img <- tkrplot(gp4.1a, function(){ 
+  img <- tkrplot::tkrplot(gp4.1a, function(){ 
     par(bg = "white", mar = c(1,1,1,1))
     ExpDesign("RCBD",cex.text = .85,titles = FALSE)
   }
@@ -224,7 +224,7 @@ selftest.ANVOVA_design.tck <-function(){
   font(qq) <- list(family = "cambria", size = 11)
   
   gp5.1a <- getToolkitWidget(gp5)
-  img <- tkrplot(gp5.1a, function(){ 
+  img <- tkrplot::tkrplot(gp5.1a, function(){ 
     par(bg = "white", mar = c(1,1,1,1))
     ExpDesign("pairs",cex.text = .95,titles = FALSE)
   }

@@ -26,7 +26,7 @@ Number of samples.  Should not greatly exceed 100.
 Ken Aho
 }
 \note{
-Nice goat image from \url{http://all-free-download.com} 
+Nice goat image from \url{https://all-free-download.com/} 
 }
 
 \keyword{graphs}

@@ -7,7 +7,6 @@ Depict the effect of range on correlation
 Function interactively depicts the effect of the data range on association measures.
 }
 \usage{
-
 see.cor.range.tck(sd = 0.5)
 }
 
@@ -18,7 +17,7 @@ Amount of noise added to linear association.  Residuals around line pulled from 
 }
 }
 \references{
-Based on a figure from \url{http://en.wikipedia.org/wiki/Correlation_and_dependence}
+Based on a figure from \url{https://en.wikipedia.org/wiki/Correlation_and_dependence}
 }
 \author{
 Ken Aho
