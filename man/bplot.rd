@@ -47,7 +47,7 @@ bplot(y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = NULL, int =
 It is often desirable to display the results of a pairwise comparison procedure using sample measures of location and error bars.  This functions allows these sorts of plots to be made. The function is essentially a wrapper for the function \code{\link{barplot}}.
 }
 \value{
-A plot is returned.
+A plot is returned.  Bar centers (ala \code{\link{barplot}}) are returned invisibly. 
 }
 \author{Ken Aho}
 \seealso{\code{\link{mad}}, \code{\link{barplot}}, \code{\link{pairw.anova}}, \code{\link{pairw.kw}}, \code{\link{pairw.fried}}}

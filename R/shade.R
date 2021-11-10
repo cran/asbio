@@ -1,105 +1,148 @@
 #-------------------------- normal distribution--------------------------------#
 
-shade.norm<-function(x=NULL,from=NULL,to=NULL,sigma=1,mu=0,tail="lower",show.p=TRUE,show.d=FALSE,show.dist=TRUE,digits=5,legend.cex=.9,shade.col="gray",...){
-xv<-seq(mu-4*sigma,mu+4*sigma,sigma/1000)
-yv<-dnorm(xv,mean=mu,sd=sigma)
-curve(dnorm(x,mu,sigma),from=mu-4*sigma,to=mu+4*sigma,ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")),xlab = expression(italic(x)),...)
+shade.norm <- function(x = NULL, from = NULL, to = NULL, sigma = 1, mu = 0, tail = "lower", show.p = TRUE, show.d = FALSE, show.dist = TRUE, digits = 5, legend.cex = .9, shade.col = "gray", ...){
 
-if(tail=="lower"){
-polygon(c(xv[xv<=x],x),c(yv[xv<=x],yv[xv==mu-4*sigma]),col=shade.col)
-p<-round(pnorm(x,mu,sigma,lower.tail=TRUE),digits)
-d<-round(dnorm(x,mean=mu,sd=sigma),digits)
-if(show.p==TRUE&show.d==FALSE)legend("topright",legend=bquote(paste(italic(P),"(",italic(X)<=.(x),") = ",.(p), sep = "")),bty="n",cex=legend.cex)
-if(show.d==TRUE&show.p==FALSE)legend("topright",legend=bquote(paste("",italic(f),"(",.(x),") = ",.(d), sep = "")),bty="n",cex=legend.cex)
-if(show.d==TRUE&show.p==TRUE)legend("topright",legend=bquote(paste(italic(P),"(",italic(X)<=.(x),") = ",.(p),",  ",italic(f),"(",.(x),") = ",.(d), sep = "")),bty="n",cex=legend.cex)
-if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(N),"(",.(mu)," , ",.(sigma^2),")", sep = "")),bty="n",cex=legend.cex)
+m <- 4 * sigma
+xv <- seq(mu - m, mu + m, sigma/1000)
+yv <- dnorm(xv, mean = mu, sd = sigma)
+
+curve(dnorm(x, mu, sigma), from = mu - m,to = mu + m, 
+      ylab = expression(paste(italic(f),"(",italic(x),")", sep = "")), 
+      xlab = expression(italic(x)), ...)
+
+if(tail == "lower"){
+    polygon(c(xv[xv <= x], x), c(yv[xv <= x], yv[xv == mu - m]), col = shade.col)
+    p <- round(pnorm(x, mu, sigma, lower.tail = TRUE), digits)
+    d <- round(dnorm(x, mean = mu, sd = sigma), digits)
+if(show.p & show.d == FALSE) 
+    {legend("topright", legend = bquote(paste(italic(P),"(", italic(X) <= .(x),") = ", .(p), sep = "")), bty = "n",cex = legend.cex)}
+if(show.d & show.p == FALSE) 
+    {legend("topright",legend = bquote(paste("", italic(f),"(", .(x),") = ", .(d), sep = "")), bty="n", cex = legend.cex)}
+if(show.d & show.p) 
+    {legend("topright",legend = bquote(paste(italic(P),"(", italic(X) <= .(x),") = ", .(p),",  ", italic(f),"(", .(x),") = ", .(d), sep = "")), bty = "n", cex = legend.cex)}
+if(show.dist) 
+    {legend("topleft",legend = bquote(paste(italic(X)," ~ ",italic(N),"(", .(mu)," , ", .(sigma^2),")" , sep = "")), bty = "n", cex = legend.cex)}
 }
 
 if(tail=="upper"){
-polygon(c(x,xv[xv>=x]),c(yv[xv==mu+4*sigma],yv[xv>=x]),col=shade.col)
-p<-round(pnorm(x,mu,sigma,lower.tail=FALSE),digits)
-d<-round(dnorm(x,mean=mu,sd=sigma),digits)
-if(show.p==TRUE&show.d==FALSE)legend("topright",legend=bquote(paste(italic(P),"(",italic(X)>=.(x),") = ",.(p), sep = "")),bty="n",cex=legend.cex)
-if(show.d==TRUE&show.p==FALSE)legend("topright",legend=bquote(paste("",italic(f),"(",.(x),") = ",.(d), sep = "")),bty="n",cex=legend.cex)
-if(show.d==TRUE&show.p==TRUE)legend("topright",legend=bquote(paste(italic(P),"(",italic(X)>=.(x),") = ",.(p),",  ",italic(f),"(",.(x),") = ",.(d), sep = "")),bty="n",cex=legend.cex)
-if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(N),"(",.(mu)," , ",.(sigma^2),")", sep = "")),bty="n",cex=legend.cex)
+    polygon(c(x,xv[xv >= x]), c(yv[xv == mu + m], yv[xv >= x]), col = shade.col)
+    p <- round(pnorm(x, mu, sigma, lower.tail = FALSE), digits)
+    d <- round(dnorm(x,mean = mu,sd=sigma),digits)
+if(show.p & show.d == FALSE)
+    {legend("topright",legend=bquote(paste(italic(P),"(", italic(X) >= .(x),") = ", .(p), sep = "")),bty="n",cex = legend.cex)}
+if(show.d & show.p == FALSE)
+    {legend("topright",legend=bquote(paste("",italic(f),"(", (x),") = ", .(d), sep = "")), bty = "n",cex = legend.cex)}
+if(show.d & show.p)
+    {legend("topright",legend=bquote(paste(italic(P),"(",italic(X) >= .(x),") = ",.(p),",  ",italic(f),"(",.(x),") = ",.(d), sep = "")),bty="n",cex=legend.cex)}
+if(show.dist)
+    {legend("topleft",legend=bquote(paste(italic(X)," ~ ", italic(N),"(", .(mu)," , ", .(sigma^2), ")", sep = "")),bty = "n",cex = legend.cex)}
 }
 
-if(tail=="two"){
-polygon(c(xv[xv<=-abs(x)],-abs(x)),c(yv[xv<=-abs(x)],yv[xv==mu-4*sigma]),col=shade.col)
-polygon(c(abs(x),xv[xv>=abs(x)]),c(yv[xv==mu+4*sigma],yv[xv>=abs(x)]),col=shade.col)
-p<-round(2*pnorm(abs(x),mu,sigma,lower.tail=FALSE),digits)
-if(show.p==TRUE)legend("topright",bty="n",cex=legend.cex,legend=bquote(paste(2%*%italic(P),"(", italic(X)>="|",.(x),"|) = ",.(p), sep = "")))
-if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(N),"(",.(mu)," , ",.(sigma^2),")", sep = "")),bty="n",cex=legend.cex)
+if(tail == "two"){
+    polygon(c(xv[xv <= -abs(x)], -abs(x)), c(yv[xv <= -abs(x)], yv[xv == mu - m]), col = shade.col)
+    polygon(c(abs(x),xv[xv >= abs(x)]), c(yv[xv == mu + m], yv[xv >= abs(x)]), col = shade.col)
+    p <- round(2 * pnorm(abs(x), mu, sigma, lower.tail = FALSE), digits)
+if(show.p){
+    legend("topright",bty="n",cex=legend.cex,legend=bquote(paste(2%*%italic(P),"(", italic(X)>="|",.(x),"|) = ",.(p), sep = "")))}
+if(show.dist)
+    {legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(N),"(",.(mu)," , ",.(sigma^2),")", sep = "")),bty="n",cex=legend.cex)}
 }
 
 if(tail=="two.custom"){
-polygon(c(xv[xv<=x[1]],x[1]),c(yv[xv<=x[1]],yv[xv==mu-4*sigma]),col=shade.col)
-polygon(c(x[2],xv[xv>=x[2]]),c(yv[xv==mu+4*sigma],yv[xv>=x[2]]),col=shade.col)
-p<-round(pnorm(x[1],mu,sigma),digits) + round(pnorm(x[2],mu,sigma, lower.tail = FALSE),digits)
-if(show.p==TRUE)legend("topright",bty="n",cex=legend.cex,legend=bquote(paste(italic(P),"(",.(x[1]) >= "", italic(X)>=.(x[2]),") = ",.(p), sep = "")))
-if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(N),"(",.(mu)," , ",.(sigma^2),")", sep = "")),bty="n",cex=legend.cex)
+    polygon(c(xv[xv <= x[1]], x[1]), c(yv[xv <= x[1]], yv[xv == mu - m]), col = shade.col)
+    polygon(c(x[2], xv[xv >= x[2]]), c(yv[xv == mu + m], yv[xv >= x[2]]), col=shade.col)
+    p <- round(pnorm(x[1], mu, sigma), digits) + round(pnorm(x[2], mu, sigma, lower.tail = FALSE), digits)
+if(show.p)
+    {legend("topright", bty = "n", cex = legend.cex, legend = bquote(paste(italic(P),"(", .(x[1]) >= "", italic(X) >= .(x[2]),") = ", .(p), sep = "")))}
+if(show.dist)
+    {legend("topleft", legend = bquote(paste(italic(X), " ~ " ,italic(N), "(", .(mu)," , ", .(sigma^2),")", sep = "")), bty = "n",cex = legend.cex)}
 }
 
-if(tail=="middle"){
-polygon(c(xv[xv<=mu+4*sigma],mu+4*sigma),c(yv[xv<=mu+4*sigma],yv[xv==mu-4*sigma]),col=shade.col)
-polygon(c(xv[xv<=from],from),c(yv[xv<=from],yv[xv==mu-4*sigma]),col="white")
-polygon(c(to,xv[xv>=to]),c(yv[xv==mu+4*sigma],yv[xv>=to]),col="white")
-p<-round(pnorm(to,mu,sigma)-pnorm(from,mu,sigma),digits)
-if(show.p==TRUE)legend("topright",legend=bquote(paste(italic(P),"(",.(from)<="", italic(X)<=.(to),") = ",.(p), sep = "")),bty="n",cex=legend.cex)
-if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(N),"(",.(mu)," , ",.(sigma^2),")", sep = "")),bty="n",cex=legend.cex)
+if(tail == "middle"){
+    polygon(c(xv[xv <= mu + m], mu + m), c(yv[xv <= mu + m], yv[xv == mu - m]), col = shade.col)
+    polygon(c(xv[xv <= from], from), c(yv[xv <= from], yv[xv == mu - m]), col="white")
+    len <- length(xv[xv >= to])
+    polygon(c(xv[xv >= to], xv[xv >= to][len:1]), c(rep(0, len), yv[xv >= to][len:1]), col = "white")
+    p <- round(pnorm(to, mu, sigma) - pnorm(from, mu, sigma), digits)
+if(show.p)
+    {legend("topright", legend = bquote(paste(italic(P), "(", .(from)<="", italic(X) <= .(to),") = ", .(p), sep = "")),bty = "n",cex = legend.cex)}
+if(show.dist==TRUE)
+    {legend("topleft", legend = bquote(paste(italic(X), " ~ ", italic(N), "(",.(mu)," , ", .(sigma^2),")", sep = "")),bty = "n",cex = legend.cex)}
 }
 }
 
 #-------------------------- t-distribution --------------------------------#
 
-shade.t<-function(x=NULL,from=NULL,to=NULL,nu=3,tail="lower",show.p=TRUE,show.d=FALSE,show.dist=TRUE,digits=5,legend.cex=.9,shade.col="gray",...){
-sigma<-qt(.975,nu)
-xv<-seq(-4*sigma,4*sigma,sigma/1000)
-yv<-dt(xv,df=nu)
-curve(dt(x,nu),from=-4*sigma,to=4*sigma,xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")),...)
+
+shade.t <- function(x = NULL, from = NULL, to = NULL, nu = 3, tail = "lower", show.p = TRUE, show.d = FALSE, show.dist = TRUE, digits = 5, legend.cex = .9, shade.col = "gray", ...){
+sigma <- qt(.975, nu)
+m <- 4 * sigma
+xv <- seq(-m, m * sigma, sigma/1000)
+yv <- dt(xv, df = nu)
+curve(dt(x, nu), from = -m, to = m, xlab = expression(italic(x)), ylab = expression(paste(italic(f), "(", italic(x),")", sep = "")), ...)
 
 if(tail=="lower"){
-polygon(c(xv[xv<=x],x),c(yv[xv<=x],yv[xv==-4*sigma]),col=shade.col)
-p<-round(pt(x,nu,lower.tail=TRUE),digits)
-d<-round(dt(x,nu),digits)
-if(show.p==TRUE&show.d==FALSE)legend("topright",legend=bquote(paste(italic(P),"(",italic(X)<=.(x),") = ",.(p), sep = "")),bty="n",cex=legend.cex)
-if(show.d==TRUE&show.p==FALSE)legend("topright",legend=bquote(paste("",italic(f),"(",.(x),") = ",.(d), sep = "")),bty="n",cex=legend.cex)
-if(show.d==TRUE&show.p==TRUE)legend("topright",legend=bquote(paste(italic(P),"(",italic(X)<=.(x),") = ",.(p),",  ",italic(f),"(",.(x),") = ",.(d), sep = "")),bty="n",cex=legend.cex)
-if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(t),"(",.(nu),")", sep = "")),bty="n",cex=legend.cex)
+  polygon(c(xv[xv <= x], x), c(yv[xv <= x], yv[xv == -m]), col = shade.col)
+  p <- round(pt(x, nu, lower.tail = TRUE), digits)
+  d <- round(dt(x,nu), digits)
+if(show.p & show.d == FALSE){
+  legend("topright", legend = bquote(paste(italic(P), "(", italic(X) <= .(x),") = ", .(p), sep = "")), bty = "n", cex = legend.cex)}
+if(show.d & show.p == FALSE){ 
+  legend("topright", legend = bquote(paste("", italic(f), "(", .(x), ") = ", .(d), sep = "")), bty = "n", cex = legend.cex)}
+if(show.d & show.p){ 
+  legend("topright", legend = bquote(paste(italic(P), "(", italic(X) <= .(x),") = ", .(p), ",  ", italic(f), "(", .(x),") = ", .(d), sep = "")), bty = "n", cex = legend.cex)}
+if(show.dist){
+  legend("topleft", legend = bquote(paste(italic(X), " ~ ", italic(t), "(", .(nu),")", sep = "")), bty = "n", cex = legend.cex)}
 }
 
 if(tail=="upper"){
-polygon(c(x,xv[xv>=x]),c(yv[xv==4*sigma],yv[xv>=x]),col=shade.col)
-p<-round(pt(x,nu,lower.tail=FALSE),digits)
-d<-round(dt(x,nu),digits)
-if(show.p==TRUE&show.d==FALSE)legend("topright",legend=bquote(paste(italic(P),"(",italic(X)>=.(x),") = ",.(p), sep = "")),bty="n",cex=legend.cex)
-if(show.d==TRUE&show.p==FALSE)legend("topright",legend=bquote(paste("",italic(f),"(",.(x),") = ",.(d), sep = "")),bty="n",cex=legend.cex)
-if(show.d==TRUE&show.p==TRUE)legend("topright",legend=bquote(paste(italic(P),"(",italic(X)>=.(x),") = ",.(p),",  ",italic(f),"(",.(x),") = ",.(d), sep = "")),bty="n",cex=legend.cex)
-if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(t),"(",.(nu),")", sep = "")),bty="n",cex=legend.cex)
+  polygon(c(x, xv[xv >= x]), c(yv[xv == m], yv[xv >= x]),col = shade.col)
+  p<-round(pt(x, nu, lower.tail = FALSE), digits)
+  d<-round(dt(x, nu), digits)
+if(show.p & show.d == FALSE){
+  legend("topright", legend = bquote(paste(italic(P), "(", italic(X) >= .(x),") = ", .(p), sep = "")), bty = "n", cex = legend.cex)}
+if(show.d & show.p==FALSE){
+  legend("topright", legend = bquote(paste("", italic(f), "(", .(x), ") = ", .(d), sep = "")), bty = "n", cex = legend.cex)}
+if(show.d & show.p){
+  legend("topright", legend = bquote(paste(italic(P),"(", italic(X) >= .(x), ") = ", .(p),",  ", italic(f), "(", .(x), ") = ", .(d), sep = "")), bty = "n",cex = legend.cex)}
+if(show.dist){
+  legend("topleft", legend = bquote(paste(italic(X)," ~ ",italic(t),"(", .(nu),")", sep = "")), bty = "n", cex = legend.cex)}
 }
 
-if(tail=="two"){
-polygon(c(xv[xv<=-abs(x)],-abs(x)),c(yv[xv<=-abs(x)],yv[xv==4*sigma]),col=shade.col)
-polygon(c(abs(x),xv[xv>=abs(x)]),c(yv[xv==4*sigma],yv[xv>=abs(x)]),col=shade.col)
-p<-round(2*pt(abs(x),nu,lower.tail=FALSE),digits)
-if(show.p==TRUE)legend("topright",bty="n",cex=legend.cex,legend=bquote(paste(2%*%italic(P),"(", italic(X)>="|",.(x),"|) = ",.(p), sep = "")))
-if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(t),"(",.(nu),")", sep = "")),bty="n",cex=legend.cex)
+if(tail == "two"){
+  polygon(c(xv[xv <= -abs(x)], -abs(x)), c(yv[xv <= -abs(x)], yv[xv == m]),col = shade.col)
+  polygon(c(abs(x), xv[xv >= abs(x)]), c(yv[xv == m], yv[xv >= abs(x)]),col=shade.col)
+  p <- round(2 * pt(abs(x), nu, lower.tail = FALSE), digits)
+if(show.p){
+  legend("topright", bty = "n", cex = legend.cex, legend = bquote(paste(2 %*% italic(P), "(", italic(X) >= "|", .(x), "|) = ", .(p), sep = "")))}
+if(show.dist){
+  legend("topleft", legend = bquote(paste(italic(X)," ~ ", italic(t), "(", .(nu), ")", sep = "")), bty = "n", cex = legend.cex)}
 }
 
-if(tail=="middle"){
-polygon(c(xv[xv<=4*sigma],4*sigma),c(yv[xv<=4*sigma],yv[xv==-4*sigma]),col=shade.col)
-polygon(c(xv[xv<=from],from),c(yv[xv<=from],yv[xv==-4*sigma]),col="white")
-polygon(c(to,xv[xv>=to]),c(yv[xv==4*sigma],yv[xv>=to]),col="white")
-p<-round(pt(to,nu)-pt(from,nu),digits)
-if(show.p==TRUE)legend("topright",legend=bquote(paste(italic(P),"(",.(from)<="", italic(X)<=.(to),") = ",.(p), sep = "")),bty="n",cex=legend.cex)
-if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(t),"(",.(nu),")", sep = "")),bty="n",cex=legend.cex)
+if(tail=="two.custom"){
+  polygon(c(xv[xv <= x[1]], x[1]), c(yv[xv <= x[1]], yv[xv == - m]), col = shade.col)
+  polygon(c(x[2], xv[xv >= x[2]]), c(yv[xv == m], yv[xv >= x[2]]), col = shade.col)
+  p <- round(pt(x[1], nu), digits) + round(pt(x[2], nu, lower.tail = FALSE), digits)
+  if(show.p)
+  {legend("topright", bty = "n", cex = legend.cex, legend = bquote(paste(italic(P),"(", .(x[1]) >= "", italic(X) >= .(x[2]),") = ", .(p), sep = "")))}
+  if(show.dist) {
+    legend("topleft", legend = bquote(paste(italic(X)," ~ ", italic(t), "(", .(nu), ")", sep = "")), bty = "n", cex = legend.cex)}
+}
+
+if(tail == "middle"){
+  polygon(c(xv[xv <= m], m), c(yv[xv <= m], yv[xv == -m]),col = shade.col)
+  polygon(c(xv[xv <= from], from), c(yv[xv <= from], yv[xv == -m]),col="white")
+  polygon(c(to, xv[xv >= to]), c(yv[xv == m], yv[xv >= to]), col = "white")
+  p <- round(pt(to, nu) - pt(from, nu), digits)
+if(show.p){
+  legend("topright", legend = bquote(paste(italic(P), "(", .(from) <= "", italic(X) <= .(to), ") = ", .(p), sep = "")), bty = "n", cex = legend.cex)}
+if(show.dist==TRUE)legend("topleft",legend=bquote(paste(italic(X)," ~ ",italic(t),"(",.(nu),")", sep = "")), bty = "n", cex = legend.cex)
 }
 }
 
 #------------------------F distribution---------------------------#
 
-shade.F<-function(x=NULL,from=NULL,to=NULL,nu1=1,nu2=5,tail="lower",show.p=TRUE,show.d=FALSE,show.dist=TRUE,prob.to.each.tail=0.025,digits=5,legend.cex=.9,shade.col="gray",...){
+shade.F <- function(x = NULL, from = NULL, to = NULL, nu1 = 1, nu2 = 5, tail = "lower", show.p = TRUE, show.d = FALSE, show.dist = TRUE, prob.to.each.tail = 0.025, digits = 5, legend.cex=.9, shade.col = "gray", ...){
 sigma<-qf(.999,nu1,nu1)
 xv<-seq(0,sigma,sigma/1000)
 yv<-df(xv,nu1,nu2)

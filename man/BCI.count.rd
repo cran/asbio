@@ -26,7 +26,7 @@
 
 }
 \source{
-  \url{https://science.sciencemag.org/content/suppl/2002/01/24/295.5555.666.DC1}.
+  \url{https://www.science.org/doi/abs/10.1126/science.1066854}.
   Documentation here follows directly from \pkg{vegan}
 }
 \references{

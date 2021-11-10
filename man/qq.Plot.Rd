@@ -22,7 +22,7 @@ ylab = NULL, plot.CI = FALSE, standy = TRUE, ...)
 The response variable
 }
   \item{x}{
-A categorical variables to subset \emph{y}
+A categorical variable to subset \emph{y}
 }
   \item{col}{
 A scalar or vector with length equivalent to the number of levels in \emph{x}, describing colors of points and lines for levels in \emph{x}. 

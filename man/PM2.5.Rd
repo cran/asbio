@@ -2,7 +2,7 @@
 \alias{PM2.5}
 \docType{data}
 \title{
-PM 2.5 pollutant data from Pocatello Idaho.
+PM 2.5 pollutant data from Pocatello Idaho
 }
 \description{
 PM 2.5 pollutants (those less than 2.5 microns in diameter) can be directly emitted from sources such as forest fires, or can form when gases discharged from power plants, industries and automobiles react in the air. Once inhaled, these particles can affect the heart and lungs and cause serious health problems. The DEQ began monitoring PM 2.5 pollutants in Pocatello Idaho in November 1998. 

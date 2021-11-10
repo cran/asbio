@@ -36,16 +36,11 @@ These data concern posts published during the year 2014 on the Facebook page of 
   }
 }
 
-\source{
- Available at: \url{http://dx.doi.org/10.1016/j.jbusres.2016.02.010}
-}
 \references{
 %%  ~~ possibly secondary sources and usages ~~
-   This dataset is publicly available for research. The details are described in (Moro et al., 2016).
-   Please include this citation if you plan to use this data: 
+   This dataset is publicly available for research. The details are described in (Moro et al., 2016).  Please include this citation if you plan to use this data: 
 
-   S. Moro, P. Rita, Vala, B. (2016) Predicting social media performance metrics and evaluation of the impact on 
-   brand building: A data mining approach. Journal of Business Research 69(9): 3341-3351. 
+   S. Moro, P. Rita, Vala, B. (2016) Predicting social media performance metrics and evaluation of the impact on brand building: A data mining approach. Journal of Business Research 69(9): 3341-3351. 
  
 }
 

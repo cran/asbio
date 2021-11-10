@@ -3,8 +3,8 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = 
     lett = NULL, cex.lett = 1, names.arg = NULL, ylim = NULL, horiz = FALSE, xpd = FALSE, print.summary = TRUE,...) 
 {
 
-
-
+#------ error estimators -------#
+  
     SE <- tapply(y, x, function(x) {
     ci.mu.t(x[!is.na(x)])$SE
     })
@@ -24,7 +24,11 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = 
 		bootSE[i] <- bootstrap(y[x==lvl[i]], loc.meas)$res[4]
 		}
 	}	
-     	
+
+# scale.estimates <- data.frame(SD = SE * sqrt(n), SE = SE, CI.margin = CI, IQR = IQR, IQR.CI.margin = iqr.ci, MAD = MAD)    
+      
+#-----------------#
+       	
     loc.vec <- tapply(y, x, function(x) {
         loc.meas(x[!is.na(x)])})
     
@@ -49,9 +53,9 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = 
       iqr.ci <- iqr.ci[order]
       MAD <- MAD[order]
       names.arg <- names.arg[order]
-	if(!is.null(lett))lett <- lett[order]	
+	  if(!is.null(lett))lett <- lett[order]	
 	}
-	 
+	
     if(int == "CI") margin <- CI
     if(int == "SE") margin <- SE
     if(int == "IQR") margin <- iqr
@@ -81,5 +85,6 @@ bplot<-function (y, x, bar.col = "gray", loc.meas = mean, sort = FALSE, order = 
 					cat(paste("\n","Bars are ", deparse(substitute(loc.meas)), "s.  Errors are ", int, "s.", "\n\n", sep = ""))}
 				if(int == "CI"){
 					cat(paste("\n", "Bars are ", deparse(substitute(loc.meas)), "s.  Errors are ", conf * 100, "% confidence intervals for the true mean.", "\n\n", sep = ""))}
-				}
+			}
+invisible(b)    
 }				

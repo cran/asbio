@@ -3,7 +3,7 @@
 \docType{data}
 \title{Population levels in various countries from 1980-2006}
 \description{
-Population levels of 13 countries from 1980-2006.  Population numbers are rounded to the nearest 100,000.
+Population levels of 13 countries from 1980-2006.  Population numbers are rounded to the nearest 100,000.  More up-to-date data can be found in this package at \code{\link{world.emissions}}
 }
 \usage{data(world.pop)}
 \format{

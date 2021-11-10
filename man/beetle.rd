@@ -2,7 +2,7 @@
 \alias{beetle}
 \docType{data}
 \title{
-Wood boring beetle data.
+Wood boring beetle data
 }
 \description{
 Saint Germain et al. (2007) modeled the presence absence of a saprophytic wood boring beetle (\emph{Anthophylax attenuatus}) as a function of the wood density of twenty-four decaying aspen trees (\emph{Populus tremuloides}) in Western Quebec Canada.  

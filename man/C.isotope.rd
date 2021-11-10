@@ -37,7 +37,7 @@ Livermore, California USA  94550
 \references{
 H. D. Graven, T. P. Guilderson and R. F. Keeling, Observations of radiocarbon 
 in CO\eqn{_2} at La Jolla, California, USA 1992-2007: Analysis of the long-term trend. 
-\emph{Journal of Geophysical Research}, doi:10.1029/2011JD016533, in press.  
+\emph{Journal of Geophysical Research}, \doi{doi:10.1029/2011JD016533}.  
 }
 \keyword{datasets}
 

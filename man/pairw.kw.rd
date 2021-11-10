@@ -34,7 +34,7 @@ Returns a list of \code{class = "pairw"}.  The utility print function returns a 
 }
 \seealso{\code{\link{pairw.anova}}, \code{\link{pairw.fried}}, \code{\link{plot.pairw}}}
 \references{Kutner, M. H., Nachtsheim, C. J., Neter, J., and W. Li (2005)  \emph{Applied Linear Statistical Models, 5th edition}.  McGraw-Hill, Boston.}
-\author{Ken Aho and Richard Boyce \url{https://www.nku.edu/~boycer/}.  Richard provided an adjustment for ties.  Thanks to Paule Bodson-Clermont for pointing out issues with the default behaviour of \code{\link{rank}}, leading to incorrect answers from \code{pair.kw} given missing vaues.
+\author{Ken Aho and Richard Boyce.  Richard provided an adjustment for ties.  Thanks to Paule Bodson-Clermont for pointing out issues with the default behaviour of \code{\link{rank}}, leading to incorrect answers from \code{pair.kw} given missing vaues.
 }
 \examples{
 rye.data <- data.frame(rye = c(50, 49.8, 52.3, 44.5, 62.3, 74.8, 72.5, 80.2, 

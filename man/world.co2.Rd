@@ -3,7 +3,7 @@
 \docType{data}
 \title{World CO2 levels, by country, from 1980 to 2006}
 \description{
-The Carbon Dioxide Information Analysis Center (CDIAC) has compiled extensive data, detailing total carbon dioxide emissions from the consumption and flaring of fossil fuels (in millions of metric tons of carbon dioxide).  Data can be broken down by country.
+The Carbon Dioxide Information Analysis Center (CDIAC) has compiled extensive data, detailing total carbon dioxide emissions from the consumption and flaring of fossil fuels (in millions of metric tons of carbon dioxide).  Data can be broken down by country.  More up-to-date data can be found in this package at \code{\link{world.emissions}}.
 }
 \usage{data(world.co2)}
 \format{

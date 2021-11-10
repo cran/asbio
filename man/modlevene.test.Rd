@@ -7,12 +7,12 @@ Conducts the modified Levene's test for homoscedastic populations.
 }
 \usage{
 
-modlevene.test(x, groups)
+modlevene.test(y, x)
 }
 \arguments{
 
-  \item{x}{Vector of residuals from a linear model.}
-  \item{groups}{Vector of factor levels.}
+  \item{y}{Vector of quantitative ressponses, e.g., residuals from a linear model.}
+  \item{x}{Vector of factor levels.}
 }
 \details{
 The modified Levene's test is a test for homoscedasticity that (unlike the classic \emph{F}-test) is robust to violations of normality (Conover et al. 1981).  In a Modified Levene's test we calculate \eqn{d_{ij}=|e_{ij} - \tilde{e}_{i}|} where \eqn{\tilde{e}_i} is the \emph{i}th factor level residual median.  We then run an ANOVA on the \eqn{d_{ij}}'s.  If the \emph{p}-value is < \eqn{\alpha}, we reject the null and conclude that the population error variances are not equal.  

@@ -1,13 +1,13 @@
 Package: asbio
 Type: Package
 Title: A Collection of Statistical Tools for Biologists
-Version: 1.6-7
-Depends: R (>= 2.15), tcltk
+Version: 1.7
+Depends: R (>= 3.5.0), tcltk
 Imports: scatterplot3d, pixmap, plotrix, mvtnorm, deSolve, lattice,
         combinat, multcompView, grDevices, graphics, stats, utils,
         gWidgets2, gWidgets2tcltk
 Suggests: akima, boot, tkrplot
-Date: 2020-12-7
+Date: 2021-11-8
 SystemRequirements: BWidget
 Author: Ken Aho
 Maintainer: Ken Aho <kenaho1@gmail.com>
@@ -15,6 +15,6 @@ Description: Contains functions from: Aho, K. (2014) Foundational and Applied St
 License: GPL (>= 2)
 LazyLoad: yes
 NeedsCompilation: no
-Packaged: 2020-12-09 20:00:53 UTC; ahoken
+Packaged: 2021-11-10 22:13:02 UTC; ahoken
 Repository: CRAN
-Date/Publication: 2020-12-09 20:30:02 UTC
+Date/Publication: 2021-11-10 22:40:03 UTC

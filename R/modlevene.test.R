@@ -1,8 +1,8 @@
-modlevene.test<-function(x, groups){
-medians<-sapply(split(x,groups),median,na.rm=TRUE)
-resid.x<-abs(x-medians[groups])
+modlevene.test<-function(y, x){
+medians<-sapply(split(y,x),median,na.rm=TRUE)
+resid.y<-abs(y-medians[x])
 res<-list()
-res<-anova(lm(resid.x~groups))
+res<-anova(lm(resid.y~x))
 class(res) <- "mltest"
 res}
 
