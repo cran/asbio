@@ -75,7 +75,7 @@ chains
 }
 
 norm.hier.summary <- function(M, burn.in = 0.5, cred = 0.95, conv.log = TRUE){
-    if(class(M) != "norm.hier") stop("Input must be output from function 'mcmc.norm.hier'")
+  if(!inherits(m, "norm.hier")) stop("Input must be output from function 'mcmc.norm.hier'")
         n <- dim(M)[1]
         m <- M[(n * burn.in) : n, ,]
         vars <- dim(m)[2]

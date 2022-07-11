@@ -11,7 +11,7 @@ Weindruch et al. (1986) compared life expectancy of field mice given different d
 \format{
   A data frame with 244 observations on the following 2 variables.
   \describe{
-    \item{\code{lifespan}}{Lifespan in months}
+    \item{\code{lifespan}}{Lifespan in weeks}
     \item{\code{treatment}}{a factor with levels \code{N/N85}: Mice were fed normally both before and after weaning (the slash distinguishes pre and post weaning).  After weaning the diet consisted of 85kcal/week, a conventional total for mice rearing, 
     \code{N/R40}: Mice were fed normally before weaning, but were given a severely restricted diet of 40 kcal per week after feeding, \code{N/R50}: Mice were restricted to 50kcal per week before and after weaning,
     \code{R/R50}}: Mice were fed normally before weaning, but their diet was restricted to 50 kcal per week after weaning.

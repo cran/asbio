@@ -45,6 +45,7 @@ book.menu <- function ()
 # Chapter 1
 	tkadd(Ch1, "cascade", label = "Self-test questions", menu = questions1) #Names question menus
 		tkadd(questions1, "command", label = "Logic", command = substitute(see.logic())) # Ch 1 questions
+		tkadd(questions1, "command", label = "Scientific foundations", command = substitute(selftest.science.tck1())) # Ch 1 questions
 	tkadd(Ch1, "command", label = "Accuracy and precision", command = substitute(see.accPrec.tck())) # Ch 1
 	tkadd(topMenu, "cascade", label = "Chapter 1", menu = Ch1) # Names Ch 1
 

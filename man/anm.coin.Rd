@@ -8,11 +8,8 @@ Animated demonstration of frequentist binomial convergence of probability using 
 Creates an animated plot showing the results from coin flips, and the resulting convergence in \emph{P}(Head) as the number of flips grows large.
 }
 \usage{
-
 anm.coin(flips = 1000, p.head = 0.5, interval = 0.01, show.coin = TRUE, ...)
-
 anm.coin.tck()
-
 }
 
 \arguments{

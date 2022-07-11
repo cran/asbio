@@ -4,9 +4,9 @@
 \title{
 Monte Carlo hypothesis testing for two samples.
 }
-\description{\code{MC.test} calculates a permutation distribution of test statistics from an pooled variance \emph{t}-test.  It compares this distribution to an initial test statistic calculated using non-permuted data, to derive an empirical \emph{P}-value.}
+\description{\code{MC.test} calculates a permutation distribution of test statistics from a Welch\emph{t}-test.  It compares this distribution to an initial test statistic calculated using non-permuted data, to derive an empirical \emph{P}-value.}
 \usage{
-MC.test(Y,X, perm = 1000, alternative = "not.equal", paired = FALSE)
+MC.test(Y,X, perm = 1000, alternative = "not.equal", paired = FALSE, print = TRUE)
 }
 \arguments{
   \item{Y}{
@@ -24,9 +24,11 @@ Number of iterations.
   \item{alternative}{
 Alternative hypothesis.  One of three options: \code{"less","greater"}, or \code{"not.equal"}.  These provide lower-tail, upper-tail, and two-tailed tests.
 }
+
+\item{print}{Logical: automatically print a pretty summary of results (default).}
 }
 \details{
-The method follows the description of Manly (1998) for a two-sample test.  Upper and lower tailed tests are performed by finding the portion of the distribution greater than or equal to the observed \emph{t} test statistic (upper-tailed) or less than or equal to the observed test statistic (lower-tailed). A two tailed test is performed by multiplying the portion of the null distribution above the absolute value of the observed test statistic by two.  Results from the test will be similar to \code{oneway_test} from the library \code{coin} since it is based on an equivalent test statistic.  As with \code{t.test}, pairing is assumed to occur within levels of \emph{X}.  That is, the responses \emph{Y = 11} and \emph{Y = 2} occur in the same pair (block) below.
+The method follows the description of Manly (1998) for a two-sample test.  Upper and lower tailed tests are performed by finding the portion of the distribution greater than or equal to the observed \emph{t} test statistic (upper-tailed) or less than or equal to the observed test statistic (lower-tailed). A two tailed test is performed by multiplying the portion of the null distribution greater than or equal to the absolute value of the observed test statistic and less than or equal to the absolute value of the observed test statistic times minus one.  Results from the test will be similar to \code{oneway_test} from the library \code{coin} because it is based on an equivalent test statistic.  As with \code{t.test}, pairing is assumed to occur within levels of \emph{X}.  That is, the responses \emph{Y = 11} and \emph{Y = 2} occur in the same pair (block) below.
 
 \code{Y <- c(11,12,13,2,3,4)}
 

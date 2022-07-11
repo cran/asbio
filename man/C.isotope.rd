@@ -15,7 +15,7 @@ Atmospheric \eqn{\delta ^{14}}C (per mille) and CO\eqn{_2} (ppm) measurements fo
     \item{\code{Decimal.date}}{A numeric vector}
     \item{\code{CO2}}{CO\eqn{_2} concentration (in ppm)}
     \item{\code{D14C}}{\eqn{\delta} \eqn{^{14}}C (in per mille)}
-    \item{\code{D14C.uncertanty}}{measurement uncertainty for \code{D14C}(in per mille)}
+    \item{\code{D14C.uncertainty}}{measurement uncertainty for \code{D14C}(in per mille)}
   }
 }
 
@@ -37,7 +37,6 @@ Livermore, California USA  94550
 \references{
 H. D. Graven, T. P. Guilderson and R. F. Keeling, Observations of radiocarbon 
 in CO\eqn{_2} at La Jolla, California, USA 1992-2007: Analysis of the long-term trend. 
-\emph{Journal of Geophysical Research}, \doi{doi:10.1029/2011JD016533}.  
-}
+\emph{Journal of Geophysical Research}.}  
 \keyword{datasets}
 

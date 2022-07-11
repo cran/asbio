@@ -514,7 +514,7 @@ selftest.ttest.tck <- function(){
     svalue(r14) <- character(0)
   }
   
-  r14 <- gcheckboxgroup(ans14, container = gp14, checked = FALSE, where = "beginning")
+  r14 <- gcheckboxgroup(ans14, container = gp14, checked = FALSE, where = "beginning", handler = f14)
   
   #------------- Question 15 -----------#
   

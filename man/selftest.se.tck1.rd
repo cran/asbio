@@ -21,6 +21,7 @@
 \alias{selftest.regapproaches.tck3}
 \alias{selftest.regapproaches.tck4}
 \alias{selftest.sampd.tck1}
+\alias{selftest.science.tck1}
 \alias{selftest.se.tck1}
 \alias{selftest.stats.tck}
 \alias{selftest.stats.tck1}

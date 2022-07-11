@@ -38,10 +38,10 @@ III.F<-function(){
  tkmessageBox(message="Correct.  This is an example of a fallacious type of argument \ncalled \U0022 affirming the consequent\U0022.")}
 
 IV.T<-function(){
- tkmessageBox(message="Correct.  This is an example of a logical type of argument \ncalled \U0022 modus tollens\U0022.")}
+ tkmessageBox(message="Correct.  This is an example of a logical type of argument \ncalled \U0022 modus ponens\U0022.")}
  
 IV.F<-function(){
-  tkmessageBox(message="Inorrect.  This is a logical example of \U0022modus tollens\U0022 or\n\U0022 denying the consequent\U0022.", icon="error")}
+  tkmessageBox(message="Inorrect.  This is a logical example of \U0022modus ponens\U0022 or\n\U0022 affirming the antecedent\U0022.", icon="error")}
  
 V.T<-function(){
  tkmessageBox(message="Incorrect.  This is an example of a fallacious type of argument \ncalled \U0022 affirming the consequent\U0022.", icon="error")}
@@ -154,12 +154,12 @@ tkcreate(canvas, "text", 205, 165, text="Argument 2",
 
 tkcreate(canvas, "text", 205, 455, text="Argument 4",
              font=plotFont2)
-    tkcreate(canvas, "text", 20, 485, text="If A then B.         }Premise 1",
+    tkcreate(canvas, "text", 20, 485, text="If not A then not B.         }Premise 1",
              font=plotFont,anchor="w")                     
-    tkcreate(canvas, "text", 20, 510, text="Not A.                  }Premise 2",
+    tkcreate(canvas, "text", 20, 510, text="Not A.                               }Premise 2",
              font=plotFont, anchor="w")
     tkcreate(canvas, "line", 20, 520, 350, 520, width=1)
-    tkcreate(canvas, "text", 20, 535, text="Not B.                  }Conclusion",
+    tkcreate(canvas, "text", 20, 535, text="Not B.                               }Conclusion",
              font=plotFont, anchor="w")
     tkcreate(canvas, "text", 125, 575, text="Logically correct",
              font=plotFont2, anchor="w")

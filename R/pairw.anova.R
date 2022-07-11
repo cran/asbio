@@ -294,7 +294,7 @@ invisible(x)
 }
 
 plot.pairw <- function(x, type = 1, lcol = 1, lty = NULL, lwd = NULL, cap.length = 0.1, xlab = "", main = NULL, explanation = TRUE, ...){
-if(class(x)!="pairw") stop("Requires object of class pairw")
+if(!inherits(x, "pairw")) stop("Requires object of class pairw")
     if(type == 1){
         levels <- factor(names(x$fitted))
         cont <- outer(levels, levels, function(x1,x2)paste(x1,x2,sep="-"))

@@ -6,7 +6,6 @@ importFrom(scatterplot3d, scatterplot3d)
 importFrom(mvtnorm, dmvnorm, rmvnorm, qmvt) 
 importFrom(lattice, wireframe)
 importFrom(deSolve, rk4)
-importFrom(combinat, permn)
 importFrom(plotrix, draw.circle, staxlab, thigmophobe)
 importFrom(multcompView, multcompLetters)
 importFrom(grDevices, hcl.colors, col2rgb, dev.capabilities, dev.cur, dev.flush, dev.hold, dev.list, dev.new, dev.off, dev.set, graphics.off, gray, heat.colors, rainbow, rgb)
@@ -28,6 +27,7 @@ import(
 
 # Method registration -print
 S3method(print, addtest)
+S3method(print, max_agree)
 S3method(print, bci)
 S3method(print, BDM)
 S3method(print, blm)

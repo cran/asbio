@@ -8,7 +8,6 @@ g <- ggroup(container=w, horizontal=FALSE, use.scrollwindow = TRUE)
 
 #------------- Question 1 -----------#
 
-
 gp1 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
 gp1.1 <- ggroup(container = gp1, spacing = 2, pos = 0, horizontal = TRUE)
 q <- glabel("1) ", container = gp1.1, horizontal = TRUE)
@@ -223,13 +222,13 @@ gp8 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
 gp8.1 <- ggroup(container = gp8, spacing = 2, pos = 0, horizontal = TRUE)
 q <- glabel("8) ", container = gp8.1, horizontal = TRUE)
 font(q) <- list(weight = "bold")
-qq <- glabel("Which equation defines Bayes rule?", container = gp8.1, anchor = c(-1,1))
+qq <- glabel("In a plant growth experiment, I have three watering treatments and two nutrient treatments.\nHow many total treatment combinations do I have?", container = gp8.1, anchor = c(-1,1))
 font(qq) <- list(family = "cambria", size = 11)
 
-ans8 <- c("(a)     P(data|\u03B8) = P(\u03B8|data)P(\u03B8)/P(data).", 
-          "(b)     P(\u03B8|data) = P(data|\u03B8)P(\u03B8)/P(data).",
-          "(c)     P(\u03B8) = P(data|\u03B8)P(\u03B8|data)/P(data).",
-          "(d)     P(data) = P(data|\u03B8)P(\u03B8|data)/P(\u03B8).")
+ans8 <- c("(a)     5", 
+          "(b)     2",
+          "(c)     6",
+          "(d)     Impossible to say.")
 
 
 f8 <- function(h,....){
@@ -237,10 +236,10 @@ f8 <- function(h,....){
     gmessage(msg="Incorrect",  icon = "error")
   }
   if(tail(svalue(r8),1)== ans8[2]){
-    gmessage(msg="Correct")
+    gmessage(msg="Incorrect", icon = "error")
   }
   if(tail(svalue(r8),1)== ans8[3]){
-    gmessage(msg="Incorrect", icon = "error")
+    gmessage(msg="Correct")
   }
   if(tail(svalue(r8),1)== ans8[4]){
     gmessage(msg="Incorrect", icon = "error")
@@ -249,6 +248,74 @@ f8 <- function(h,....){
 }
 
 r8 <- gcheckboxgroup(ans8, container = gp8, checked = FALSE, where = "beginning", handler = f8)
+
+#------------- Question 9 -----------#
+
+gp9 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
+gp9.1 <- ggroup(container = gp9, spacing = 2, pos = 0, horizontal = TRUE)
+q <- glabel("9) ", container = gp9.1, horizontal = TRUE)
+font(q) <- list(weight = "bold")
+qq <- glabel("5 choose 3 = ", container = gp9.1, anchor = c(-1,1))
+font(qq) <- list(family = "cambria", size = 11)
+
+ans9 <- c("(a)     10", 
+          "(b)     5",
+          "(c)     3",
+          "(d)     1")
+
+
+f9 <- function(h,....){
+  if(tail(svalue(r9),1) == ans9[1]){
+    gmessage(msg="Correct")
+  }
+  if(tail(svalue(r9),1)== ans9[2]){
+    gmessage(msg="Incorrect", icon = "error")
+  }
+  if(tail(svalue(r9),1)== ans9[3]){
+    gmessage(msg="Incorrect", icon = "error")
+  }
+  if(tail(svalue(r9),1)== ans9[4]){
+    gmessage(msg="Incorrect", icon = "error")
+  }
+  svalue(r8) <- character(0)  
+}
+
+r9 <- gcheckboxgroup(ans9, container = gp9, checked = FALSE, where = "beginning", handler = f9)
+
+
+
+#------------- Question 10 -----------#
+
+gp10 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
+gp10.1 <- ggroup(container = gp10, spacing = 2, pos = 0, horizontal = TRUE)
+q <- glabel("10) ", container = gp10.1, horizontal = TRUE)
+font(q) <- list(weight = "bold")
+qq <- glabel("Which equation defines Bayes rule?", container = gp10.1, anchor = c(-1,1))
+font(qq) <- list(family = "cambria", size = 11)
+
+ans10 <- c("(a)     P(data|\u03B8) = P(\u03B8|data)P(\u03B8)/P(data).", 
+          "(b)     P(\u03B8|data) = P(data|\u03B8)P(\u03B8)/P(data).",
+          "(c)     P(\u03B8) = P(data|\u03B8)P(\u03B8|data)/P(data).",
+          "(d)     P(data) = P(data|\u03B8)P(\u03B8|data)/P(\u03B8).")
+
+
+f10 <- function(h,....){
+  if(tail(svalue(r10),1) == ans10[1]){
+    gmessage(msg="Incorrect",  icon = "error")
+  }
+  if(tail(svalue(r10),1)== ans10[2]){
+    gmessage(msg="Correct")
+  }
+  if(tail(svalue(r10),1)== ans10[3]){
+    gmessage(msg="Incorrect", icon = "error")
+  }
+  if(tail(svalue(r10),1)== ans10[4]){
+    gmessage(msg="Incorrect", icon = "error")
+  }
+  svalue(r10) <- character(0)  
+}
+
+r10 <- gcheckboxgroup(ans10, container = gp10, checked = FALSE, where = "beginning", handler = f10)
 
 
 }
