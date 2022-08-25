@@ -7,7 +7,7 @@ UTM northing and easting data along with 18 other environmental variables descri
 Starkey experimental forest. 
 }
 \usage{data(starkey)}
-\source{
-\url{https://www.fs.fed.us/pnw/starkey/data/tables/Starkey_OR_Main_Habitat_1993-1996_Data.txt
-}}
+%\source{
+%\url{https://www.fs.fed.us/pnw/starkey/data/tables/Starkey_OR_Main_Habitat_1993-1996_Data.txt
+%}}
 \keyword{datasets}

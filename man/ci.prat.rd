@@ -80,7 +80,7 @@ Adjusted-log \tab \eqn{\hat{\theta}_{Ai}\times} exp\eqn{(\pm z_1-\alpha /2\hat{\
 
 % Bailey
 Bailey \tab \eqn{\hat{\theta} _i\left[\frac{1\pm z_1-\left( \alpha /2 \right)\left( \hat{\pi}_{1i}'/y_{1i}+\hat{\pi}_{2i}'/y_{2i}-z_1-\left(\alpha/2 \right)^2\hat{\pi} _{1i}'\hat{\pi}_{2i}'/9y_{1i}y_{2i} \right)^{1/2}/3}{1-z_{1-\left(\alpha/2 \right)^2}\hat{\pi} _{2i}'/9y_{2i}} \right]^3},\cr 
-\tab where \eqn{\hat{\pi_{1i}}'} = 1 - \eqn{\hat{\pi}_{1i}}, and \eqn{\hat{\pi}_{2i}'} = 1 - \eqn{\hat{\pi}_{2i}}.\cr
+\tab where \eqn{\hat{\pi}_{1i}'} = 1 - \eqn{\hat{\pi}_{1i}}, and \eqn{\hat{\pi}_{2i}'} = 1 - \eqn{\hat{\pi}_{2i}}.\cr
 \tab \cr
 
 % Inv sin
@@ -91,8 +91,8 @@ Inv. hyperbolic sine \tab \eqn{\ln({{\hat{\theta }}_{i}})\pm \left[ 2sin{{h}^{-1
 Koopman \tab Find \eqn{X^2(\theta_0)} = \eqn{\chi _1^2(1 - \alpha)}, where \cr
 \tab  \eqn{{{\tilde{\pi }}_{1i}}=\frac{{{\theta }_{0}}({{n}_{1}}+{{y}_{2i}})+{{y}_{1i}}+{{n}_{2}}-{{[{{\{{{\theta }_{0}}({{n}_{1}}+{{y}_{2i}})+{{y}_{1i}}+
 {{n}_{2}}\}}^{2}}-4{{\theta }_{0}}({{n}_{1}}+{{n}_{2}})({{y}_{1i}}+{{y}_{2i}})]}^{0.5}}}{2({{n}_{1}}+{{n}_{2}})}}, \cr
-\tab \eqn{{{\tilde{\pi }}_{2i}}=\frac{{{{\tilde{\pi }}}_{1i}}}{{{\theta }_{0}}}$, and ${{X}^{2}}({{\theta}_{0}})=\frac{{{\left( {{y}_{1i}}-{{n}_{1}}{{{\tilde{\pi }}}_{1i}} \right)}^{2}}}
-{{{n}_{1}}{{{\tilde{\pi }}}_{1i}}(1-{{{\tilde{\pi }}}_{1i}})}\left\{ 1+\frac{{{n}_{1}}({{\theta}_{0}}-{{{\tilde{\pi }}}_{1i}})}{{{n}_{2}}(1-{\tilde{\pi}_{1i}})} \right\}}. \cr 
+
+\tab \eqn{\tilde{\pi}_{2i}=\frac{{{{\tilde{\pi }}}_{1i}}}{{{\theta }_{0}}}}, and \eqn{X^2(\theta_0)=\frac{\left(y_{1i}-n_1\tilde{\pi}_{1i}\right)^2}{n_1 \tilde{\pi }_{1i}(1-\tilde{\pi}_{1i})}\left\{1+\frac{n_1(\theta_0-\tilde{\pi}_{1i})}{n_2(1-\tilde{\pi}_{1i})} \right\}}. \cr 
 \tab \cr
 %% Noether
 Noether \tab \eqn{\hat{\theta}_i\pm z_1-\alpha/2\hat{\sigma}_N},   \cr
