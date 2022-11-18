@@ -1,4 +1,4 @@
-01a0a1184edd3c7b633af547ecb8446c *DESCRIPTION
+b16a41c344dd6fb6f5ee1168b524377b *DESCRIPTION
 69581782881c00cf2e195fcbac3062d8 *NAMESPACE
 45a25a74a3b6286e150292f0449adc68 *R/AP.test.R
 1206fc5923286f82354ba1938bb135de *R/BDM.test.R
@@ -193,7 +193,7 @@ a8ca07289bf7b5819d8ff85e2242eca0 *R/stan.error.R
 9728b2a19d069ec869cce60d0efb89b7 *R/trim.test.R
 1fbdad871e13114cc5b53b7fd2fe0733 *R/tukey.add.test.r
 48d2a2c418b557b94625d7058049ab14 *R/win.R
-5e2f8e2924fb621edc0bd500ee8f8418 *build/vignette.rds
+865bc91662916acfc6e519b67bbba282 *build/vignette.rds
 5d5373febbd5e587ed3578edc8dee1cb *data/BCI.count.rda
 27fb884c08cfb11676654a1edf238061 *data/BCI.plant.rda
 2e2a3befcd99adbc086338efb2bd1615 *data/C.isotope.rda
@@ -270,7 +270,7 @@ ac5e5d0e877357d15246afa387c5e270 *data/pika.rda
 35b0b86f926937a4f1806e3659bf3ada *data/polyamine.rda
 4ea23b9468b0825d125186ad824fd582 *data/portneuf.rda
 5336bbb6d51ff8a9043dad32d4521ef9 *data/potash.rda
-f7eb18213ac9876643496f7f538fcfa2 *data/potato.rda
+f0900ac8314179c73d12dd634bb973df *data/potato.rda
 39938376ed21a1190bc1d24727b355cd *data/prostate.rda
 ede813e1b927d428814f6f1b6ec89a91 *data/quail.sel.rda
 963031084b5f1644ca0ebed3745cce25 *data/rat.rda
@@ -298,10 +298,10 @@ ada771ca1b87264108e32791a7fa8ad4 *data/wine.rda
 c9a930b0c172af2cb9557d5ac68fdcb8 *data/world.emissions.rda
 2a2bb19db449069d2935266faa04e1ae *data/world.pop.rda
 a8c6c9a7cd3cebabfd9d79f0e70d816a *inst/doc/ranef.cov.R
-602a6f1cf5ace1b06f90e01ba39a7c37 *inst/doc/ranef.cov.pdf
+0ac38155273d959cd871d40267df7e4d *inst/doc/ranef.cov.pdf
 f8437cdccb07d418c6eeb3423a01bd2d *inst/doc/ranef.cov.rnw
 0798bdbf038efe20357f00e6f883cbae *inst/doc/simpson.R
-d88e737ba640be754c9b556fbd1b1e4f *inst/doc/simpson.pdf
+b7676d1613380075dbbfb331dff27ed3 *inst/doc/simpson.pdf
 9bb7dddf457b790a8a5cd4304aa99bae *inst/doc/simpson.rnw
 0bf33f6b3b89c1650d81a9d8959a1d7c *inst/pictures/goat1.pgm
 b4a97a18ffc76072a4fc53f3bdc0bd41 *inst/pictures/goat3.pgm
@@ -454,7 +454,7 @@ a39b1f450da1916ccb91583ec30c1caf *man/pika.rd
 91df0c290526d5a147dd678e64b63614 *man/polyamine.rd
 6d5d11c1c5bd7274bf5ba2586310488b *man/portneuf.Rd
 bc993001aa30e3c5fc30bbe448c0f1a0 *man/potash.Rd
-4dce5345a5e8608258ea761811f596b1 *man/potato.rd
+ae4e11cb520126cce0d5bc56ab175d7a *man/potato.rd
 b0dfbc32cd7b7997830a8d98920be420 *man/power.z.test.Rd
 553e5e76295badb98f0eb0b2a31242ba *man/press.rd
 caf9179ac846e69a424244ceb9abcc85 *man/prostate.rd

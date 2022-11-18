@@ -5,8 +5,7 @@
 
 }
 \description{
-In his "Statistical Methods for Research Workers" Fisher (1925) introduced the world to ANOVA using data from the famous Rothamsted Agricultural Experimental Station.  
-In one example Fisher compared potato yield (per plant) for twelve potato varieties and three fertilizer treatments (a basal manure application, along with sulfur and chloride addition).   
+In his "Statistical Methods for Research Workers" Fisher (1925) introduced the world to ANOVA using data from the  Rothamsted Agricultural Experimental Station.  In one example, Fisher compared potato yield (per plant) for twelve potato varieties and three fertilizer treatments (a basal manure application, along with sulfur and chloride addition).   
 Three replicates were measured for each of the 12 x 3 = 36 treatment combinations. 
 }
 \usage{data(potato)}
@@ -21,6 +20,8 @@ Three replicates were measured for each of the 12 x 3 = 36 treatment combination
 }
 \source{
 Fisher, R. A. (1925)  \emph{Statistical Methods for Research Workers, 1st edition}.  Oliver and Boyd,  Edinburgh
+
+Thanks to Bob O'Hara for finding a data entry error for this dataset for versions of asbio <= 1.8-2.
 }
 \keyword{datasets}
 
