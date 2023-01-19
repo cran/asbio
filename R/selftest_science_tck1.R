@@ -64,10 +64,10 @@ selftest.science.tck1 <-function(){
       gmessage(msg="Incorrect",  icon = "error")
     }
     if(tail(svalue(r2),1)== ans2[3]){
-      gmessage(msg="Correct")
+      gmessage(msg="Incorrect",  icon = "error")
     }
     if(tail(svalue(r2),1)== ans2[4]){
-      gmessage(msg="Incorrect", icon = "error")
+      gmessage(msg="Correct")
     }
     svalue(r2) <- character(0)
   }
@@ -176,7 +176,7 @@ century onward) development of the scientific method, all but which of the follo
   gp6.1 <- ggroup(container = gp6, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("6) ", container = gp6.1, horizontal = TRUE)
   font(q) <- list(weight = "bold")
-  qq <- glabel("Galileo demonstrated the characteristics of gravity using...", container = gp6.1, anchor = c(-1,1))
+  qq <- glabel("Galileo initially demonstrated the characteristics of gravity using...", container = gp6.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
   ans6 <- c("(a) controlled experiments.",

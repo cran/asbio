@@ -158,8 +158,8 @@ qq <- glabel("The binomial coefficeint, i.e., n choose r, is equivelent to:", co
 font(qq) <- list(family = "cambria", size = 11)
 
 ans6 <- c("(a)     n!/(n-r)!", 
-          "(b)     r!/n!(n-r)!",
-          "(c)     n!/r!(n-r)!",
+          "(b)     r!/[n!(n-r)]!",
+          "(c)     n!/[r!(n-r)]!",
           "(d)     n!/r!")
 
 
@@ -199,7 +199,7 @@ ans7 <- c("(a)     120",
 
 f7 <- function(h,....){
   if(tail(svalue(r7),1) == ans7[1]){
-    gmessage(msg="Correct.  This is is equivelmnt to 5!.")
+    gmessage(msg="Correct.  This is is equivelent to 5!.")
   }
   if(tail(svalue(r7),1)== ans7[2]){
     gmessage(msg="Incorrect", icon = "error")
@@ -284,19 +284,20 @@ r9 <- gcheckboxgroup(ans9, container = gp9, checked = FALSE, where = "beginning"
 
 
 
+
 #------------- Question 10 -----------#
 
 gp10 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
 gp10.1 <- ggroup(container = gp10, spacing = 2, pos = 0, horizontal = TRUE)
 q <- glabel("10) ", container = gp10.1, horizontal = TRUE)
 font(q) <- list(weight = "bold")
-qq <- glabel("Which equation defines Bayes rule?", container = gp10.1, anchor = c(-1,1))
+qq <- glabel("0! = ", container = gp10.1, anchor = c(-1,1))
 font(qq) <- list(family = "cambria", size = 11)
 
-ans10 <- c("(a)     P(data|\u03B8) = P(\u03B8|data)P(\u03B8)/P(data).", 
-          "(b)     P(\u03B8|data) = P(data|\u03B8)P(\u03B8)/P(data).",
-          "(c)     P(\u03B8) = P(data|\u03B8)P(\u03B8|data)/P(data).",
-          "(d)     P(data) = P(data|\u03B8)P(\u03B8|data)/P(\u03B8).")
+ans10 <- c("(a)     0.", 
+           "(b)     1.",
+           "(c)     2.",
+           "(d)     3.")
 
 
 f10 <- function(h,....){
@@ -317,6 +318,39 @@ f10 <- function(h,....){
 
 r10 <- gcheckboxgroup(ans10, container = gp10, checked = FALSE, where = "beginning", handler = f10)
 
+
+#------------- Question 11 -----------#
+
+gp11 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
+gp11.1 <- ggroup(container = gp11, spacing = 2, pos = 0, horizontal = TRUE)
+q <- glabel("11) ", container = gp11.1, horizontal = TRUE)
+font(q) <- list(weight = "bold")
+qq <- glabel("Which equation defines Bayes rule?", container = gp11.1, anchor = c(-1,1))
+font(qq) <- list(family = "cambria", size = 11)
+
+ans11 <- c("(a)    P(data|\u03B8) = P(\u03B8|data)P(\u03B8)/P(data).", 
+          "(b)     P(\u03B8|data) = P(data|\u03B8)P(\u03B8)/P(data).",
+          "(c)     P(\u03B8) = P(data|\u03B8)P(\u03B8|data)/P(data).",
+          "(d)     P(data) = P(data|\u03B8)P(\u03B8|data)/P(\u03B8).")
+
+
+f11 <- function(h,....){
+  if(tail(svalue(r11),1) == ans11[1]){
+    gmessage(msg="Incorrect",  icon = "error")
+  }
+  if(tail(svalue(r11),1)== ans11[2]){
+    gmessage(msg="Correct")
+  }
+  if(tail(svalue(r11),1)== ans11[3]){
+    gmessage(msg="Incorrect", icon = "error")
+  }
+  if(tail(svalue(r11),1)== ans11[4]){
+    gmessage(msg="Incorrect", icon = "error")
+  }
+  svalue(r11) <- character(0)  
+}
+
+r11 <- gcheckboxgroup(ans10, container = gp11, checked = FALSE, where = "beginning", handler = f11)
 
 }
 

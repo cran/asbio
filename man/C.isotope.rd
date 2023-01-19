@@ -21,22 +21,16 @@ Atmospheric \eqn{\delta ^{14}}C (per mille) and CO\eqn{_2} (ppm) measurements fo
 
 \source{
 H. D. Graven, R. F. Keeling, A. F. Bollenbacher                                 
-Scripps CO\eqn{_2} Program (\url{http://scrippsco2.ucsd.edu
-})                                      
-Scripps Institution of Oceanography (SIO)                                               
-University of California                                                                
-La Jolla, California USA 92093-0244                                                     
-
+Scripps CO\eqn{_2} Program Scripps Institution of Oceanography (SIO) 
+University of California, La Jolla, California USA 92093-0244                                                     
 and
                                                                                    
-T. P. Guilderson                                                                        
-Center for Accelerator Mass Spectrometry (CAMS)                                         
-Lawrence Livermore National Laboratory (LLNL)                                           
+T. P. Guilderson Center for Accelerator Mass Spectrometry (CAMS) 
+Lawrence Livermore National Laboratory (LLNL)  
 Livermore, California USA  94550
 }
 \references{
 H. D. Graven, T. P. Guilderson and R. F. Keeling, Observations of radiocarbon 
-in CO\eqn{_2} at La Jolla, California, USA 1992-2007: Analysis of the long-term trend. 
-\emph{Journal of Geophysical Research}.}  
+in CO\eqn{_2} at La Jolla, California, USA 1992-2007: Analysis of the long-term trend. \emph{Journal of Geophysical Research}.}  
 \keyword{datasets}
 
