@@ -2,6 +2,7 @@
 \alias{selftest.ANVOVA_design.tck}
 \alias{selftest.ANOVAsiminf.tck1}
 \alias{selftest.ANOVAmixed.tck1}
+\alias{selftest.ANVOVA_design_review.tck}
 \alias{selftest.corr.tck1}
 \alias{selftest.conf.tck1}
 \alias{selftest.bayes4.tck}
@@ -12,6 +13,7 @@
 \alias{selftest.nonparametric6.tck}
 \alias{selftest.pdfs.tck}
 \alias{selftest.prob.tck}
+\alias{selftest.regGLM.tck1}
 \alias{selftest.regchar.tck1}
 \alias{selftest.regdiag.tck1}
 \alias{selftest.regdiag.tck2}

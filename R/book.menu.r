@@ -151,6 +151,8 @@ book.menu <- function ()
 			command = substitute(selftest.regdiag.tck1())) # Ch 9 questions
 	tkadd(questions9, "command", label = "Regression approaches", 
 	      command = substitute(selftest.regapproaches.tck1())) # Ch 9 questions
+	tkadd(questions9, "command", label = "Generalized linear models", 
+	      command = substitute(selftest.regGLM.tck1())) # Ch 9 questions
 	tkadd(Ch9, "command", label = "Linear models (Regression)", 
 		command = substitute(see.lmr.tck())) # Ch 9
 	tkadd(Ch9, "command", label = "Non-linear models", 
@@ -171,6 +173,8 @@ book.menu <- function ()
 	
 # Chapter 10
 	tkadd(Ch10, "cascade", label = "Self-test questions", menu = questions10) #Names question menus
+	tkadd(questions10, "command", label = "ANOVA review", 
+	      command = substitute(selftest.ANVOVA_design_review.tck())) # Ch 10 questions
 	tkadd(questions10, "command", label = "Simultaneous inference", 
 			command = substitute(selftest.ANOVAsiminf.tck1())) # Ch 10 questions
 	tkadd(questions10, "command", label = "Mixed effect models", 

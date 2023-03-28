@@ -112,7 +112,7 @@ see.t.tck<-function ()
     tkpack(tklabel(m,text="      Visualizing the t Distribution      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = '\u03b7',font=c("Helvetica","9","italic"), width = "20"), side = "right")
+    tkpack(tklabel(fr, text = '\u03bd',font=c("Helvetica","9","italic"), width = "20"), side = "right")
     tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
         to = 15, orient = "horiz", resolution = 1, showvalue = TRUE), 
         side = "left")
