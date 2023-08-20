@@ -32,7 +32,7 @@ All distributions are standardized to have an area of one.
 \references{
 Kenney, J. F. and E. S. Keeping (1951) \emph{Mathematics of Statistics, Pt. 2, 2nd ed}. Van Nostrand, Princeton, NJ. 
 
-Weisstein, E. W. (2012) Correlation Coefficient--Bivariate Normal Distribution. From MathWorld--A Wolfram Web Resource. http://mathworld.wolfram.com/CorrelationCoefficientBivariateNormalDistribution.html 
+Weisstein, E. W. (2012) Correlation Coefficient--Bivariate Normal Distribution. From MathWorld--A Wolfram Web Resource. \url{http://mathworld.wolfram.com/CorrelationCoefficientBivariateNormalDistribution.html} 
 }
 \author{
 Ken Aho
@@ -41,7 +41,7 @@ Ken Aho
 \code{\link{cor}}
 }
 \examples{
-dev.new(height=3.5)
+# dev.new(height=3.5)
 op <- par(mfrow=c(1,2),mar=c (0,0,1.5,3), oma = c(5, 4.2, 0, 0))
 vals <- r.dist(0.9, seq(-1, 1, .001), 5)
 plot(seq(-1, 1, .001), vals, type = "l",ylab = "", xlab = "")

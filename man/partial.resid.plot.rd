@@ -24,6 +24,7 @@ Returns \emph{p} partial residual plots, where \emph{p} = the number of explanat
 \author{Ken Aho}
 \seealso{\code{\link{partial.R2}}}
 \examples{
+if(interactive()){
 Soil.C<-c(13,20,10,11,2,25,30,25,23)
 Soil.N<-c(1.2,2,1.5,1,0.3,2,3,2.7,2.5)
 Slope<-c(15,14,16,12,10,18,25,24,20)
@@ -33,6 +34,7 @@ x <- lm(Y ~ Soil.N + Soil.C + Slope + Aspect)
 op <- par(mfrow=c(2,2),mar=c(5,4,1,1.5))
 partial.resid.plot(x)
 par(op)
+}
 }
 \keyword{univar}
 \keyword{graphs}

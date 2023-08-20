@@ -27,5 +27,5 @@ The dataframe contains 16 columns
 \item{\code{World.Total}}{CO\eqn{_2} emissions totals for the world...}
   }
 }
-\source{Carbon Dioxide Information Analysis Center (CDIAC); \url{https://cdiac.ess-dive.lbl.gov/trends/emis/tre_coun.html}}
+\source{The U.S. Carbon Dioxide Information Analysis Center (CDIAC).}
 \keyword{datasets}

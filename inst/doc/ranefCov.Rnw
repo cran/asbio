@@ -1,0 +1,125 @@
+%\VignetteIndexEntry{Random and mixed effect covariance structures}
+\documentclass{article}
+\usepackage{graphicx}
+
+\begin{document}
+
+\title{Random and mixed effect covariance structures}
+\author{Ken Aho}
+
+\maketitle
+
+\section{One way random effects model}
+
+Consider the one way random effects model model: 
+\begin{equation}
+{{Y}_{ij}}=\mu +{{\alpha }_{i}}+{{\varepsilon }_{ij}}
+\end{equation}
+
+We assume $\alpha_{i}\sim\emph{N}(0, \sigma^{2}_{A})$, $\varepsilon_{ij}\sim\emph{N}(0,\sigma^{2})$, $\alpha_{i}$'s are independent, $\varepsilon_{ij}$'s are independent, and that $\alpha_{i}\perp\varepsilon_{ij}$.  However unlike fixed effect models $\emph{Y}_{ij}$'s are only assumed to be independent if they are from different random factor levels.  Observations from the same factor level will have covariance $\sigma^{2}_{A}$.  \\   
+
+For instance, let there be two levels for the random factor \emph{A} and two observations for each level.  The variance-covariance matrix of \emph{Y} is: \\
+
+\begin{equation}
+\mathbf{\sigma^{2}_{Y}}=
+\left[ {\begin{array}{cccc}
+\sigma^{2}_{Y} & \sigma^{2}_{A} & 0 & 0 \\
+\sigma^{2}_{A} & \sigma^{2}_{Y} & 0 & 0 \\
+0 & 0 & \sigma^{2}_{Y} & \sigma^{2}_{A} \\
+0 & 0 & \sigma^{2}_{A} & \sigma^2_{Y} \\
+       \end{array} } \right]
+\end{equation}
+
+
+\section{Repeated measures}
+
+As with RBDs with random blocks and split plot mixed models, repeated measures models assume that the random between block (subject) effects are independent, normal, and  homoscedastic.  The covariance structure for random within-subjects effects (repeated measurements) is potentially very complex given non-independence, and is defined by series of \emph{K} x \emph{K} within-subject covariance matrices, denote $\mathbf{\Sigma}$.  In $\mathbf{\Sigma}$ \emph{K} is the number of time frames that the subject is observed (because missing observations are allowed, \emph{K} need not be equal across all subjects).  The covariance structure will encompass the error structure of the marginal residuals because they are defined at the level of individual observations.  The diagonal of $\mathbf{\Sigma}$ will contain variances for each time frame while the off-diagonal elements will contain the covariances among time frames.  Taken together, the  matrices constitute the diagonal of a conceptual block matrix denoted $\mathbf{V}$, that defines the marginal error covariance structure (cf. Littell et al. 2006).  Below is an example in which two experimental units are each measured at two time frames. 
+\\
+\begin{equation}
+\mathbf{V}=\left[ {\begin{array}{cc}
+   \mathbf{\Sigma } & 0  \\
+   0 & \mathbf{\Sigma }  \\
+\end{array}} \right]
+\end{equation}
+
+The off-diagonal element at the intersection of row 2 and column 1 (and column 2 and row 1) is the covariance of observation one and two in random factor level one, $\sigma^2_A$.  The off-diagonal element at the intersection of row 3 and column 4 (and column 3 and row 4) is the covariance of observation one and two in random factor level two.  This is also defined to be $\sigma^2_A$. Because both random factor levels came from the same factor, $A$, they will have the same within-factor-level covariance.  
+
+\subsection{Diagonal or independent structure}
+The simplest possible structure for the $\Sigma$ matrix is the \textbf{diagonal} structure which has equal variances and covariances of zero.\\
+\begin{equation}
+\mathbf{\Sigma}=\mathbf{I}\sigma^{2}=
+\left[ {\begin{array}{cccc}
+   \sigma^{2} & 0 & \ldots  & 0  \\
+   0 & \sigma^{2} & \cdots  & 0  \\
+   \vdots  & \vdots  & \ddots  & \vdots \\
+   0 & 0 & \cdots  & \sigma^{2}  \\
+\end{array} } \right]
+\end{equation}
+
+thus,
+\begin{equation}
+\mathbf{\Sigma}=\sigma^{2}
+\left[ {\begin{array}{cccc}
+   1 & 0 & \ldots  & 0  \\
+   0 &1 & \cdots  & 0  \\
+   \vdots  & \vdots  & \ddots  & \vdots \\
+   0 & 0 & \cdots  & 1 \\
+\end{array} } \right]
+\end{equation}
+
+\subsection{Compound symmetry}
+A second covariance form is the \textbf{compound symmetry} structure, which has equal variances and equal (non-zero) covariances.\\
+ 
+\begin{equation}
+\mathbf{\Sigma}=
+\left[ {\begin{array}{cccc}
+   \sigma^{2} & \sigma_{1} & \ldots  & \sigma_{1}  \\
+   \sigma_{1}  & \sigma^{2} & \cdots  & \sigma_{1} \\
+   \vdots  & \vdots  & \ddots  & \vdots   \\
+   \sigma_{1} & \sigma_{1} & \cdots  & \sigma^{2}   \\
+\end{array}} \right]
+\end{equation}
+
+thus,
+
+\begin{equation}
+\mathbf{\Sigma}=\sigma^{2}
+\left[ {\begin{array}{cccc}
+   1 & \rho & \ldots  & \rho  \\
+   \rho  & 1 & \cdots & \rho \\
+   \vdots  & \vdots  & \ddots  & \vdots   \\
+   \rho & \rho & \cdots  & 1   \\
+\end{array}} \right]
+\end{equation}
+
+
+\subsection{AR1}
+A third covariance structure, useful for modeling first order temporal autocorrelation, is the \textbf{AR(1)} structure:\\
+ 
+\begin{equation}
+\mathbf{\Sigma}=
+\left[ {\begin{array}{cccc}
+   {{\sigma }^{2}} & {{\sigma }^{2}}\rho  & \ldots  & {{\sigma }^{2}}{{\rho }^{{{n}_{i}}-1}}  \\
+   {{\sigma }^{2}}\rho  & {{\sigma }^{2}} & \cdots  & {{\sigma }^{2}}{{\rho }^{{{n}_{i}}-2}}  \\
+   \vdots  & \vdots  & \ddots  & \vdots   \\
+   {{\sigma }^{2}}{{\rho }^{{{n}_{i}}-1}} & {{\sigma }^{2}}{{\rho }^{{{n}_{i}}-2}} & \cdots  & {{\sigma }^{2}}  \\
+\end{array}} \right]
+\end{equation}
+
+thus,
+
+\begin{equation}
+\mathbf{\Sigma}=\sigma^{2}
+\left[ {\begin{array}{cccc}
+   1 & \rho  & \ldots  & \rho^{n_{i-1}}  \\
+   \rho  & 1 & \cdots  & \rho^{n_{i-2}}  \\
+   \vdots  & \vdots  & \ddots  & \vdots   \\
+   \rho^{n_{i-1}} & \rho^{n_{i-2}} & \cdots  & 1 \\
+\end{array}} \right]
+\end{equation}
+
+\subsection{Unstructured}
+The most complex covariance structure is unstructured covariance or general covariance in which the within subject errors for each pair of time intervals can have unique correlations.  
+
+\end{document}
+

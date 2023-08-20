@@ -171,7 +171,7 @@ book.menu <- function ()
 		command = substitute(see.smooth.tck())) # Ch 9
 	tkadd(topMenu, "cascade", label = "Chapter 9", menu = Ch9) # Names Ch 9
 	
-# Chapter 10
+		# Chapter 10
 	tkadd(Ch10, "cascade", label = "Self-test questions", menu = questions10) #Names question menus
 	tkadd(questions10, "command", label = "ANOVA review", 
 	      command = substitute(selftest.ANVOVA_design_review.tck())) # Ch 10 questions
@@ -189,7 +189,9 @@ book.menu <- function ()
 		command = substitute(see.mixedII())) # Ch 10
 	tkadd(Ch10, "command", label = "Linear models (ANOVA)", 
 		command = substitute(see.lma.tck())) # Ch 10
-	tkadd(Ch10, "command", label = "Type I, II, III sums of squares", 
+	tkadd(Ch10, "command", label = "Type I, II, III SS dichotomous key", 
+	      command = substitute(example(see.lmu.tck)))
+	tkadd(Ch10, "command", label = "Type I, II, III SS and unballanced designs", 
 		command = substitute(see.lmu.tck())) # Ch 10
 	tkadd(Ch10, "command", label = "Random effects", 
 		command = substitute(see.rEffect.tck())) # Ch 10

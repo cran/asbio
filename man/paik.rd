@@ -71,9 +71,11 @@ par(mar=c(4,2,0,2))
 paik(verdict ~ v.race + d.race, counts = count, data = death.penalty, 
 xlab = "Victims race", leg.title = "Defendants race",leg.loc="topleft", 
 ylab = "", yaxt = "n")
-
-message("Type: vignette(\"simpson\") for more information about this figure")
 par(op)
+
+if(interactive()){
+if(any(names(sessionInfo()$otherPkgs)=="asbio")) vignette(package = "asbio", "simpson")
+}
 }
 \keyword{graphs}
 

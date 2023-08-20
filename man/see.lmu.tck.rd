@@ -36,5 +36,13 @@ when \code{delete != 0} an observation number to be deleted.
 \seealso{\code{\link{lm}}
 }
 
+\examples{
+if(interactive()){
+if(any(names(sessionInfo()$otherPkgs)=="asbio")) vignette(package = "asbio", "typeISS_key")
+}
+}
+
+
+
 \keyword{graphs}
 

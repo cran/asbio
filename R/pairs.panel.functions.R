@@ -1,6 +1,6 @@
 panel.cor.res <- function(x, y, digits=2, meth="pearson", cex.cor=1)
      {
-         usr <- par("usr"); on.exit(par(usr))
+         usr <- par("usr"); on.exit(par("usr"))
          par(usr = c(0, 1, 0, 1))
          r <- round(cor(x, y,method=meth),digits)
          cr<-round(cor.test(x,y,method=meth,alternative="t")$p.value,digits)

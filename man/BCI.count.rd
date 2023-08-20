@@ -26,8 +26,7 @@
 
 }
 \source{
-  \url{https://www.science.org/doi/abs/10.1126/science.1066854}.
-  Documentation here follows directly from \pkg{vegan}
+  Condit et al. (2002). Data documentation here follows directly from \pkg{vegan}.
 }
 \references{
   Condit, R, Pitman, N, Leigh, E.G., Chave, J., Terborgh, J., Foster,

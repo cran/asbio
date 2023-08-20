@@ -1,0 +1,27 @@
+%\VignetteIndexEntry{Dichotomous key for Type I, II, and III SS}
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{soul}
+
+\begin{document}
+\title{Type I Sums of Squares dichotomous key}
+\author{Ken Aho}
+\maketitle
+
+\begin{itemize}
+\item [\large{\textbf{1a}}] \ul{\textbf{More than one predictor, and predictors are quantitative, i.e., multiple regression, or predictors are both quantitative and categorical, i.e., ANCOVA}}\dotfill \newline Don't use type I SS.  Use type II or III SS, e.g., \texttt{car::Anova}, or use $t$-tests to evaluate quantitative predictors using \texttt{lm()}.
+\item [\large{\textbf{1b}}] \ul{\textbf{All predictors are categorical, i.e., ANOVA framework.}}\dotfill \textbf{2}
+\begin{itemize}
+\item [\large{\textbf{2a}}] \ul{\textbf{One factor, i.e., one-way ANOVA.}}\dotfill \linebreak
+Type I SS OK, i.e., type I = type II = type III SS. 
+\item [\large{\textbf{2b}}] \ul{\textbf{More than one factor, i.e., multi-way ANOVA.}}\dotfill \textbf{3}\\
+\vspace{-0.1in}
+\begin{itemize}
+\item [\large{\textbf{3a}}] \ul{\textbf{Balanced design}}\dotfill \linebreak Type I SS OK, i.e., type I = type II = type III SS. 
+\item [\large{\textbf{3a}}] \ul{\textbf{Design \textit{not} balanced}} \dotfill \linebreak Don't use Type I SS.  Use type II or type III SS, e.g., \texttt{car::Anova}.
+\end{itemize}
+\end{itemize}
+\end{itemize}
+
+\end{document}

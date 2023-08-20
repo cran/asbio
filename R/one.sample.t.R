@@ -1,15 +1,17 @@
 one.sample.t<-function (data = NULL, null.mu=0, xbar = NULL, sd = NULL, n = NULL, 
-    alternative = "two.sided", conf = 0.95) 
+    alternative = "two.sided", conf = 0.95, na.rm = FALSE, fpc = FALSE, N = NULL) 
 {
 alt <- c("two.sided", "less", "greater")
 if(alternative != alt[1] & alternative != alt[2] &  alternative != alt[3]) stop(c("In alternative use one of: ", paste("'", alt, "' ", sep = "")))
 
     if (!is.null(data)) {
-        xbar <- mean(data)
-        n <- length(data)
-        sd <- sd(data)
+        xbar <- mean(data, na.rm = na.rm)
+        n <- length(na.omit(data))
+        sd <- sd(data, na.rm = na.rm)
     }
-    tstar <- (xbar - null.mu)/(sd/sqrt(n))
+    s2 <- sd^2
+    Var.Xbar<-ifelse(fpc==FALSE,s2/n,(1-(n/N))*(s2/n))
+    tstar <- (xbar - null.mu)/sqrt(Var.Xbar)
     if (alternative == "two.sided") {
         p.val <- 2 * pt(abs(tstar), n - 1, lower.tail = FALSE)
     }
@@ -27,7 +29,19 @@ if(alternative != alt[1] & alternative != alt[2] &  alternative != alt[3]) stop(
 	res$head <- "One sample t-test"
 	res$alternative <- alt
 	res$test<-tab
-	res$confidence <- ci.mu.t(data=ifelse(is.null(data), NULL, data), summarized=ifelse(is.null(data), TRUE, FALSE), xbar = xbar, sd = sd, n = n, conf = conf)    
+	
+	if (is.null(data)==TRUE){
+	  data <- NULL
+	} else {
+	  data <- data
+	}
+	
+	if(alternative == "less" | alternative == "greater"){
+	  tail <- ifelse(alternative == "greater", "lower", "upper")
+	  res$confidence <- ci.mu.oneside(data = data, summarized=ifelse(is.null(data), TRUE, FALSE), xbar = xbar, n = n, conf = conf, tail = tail, fpc = fpc, N = N)  
+	}
+	else{
+	res$confidence <- ci.mu.t(data = data, summarized = ifelse(is.null(data), TRUE, FALSE), xbar = xbar, sd = sd, n = n, conf = conf, fpc = fpc, N = N)}    
 	class(res) <- "oneSamp"
 	res
 	}

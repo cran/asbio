@@ -31,7 +31,7 @@ Anscombe, F. J.  (1973)  Graphs in statistical analysis. \emph{American Statisti
 Anscombe, F. J.  (1973)  Graphs in statistical analysis. \emph{American Statistician} 27 (1): 17-21.
 }
 \examples{
-dev.new(height=3.5)
+# dev.new(height=3.5)
 op <- par(mfrow=c(1,4),mar=c (0,0,2,3), oma = c(5, 4.2, 0, 0))
 with(anscombe, plot(x1, y1, xlab = "", ylab = "", main = bquote(paste(italic(r),
 " = ",.(round(cor(x1, y1),2)))))); abline(3,0.5) 

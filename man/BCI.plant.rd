@@ -24,13 +24,17 @@ The presence of the tropical trees \emph{Alchornea costaricensis} and \emph{Anac
 }
 
 \source{
-\url{https://www.science.org/doi/abs/10.1126/science.1066854}
+Condit et al. (2002), Kindt et al. (2005).
 }
 \references{
-Pyke CR, Condit R, Aguilar S and Lao S. (2001). Floristic composition across a climatic gradient in a neotropical lowland forest. \emph{Journal of Vegetation Science} 12: 553-566.
+Condit, R, Pitman, N, Leigh, E.G., Chave, J., Terborgh, J., Foster, 
+R.B., Nunez, P., Aguilar, S., Valencia, R., Villa, G., Muller-Landau,
+H.C., Losos, E. & Hubbell, S.P. (2002). Beta-diversity in tropical
+forest trees. \emph{Science} 295, 666--669.
+  
+Kindt, R. & Coe, R. (2005) Tree diversity analysis: A manual and software for common   statistical methods for ecological and biodiversity studies from the \pkg{BiodiversityR} package.
 
-Kindt, R. & Coe, R. (2005) Tree diversity analysis: A manual and software for common statistical methods for ecological and biodiversity studies.
-http://www.worldagroforestry.org/resources/databases/tree-diversity-analysis
+Pyke CR, Condit R, Aguilar S and Lao S. (2001). Floristic composition across a climatic gradient in a neotropical lowland forest. \emph{Journal of Vegetation Science} 12: 553-566.
 }
 \keyword{datasets}
 

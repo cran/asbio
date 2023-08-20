@@ -20,7 +20,7 @@ An \emph{n} x \emph{m} numeric matrix of Markov Chains.
 The proportion of each chains to be used as a burn in period.  The default value, 0.5, means that only the latter half of the chains will be used in computing \eqn{\hat{R}}. 
 }
 }
-\details{Gelman et al. (2003, pg. 296) provides insufficient details to reproduce this function.  To get the real function see Gelman and Rubin (1992).  The authors list one other change in their Statlab version of this function at http://lib.stat.cmu.edu/S/itsim.  They recommend multiplying \code{sqrt(postvar/W)} by \code{sqrt((df + 3)/t(df + 1))}. The original code and this function can produce estimates below 1.  
+\details{Gelman et al. (2003, pg. 296) provides insufficient details to reproduce this function.  To get the real function see Gelman and Rubin (1992).  The authors list one other change in their Statlab version of this function.  They recommend multiplying \code{sqrt(postvar/W)} by \code{sqrt((df + 3)/t(df + 1))}. The original code and this function can produce estimates below 1.  
 }
 
 \references{

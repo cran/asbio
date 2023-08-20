@@ -32,9 +32,9 @@ col.line = 2,lty = par("lty"))
 \seealso{\code{\link{cor}}, \code{\link{cor.test}}, \code{\link{panel.smooth}}}
 \examples{
 data(asthma)
-attach(asthma)
-pairs(asthma,cex.labels=1,cex=.95,gap=.1,lower.panel=panel.cor.res,
-upper.panel=panel.lm)
+
+pairs(asthma, cex.labels=1, cex=.95, gap=.1, lower.panel = panel.cor.res,
+upper.panel = panel.lm)
 }
 \keyword{graphs}
 \keyword{htest}

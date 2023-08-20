@@ -4,10 +4,12 @@
 # pow = The power that the matrix is to be raised to.
 #
 mat.pow <- function(mat, pow){
-res <- mat 
+res <- mat
+if(pow < 1) stop("pow must be >= 1") 
+if(pow > 1){ 
 for(i in 2 : pow){
 res <- res %*% mat
-}
+}}
 res
 }
 #------------------------------------------------------------------------#

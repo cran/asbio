@@ -86,11 +86,11 @@ pairw.anova(y = eggs, x = trt, method = "scheffe")##Sheffe
 tukey <- pairw.anova(y = eggs, x = trt, method = "tukey")##Tukey HSD
 
 plot(tukey)
-#you can also try plot(tukey, type = 2)
+# you can also try plot(tukey, type = 2)
 
 blood.count <- data.frame(bc=c(7.4,8.5,7.2,8.24,9.84,8.32,9.76,8.8,
 7.68,9.36,12.8,9.68,12.16,9.2,10.55), trt=c(rep("C",6),rep("A",4),rep("B",5)))
-with(blood.count,pairw.anova(y=bc,x=trt,control="C",method="dunnett"))##Dunnett
+with(blood.count,pairw.anova(y=bc,x=trt,control="C",method="dunnett"))## Dunnett
 
 scheffe.cont(y = eggs, x = trt, lvl = c(1, 3)) 
 scheffe.cont(y = eggs, x = trt, lvl = c(1,2))

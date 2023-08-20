@@ -4,8 +4,8 @@
 \description{
 Provides a one-sample hypothesis test.  The test assumes that the underlying population is normal.}
 \usage{
-one.sample.t(data = NULL, null.mu = 0, xbar = NULL, sd, n = NULL, 
-alternative = "two.sided", conf = 0.95)
+one.sample.t(data = NULL, null.mu = 0, xbar = NULL, sd = NULL, n = NULL, 
+alternative = "two.sided", conf = 0.95, na.rm = FALSE, fpc = FALSE, N = NULL)
 }
 \arguments{
   \item{data}{A vector of quantitative data.  Not required if \code{xbar} and \code{n} are supplied by the user.}
@@ -15,6 +15,9 @@ alternative = "two.sided", conf = 0.95)
   \item{n}{The sample size. Not required if \code{is.null(data)==FALSE}}
   \item{alternative}{Type of test.  One of three must be specified \code{"two.sided", "less"}, or \code{"greater"}}
   \item{conf}{Confidence level.}
+   \item{na.rm}{Logical, indicate whether \code{NA} values should be stripped before the computation proceeds.}
+  \item{fpc}{A logical statement specifying whether a finite population correction should be made.  If \code{fpc = TRUE} the population size \code{N} must be specified.}
+  \item{N}{The population size.  Required if \code{fpc=TRUE}}
 }
 \details{The function can use either raw data \code{is.null(data)==FALSE} or summarized data if \code{is.null(data)==TRUE}.  With the later \code{xbar}, and \code{n} must be specified by the user.
 }

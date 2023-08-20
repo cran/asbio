@@ -9,10 +9,10 @@ These functions calculate \emph{t} and \emph{z} confidence intervals for \eqn{\m
 \usage{
 
 ci.mu.z(data, conf = 0.95, sigma = 1, summarized = FALSE, xbar = NULL,
-fpc = FALSE, N = NULL, n = NULL)
+fpc = FALSE, N = NULL, n = NULL, na.rm = FALSE)
 
 ci.mu.t(data, conf = 0.95, summarized = FALSE, xbar = NULL, sd = NULL, 
-fpc = FALSE, N = NULL, n = NULL)
+fpc = FALSE, N = NULL, n = NULL, na.rm = FALSE)
 }
 \arguments{
   \item{data}{A vector of quantitative data.  Required if \code{summarized = FALSE}}
@@ -20,10 +20,11 @@ fpc = FALSE, N = NULL, n = NULL)
   \item{sigma}{The population standard deviation.}
   \item{summarized}{A logical statement specifying whether statistical summaries are to be used.  If \code{summarized = FALSE}, then the sample mean and the sample standard deviation (\code{t.conf} only) are calculated from the vector provided in \code{data}.  If \code{summarized = FALSE} then the sample mean \code{xbar}, the sample size \code{n}, and, in the case of \code{ci.mu.t},  the sample standard deviation \code{st.dev}, must be provided by the user.}
   \item{xbar}{The sample mean.  Required if \code{summarized = TRUE}.}
-  \item{fpc}{A logical statement specifying whether a finite population correction should be made.  If \code{fpc = TRUE} then both the sample size \code{n} and the population size \code{N} must be specified.}
+  \item{fpc}{A logical statement specifying whether a finite population correction should be made.  If \code{fpc = TRUE} the population size \code{N} must be specified.}
   \item{N}{The population size.  Required if \code{fpc=TRUE}}
   \item{sd}{The sample standard deviation.  Required if \code{summarized=TRUE}.}
   \item{n}{The sample size.  Required if \code{summarized = TRUE}.}
+  \item{na.rm}{Logical, indicate whether \code{NA} values should be stripped before the computation proceeds.}
 }
 \details{\code{ci.mu.z} and \code{ci.mu.t} calculate confidence intervals for either summarized data or a 
 dataset provided in \code{data}.  Finite population corrections are made if a user specifies \code{fpc=TRUE} and 

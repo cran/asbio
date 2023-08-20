@@ -1,0 +1,22 @@
+%\VignetteIndexEntry{simpson}
+\documentclass{article}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+
+\begin{document}
+\title{Simpson's Paradox}
+\author{Ken Aho}
+
+\maketitle
+
+
+\noindent Agresti (2012) discussed tabular analyses concerning death penalty sentences given for homicide convictions in Florida from 1976-1987.  He examined three categorical variables: the defendant's race \{Black, White\}, the victims' race \{Black, White\}, and the death penalty verdict \{Yes, No\}.  A marginal two way table based only on defendant's race and verdict indicated that whites were more likely than blacks to receive the death penalty.  However analyses based on conditioning by victims race gave contradictory results, indicative of Simpson's Paradox.  This can be demonstrated with the \textbf{Paik diagrams} (Paik 1985).  The dotted lines in the left hand figure show marginal proportions for defendants given death sentence convictions.  Given this information it appears that white defendants are more likely to receive death penalties than blacks ($\hat{\pi }$ = 0.11 compared to $\hat{\pi }$ = 0.085), and that death penalties are more likely given white victims than black victims (0.124 compared to 0.025).   The symbol $\hat{\pi }$is used here because inferences are with respect to the binomial parameter $\pi $ (Ch. 3).  The areas of circles in both figures designate the joint probabilities corresponding to cross classifications of victims' race and defendant's race for both types of verdicts.  These are: $\hat{\pi }$ (black victim n black defendant) = 0.212, $\hat{\pi }$ (black victim $\cap $ white defendant) = 0.024, $\hat{\pi }$ (white victim $\cap $ white defendant) = 0.693, and $\hat{\pi }$ (white victim $\cap $ black defendant) = 0.072.  Thus, white defendants are much more likely to have white victims and black defendants are much more likely to have black victims.  The center of the circles indicates the conditional probabilities for these groups given a death sentence.  We see that the most likely convictions are for black defendants with white victims: $\hat{\pi }$[conviction \textbar  (white victim $\cap $ black defendant)] = 0.229.   While the least likely convictions occur for white defendants with black victims $\hat{\pi }$[conviction \textbar  (black victim $\cap $ white defendant)] = 0.   Thus, after conditioning by defendant's race, blacks are more likely to be convicted for both victim races (left hand figure).  The aggregation of variables in the initial partial two way analysis hid the fact that black defendants represent a smaller proportion of overall death sentences because they are less likely to have white victims.  Indeed, comparison of odds (Ch. 2) from the marginal table reveals that the odds for a white defendant and a white victim are 87 times larger than the odds for a black defendant and a white victim.
+
+\noindent 
+
+\noindent 
+
+
+\end{document}
+
