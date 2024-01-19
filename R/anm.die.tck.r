@@ -27,7 +27,7 @@ anm.die.tck<-function ()
                 tclvalue(Int) <- "0.01"
                 tclvalue(Throw) <- "1000"
                 tclvalue(show.die)<-"0"
-                tclvalue(color)<-"0"
+                tclvalue(color)<- "0"
             }
             reset.but <- tkbutton(tt, text = "Reset", command = reset)
             submit.but <- tkbutton(tt, text = "Submit", command = function() tclvalue(done) <- 1)

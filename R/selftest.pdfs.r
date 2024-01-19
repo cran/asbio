@@ -417,7 +417,7 @@ selftest.pdfs.tck <- function(){
   gp13.1 <- ggroup(container = gp13, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("13) ", container = gp13.1, horizontal = TRUE)
   font(q) <- list(weight = "bold")
-  glabel("In the binomial distribution, the parameter \u03c0 represents...", container = gp13.1, anchor = c(-1,1))
+  qq <- glabel("In the binomial distribution, the parameter \u03c0 represents...", container = gp13.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
   ans13 <- c("(a)  The probability of success.",

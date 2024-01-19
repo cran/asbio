@@ -58,7 +58,7 @@ selftest.conf.tck1 <- function(){
   gp2.1 <- ggroup(container = gp2, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("2) ", container = gp2.1, horizontal = TRUE)
   font(q) <- list(weight = "bold")
-  qq <- glabel("(T or F) If one hundred confidence intervals for \u03bc are calculated then, \non average, a proportion of 1 - \u03b1 of these will contain \u03bc.", container = gp2.1, anchor = c(-1,1))
+  qq <- glabel("(T or F) If confidence intervals for \u03bc are repeatedly calculated then, \non average, a proportion of 1 - \u03b1 of these will contain \u03bc.", container = gp2.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
   #addSpace(gp2, .5)

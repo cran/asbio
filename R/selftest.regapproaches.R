@@ -267,7 +267,7 @@ r1 <- gcheckboxgroup(ans1, container = gp1, checked = FALSE, where = "beginning"
   gp7.1 <- ggroup(container = gp7, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("6) ", container = gp7.1, horizontal = TRUE)
   font(q) <- list(weight = "bold")
-  qq <- glabel("Which of the following is a (are) nonlinear models(s), appropriate for fitting with R function nls?",
+  qq <- glabel("Which of the following is a (are) nonlinear models(s), appropriate for fitting with the R function nls?",
                container = gp7.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   

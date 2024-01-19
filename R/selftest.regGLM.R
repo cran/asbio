@@ -344,9 +344,9 @@ experimental designs.",
                container = gp10.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
-  ans10 <- c("(a)  provide a measure of parsimony for Poisson GLMs.",
-            "(b)  measure deviance in logistic GLMs.",
-            "(c)  provide a general measure of the predictive effectiveness of a logistic GLM.",
+  ans10 <- c("(a)  provides a measure of parsimony for Poisson GLMs.",
+            "(b)  measures deviance in logistic GLMs.",
+            "(c)  provides a general measure of the predictive effectiveness of a logistic GLM.",
             "(d)  All of the above.")
 
   f10 <- function(h,....){

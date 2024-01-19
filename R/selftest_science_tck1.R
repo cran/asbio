@@ -145,7 +145,7 @@ selftest.science.tck1 <-function(){
   gp5.1 <- ggroup(container = gp5, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("5) ", container = gp5.1, horizontal = TRUE)
   font(q) <- list(weight = "bold")
-  qq <- glabel("In the modern (Renaissance to present; 14th
+  qq <- glabel("In the modern (Renaissance to present; i.e., 14th
 century onward) development of the scientific method, all but which of the following have occurred?", container = gp5.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
@@ -248,7 +248,7 @@ not A                          {Premise 2}
 not B                          {Conclusion}", container = gp8.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
-  ans8 <- c("(a) Reductio ad abusrdum",
+  ans8 <- c("(a) Reductio ad absurdum",
             "(b) Modus ponens",
             "(c) Modus tollens",
             "(d) Affirming the consequent")
@@ -285,7 +285,7 @@ B                   {Premise 2}
 A                   {Conclusion}", container = gp9.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
-  ans9 <- c("(a) Reductio ad abusrdum",
+  ans9 <- c("(a) Reductio ad absurdum",
             "(b) Modus ponens",
             "(c) Modus tollens",
             "(d) Affirming the consequent")
@@ -322,7 +322,7 @@ not B               {Premise 2}
 not A               {Conclusion}", container = gp10.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
-  ans10 <- c("(a) Reductio ad abusrdum",
+  ans10 <- c("(a) Reductio ad absurdum",
              "(b) Modus ponens",
              "(c) Modus tollens",
              "(d) Affirming the consequent")

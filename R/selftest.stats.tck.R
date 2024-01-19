@@ -263,7 +263,7 @@ selftest.stats.tck <- function(){
   gp8.1 <- ggroup(container = gp8, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("8) ", container = gp8.1, horizontal = TRUE)
   font(q) <- list(weight = "bold")
-  qq <-glabel("From a random variable Y we observe the outcomes: y\u2081, y\u2082,...,y\u2099. Then, \u0232 is a(n)", container = gp8.1, anchor = c(-1,1))
+  qq <-glabel("\u0232 represents a(n)", container = gp8.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
 
     ans8 <- c("(a)  parameter.",
@@ -303,7 +303,7 @@ selftest.stats.tck <- function(){
   gp9.1 <- ggroup(container = gp9, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("9) ", container = gp9.1, horizontal = TRUE)
   font(q) <- list(weight = "bold")
-  qq <- glabel("From a random variable Y we observe the outcomes: y\u2081, y\u2082,...,y\u2099. Then, Var(Y) is a(n)", container = gp9.1, anchor = c(-1,1))
+  qq <- glabel("Var(Y) represents a(n)", container = gp9.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
   ans9 <- c("(a)  parameter.",

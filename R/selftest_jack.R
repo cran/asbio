@@ -50,8 +50,8 @@ selftest.jack.tck <- function(){
   
   ans2 <- c("(a)  we sample with replacement from an existing dataset.",
             "(b)  we sample without replacement from an existing dataset.",
-            "(c)  we create pseudovalues based on data subsets, i.e., the dataset with the 1st \nobservation removed, the dataset with the 2nd observation removed etc.",
-            "(d)  we create pseudovalues based on data subsets, i.e., the 1st \nobservation, the 2nd observation,  etc.",
+            "(c)  we create pseudovalues based statistical summaries of particular data subsets: the dataset with the 1st \nobservation removed, the dataset with the 2nd observation removed, etc.",
+            "(d)  we create pseudovalues based statistical summaries of particular data subsets: the 1st \nobservation, the 2nd observation, etc.",
             "(e)  we create a Bayesian posterior distribution.")
   
   f2 <- function(h,....){
@@ -87,8 +87,8 @@ selftest.jack.tck <- function(){
   
   ans3 <- c("(a)  we sample with replacement from an existing dataset.",
             "(b)  we sample without replacement from an existing dataset.",
-            "(c)  we create pseudovalues based on data subsets, i.e., the dataset with the 1st \nobservation removed, the dataset with the 2nd observation removed etc.",
-            "(d)  we create pseudovalues based on data subsets, i.e., the 1st \nobservation, the 2nd observation,  etc.",
+            "(c)  we create pseudovalues based statistical summaries of particular data subsets: the dataset with the 1st \nobservation removed, the dataset with the 2nd observation removed, etc.",
+            "(d)  we create pseudovalues based statistical summaries of particular data subsets: the 1st \nobservation, the 2nd observation, etc.",
             "(e)  we create a Bayesian posterior distribution.")
   
   
@@ -123,7 +123,7 @@ selftest.jack.tck <- function(){
   gp4.1 <- ggroup(container = gp4, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("4) ", container = gp4.1, horizontal = TRUE)
   font(q) <- list(weight = "bold")
-  qq <- glabel("Biologists often use jackknifing to...", container = gp4.1, anchor = c(-1,1))
+  qq <- glabel("Scientists often use jackknifing to...", container = gp4.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
   ans4 <- c("(a) create normal distributions for bacteria.",

@@ -350,7 +350,7 @@ f11 <- function(h,....){
   svalue(r11) <- character(0)  
 }
 
-r11 <- gcheckboxgroup(ans10, container = gp11, checked = FALSE, where = "beginning", handler = f11)
+r11 <- gcheckboxgroup(ans11, container = gp11, checked = FALSE, where = "beginning", handler = f11)
 
 }
 

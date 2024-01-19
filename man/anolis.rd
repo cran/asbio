@@ -7,7 +7,7 @@ Anolis lizard contingency table data
 \description{
 Schoener (1968) examined the resource partitioning of anolis lizards on the Caribbean island of South Bimini.  
 He cross-classified lizard counts in habitats (branches in trees) with respect to three variables: 
-lizard species {\emph{A. sargei} and \emph{A. distichus}}, branch height {high and low}, and branch size {small and large}.
+lizard species \emph{A. sargei} and \emph{A. distichus}, branch height (high and low), and branch size (small and large).
 }
 \usage{data(anolis)}
 \format{

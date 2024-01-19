@@ -15,7 +15,7 @@ auc(obs, fit, plot = FALSE)
 \arguments{
 
   \item{obs}{
-Dichotomous {0, 1} outcomes (i.e. response values for binomial GLM).
+Dichotomous \code{0, 1} outcomes (i.e., response values for binomial GLM).
 }
   \item{fit}{
 Fitted probabilities from some model.
