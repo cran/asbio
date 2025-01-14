@@ -1,7 +1,7 @@
-see.regression.tck <- function () 
+see.regression.tck <- function ()
 {
   old.par <- par(no.readonly = TRUE)
-    if (!exists("slider.env")) 
+    if (!exists("slider.env"))
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     beta0 <- 0
     assign("beta0", tclVar(beta0), envir = slider.env)
@@ -11,10 +11,11 @@ see.regression.tck <- function ()
     assign("sigma", tclVar(sigma), envir = slider.env)
     n <- 5
     assign("n", tclVar(n), envir = slider.env)
-    
+
 
 xpts<- c(5,15)
-dev.new(height = 5, width = 10)
+
+dev.new(height = 5, width = 10, noRStudioGD = TRUE)
 
 plot_it<-function(...){
 
@@ -25,7 +26,7 @@ dev.hold()
         n <- as.numeric(evalq(tclvalue(n), envir = slider.env))
 
 X<-Y<-0:20; Z<-seq(0,.6,.03)
-pts <- runif(n, 0, 20) 
+pts <- runif(n, 0, 20)
 
 
 layout(matrix(c(1,1,1,1,1,1,2,2,2,2), 1, 10, byrow = TRUE))
@@ -75,48 +76,48 @@ tclServiceMode(TRUE)
     tkwm.title(m, "Visualizing regression")
     tkpack(tklabel(m, text = "      Visualizing regression      "))
     tkwm.geometry(m, "+0+0")
-    
+
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "\u03B2\u2080", font = c("Helvetica", "10", 
+    tkpack(tklabel(fr, text = "\u03B2\u2080", font = c("Helvetica", "10",
         "normal"), width = "10"), side = "right")
-    tkpack(sc <- tkscale(fr, command = plot_it, from = -3, 
-        to = 14, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = plot_it, from = -3,
+        to = 14, orient = "horiz", resolution = 0.1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = beta0), envir = slider.env)
-    
+
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "\u03B2\u2081", font = c("Helvetica", "10", 
+    tkpack(tklabel(fr, text = "\u03B2\u2081", font = c("Helvetica", "10",
         "normal"), width = "10"), side = "right")
-    tkpack(sc <- tkscale(fr, command = plot_it, from = -0.5, 
-        to = 1, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = plot_it, from = -0.5,
+        to = 1, orient = "horiz", resolution = 0.1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = beta1), envir = slider.env)
-    
+
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "\u03C3", font = c("Helvetica", "10", 
+    tkpack(tklabel(fr, text = "\u03C3", font = c("Helvetica", "10",
         "normal"), width = "10"), side = "right")
-    tkpack(sc <- tkscale(fr, command = plot_it, from = 0.1, 
-        to = 4, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = plot_it, from = 0.1,
+        to = 4, orient = "horiz", resolution = 0.1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = sigma), envir = slider.env)
-  
+
    tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "n", font = c("Helvetica", "10", 
+    tkpack(tklabel(fr, text = "n", font = c("Helvetica", "10",
         "normal"), width = "10"), side = "right")
-    tkpack(sc <- tkscale(fr, command = plot_it, from = 2, 
-        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = plot_it, from = 2,
+        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir = slider.env)
-    evalq(tkconfigure(sc, variable = n), envir = slider.env) 
-    
-    
-    tkpack(tkbutton(m, text = "Refresh", command = plot_it), 
+    evalq(tkconfigure(sc, variable = n), envir = slider.env)
+
+
+    tkpack(tkbutton(m, text = "Refresh", command = plot_it),
         side = "left")
-    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
+    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
     on.exit(par(old.par))
-        
+
 }

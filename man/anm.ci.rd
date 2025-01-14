@@ -9,9 +9,9 @@ Provides animated depictions of confidence intervals for \eqn{\mu}, \eqn{\sigma^
 }
 \usage{
 
-anm.ci(parent=expression(rnorm(n)), par.val, conf = 0.95, sigma = NULL, 
-  par.type = c("mu", "median", "sigma.sq", "p"), n.est = 100, 
-  n = 50, err.col = 2, par.col = 4, interval = 0.1, ...) 
+anm.ci(parent=expression(rnorm(n)), par.val, conf = 0.95, sigma = NULL,
+  par.type = c("mu", "median", "sigma.sq", "p"), n.est = 100,
+  n = 50, err.col = 2, par.col = 4, interval = 0.1, ...)
 
 anm.ci.tck()
 
@@ -22,9 +22,9 @@ anm.ci.tck()
   \item{par.val}{True parameter value which is being estimated.}
   \item{conf}{Confidence level: 1-\emph{P}(type I error).}
   \item{sigma}{\eqn{\sigma} from the normal pdf, if known.}
-  \item{par.type}{The parameter whose confidence intervals to be estimated.  There are 
-  currently four choices \code{c("mu", "median", "sigma.sq", "p")}.  These are the normal pdf 
-  parameters \eqn{\mu} and \eqn{\sigma^{2}}, the population median, and the binomial 
+  \item{par.type}{The parameter whose confidence intervals to be estimated.  There are
+  currently four choices \code{c("mu", "median", "sigma.sq", "p")}.  These are the normal pdf
+  parameters \eqn{\mu} and \eqn{\sigma^{2}}, the population median, and the binomial
   parameter, \eqn{\pi}.}
   \item{n.est}{The number of confidence intervals to be created.}
   \item{n}{The sample size used for each confidence interval.}
@@ -34,7 +34,7 @@ anm.ci.tck()
   \item{\dots}{Additional arguments to \code{\link{plot}}.}
 }
 \details{
-Provides an animated plot showing confidence intervals with respect to a known parameter.  Intervals which do not contain the parameter are emphasized with different colors.  Loading package \pkg{tcltk} allows use of function \code{anm.ci.tck} which provides an interactive GUI to run the function. 
+Provides an animated plot showing confidence intervals with respect to a known parameter.  Intervals which do not contain the parameter are emphasized with different colors. The function can be run with a \pkg{tcltk} GUI function, \code{anm.ci.tck()}.
 }
 \value{
 Returns an animated plot.

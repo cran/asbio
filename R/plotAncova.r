@@ -37,7 +37,7 @@ plotAncova <- function(model, pch = NULL, lty = NULL, col = NULL, leg.loc = "top
           slope <- cof[,colnames(cof)==con.name]
           subcof <- as.matrix(cof[,colnames(cof)!=con.name])
           int <- c(subcof[1],subcof[1]+subcof[2:r])
-          
+          out <- c(Intercept = int, Slope = slope)
           
           plot(con, y, pch = pch, col = col,...)
           for(i in 1:r){
@@ -53,7 +53,7 @@ plotAncova <- function(model, pch = NULL, lty = NULL, col = NULL, leg.loc = "top
           
           int <- cof[1:r]
           slope <- cof[(r + 1) : (2 * r)]
-          
+          out <- data.frame(Intercept = int, Slope = slope)
           plot(con, y, pch = pch, col = col,...)
           for(i in 1:r){
           abline(int[i],slope[i],lty=leg.lty[i],col=leg.col[i])
@@ -64,5 +64,6 @@ plotAncova <- function(model, pch = NULL, lty = NULL, col = NULL, leg.loc = "top
   legend(leg.loc, legend = names, pch = leg.pch, col = leg.col, lty = leg.lty, cex = leg.cex, bty = leg.bty, bg = leg.bg, title=legend.title) 
   }
   print(model)
+  invisible(out)
 }
 

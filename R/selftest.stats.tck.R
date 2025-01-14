@@ -484,8 +484,8 @@ selftest.stats.tck <- function(){
   
   ans14 <- c("0.015m",
              "0.015m\u00B2",
-             "1.22m",
-             "1.22m\u00B2") 
+             "0.122m",
+             "0.122m\u00B2") 
   
   
   f14 <- function(h,....){
@@ -518,8 +518,8 @@ selftest.stats.tck <- function(){
   
   ans15 <- c("0.015m",
              "0.015m\u00B2",
-             "1.22m",
-             "1.22m\u00B2") 
+             "0.122m",
+             "0.122m\u00B2") 
   
   f15 <- function(h,....){
     if(tail(svalue(r15),1) == ans15[1]){

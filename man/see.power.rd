@@ -3,7 +3,7 @@
 \alias{see.power.tck}
 
 \title{
-Interactive depiction of type I and type II error and power 
+Interactive depiction of type I and type II error and power
 }
 \description{
 Provides an interactive pedagogical display of power.
@@ -40,7 +40,7 @@ Type of test, one of \code{c("lower","upper","two")}.
    (the default) power will be half the value of \eqn{\alpha} if the true effect size is zero.}
 }
 \details{
-The function \code{see.power} provides an interactive display of power.  The function \code{see.power.tck} provides a \pkg{tcltk} GUI to manipulate \code{see.power}
+The function \code{see.power} provides an interactive display of power.  The function \code{see.power.tck} provides a \pkg{tcltk} GUI to manipulate \code{see.power}.
 }
 
 \author{Ken Aho

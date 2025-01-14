@@ -1,30 +1,33 @@
-anm.loglik <- function (X, dist = c("norm", "poi", "bin", "exp", "custom"), 
-    plot.likfunc = TRUE, parameter = NULL, func = NULL, poss = NULL, 
-    plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
-    conv = diff(range(X))/70, anim = TRUE, est.col = 2, density.leg = TRUE, cex.leg = 0.9, interval = 0.01, ...) 
+anm.loglik <- function (X, dist = c("norm", "poi", "bin", "exp", "custom"),
+    plot.likfunc = TRUE, parameter = NULL, func = NULL, poss = NULL,
+    plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL,
+    conv = diff(range(X))/70, anim = TRUE, est.col = 2, density.leg = TRUE, cex.leg = 0.9, interval = 0.01, ...)
 {
 
-    if (dist == "norm") 
-        loglik.norm.plot(X = X, parameter = parameter, poss = poss, 
-            plot.likfunc = plot.likfunc, plot.density = plot.density, 
-            plot.calc = plot.calc, xlab = xlab, ylab = ylab, 
-            conv = conv, anim = anim, est.col = est.col, density.leg = density.leg, cex.leg = cex.leg, interval = interval, ... = ...)
-    if (dist == "poi") 
-        loglik.pois.plot(X = X, poss = poss, plot.likfunc = plot.likfunc, 
-            plot.density = plot.density, plot.calc = plot.calc, 
-            xlab = xlab, ylab = ylab, conv = conv, anim = anim, 
+    if (dist == "norm")
+        loglik.norm.plot(X = X, parameter = parameter, poss = poss,
+            plot.likfunc = plot.likfunc, plot.density = plot.density,
+            plot.calc = plot.calc, xlab = xlab, ylab = ylab,
+            conv = conv, anim = anim, est.col = est.col,
+            density.leg = density.leg, cex.leg = cex.leg,
             interval = interval, ... = ...)
-    if (dist == "bin") 
-        loglik.binom.plot(X = X, poss = poss, plot.likfunc = plot.likfunc, 
-            plot.density = plot.density, xlab = xlab, ylab = ylab, 
+    if (dist == "poi")
+        loglik.pois.plot(X = X, poss = poss, plot.likfunc = plot.likfunc,
+            plot.density = plot.density, plot.calc = plot.calc,
+            xlab = xlab, ylab = ylab, conv = conv, anim = anim,
+            interval = interval, ... = ...)
+    if (dist == "bin")
+        loglik.binom.plot(X = X, poss = poss, plot.likfunc = plot.likfunc,
+            plot.density = plot.density, xlab = xlab, ylab = ylab,
             conv = conv, anim = anim, interval = interval, ... = ...)
-    if (dist == "exp") 
-        loglik.exp.plot(X = X, poss = poss, plot.likfunc = plot.likfunc, 
-            plot.density = plot.density, plot.calc = plot.calc, 
-            xlab = xlab, ylab = ylab, conv = conv, anim = anim, 
-            interval = interval, density.leg = density.leg, cex.leg = cex.leg, est.col = est.col, ... = ...)
-    if (dist == "custom") 
-        loglik.custom.plot(X = X, func = func, poss = poss, anim = anim, 
+    if (dist == "exp")
+        loglik.exp.plot(X = X, poss = poss, plot.likfunc = plot.likfunc,
+            plot.density = plot.density, plot.calc = plot.calc,
+            xlab = xlab, ylab = ylab, conv = conv, anim = anim,
+            interval = interval, density.leg = density.leg,
+            cex.leg = cex.leg, est.col = est.col, ... = ...)
+    if (dist == "custom")
+        loglik.custom.plot(X = X, func = func, poss = poss, anim = anim,
             interval = interval, xlab = xlab, ylab = ylab, ... = ...)
 
 }
@@ -65,24 +68,24 @@ Max.lik <- log(prod(dpois(X,mean(X))))
           legend("topleft",col=2,lty=2,legend="Obs. density",bty="n",cex=.9)
           segments(X,rep(0,length(X)),X,dpois(X,mean(X)),lty=2,col=2)}
           points(X,dpois(X,mean(X)),pch=16,cex=.9)
-      }    
+      }
   ##Animation
       if(anim == TRUE){
         nm <- which(logl == max(logl))[1]
-          if(plot.likfunc == TRUE & plot.density == TRUE){ 
-            dev.new(height = 4,width = 8) 
+          if(plot.likfunc == TRUE & plot.density == TRUE){
+            dev.new(height = 4,width = 8)
             par(mfrow=c(1, 2),mar=c(4.4, 4.5, 1, 0.5), cex=.9)}
             for(i in 1:(nm - 1)){
                 dev.hold()
                 if(plot.likfunc == TRUE){
-                    plot(possibilities, logl, type="n", ylab = ifelse(is.null(ylab), "Poisson Log-likelihood function", ylab), 
+                    plot(possibilities, logl, type="n", ylab = ifelse(is.null(ylab), "Poisson Log-likelihood function", ylab),
                     xlab = ifelse(is.null(xlab), expression(paste("Estimates for ", lambda)), xlab) ,...)
                     arrows(possibilities[i], logl[i], possibilities[i+1], logl[i+1], col = 2, length = .15, lwd = 1)
                     points(possibilities[1:i], logl[1:i], lty = 2, col = 2, lwd = 1, type = "l")
                         if(i == (nm-1)){points(possibilities, logl, type="l")
                             abline(v=mean(X), lty=2, col=2)
                             legend("topright", legend = bquote(paste("ML est. = ",.(MLE))), cex = .9, bty = "n")
-                
+
                 }
             }
             if(plot.density == TRUE){
@@ -95,12 +98,12 @@ Max.lik <- log(prod(dpois(X,mean(X))))
                           if(i == (nm-1)){legend("topright",legend=c(as.expression(bquote(paste(lambda, " = ",.(MLE)))),as.expression(bquote(paste("Loglik = ",
                           .(round(Max.lik,2)))))),bty="n",cex=.9)
                           }
-                }                                                                                                                                               
+                }
             dev.flush()
             Sys.sleep(interval)
             }
         if(plot.calc == TRUE){
-            dev.new(width=4, height=4, ypos=225); par(mar=c(4.4,4.5,1,0.5), cex=.9) 
+            dev.new(width=4, height=4, ypos=225); par(mar=c(4.4,4.5,1,0.5), cex=.9)
             X <- sort(X)
             c <- ifelse(length(X)<200,round(200/length(X), 0), 1)
             x0 = rep(X, each = c); y0 = rep(rep(0,length(X)), each = c); y1 = rep(dpois(X, mean(X)), each = c)
@@ -156,15 +159,15 @@ Max.lik<-log(prod(dbinom(sum(X),length(X),mean(X))))
               segments(sum(X),0,sum(X),dbinom(sum(X),length(X),mean(X)),lty=2,col=2)
               points(sum(X),dbinom(sum(X),length(X),mean(X)),pch=16,cex=.9)
           }
-      } 
+      }
   ##Animation
       if(anim==TRUE){
         nm<-which(logl==max(logl))[1]
       if(plot.likfunc==TRUE&plot.density==TRUE)dev.new(height=4,width=8);par(mfrow=c(1,2),mar=c(4.4,4.5,1,0.5),cex=.9)
            for(i in 1:(nm-1)){
            dev.hold()
-               if(plot.likfunc==TRUE){     
-                    plot(possibilities,logl,type="n",ylab=ifelse(is.null(ylab),"Binomial Log-likelihood function",ylab), 
+               if(plot.likfunc==TRUE){
+                    plot(possibilities,logl,type="n",ylab=ifelse(is.null(ylab),"Binomial Log-likelihood function",ylab),
                     xlab=ifelse(is.null(xlab),expression(paste("Estimates for ", italic(pi))),xlab),...)
                     arrows(possibilities[i],logl[i],possibilities[i+1],logl[i+1],col=2,length=.15,lwd=1)
                     points(possibilities[1:i],logl[1:i],lty=2,col=2,lwd=1,type="l")
@@ -203,7 +206,7 @@ plot(poss,logl,type="l",xlab=xlab,ylab=ylab,...)
 if(anim==TRUE){
 nm<-which(logl==max(logl))[1]
         for(i in 1:(nm-1)){
-          dev.hold()          
+          dev.hold()
           plot(poss,logl,type="n",xlab=xlab,ylab=ylab,...)
           arrows(poss[i],logl[i],poss[i+1],logl[i+1],col=2,length=.15,lwd=1)
           points(poss[1:i],logl[1:i],lty=2,col=2,lwd=1,type="l")
@@ -215,4 +218,3 @@ nm<-which(logl==max(logl))[1]
 abline(v=max.p,lty=2,col=2)
 legend("topright",legend=bquote(paste("ML est. = ",.(max.p))),cex=.9,bty="n")
 }
-      

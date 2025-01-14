@@ -20,7 +20,7 @@ anm.coin.tck()
   \item{\dots}{Additional arguments to \code{\link{plot}}.}
 }
 \value{
-If \code{show.coin=TRUE}, returns two plots configured as a single graphical object.  The first plot shows convergence in estimated \emph{P}(Head), i.e., number of heads/number of trials, as the number of trials grows large.  The second plot shows individual outcomes of coin flips.  The second (smaller) plot is not returned if \code{show.coin=TRUE} is specified.  Loading \pkg{tcltk} allows use of the function \code{anm.coin.tck}, which creates an interactive GUI to run \code{anm.coin}.  
+If \code{show.coin=TRUE}, returns two plots configured as a single graphical object.  The first plot shows convergence in estimated \emph{P}(Head), i.e., number of heads/number of trials, as the number of trials grows large.  The second plot shows individual outcomes of coin flips.  The second (smaller) plot is not returned if \code{show.coin=TRUE} is specified. The function \code{anm.coin()} can be run with the \pkg{tcltk} GUI function, \code{anm.coin.tck()}.
 }
 \author{Ken Aho
 }

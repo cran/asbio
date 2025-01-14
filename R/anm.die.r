@@ -1,6 +1,9 @@
 
 anm.die<-function(reps=300,interval=0.1,show.die=TRUE,p=c(1/6,1/6,1/6,1/6,1/6,1/6),cl=TRUE){
+
 old.par <- par(no.readonly = TRUE)
+if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
 if(sum(p)!=1)stop("sum of die probabilities must = 1")
 p<-p*100
 die<-sample(c(rep(1,p[1]),rep(2,p[2]),rep(3,p[3]),rep(4,p[4]),rep(5,p[5]),rep(6,p[6])),reps,replace=TRUE)
@@ -13,7 +16,7 @@ p5[i]<-length(die[0:i][die[0:i]==5])/i;p6[i]<-length(die[0:i][die[0:i]==6])/i}
 for(i in 1:reps){
 dev.hold()
 if(show.die==TRUE){
-layout(matrix(c(rep(1,6),0,2,0), 3, 3, byrow = TRUE)) 
+layout(matrix(c(rep(1,6),0,2,0), 3, 3, byrow = TRUE))
 par(mar=c(5.5,4.5,2,2.1))
 exp = 1.3
 }
@@ -28,7 +31,7 @@ points(seq(1:i),p4[1:i],lty=ifelse(cl==TRUE,1, 4),col=ifelse(cl==TRUE,4, gray(.6
 points(seq(1:i),p5[1:i],lty=ifelse(cl==TRUE,1, 1),col=ifelse(cl==TRUE,5, gray(.8)),type="l",lwd=exp)
 points(seq(1:i),p6[1:i],lty=ifelse(cl==TRUE,1, 2),col=ifelse(cl==TRUE,4, gray(.6)),type="l",lwd=exp)
 
-if(cl == TRUE){ 
+if(cl == TRUE){
 lcol <- 1:6
 llty <- rep(1, 6)
 }
@@ -56,5 +59,5 @@ dev.flush()
 Sys.sleep(interval)
 }
 on.exit(par(old.par))
-invisible()	
+invisible()
 }

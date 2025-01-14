@@ -1,14 +1,17 @@
-see.hyper.tck<-function () 
+see.hyper.tck<-function ()
 {
 
-    if (!exists("slider.env")) 
-    slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
+    if (!exists("slider.env"))
+    slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     n <- 1
     M <- 1
     N <- 20
     assign("n", tclVar(n), envir = slider.env)
-    assign("M", tclVar(M), envir = slider.env)           
+    assign("M", tclVar(M), envir = slider.env)
     assign("N", tclVar(N), envir = slider.env)
+
+    if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
     norm.refresh <- function(...) {
         n <- as.numeric(evalq(tclvalue(n), envir = slider.env))
         M <- as.numeric(evalq(tclvalue(M), envir= slider.env))
@@ -28,44 +31,44 @@ see.hyper.tck<-function ()
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "n", font=c("Helvetica","9","italic"),width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
-        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1,
+        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir= slider.env)
     evalq(tkconfigure(sc, variable = n), envir= slider.env)
-    
+
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "M", font=c("Helvetica","9","italic"),width = "20"), 
+    tkpack(tklabel(fr, text = "M", font=c("Helvetica","9","italic"),width = "20"),
         side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
-        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1,
+        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir= slider.env)
-    evalq(tkconfigure(sc, variable = M), envir= slider.env)  
+    evalq(tkconfigure(sc, variable = M), envir= slider.env)
 
 tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "N", font=c("Helvetica","9","italic"),width = "20"), 
+    tkpack(tklabel(fr, text = "N", font=c("Helvetica","9","italic"),width = "20"),
         side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 20, 
-        to = 40, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 20,
+        to = 40, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir= slider.env)
-    evalq(tkconfigure(sc, variable = N), envir= slider.env)  
+    evalq(tkconfigure(sc, variable = N), envir= slider.env)
 }
 
- 
-see.hypercdf.tck<-function () 
+
+see.hypercdf.tck<-function ()
 {
 #  old.par <- par(no.readonly = TRUE)
-    if (!exists("slider.env")) 
-    slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
+    if (!exists("slider.env"))
+    slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     n <- 1
     M <- 1
     N <- 20
     assign("n", tclVar(n), envir= slider.env)
-    assign("M", tclVar(M), envir= slider.env)           
+    assign("M", tclVar(M), envir= slider.env)
     assign("N", tclVar(N), envir= slider.env)
-    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.5,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+    dev.new(height=4,width=8,noRStudioGD = TRUE);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.5,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
    norm.refresh <- function(...) {
         n <- as.numeric(evalq(tclvalue(n), envir= slider.env))
         M <- as.numeric(evalq(tclvalue(M), envir= slider.env))
@@ -90,29 +93,29 @@ see.hypercdf.tck<-function ()
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "n", font=c("Helvetica","9","italic"),width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
-        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1,
+        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir= slider.env)
     evalq(tkconfigure(sc, variable = n), envir= slider.env)
-    
+
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "M", font=c("Helvetica","9","italic"),width = "20"), 
+    tkpack(tklabel(fr, text = "M", font=c("Helvetica","9","italic"),width = "20"),
         side = "right")
-     
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
-        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE), 
+
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1,
+        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir= slider.env)
-    evalq(tkconfigure(sc, variable = M), envir= slider.env)  
+    evalq(tkconfigure(sc, variable = M), envir= slider.env)
 
 tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "N", font=c("Helvetica","9","italic"),width = "20"), 
+    tkpack(tklabel(fr, text = "N", font=c("Helvetica","9","italic"),width = "20"),
         side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 20, 
-        to = 40, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 20,
+        to = 40, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir= slider.env)
-    evalq(tkconfigure(sc, variable = N), envir= slider.env)  
+    evalq(tkconfigure(sc, variable = N), envir= slider.env)
 #    on.exit(par(old.par))
-}     
+}

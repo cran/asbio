@@ -1,9 +1,9 @@
 anm.mc.norm <- function(start = -4, mu = 0, sigma = 1, length = 2000, sim = "M", jump.kernel = 0.2, xlim = c(-4, 4), ylim = c(0, 0.4), interval = 0.01, show.leg = TRUE, ...)
 {
 x<-seq(-4, 4, .05)
-dev.new(xpos = -750)
+dev.new(xpos = -750, noRStudioGD = TRUE)
 curve(dnorm(x, mu, sigma), xlim = xlim, xlab = "x", ylab = "f(x)", main = "Underlying distribution")
-dev.new()
+dev.new(noRStudioGD = TRUE)
 
 if(sim == "M") method = "Metropolis"; if(sim == "MH") method = "Metropolis-Hastings"
 
@@ -26,7 +26,7 @@ if(sim == "M")
 }
 
 if(sim == "MH")
-{        
+{
 
     for( i in 2 : length)
         {
@@ -41,10 +41,10 @@ if(sim == "MH")
         if(s == 1)q.x[i] = new
         if(s == 2)q.x[i] = q.x[i - 1]
         }
-}        
-        
+}
+
 dens <- dnorm(q.x, mu, sigma)
-    
+
     for( i in 1 : length)
         {
         dev.hold()
@@ -84,7 +84,7 @@ if(sim == "G")
 {
 x <- y <- matrix(ncol = 1, nrow = length)
 x[1] <- start[1]
-y[1] <- start[2] 
+y[1] <- start[2]
 rho <- sigma[3]
     for( i in 2 : length)
         {
@@ -112,7 +112,7 @@ if(sim == "M")
 
 
 if(sim == "MH")
-{        
+{
     for( i in 2 : length)
         {
         x <- rmvnorm(1, q.x[i - 1,], sigma * (jump.kernel^2))
@@ -126,8 +126,8 @@ if(sim == "MH")
         if(s == 1)q.x[i,] = x
         if(s == 2)q.x[i,] = q.x[i - 1,]
         }
-}        
-        
+}
+
     for( i in 1 : length)
         {
         dev.hold()
@@ -140,6 +140,5 @@ if(sim == "MH")
         dev.flush()
         Sys.sleep(interval)
         }
-on.exit(par(old.par))        
+on.exit(par(old.par))
 }
-                                                                                                                                            

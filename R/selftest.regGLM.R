@@ -90,7 +90,7 @@ experimental designs.",
       gmessage(msg="Correct")
     }
     if(tail(svalue(r3),1)== ans3[4]){
-      gmessage(msg="Inorrect")
+      gmessage(msg="Incorrect", icon = "error")
     }
     
     svalue(r3) <- character(0)

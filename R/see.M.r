@@ -1,7 +1,7 @@
-see.M <- function () 
+see.M <- function ()
 {
 
-    if (!exists("slider.env")) 
+    if (!exists("slider.env"))
         slider.env <- NULL
     suppressWarnings(rm(slider.env))
     slider.env <<- new.env()
@@ -11,6 +11,9 @@ see.M <- function ()
     assign("xmin", tclVar(xmin), envir = slider.env)
     xmax <- 5
     assign("xmax", tclVar(xmax), envir = slider.env)
+
+    if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
     norm.refresh <- function(...) {
         cval <- as.numeric(evalq(tclvalue(cval), envir = slider.env))
         xmin <- as.numeric(evalq(tclvalue(xmin), envir = slider.env))
@@ -20,11 +23,11 @@ see.M <- function ()
             min(1, cval/abs(x))
         })
         dev.hold()
-        p <- plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "Weight", 
-            xlab = expression(paste(italic(x), " - ", hat(mu))), 
+        p <- plot(xx, yy, type = "l", xlim = c(xmin, xmax), ylab = "Weight",
+            xlab = expression(paste(italic(x), " - ", hat(mu))),
             lwd = 2, bty = "l")
         grid(p)
-        legend("topright", legend = bquote(paste(italic(c)," = ", .(cval), sep = "")), box.col = "white", 
+        legend("topright", legend = bquote(paste(italic(c)," = ", .(cval), sep = "")), box.col = "white",
             bg = "white")
         dev.flush()
     }
@@ -34,8 +37,8 @@ see.M <- function ()
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "c", width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0.01, 
-        to = 5, orient = "horiz", resolution = 0.01, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0.01,
+        to = 5, orient = "horiz", resolution = 0.01, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = cval), envir = slider.env)
@@ -48,8 +51,8 @@ see.M <- function ()
     tkpack(e <- tkentry(fr, width = 8), side = "left")
     assign("e", e, envir = slider.env)
     evalq(tkconfigure(e, textvariable = xmax), envir = slider.env)
-    tkpack(tkbutton(m, text = "Refresh", command = norm.refresh), 
+    tkpack(tkbutton(m, text = "Refresh", command = norm.refresh),
         side = "left")
-    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
+    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
 }

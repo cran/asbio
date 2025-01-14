@@ -60,27 +60,29 @@ on.exit(par(old.par))
 
 
 
-see.rEffect.tck <- function () 
+see.rEffect.tck <- function ()
 {
 
-    if (!exists("slider.env")) 
+    if (!exists("slider.env"))
     slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     sigmaA <- 1
     assign("sigmaA", tclVar(sigmaA), envir = slider.env)
-    
+
+    if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
     norm.refresh <- function(...) {
           r.eff()
     }
-    
+
     tclServiceMode(TRUE)
     m <- tktoplevel()
     tkwm.title(m, "Visualizing random effects")
     tkpack(tklabel(m, text = " Visualizing random effects "))
     tkwm.geometry(m, "+0+0")
-   
+
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tkbutton(fr, text = "Sample", command = norm.refresh), 
+    tkpack(tkbutton(fr, text = "Sample", command = norm.refresh),
         side = "left")
-    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
+    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
 }

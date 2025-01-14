@@ -28,7 +28,7 @@ of size 400.  For stratified random sampling the population is subdivided into f
 and \code{n}/4 samples are taken within each strata.  For cluster sampling the population is subdivided into four
 equally sized clusters and a census is taken from two clusters (regardless of specification of \code{n}).   The function \code{anm.samp.design} depicts random sampling using animation}
 \value{
-A plot is returned with four subplots.  (a) shows the population before sampling, (b) shows simple random sampling, (c) shows stratified random sampling, (d) shows cluster sampling.  The function \code{anm.samp.design.tck} provides interaction with a \pkg{tcltk} GUI.
+A plot is returned with four subplots.  (a) shows the population before sampling, (b) shows simple random sampling, (c) shows stratified random sampling, (d) shows cluster sampling.  The function \code{anm.samp.design.tck} provides interactivity with a \pkg{tcltk} GUI.
 }
 \author{Ken Aho}
 \examples{

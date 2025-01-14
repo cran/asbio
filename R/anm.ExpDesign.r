@@ -1,8 +1,12 @@
 anm.ExpDesign<-function(method = "all", titles =  TRUE, cex.text = 1, mp.col = NULL, lwda = 1, n = 10, EUcol = hcl.colors(n, palette = "Dark 3"), interval = 0.5, iter = 30){
-old.par <- par(no.readonly = TRUE)
-method1 = method    
-if(any(method == "all")) 
-      method1 = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
+
+  old.par <- par(no.readonly = TRUE)
+
+  if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
+method1 = method
+if(any(method == "all"))
+      method1 = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs")
     m <- matrix(nrow=iter, ncol = length(method1), rep(method,iter), byrow = TRUE)
     for(i in 1:nrow(m)){
 	    dev.hold()
@@ -11,11 +15,11 @@ if(any(method == "all"))
 	    Sys.sleep(interval)
     }
 on.exit(par(old.par))
-invisible()	
+invisible()
 }
 
 ExpDesign <-function(method= "all",titles=TRUE, cex.text = 1, mp.col = NULL, lwda = 1, n = 10, EUcol = hcl.colors(n, palette = "Dark 3"),...){
-if(any(method == "all")) method = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs") 
+if(any(method == "all")) method = c("CRD","factorial2by2","factorial2by2by2","nested","RCBD","RIBD","split","split.split", "SPRB","strip","split.block","strip.split","latin","pairs")
 L<-length(method)
 if(L==2) {par(mfrow=c(2,1),mar=c(0.1,1.5,2,1.5))} else
 if(L==3) {par(mfrow=c(3,1),mar=c(0.1,1.5,2,1.5))} else
@@ -129,7 +133,7 @@ arrows(x.s1,rep(8.5,2),x.e1,rep(4.5,2),length=.1, lwd = lwda)
 arrows(x.s2,rep(8.5,2),x.e2,rep(4.5,2),length=.1, lwd = lwda)
 arrows(x.s3,rep(8.5,2),x.e3,rep(4.5,2),length=.1, lwd = lwda)
   }
-                                                                  
+
 #Split plot
 if(any(method=="split")){
 plot(seq(1:10),seq(1:10),xaxt="n",yaxt="n",xlab="",ylab="",type="n",main=ifelse(titles==TRUE,"Split Plot",""),...)
@@ -336,8 +340,8 @@ x.e[3]<-ifelse(x.e[1]==x.e[2]&x.e[1]==3,8,x.e[3])
 x.e[3]<-ifelse(x.e[1]==x.e[2]&x.e[1]==8,3,x.e[3])
 col<-matrix(ncol=1,nrow=3)
 for(i in 1:3){
-if(x.s[i]==3){col[i]=2} 
-if(x.s[i]==5.5){col[i]=3} 
+if(x.s[i]==3){col[i]=2}
+if(x.s[i]==5.5){col[i]=3}
 if(x.s[i]==8){col[i]=4}}
 if(is.null(mp.col))col=col
 else col=mp.col
@@ -345,7 +349,7 @@ arrows(x.s,rep(8.5,3),x.e,rep(4.5,3),length=.1,col=col,lty=c(1,2,3), lwd = lwda)
 x.e2<-matrix(ncol=1,nrow=3)
 y.s2<-matrix(ncol=1,nrow=3)
 for(i in 1:3){
-x.e2[i]<-ifelse(x.e[i]==3,8,3) 
+x.e2[i]<-ifelse(x.e[i]==3,8,3)
 if(x.s[i]==3){y.s2[i]=3.2}
 if(x.s[i]==5.5){y.s2[i]=2.6}
 if(x.s[i]==8){y.s2[i]=2.0}}

@@ -16,10 +16,10 @@
 anm.geo.growth(n0, lambda, time = seq(0, 20), ylab = "Abundance",
 xlab = "Time", interval = 0.1, ...)
 
-anm.exp.growth(n, rmax, time = seq(0, 20), ylab = "Abundance", 
+anm.exp.growth(n, rmax, time = seq(0, 20), ylab = "Abundance",
 xlab = "Time", interval = 0.1, ...)
 
-anm.log.growth(n, rmax, K, time = seq(0, 60), ylab = "Abundance", 
+anm.log.growth(n, rmax, K, time = seq(0, 60), ylab = "Abundance",
 xlab = "Time", interval = 0.1, ...)
 
 anm.geo.growth.tck()
@@ -73,13 +73,13 @@ Exponential growth allows simultaneous existence of multiple generations, and is
 
 \deqn{\frac{dN}{dt}=r_{max}N,}
 
-where \eqn{r_{max}} is the maximum intrinsic rate of increase, i.e. max(birth rate - death rate), and \emph{N} is the population size.  With logistic growth, exponential growth is slowed as \emph{N} approaches the carrying capacity.  It is computed as: 
+where \eqn{r_{max}} is the maximum intrinsic rate of increase, i.e. max(birth rate - death rate), and \emph{N} is the population size.  With logistic growth, exponential growth is slowed as \emph{N} approaches the carrying capacity.  It is computed as:
 
 \deqn{\frac{dN}{dt}=r_{max}N\frac{K-N}{K},}
 
 where \eqn{r_{max}} is the maximum rate of intrinsic increase, \eqn{N} is the population size, and \eqn{K} is the carrying capacity
 
-Package \pkg{tcltk} allows implementation of all three models using GUIs.
+All three functions can be run from \pkg{tcltk} GUIs.
 }
 
 \author{

@@ -6,6 +6,9 @@ m[,1]<-init
 m[,i]<-A%*%m[,i-1]
 }
 n<-apply(m,2,sum)
+
+if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
 for(i in 1:inter){
 dev.hold()
 fig<-plot(seq(1,inter),n,type="n",ylim=c(0,max(n)*leg.room),...);grid(fig)

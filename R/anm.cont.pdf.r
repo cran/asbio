@@ -9,18 +9,20 @@ if(part == "t") {xlim=c(-15,15);ylim=c(0,0.4)}
 if(part =="exp") {xlim=c(0,20);ylim=c(0,0.9)}
 if(part =="unif") {xlim=c(0,1);ylim=c(0,1.2)}
 
+if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
 for(i in 1:20){
 hist(p,breaks=seq(xlim[1],xlim[2],by=1/i),freq=F, ylim = ylim, xlim = xlim, main = "", xlab=expression(italic(x)), ylab="Density")
 dev.flush()
 Sys.sleep(interval)
 }
 if(part=="norm")
-x <- NULL; rm(x); # Dummy to trick R CMD check 
+x <- NULL; rm(x); # Dummy to trick R CMD check
 curve(if(part=="norm")dnorm(x)
 else if(part=="t") dt(x, df = 10)
 else if(part=="exp") dexp(x)
 else if(part=="unif") dunif(x)
-,xlim[1],xlim[2],ylim=ylim, xlab="",yaxt="n",bty="n",col=1,lwd=ifelse(part == "t", 3, 7), add=TRUE) 
+,xlim[1],xlim[2],ylim=ylim, xlab="",yaxt="n",bty="n",col=1,lwd=ifelse(part == "t", 3, 7), add=TRUE)
 }
 
 
@@ -50,26 +52,26 @@ local({
     dialog.sd <- function(){
         tt <- tktoplevel()
         tkwm.title(tt,"Conceptualization of continuous pdfs")
-        Pdf<-tclVar("normal")  
+        Pdf<-tclVar("normal")
         done <- tclVar(0)
-        
-    
-    
+
+
+
     reset <- function()
         {
             tclvalue(Pdf)<-"normal"
         }
-        
+
         reset.but <- tkbutton(tt, text="Reset", command=reset)
         submit.but <- tkbutton(tt, text="Submit",command=function()tclvalue(done)<-1)
-        tkgrid(tklabel(tt,text="Conceptualize pdfs"),columnspan=2)  
+        tkgrid(tklabel(tt,text="Conceptualize pdfs"),columnspan=2)
         tkgrid(tklabel(tt,text=""),columnspan=2)
         tkgrid(tklabel(tt, text="pdf"))
         pdfs<- c("exponential","normal","t","uniform")
             comboBox <- tkwidget(tt,"ComboBox", editable=FALSE, values=pdfs, textvariable = Pdf, width = 17)
-        
-        
-        
+
+
+
         build<-function(){
         pdf<-tclvalue(Pdf)
         if(pdf =="exponential")dist = "exp"
@@ -78,14 +80,14 @@ local({
         if(pdf == "uniform") dist = "unif"
         substitute(see.pdf.conc(dist))
         }
-          
-        
+
+
         tkgrid(comboBox,columnspan=2)
         tkgrid(tklabel(tt,text=""))
         tkgrid(tklabel(tt,text=""))
         tkgrid(submit.but, reset.but, sticky="w")
-        
-        
+
+
         tkbind(tt, "<Destroy>", function()tclvalue(done)<-2)
 
         tkwait.variable(done)
@@ -95,9 +97,9 @@ local({
         tkdestroy(tt)
         cmd <- build()
         eval.parent(cmd)
-    }                            
+    }
       Pdf<- tclVar("normal")
       dialog.sd()
 })
 }
- 
+

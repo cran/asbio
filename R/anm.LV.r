@@ -3,7 +3,7 @@
 anm.LVcomp<-function(n1,n2,r1,r2,K1,K2,a2.1,a1.2,time=seq(0,200),ylab="Abundance",xlab="Time",interval=0.1,...){
 
 y<-xstart<-c(n1=n1,n2=n2)
-pars<-c(r1=r1,r2=r2,K1=K1,K2=K2,a2.1=a2.1,a1.2=a1.2) 
+pars<-c(r1=r1,r2=r2,K1=K1,K2=K2,a2.1=a2.1,a1.2=a1.2)
 if(n1 >= K1 | n2 >= K2) stop("Initial population size cannot equal or exceed carrying capacity")
 
 time=seq(0,200); ylab="Abundance"; xlab="Time"; interval=0.1
@@ -18,7 +18,7 @@ func<-function(time=time,xstart=xstart,pars=pars){
     res <- list(c(dn1,dn2))
     })}
 
-out <- as.data.frame(rk4(xstart, time, func, pars))
+out <- as.data.frame(deSolve::rk4(xstart, time, func, pars))
 
 #------------------------------------------------------ exception handling ---------------------------------------------------------#
 if(any(out$n1 < 0)| any(out$n1 > K1) | any(out$n2 < 0)| any(out$n2 > K2)){																#
@@ -35,6 +35,7 @@ K1.lab <- bquote(paste(K[1],"=",.(pr$K1))); K2.lab <- bquote(paste(K[2],"=",.(pr
 a21.lab <- bquote(paste(alpha[21],"=",.(pr$a2.1))); a12.lab<-bquote(paste(alpha[12],"=",.(pr$a1.2)))
 
 old.par <- par(no.readonly = TRUE)
+if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
 
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){

@@ -5,14 +5,14 @@
 Normal quantile plots for single or multiple factor levels
 }
 \description{
-Provides quantile plots for one or more factor levels overlaid on a single graph.  If \code{plot.CI = TRUE}, then 
-code for bootstrapped confidence provided in the documentation for \code{\link{boot}} is applied to create confidence envelopes. If \code{plot.CI = FALSE}, \code{\link{qqnorm}} and \code{\link{qqline}} are used to create overlaid normal probability plots given multiple categories in \code{x}.  
+Provides quantile plots for one or more factor levels overlaid on a single graph.  If \code{plot.CI = TRUE}, then
+code for bootstrapped confidence provided in the documentation for \code{\link[boot]{boot}} is applied to create confidence envelopes. If \code{plot.CI = FALSE}, \code{\link{qqnorm}} and \code{\link{qqline}} are used to create overlaid normal probability plots given multiple categories in \code{x}.
 }
 
 \usage{
 
-qq.Plot(y, x = NULL, col = NULL, pch = NULL, main = "", R = 5000, fit.lty = 1, 
-env.lty = 2, conf = 0.95, type = "point", ylim = NULL, xlim = NULL, xlab = NULL, 
+qq.Plot(y, x = NULL, col = NULL, pch = NULL, main = "", R = 5000, fit.lty = 1,
+env.lty = 2, conf = 0.95, type = "point", ylim = NULL, xlim = NULL, xlab = NULL,
 ylab = NULL, plot.CI = FALSE, standy = TRUE, ...)
 }
 
@@ -25,10 +25,10 @@ The response variable
 A categorical variable to subset \emph{y}
 }
   \item{col}{
-A scalar or vector with length equivalent to the number of levels in \emph{x}, describing colors of points and lines for levels in \emph{x}. 
+A scalar or vector with length equivalent to the number of levels in \emph{x}, describing colors of points and lines for levels in \emph{x}.
 }
   \item{pch}{
-A scalar or vector with length equivalent to the number of levels in \emph{x}, describing symbols for levels in \emph{x}. 
+A scalar or vector with length equivalent to the number of levels in \emph{x}, describing symbols for levels in \emph{x}.
 }
   \item{main}{
 Main title.
@@ -46,28 +46,28 @@ Line type for fit line(s).
 Level of confidence in confidence envelopes.
 }
   \item{type}{
-Type of bootstrapped confidence envelope.  One of \code{"point"} or \code{"overall"}. 
+Type of bootstrapped confidence envelope.  One of \code{"point"} or \code{"overall"}.
 }
   \item{xlim}{
-A two element vector defining the lower and upper \emph{x}-axis limits . 
+A two element vector defining the lower and upper \emph{x}-axis limits .
 }
   \item{ylim}{
-A two element vector defining the lower and upper \emph{y}-axis limits . 
+A two element vector defining the lower and upper \emph{y}-axis limits .
 }
   \item{xlab}{
-\emph{X}-axis label. 
+\emph{X}-axis label.
 }
   \item{ylab}{
-\emph{Y}-axis label. 
+\emph{Y}-axis label.
 }
   \item{plot.CI}{
-Logical, specifying whether or not confidence ellipses should be plotted. 
+Logical, specifying whether or not confidence ellipses should be plotted.
 }
   \item{standy}{
-Logical, specifying if observations should be standardized.  
+Logical, specifying if observations should be standardized.
 }
   \item{\dots}{
-Other arguments from \code{\link{plot}}. 
+Other arguments from \code{\link{plot}}.
 }
 }
 
@@ -76,7 +76,7 @@ Ken Aho
 }
 
 \seealso{
-\code{\link{qqnorm}}, \code{\link{qqline}},  \code{\link{envelope}}, \code{\link{boot}}
+\code{\link{qqnorm}}, \code{\link{qqline}},  \code{\link[boot]{envelope}}, \code{\link[boot]{boot}}
 }
 \examples{
 y <- rnorm(50)

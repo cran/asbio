@@ -1,16 +1,17 @@
 anm.samp.design<-function(n=20, interval = 0.5 ,iter = 30, main = "", lwd = 2, lcol = 2){
 r<-rep(n,iter)
-for(i in 1:iter){ 
+if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+for(i in 1:iter){
 samp.design(r[i], lwd = lwd, lcol = lcol)
 dev.flush()
 Sys.sleep(interval)
 }
 }
-                                                                                                                   
+
 samp.design<-function(n=20, main = "", lwd = 2, lcol = 2){
 old.par <- par(no.readonly = TRUE)
 plotSamp<-function(n=n,type=type, main=main, lwd = lwd, lcol = lcol){
-plot(seq(1,19),seq(1,19),xaxt="n",yaxt="n",xlab="",ylab="",type="n",xlim=c(0.5,19.5),ylim=c(0.5,19.5),main=main)
+  plot(seq(1,19),seq(1,19),xaxt="n",yaxt="n",xlab="",ylab="",type="n",xlim=c(0.5,19.5),ylim=c(0.5,19.5),main=main)
 
 #--------------------------- SRS -----------------------------#
 

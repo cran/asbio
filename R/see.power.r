@@ -8,10 +8,11 @@ see.power<-function(alpha=NULL,sigma=NULL,n=NULL,effect=NULL,test="lower",xlim=c
     lower.titleb<-bquote(paste("Distribution assuming ",H[A],": ",mu != 0))
 
     effect=abs(effect)
+
     layout(matrix(c(1,rep(2,2),rep(3,2)), 5, 1, byrow = TRUE))
     par(mar=c(4, 4, 2, 1))
-    
-    
+
+
 
 if(test == "lower"){
     dev.hold()
@@ -49,7 +50,7 @@ if(test == "upper"){
     abline(v=qalpha,col=1)
     legend("topright",pch=22,pt.bg="lightyellow2",pt.cex=2,legend=expression(alpha))
     text(qalpha,0.5*dnorm(0,mean=0,sd=sigma/sqrt(n)),"\u2192 rejection region", adj = 0)
-    
+
     shade.norm(x=qpower,sigma=sigma/sqrt(n),mu=effect,tail="upper",show.p=FALSE,show.d=FALSE,show.dist=TRUE,shade.col="lightcoral" ,main=lower.titleu,xlim=xlim)
     abline(v=qpower,col=1)
     legend("topright",pch=22,pt.bg="lightcoral",pt.cex=2,legend=expression(paste("1-",beta)))
@@ -73,7 +74,7 @@ if(test == "two"){
     legend("topright",pch=22,pt.bg="lightyellow2",pt.cex=2,legend=expression(alpha))
     text(qalpha,0.5*dnorm(0,mean=0,sd=sigma/sqrt(n)),"\u2192 rejection region", adj = 0)
     text(-qalpha,0.5*dnorm(0,mean=0,sd=sigma/sqrt(n)),"rejection region \u2190", adj = 1)
-    
+
     shade.norm(x=qpower,sigma=sigma/sqrt(n),mu=effect,tail="two",show.p=FALSE,show.d=FALSE,show.dist=TRUE,shade.col="lightcoral" ,main=lower.titleb,xlim=xlim)
     abline(v=qpower,col=1)
     abline(v=-qpower,col=1)
@@ -86,29 +87,31 @@ if(test == "two"){
     }
 
 
- 
-see.power.tck<-function () 
+
+see.power.tck<-function ()
 {
 
-    if (!exists("slider.env")) 
-        slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
+    if (!exists("slider.env"))
+        slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     alpha <- 0.05
     sigma <- 1.5
     effect <-1
     n <- 5
     test <-tclVar("lower")
     strict <- tclVar("FALSE")
-    
+
     assign("alpha", tclVar(alpha),envir= slider.env)
     assign("sigma", tclVar(sigma),envir= slider.env)
     assign("effect", tclVar(effect),envir= slider.env)
     assign("n", tclVar(n),envir= slider.env)
-       
+
     xmin <- -3
     assign("xmin", tclVar(xmin),envir= slider.env)
     xmax <- 3
     assign("xmax", tclVar(xmax),envir= slider.env)
-           
+
+    if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
    norm.refresh <- function(...) {
         alpha <- as.numeric(evalq(tclvalue(alpha),envir= slider.env))
         sigma <- as.numeric(evalq(tclvalue(sigma),envir= slider.env))
@@ -121,69 +124,69 @@ see.power.tck<-function ()
         strict <- tclvalue(strict)
         see.power(alpha=alpha,sigma=sigma,n=n,effect=effect,xlim=xixa,test=test, strict=strict)
     }
-                     
+
     m <- tktoplevel()
     tkwm.title(m, "Visualizing Power")
     tkpack(tklabel(m,text="      Visualizing Power      "))
     tkwm.geometry(m, "+0+0")
-    
+
     tkpack(tklabel(m,text="            "))
-    
+
     tkpack(fr <- tkframe(m), side = "top", anchor = "w")
     tkpack(fr1 <- tkframe(fr), side = "left",anchor = "w")
     tkpack(fr2 <- tkframe(fr), side = "right", anchor = "e")
-    
+
      tkpack(tklabel(fr1, text = "  Test: "), side = "left")
         for ( i in c("lower", "upper", "two")){
             tmp <- tkradiobutton(fr1, text=i, variable=test, value=i)
             tkpack(tmp,anchor="w")
             }
-    
+
     tkpack(tklabel(fr2, text = "               Strict: "), side = "left")
         for ( i in c("TRUE", "FALSE")){
             tmp <- tkradiobutton(fr2, text=i, variable=strict, value=i)
             tkpack(tmp,anchor="w")
             }
-        
-   
-              
-            
+
+
+
+
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = '\u03b1',font=c("Helvetica","10","italic"), width = "20"), 
+    tkpack(tklabel(fr, text = '\u03b1',font=c("Helvetica","10","italic"), width = "20"),
         side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0.01, 
-        to = 1, orient = "horiz", resolution = 0.01, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0.01,
+        to = 1, orient = "horiz", resolution = 0.01, showvalue = TRUE),
         side = "left")
     assign("sc", sc,envir= slider.env)
     evalq(tkconfigure(sc, variable = alpha),envir= slider.env)
-    
+
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = '\u03c3',font=c("Helvetica","10","italic"), width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0.5, 
-        to = 3, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0.5,
+        to = 3, orient = "horiz", resolution = 0.1, showvalue = TRUE),
         side = "left")
     assign("sc", sc,envir= slider.env)
     evalq(tkconfigure(sc, variable = sigma),envir= slider.env)
-    
+
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "n",font=c("Helvetica","10","italic"), width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
-        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1,
+        to = 20, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc,envir= slider.env)
     evalq(tkconfigure(sc, variable = n),envir= slider.env)
-    
+
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "Effect size", font=c("Helvetica","10"),width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
-        to = 3, orient = "horiz", resolution = .1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0,
+        to = 3, orient = "horiz", resolution = .1, showvalue = TRUE),
         side = "left")
     assign("sc", sc,envir= slider.env)
     evalq(tkconfigure(sc, variable = effect),envir= slider.env)
-    
-    
-    
-    tkpack(tklabel(m,text="            "))  
+
+
+
+    tkpack(tklabel(m,text="            "))
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "Xmin:", width = 6), side = "left")
     tkpack(e <- tkentry(fr, width = 8), side = "left")
@@ -193,11 +196,11 @@ see.power.tck<-function ()
     tkpack(e <- tkentry(fr, width = 8), side = "left")
     assign("e", e,envir= slider.env)
     evalq(tkconfigure(e, textvariable = xmax),envir= slider.env)
-    
-    tkpack(tkbutton(m, text = "Refresh", command = norm.refresh), 
+
+    tkpack(tkbutton(m, text = "Refresh", command = norm.refresh),
         side = "left")
-    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
-        side = "right") 
+    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
+        side = "right")
 }
 
 

@@ -7,6 +7,8 @@ n<-n0*lambda^time
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 lambda.lab<-bquote(paste(lambda,"=",.(lambda)))
 old.par <- par(no.readonly = TRUE)
+if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
 for(i in min(time):max(time)){
     dev.hold()
     par(mar=c(0,0,0,0))
@@ -29,7 +31,7 @@ on.exit(par(old.par))
 
 anm.exp.growth<-function(n,rmax,time=seq(0,20),ylab="Abundance",xlab="Time",interval=0.1,...){
 y<-xstart<-c(n=n)
-pars<-c(rmax=rmax) 
+pars<-c(rmax=rmax)
 
 pr<-as.list(pars)
 func<-function(time=time,xstart=xstart,pars=pars){
@@ -66,7 +68,7 @@ on.exit(par(old.par))
 
 anm.log.growth<-function(n,rmax,K,time=seq(0,60),ylab="Abundance",xlab="Time",interval=0.1,...){
 y<-xstart<-c(n=n)
-pars<-c(rmax=rmax,K=K) 
+pars<-c(rmax=rmax,K=K)
 
 pr<-as.list(pars)
 func<-function(time=time,xstart=xstart,pars=pars){

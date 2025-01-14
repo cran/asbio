@@ -4,11 +4,11 @@
 Make plots of bivariate normal distributions
 }
 \description{
-The function uses functions from \pkg{lattice} and \pkg{mvtnorm} to make wireframe plots of bivariate normal distributions.  Remember that the covariance 
-must be less than the product of the marginal standard deviations (square roots of the diagonal elements).  
+The function uses functions from \pkg{lattice} and \pkg{mvtnorm} to make wireframe plots of bivariate normal distributions.  Remember that the covariance
+must be less than the product of the marginal standard deviations (square roots of the diagonal elements).
 }
 \usage{
-bvn.plot(mu = c(0, 0), cv = 0, vr = c(1, 1), res = 0.3, xlab = expression(y[1]), 
+bvn.plot(mu = c(0, 0), cv = 0, vr = c(1, 1), res = 0.3, xlab = expression(y[1]),
 ylab = expression(y[2]), zlab = expression(paste("f(", y[1], ",", y[2], ")")), ...)
 }
 
@@ -17,7 +17,7 @@ ylab = expression(y[2]), zlab = expression(paste("f(", y[1], ",", y[2], ")")), .
 A vector containing the joint distribution means.
 }
   \item{cv}{
-A number, indicating the covariance of the two variables.  
+A number, indicating the covariance of the two variables.
 }
   \item{vr}{
 The diagonal elements in the variance covariance matrix.
@@ -35,7 +35,8 @@ Plot resolution.  Smaller values create a more detailed wireframe plot.
 \emph{Z}-axis label.
 }
 \item{\dots}{
-Additional arguments from \code{\link{wireframe}}.}
+Additional arguments from \code{\link[lattice]{wireframe}}.
+}
 }
 \author{
 Ken Aho

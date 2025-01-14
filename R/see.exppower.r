@@ -1,17 +1,19 @@
-see.exppower.tck<-function () 
+see.exppower.tck<-function ()
 {
 
-    if (!exists("slider.env")) 
-        slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
+    if (!exists("slider.env"))
+        slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     m <- 1
     assign("m", tclVar(m), envir = slider.env)
     xmin <- -3
     assign("xmin", tclVar(xmin), envir = slider.env)
     xmax <- 3
     assign("xmax", tclVar(xmax), envir = slider.env)
-        
+
     exppower<-function(x,m){exp(-abs(x)^m)}
-    
+
+    if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
     norm.refresh <- function(...) {
         m <- as.numeric(evalq(tclvalue(m), envir = slider.env))
         xmin <- as.numeric(evalq(tclvalue(xmin), envir = slider.env))
@@ -20,7 +22,7 @@ see.exppower.tck<-function ()
         yy <- exppower(as.numeric(xx), m)
         dev.hold()
         plot(xx, yy, type = "l", xlim = c(xmin, xmax),xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")))
-        dev.flush()        
+        dev.flush()
                 }
     tclServiceMode(TRUE)
     m <- tktoplevel()
@@ -35,12 +37,12 @@ see.exppower.tck<-function ()
     tkpack(tklabel(m,text=""), side = "top")
     tkpack(fr1 <- tkframe(m), side = "top")
     tkpack(tklabel(fr1, text = "m  ", font=c("Helvetica","10","italic")),side="left", anchor = "s")
-    tkpack(sc <- tkscale(fr1, command = norm.refresh, from = -10, 
-        to = 10, orient = "horiz", resolution = .1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr1, command = norm.refresh, from = -10,
+        to = 10, orient = "horiz", resolution = .1, showvalue = TRUE),
         side = "left", anchor="n")
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = m), envir = slider.env)
-    
+
     tkpack(tklabel(m,text=""), side = "top")
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = "Xmin:", width = 6), side = "left")
@@ -52,9 +54,9 @@ see.exppower.tck<-function ()
     assign("e", e, envir = slider.env)
     evalq(tkconfigure(e, textvariable = xmax), envir = slider.env)
     tkpack(tklabel(m,text=""), side = "top")
-    tkpack(tkbutton(m, text = "Refresh", command = norm.refresh), 
+    tkpack(tkbutton(m, text = "Refresh", command = norm.refresh),
         side = "left")
-    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
+    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
  }
 

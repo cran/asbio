@@ -1,8 +1,8 @@
-see.Fcdf.tck<-function () 
+see.Fcdf.tck<-function ()
 {
   # old.par <- par(no.readonly = TRUE)
-    if (!exists("slider.env")) 
-    slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
+    if (!exists("slider.env"))
+    slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     nu1 <- 5
     assign("nu1", tclVar(nu1), envir = slider.env)
     nu2 <- 5
@@ -11,8 +11,9 @@ see.Fcdf.tck<-function ()
     assign("xmin", tclVar(xmin), envir = slider.env)
     xmax <- 10
     assign("xmax", tclVar(xmax), envir = slider.env)
-        
-    dev.new(height=4,width=8);par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.5,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
+
+    dev.new(height=4,width=8,noRStudioGD = TRUE)
+    par(mar=c(4.4,4.5,1,0.5),cex=.85, oma = c(0,0,1.5,0)); layout(matrix(c(1,2), 1, 2, byrow = TRUE))
     norm.refresh <- function(...) {
         nu1 <- as.numeric(evalq(tclvalue(nu1), envir = slider.env))
         nu2 <- as.numeric(evalq(tclvalue(nu2), envir = slider.env))
@@ -34,15 +35,15 @@ see.Fcdf.tck<-function ()
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = '\u03bd\u2081',width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
-        to = 30, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1,
+        to = 30, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = nu1), envir = slider.env)
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = '\u03bd\u2082',width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
-        to = 30, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1,
+        to = 30, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir = slider.env)
     tkpack(fr <- tkframe(m), side = "top")
@@ -55,20 +56,20 @@ see.Fcdf.tck<-function ()
     tkpack(e <- tkentry(fr, width = 8), side = "left")
     assign("e", e, envir = slider.env)
     evalq(tkconfigure(e, textvariable = xmax), envir = slider.env)
-     tkpack(tkbutton(m, text = "Refresh", command = norm.refresh), 
+     tkpack(tkbutton(m, text = "Refresh", command = norm.refresh),
         side = "left")
-    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
+    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
- 
+
  #   on.exit(par(old.par))
     }
 
 
-see.F.tck<-function () 
+see.F.tck<-function ()
 {
 
     if (!exists("slider.env"))
-    slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check 
+    slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     nu1 <- 5
     assign("nu1", tclVar(nu1), envir = slider.env)
     nu2 <- 5
@@ -77,7 +78,8 @@ see.F.tck<-function ()
     assign("xmin", tclVar(xmin), envir = slider.env)
     xmax <- 10
     assign("xmax", tclVar(xmax), envir = slider.env)
-        
+    if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+
     norm.refresh <- function(...) {
         nu1 <- as.numeric(evalq(tclvalue(nu1), envir = slider.env))
         nu2 <- as.numeric(evalq(tclvalue(nu2), envir = slider.env))
@@ -97,15 +99,15 @@ see.F.tck<-function ()
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = '\u03bd\u2081', width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
-        to = 30, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1,
+        to = 30, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = nu1), envir = slider.env)
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = '\u03bd\u2082', width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1, 
-        to = 30, orient = "horiz", resolution = 1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 1,
+        to = 30, orient = "horiz", resolution = 1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir = slider.env)
     evalq(tkconfigure(sc, variable = nu2), envir = slider.env)
@@ -119,8 +121,8 @@ see.F.tck<-function ()
     tkpack(e <- tkentry(fr, width = 8), side = "left")
     assign("e", e, envir = slider.env)
     evalq(tkconfigure(e, textvariable = xmax), envir = slider.env)
-     tkpack(tkbutton(m, text = "Refresh", command = norm.refresh), 
+     tkpack(tkbutton(m, text = "Refresh", command = norm.refresh),
         side = "left")
-    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
+    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
    }

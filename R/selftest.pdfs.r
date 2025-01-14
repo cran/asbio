@@ -1,7 +1,7 @@
 selftest.pdfs.tck <- function(){
   options(guiToolkit="tcltk")
   w <- gwindow(title = "Probability Density Functions")
-  size(w) <- c(700, 950)
+  size(w) <- c(900, 950)
   g <- ggroup(container=w, horizontal=FALSE, use.scrollwindow = TRUE)
  
   #------------- Question 1 -----------#
@@ -530,7 +530,7 @@ selftest.pdfs.tck <- function(){
   
   ans16 <- c("(a)  It does not consider the number of successes.",
              "(b)  It has only one parameter.",
-             "(c)  It assumes sampling with replacement.",
+             "(c)  It assumes sampling without replacement.",
              "(d)  It allows consideration of non-biological phenomena.")
   
   f16 <- function(h,...){
@@ -541,7 +541,7 @@ selftest.pdfs.tck <- function(){
       gmessage(msg="Incorrect", icon = "error")
     }
     if(tail(svalue(r16),1)== ans16[3]){
-      gmessage(msg="Correct")
+      gmessage(msg="Correct.  Conversely, the binomial assumes sampling with replacement")
     }
     if(tail(svalue(r16),1)== ans16[4]){
       gmessage(msg="Incorrect.  Both the binomial and hypergeometric distribution allow consideration of non-biological (and biological) phenomena", icon = "error")
@@ -592,46 +592,107 @@ selftest.pdfs.tck <- function(){
   r17 <- gcheckboxgroup(ans17, container = gp17, checked = FALSE, where = "beginning", handler = f17)
   
   
-  #------------- Question 18 -----------#
-  gp18 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
-  gp18.1 <- ggroup(container = gp18, spacing = 2, pos = 0, horizontal = TRUE)
-  q <- glabel("18) ", container = gp18.1, horizontal = TRUE)
+  #------------- Question 19 -----------#
+  gp19 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
+  gp19.1 <- ggroup(container = gp19, spacing = 2, pos = 0, horizontal = TRUE)
+  q <- glabel("19) ", container = gp19.1, horizontal = TRUE)
   font(q) <- list(weight = "bold")
-  qq <- glabel("All but which of the following are discrete distributions?", container = gp18.1, anchor = c(-1,1))
+  qq <- glabel("The geometric distribution...", container = gp19.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   
-  ans18 <- c("(a)  negative binomial",
-             "(b)  Bernoulli",
-             "(c)  hypergeometric",
-             "(d)  Poisson",
-             "(e)  chi-squared",
-             "(f)  binomial"
+  ans19 <- c("(a)  gives the probability that x independent failures occur before the first success.",
+             "(b)  gives the probability that x independent failures occur before the rth success.",
+             "(c)  gives the probability that one failure occurs before the xth independent success.",
+             "(d)  gives the probability that r successes occurs before the xth independent failure."  )
+  
+ 
+  f19 <- function(h,...){
+    if(tail(svalue(r19),1) == ans19[1]){
+      gmessage(msg="Correct")
+    }
+    if(tail(svalue(r19),1)== ans19[2]){
+      gmessage(msg="Incorrect", icon = "error")
+    }
+    if(tail(svalue(r19),1)== ans19[3]){
+      gmessage(msg="Incorrect", icon = "error")
+    }
+    if(tail(svalue(r19),1)== ans19[4]){
+      gmessage(msg="Incorrect", icon = "error")
+    }
+    svalue(r19) <- character(0)
+  }
+  
+  r19 <- gcheckboxgroup(ans19, container = gp19, checked = FALSE, where = "beginning", handler = f19)
+  
+    
+  
+  #------------- Question 20 -----------#
+  gp20 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
+  gp20.1 <- ggroup(container = gp20, spacing = 2, pos = 0, horizontal = TRUE)
+  q <- glabel("20) ", container = gp20.1, horizontal = TRUE)
+  font(q) <- list(weight = "bold")
+  qq <- glabel("The negative binomial distribution...", container = gp20.1, anchor = c(-1,1))
+  font(qq) <- list(family = "cambria", size = 11)
+  
+  ans20 <- c("(a)  gives the probability that x independent failures occur before the first success.",
+             "(b)  gives the probability that x independent failures occur before the rth success.",
+             "(c)  gives the probability that one failure occurs before the xth independent success.",
+             "(d)  gives the probability that r successes occurs before the xth independent failure."
   )
   
   
-  f18 <- function(h,...){
-    if(tail(svalue(r18),1) == ans18[1]){
+  f20 <- function(h,...){
+    if(tail(svalue(r20),1) == ans20[1]){
       gmessage(msg="Incorrect",  icon = "error")
     }
-    if(tail(svalue(r18),1)== ans18[2]){
-      gmessage(msg="Incorrect", icon = "error")
-    }
-    if(tail(svalue(r18),1)== ans18[3]){
-      gmessage(msg="Incorrect", icon = "error")
-    }
-    if(tail(svalue(r18),1)== ans18[4]){
-      gmessage(msg="Incorrect", icon = "error")
-    }
-    if(tail(svalue(r18),1)== ans18[5]){
+    if(tail(svalue(r20),1)== ans20[2]){
       gmessage(msg="Correct")
     }
-    if(tail(svalue(r18),1)== ans18[6]){
+    if(tail(svalue(r20),1)== ans20[3]){
       gmessage(msg="Incorrect", icon = "error")
     }
-    svalue(r18) <- character(0)
+    if(tail(svalue(r20),1)== ans20[4]){
+      gmessage(msg="Incorrect", icon = "error")
+    }
+    svalue(r20) <- character(0)
   }
   
-  r18 <- gcheckboxgroup(ans18, container = gp18, checked = FALSE, where = "beginning", handler = f18)
+  r20 <- gcheckboxgroup(ans20, container = gp20, checked = FALSE, where = "beginning", handler = f20)
+
+
+  #------------- Question 21 -----------#
+  gp21 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
+  gp21.1 <- ggroup(container = gp21, spacing = 2, pos = 0, horizontal = TRUE)
+  q <- glabel("21) ", container = gp21.1, horizontal = TRUE)
+  font(q) <- list(weight = "bold")
+  qq <- glabel("The chi-squared distribution can be obtained by...", container = gp21.1, anchor = c(-1,1))
+  font(qq) <- list(family = "cambria", size = 11)
+  
+  ans21 <- c("(a)  taking the log of a standard normal distribution.",
+             "(b)  squaring an exponential distribution.",
+             "(c)  taking the sum of one or more squared standard normal distributions.",
+             "(d)  taking the sum of one or more standard normal distributions."
+  )
   
   
-}
+  f21 <- function(h,...){
+    if(tail(svalue(r21),1) == ans21[1]){
+      gmessage(msg="Incorrect",  icon = "error")
+    }
+    if(tail(svalue(r21),1)== ans21[2]){
+      gmessage(msg="Incorrect", icon = "error")
+    }
+    if(tail(svalue(r21),1)== ans21[3]){
+      gmessage(msg="Correct")
+    }
+    if(tail(svalue(r21),1)== ans21[4]){
+      gmessage(msg="Incorrect", icon = "error")
+    }
+    svalue(r21) <- character(0)
+  }
+  
+  r21 <- gcheckboxgroup(ans21, container = gp21, checked = FALSE, where = "beginning", handler = f21)
+  
+  
+}  
+    

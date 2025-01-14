@@ -30,14 +30,14 @@ A subset of the complete CO\eqn{_2} and Greenhouse Gas Emissions dataset maintai
 }
 }
 \details{
-Thanks to BIOL 6651 students at ISU who annotated these data: Laurel Faurot, Sawyer Finley, Spencer Roop, Therese Balkenbush, Lauren Tucker, Jessica Call and Riley Lanfear. 
+Thanks to BIOL 6651 students at ISU who annotated these data: Laurel Faurot, Sawyer Finley, Spencer Roop, Therese Balkenbush, Lauren Tucker, Jessica Call and Riley Lanfear.
 }
 \source{
-\url{https://github.com/owid/co2-data} 
+\url{https://github.com/owid/co2-data}
 }
 \references{
-According to Our World in Data (\url{https://ourworldindata.org/}), CO\eqn{_2} data are sourced from the Global Carbon Project (\url{https://www.globalcarbonproject.org}) which releases updates of CO\eqn{_2} emissions data annually. Greenhouse gas emissions (including methane, and nitrous oxide) are sourced from the CAIT Climate Data Explorer (\url{https://www.climatewatchdata.org:443/?source=cait}), and downloaded from the Climate Watch Portal (\url{https://www.climatewatchdata.org}. Energy consumption data this data are sourced from a combination of two sources The Statistical Review of World Energy 
-\url{https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html} and World Bank Development Indicators 
+According to Our World in Data (\url{https://ourworldindata.org/}), CO\eqn{_2} data are sourced from the Global Carbon Project (\url{https://www.globalcarbonproject.org}) which releases updates of CO\eqn{_2} emissions data annually. Greenhouse gas emissions (including methane, and nitrous oxide) are sourced from the CAIT Climate Data Explorer (\url{https://www.climatewatchdata.org:443/?source=cait}), and downloaded from the Climate Watch Portal (\url{https://www.climatewatchdata.org}. Energy consumption data this data are sourced from a combination of two sources The Statistical Review of World Energy
+\url{https://www.bp.com/en/global/corporate/energy-economics.html} and World Bank Development Indicators
 \url{https://databank.worldbank.org/source/world-development-indicators}.  Although The Statistical Review of World Energy is published annually, it does not provide data for all countries. For countries absent from this dataset, we calculated primary energy by multiplying the World Bank, World Development Indicators metric Energy use per capita by total population figures. The World Bank sources its metric from the International Energy Agency (IEA). Other variables were collected from a variety of sources including the United Nations, Gapminder, and the Maddison Project Database.
 }
 \examples{

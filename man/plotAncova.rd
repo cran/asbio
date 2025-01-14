@@ -48,7 +48,7 @@ Additional arguments from \code{\link{plot}}
 }
 
 \value{
-Returns an ANCOVA plot and model coefficients.  
+Returns an ANCOVA plot and model coefficients.  Slopes and intercepts for factor level lines are also stored as invisible output (see Examples).  
 }
 
 \author{
@@ -65,5 +65,9 @@ y <- 3 * x + rnorm(20)
 cat <- c(rep("A",5),rep("B",5),rep("C",5),rep("D",5))
 l <- lm(y ~ x * cat)
 plotAncova(l, leg.loc = "bottomright")
+
+# Access intercepts and slopes
+pa <- plotAncova(l)
+pa
 }
 \keyword{graphs}

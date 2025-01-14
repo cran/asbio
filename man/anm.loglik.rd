@@ -9,34 +9,34 @@
 \alias{anm.loglik.tck}
 \title{Animated plots of log-likelihood functions}
 \description{
-Plots the normal, exponential, Poisson, binomial, and "custom" log-likelihood functions.  By definition, likelihoods for parameter estimates are calculated by holding data constant and varying estimates.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLEs.  
+Plots the normal, exponential, Poisson, binomial, and "custom" log-likelihood functions.  By definition, likelihoods for parameter estimates are calculated by holding data constant and varying estimates.  For the normal distribution a fixed value for the parameter which is not being estimated (\eqn{\mu} or \eqn{\sigma^2}) is established using MLEs.
 }
 \usage{
-anm.loglik(X, dist = c("norm", "poi", "bin", "exp", "custom"), 
-plot.likfunc = TRUE, parameter = NULL, func = NULL, poss = NULL, 
-plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
-conv = diff(range(X))/70, anim = TRUE, est.col = 2, density.leg = TRUE, 
+anm.loglik(X, dist = c("norm", "poi", "bin", "exp", "custom"),
+plot.likfunc = TRUE, parameter = NULL, func = NULL, poss = NULL,
+plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL,
+conv = diff(range(X))/70, anim = TRUE, est.col = 2, density.leg = TRUE,
 cex.leg = 0.9, interval = 0.01, ...)
 
-loglik.norm.plot(X, parameter = c("mu", "sigma.sq"), poss = NULL, 
-plot.likfunc = TRUE, plot.density = TRUE, plot.calc = FALSE, 
-xlab = NULL, ylab = NULL, conv = 0.01, anim = TRUE, est.col = 2, 
+loglik.norm.plot(X, parameter = c("mu", "sigma.sq"), poss = NULL,
+plot.likfunc = TRUE, plot.density = TRUE, plot.calc = FALSE,
+xlab = NULL, ylab = NULL, conv = 0.01, anim = TRUE, est.col = 2,
 density.leg = TRUE, cex.leg = 0.9, interval = 0.01, ...)
 
-loglik.pois.plot(X, poss = NULL, plot.likfunc = TRUE, 
-plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
+loglik.pois.plot(X, poss = NULL, plot.likfunc = TRUE,
+plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL,
 conv = 0.01, anim = TRUE, interval = 0.01, ...)
 
-loglik.binom.plot(X, poss = NULL, xlab = NULL, ylab = NULL, 
-plot.likfunc = TRUE, plot.density = TRUE, conv = 0.01, anim = TRUE, 
+loglik.binom.plot(X, poss = NULL, xlab = NULL, ylab = NULL,
+plot.likfunc = TRUE, plot.density = TRUE, conv = 0.01, anim = TRUE,
 interval = 0.01, ...)
 
-loglik.exp.plot(X, poss = NULL, plot.likfunc = TRUE, 
-plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL, 
-conv = 0.01, anim = TRUE, est.col = 2, density.leg = TRUE, 
+loglik.exp.plot(X, poss = NULL, plot.likfunc = TRUE,
+plot.density = TRUE, plot.calc = FALSE, xlab = NULL, ylab = NULL,
+conv = 0.01, anim = TRUE, est.col = 2, density.leg = TRUE,
 cex.leg = 0.9, interval = 0.01, ...)
 
-loglik.custom.plot(X, func, poss, anim = TRUE, interval = 0.01, 
+loglik.custom.plot(X, func, poss, anim = TRUE, interval = 0.01,
 xlab, ylab, ...)
 
 anm.loglik.tck()
@@ -59,23 +59,23 @@ log-likelihood function, and binary responses (0,1) for the binomial log likelih
   \item{est.col}{Color used in depicting estimation.}
   \item{density.leg}{Logical.  Should the legend for density be shown?}
   \item{cex.leg}{Character expansion for legend.}
-  \item{interval}{Speed of animation, in seconds per frame.  May not work in all systems; see \code{\link{Sys.sleep}}.} 
-  \item{func}{Custom likelihood function to be specified when using \code{loglik.custom.plot}.  The function should have two arguments.  An optional call to data, and the likelihood function parameter (see example below).} 
+  \item{interval}{Speed of animation, in seconds per frame.  May not work in all systems; see \code{\link{Sys.sleep}}.}
+  \item{func}{Custom likelihood function to be specified when using \code{loglik.custom.plot}.  The function should have two arguments.  An optional call to data, and the likelihood function parameter (see example below).}
   \item{\dots}{Additional arguments from \code{\link{plot}} can be specified for likelihood function plots.}
 }
 
-\details{These plots are helpful in explaining the workings of ML estimation for parameters.  Animation is included as an option to further clarify processes.  
-When specifying \code{poss} be sure to include the estimate that you "want" the log-likelihood function to maximize in the vector of possibilities, e.g. \code{mean(X)} for estimation of \eqn{\mu}.    
+\details{These plots are helpful in explaining the workings of ML estimation for parameters.  Animation is included as an option to further clarify processes.
+When specifying \code{poss} be sure to include the estimate that you "want" the log-likelihood function to maximize in the vector of possibilities, e.g. \code{mean(X)} for estimation of \eqn{\mu}.
 }
 
 \value{
-Three animated plots can be created simultaneously.  The first plot shows the normal, Poisson, exponential, binomial, or custom log-likelihood functions.  The second plot shows the pdf with ML estimates for parameters.  
-On this graph densities of observations are plotted as pdf parameters are varied.  By default these two graphs will be created simultaneously on a single graphics device.  
-By specifying \code{plot.calc = TRUE} a third plot can also be created which shows that log-likelihood is the sum of the log-densities. 
-Animation in this third plot will be automatically sped up, using a primitive routine, for large datasets, and slowed for small datasets.  
-The third plot will not be created for the binomial pdf because there will only be a single outcome from the perspective of likelihood (e.g. 10 successes out of 22 trials).  
-The second and third plots will not be created for custom likelihood functions.  
-Loading package \pkg{tcltk} allows use of the function \code{anm.loglik.tck} which provides an interactive GUI to run \code{anm.loglik}.
+Three animated plots can be created simultaneously.  The first plot shows the normal, Poisson, exponential, binomial, or custom log-likelihood functions.  The second plot shows the pdf with ML estimates for parameters.
+On this graph densities of observations are plotted as pdf parameters are varied.  By default these two graphs will be created simultaneously on a single graphics device.
+By specifying \code{plot.calc = TRUE} a third plot can also be created which shows that log-likelihood is the sum of the log-densities.
+Animation in this third plot will be automatically sped up, using a primitive routine, for large datasets, and slowed for small datasets.
+The third plot will not be created for the binomial pdf because there will only be a single outcome from the perspective of likelihood (e.g. 10 successes out of 22 trials).
+The second and third plots will not be created for custom likelihood functions.
+The function \code{anm.loglik.tck()} runs \code{anm.loglik()} from a \pkg{tcltk} GUI.
 }
 
 \author{Ken Aho}
@@ -110,7 +110,7 @@ anm.loglik(X,dist="bin",interval=.2)
 ##Custom log-likelihood function
 func<-function(X=NULL,theta)theta^5*(1-theta)^10
 anm.loglik(X=NULL,func=func,dist="custom",poss=seq(0,1,0.01),
-xlab="Possibilities",ylab="Log-likelihood")             
+xlab="Possibilities",ylab="Log-likelihood")
 
 ##Interactive GUI, requires package 'tcltk'
 anm.loglik.tck()

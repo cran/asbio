@@ -1,8 +1,9 @@
 see.nlm<-function(){
 old.par <- par(no.readonly = TRUE)
 if(any(dev.list()>1)) graphics.off()
-options()$device(xpos=20)
+#options()$device(xpos=20)
 par(mar=c(.1,.1,.1,.1))
+dev.new(noRStudioGD = TRUE)
 plot(seq(1,10),seq(1,10.5,length.out=10),type="n",xaxt="n",yaxt="n",xlab="",ylab="")
 text(5.8,10.2,"Important non-linear models",cex=1.5)
 rect(2.25, 1.15, 9.75, 9.75,lwd=1.5)
@@ -50,23 +51,23 @@ fp<-function(){
 ans <- identify(x, y, n = 1, plot = FALSE)
 yw <- y[ans]
 if(yw==7.95)
-{points(1.5,7.95,pch=21,bg="red",cex=1.5);dev.new();com="see.MM"}
+{points(1.5,7.95,pch=21,bg="red",cex=1.5);dev.new(noRStudioGD = TRUE);com="see.MM"}
 if(yw==6.95)
-{points(1.5,6.95,pch=21,bg="red",cex=1.5);dev.new();com="see.2PE"}
+{points(1.5,6.95,pch=21,bg="red",cex=1.5);dev.new(noRStudioGD = TRUE);com="see.2PE"}
 if(yw==5.3)
-{points(1.5,5.3,pch=21,bg="red",cex=1.5);dev.new();com="see.2PL"}
+{points(1.5,5.3,pch=21,bg="red",cex=1.5);dev.new(noRStudioGD = TRUE);com="see.2PL"}
 if(yw==4.3)
-{points(1.5,4.3,pch=21,bg="red",cex=1.5);dev.new();com="see.3PL"}
+{points(1.5,4.3,pch=21,bg="red",cex=1.5);dev.new(noRStudioGD = TRUE);com="see.3PL"}
 if(yw==3.3)
-{points(1.5,3.3,pch=21,bg="red",cex=1.5);dev.new();com="see.G"}
+{points(1.5,3.3,pch=21,bg="red",cex=1.5);dev.new(noRStudioGD = TRUE);com="see.G"}
 if(yw==1.65)
-{points(1.5,1.65,pch=21,bg="red",cex=1.5);dev.new();com="see.R"}
+{points(1.5,1.65,pch=21,bg="red",cex=1.5);dev.new(noRStudioGD = TRUE);com="see.R"}
 com
 }
 
 com <- fp()
 
-    if (!exists("slider.env")) 
+    if (!exists("slider.env"))
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     a <- 1
     b <- 1
@@ -78,9 +79,9 @@ com <- fp()
     assign("xmin", tclVar(xmin), envir= slider.env)
     xmax <- 10
     assign("xmax", tclVar(xmax), envir= slider.env)
-        
-   
-    
+
+
+
     norm.refresh <- function(...) {
         a <- as.numeric(evalq(tclvalue(a), envir= slider.env))
         b <- as.numeric(evalq(tclvalue(b), envir= slider.env))
@@ -89,7 +90,7 @@ com <- fp()
         xmax <- as.numeric(evalq(tclvalue(xmax), envir= slider.env))
         xx <- seq(xmin, xmax, length = 500)
         par(mar=c(5, 4.3, 4, 2), cex=1.2)
-        
+
         if(com=="see.MM"){yy<-a*xx/(b+xx);main=bquote(paste("Michaelis-Menten Model   ",italic(f),"(",italic(x),") = ",.(a),italic(x),"/(",.(b)," + ",italic(x),")"))}
         if(com=="see.2PE"){yy<-a*exp(-b*xx);main="2 Parameter Exponential"}
         if(com=="see.2PL"){yy<-exp(a+b*xx)/(1+exp(a+b*xx));main="2 Parameter Logistic"}
@@ -99,15 +100,15 @@ com <- fp()
         dev.hold()
         par(cex=1.3)
         plot(xx, yy, type = "l", xlim = c(xmin, xmax), xlab=expression(italic(x)),ylab=expression(paste(italic(f),"(",italic(x),")", sep = "")),main=main, cex.main=1.1)
-        dev.flush()    
+        dev.flush()
     }
-    
+
     tw <- function(){
     tkdestroy(m)
     see.nlm()
     }
-    
-    
+
+
     tclServiceMode(TRUE)
     m <- tktoplevel()
     tkwm.geometry(m, "+600+4")
@@ -115,26 +116,26 @@ com <- fp()
     tkpack(tklabel(m, text = "      Visualizing Non-linear Models      "))
     tkwm.geometry(m, "+0+0")
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "a", font = c("Helvetica", 
+    tkpack(tklabel(fr, text = "a", font = c("Helvetica",
         "9", "italic"), width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
-        to = 50, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0,
+        to = 50, orient = "horiz", resolution = 0.1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir= slider.env)
     evalq(tkconfigure(sc, variable = a), envir= slider.env)
     tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "b", font = c("Helvetica", 
+    tkpack(tklabel(fr, text = "b", font = c("Helvetica",
         "9", "italic"), width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
-        to = 20, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0,
+        to = 20, orient = "horiz", resolution = 0.1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir= slider.env)
     evalq(tkconfigure(sc, variable = b), envir= slider.env)
      tkpack(fr <- tkframe(m), side = "top")
-    tkpack(tklabel(fr, text = "c", font = c("Helvetica", 
+    tkpack(tklabel(fr, text = "c", font = c("Helvetica",
         "9", "italic"), width = "20"), side = "right")
-    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0, 
-        to = 10, orient = "horiz", resolution = 0.1, showvalue = TRUE), 
+    tkpack(sc <- tkscale(fr, command = norm.refresh, from = 0,
+        to = 10, orient = "horiz", resolution = 0.1, showvalue = TRUE),
         side = "left")
     assign("sc", sc, envir= slider.env)
     evalq(tkconfigure(sc, variable = c), envir= slider.env)
@@ -147,11 +148,11 @@ com <- fp()
     tkpack(e <- tkentry(fr, width = 8), side = "left")
     assign("e", e, envir= slider.env)
     evalq(tkconfigure(e, textvariable = xmax), envir= slider.env)
-    tkpack(tkbutton(m, text = "New model", command = function() tw()))   
-    tkpack(tkbutton(m, text = "Refresh", command = norm.refresh), 
+    tkpack(tkbutton(m, text = "New model", command = function() tw()))
+    tkpack(tkbutton(m, text = "Refresh", command = norm.refresh),
         side = "left")
-    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)), 
+    tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
-on.exit(par(old.par))   
+on.exit(par(old.par))
 }
 
