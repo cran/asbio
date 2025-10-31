@@ -35,7 +35,8 @@ K1.lab <- bquote(paste(K[1],"=",.(pr$K1))); K2.lab <- bquote(paste(K[2],"=",.(pr
 a21.lab <- bquote(paste(alpha[21],"=",.(pr$a2.1))); a12.lab<-bquote(paste(alpha[12],"=",.(pr$a1.2)))
 
 old.par <- par(no.readonly = TRUE)
-if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+{dev.new(noRStudioGD = TRUE)}
 
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){

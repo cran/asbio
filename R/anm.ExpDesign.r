@@ -2,7 +2,8 @@ anm.ExpDesign<-function(method = "all", titles =  TRUE, cex.text = 1, mp.col = N
 
   old.par <- par(no.readonly = TRUE)
 
-  if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+  if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+  {dev.new(noRStudioGD = TRUE)}
 
 method1 = method
 if(any(method == "all"))

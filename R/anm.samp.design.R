@@ -1,6 +1,7 @@
 anm.samp.design<-function(n=20, interval = 0.5 ,iter = 30, main = "", lwd = 2, lcol = 2){
 r<-rep(n,iter)
-if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows")
+{dev.new(noRStudioGD = TRUE)}
 for(i in 1:iter){
 samp.design(r[i], lwd = lwd, lcol = lcol)
 dev.flush()

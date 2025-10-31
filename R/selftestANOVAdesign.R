@@ -5,9 +5,8 @@ selftest.ANVOVA_design.tck <-function(){
   g <- ggroup(container=w, horizontal=FALSE, use.scrollwindow = TRUE)
   
   
-  
   #------------- Question 1 -----------#
-  
+  OS <- Sys.info()[['sysname']]
   gp1 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
   gp1.1 <- ggroup(container = gp1, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("1) ", container = gp1.1, horizontal = TRUE)
@@ -19,7 +18,7 @@ selftest.ANVOVA_design.tck <-function(){
   gp1.1a <- getWidget(gp1)
   img <- tkrplot::tkrplot(gp1.1a, function(){ 
     par(bg = "white", mar = c(1,1,1,1))
-    ExpDesign("CRD",n = 6, cex.text = .85,titles = FALSE)
+    ExpDesign("CRD",n = 6, cex.text = ifelse(OS == "Linux",1,.85),titles = FALSE)
   }
   )
   add(gp1, img, horizontal=TRUE)
@@ -74,7 +73,7 @@ selftest.ANVOVA_design.tck <-function(){
   gp2.1a <- getToolkitWidget(gp2)
   img <- tkrplot::tkrplot(gp2.1a, function(){ 
     par(bg = "white", mar = c(1,1,1,1))
-    ExpDesign("SPRB",cex.text = .85,titles = FALSE)
+    ExpDesign("SPRB",cex.text = ifelse(OS == "Linux",1,.85),titles = FALSE)
   }
   )
   add(gp2, img, horizontal=TRUE)
@@ -124,7 +123,7 @@ selftest.ANVOVA_design.tck <-function(){
   gp3.1a <- getToolkitWidget(gp3)
   img <- tkrplot::tkrplot(gp3.1a, function(){ 
     par(bg = "white", mar = c(1,1,1,1))
-    ExpDesign("factorial2by2",cex.text = .95,titles = FALSE)
+    ExpDesign("factorial2by2",cex.text = ifelse(OS == "Linux",1,.95),titles = FALSE)
   }
   )
   add(gp3, img, horizontal=TRUE)
@@ -174,7 +173,7 @@ selftest.ANVOVA_design.tck <-function(){
   gp4.1a <- getToolkitWidget(gp4)
   img <- tkrplot::tkrplot(gp4.1a, function(){ 
     par(bg = "white", mar = c(1,1,1,1))
-    ExpDesign("RCBD",cex.text = .85,titles = FALSE)
+    ExpDesign("RCBD",cex.text = ifelse(OS == "Linux",1,.85),titles = FALSE)
   }
   )
   add(gp4, img, horizontal=TRUE)
@@ -226,7 +225,7 @@ selftest.ANVOVA_design.tck <-function(){
   gp5.1a <- getToolkitWidget(gp5)
   img <- tkrplot::tkrplot(gp5.1a, function(){ 
     par(bg = "white", mar = c(1,1,1,1))
-    ExpDesign("pairs",cex.text = .95,titles = FALSE)
+    ExpDesign("pairs",cex.text = ifelse(OS == "Linux",1,.95),titles = FALSE)
   }
   )
   add(gp5, img, horizontal=TRUE)

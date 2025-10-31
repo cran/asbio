@@ -1,6 +1,7 @@
 anm.coin <- function (flips = 1000, p.head = 0.5, interval = 0.01, show.coin = TRUE, ...)
 {
-  if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+  if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+  {dev.new(noRStudioGD = TRUE)}
   if (p.head > 1 | p.head < 0)
     stop("p.head must be in the interval [0,1]")
   res <- rbinom(n = flips, size = 1, prob = p.head)

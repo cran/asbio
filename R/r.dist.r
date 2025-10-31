@@ -17,6 +17,9 @@ std.r
 
 
 see.r.dist.tck <-function(){
+  if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+  {dev.new(noRStudioGD = TRUE)}
+
 plot_r <- function(rho, r, n, ...){
 vals <- r.dist(rho = rho, r = seq(-1, 1, .001) , n = n)
 dev.hold()

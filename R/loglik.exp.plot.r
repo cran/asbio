@@ -54,9 +54,8 @@ loglik.exp.plot <- function (X, poss = NULL, plot.likfunc = TRUE, plot.density =
         if (plot.likfunc == TRUE & plot.density == TRUE){
         dev.new(height = 4, width = 8, noRStudioGD = TRUE)
         par(mfrow = c(1, 2), mar = c(4.4, 4.5, 1, 0.5), cex = 0.9)}
-
         if ((plot.likfunc == TRUE & plot.density == FALSE)||
-            (plot.likfunc == FALSE & plot.density == TRUE)){dev.new(noRStudioGD = TRUE)}
+        (plot.likfunc == FALSE & plot.density == TRUE)){dev.new(noRStudioGD = TRUE)}
 
         for (i in 1:(nm - 1)) {
             dev.hold()

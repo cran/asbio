@@ -3,7 +3,8 @@ anm.ci <- function (parent=expression(rnorm(n)), par.val, conf = 0.95, sigma = N
     ...)
 {
 
-  if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+  if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+    {dev.new(noRStudioGD = TRUE)}
 
   ci <- matrix(ncol = 3, nrow = n.est)
     names <- c(expression(mu), "Pop. Median", expression(sigma^2),

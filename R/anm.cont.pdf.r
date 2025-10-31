@@ -9,7 +9,8 @@ if(part == "t") {xlim=c(-15,15);ylim=c(0,0.4)}
 if(part =="exp") {xlim=c(0,20);ylim=c(0,0.9)}
 if(part =="unif") {xlim=c(0,1);ylim=c(0,1.2)}
 
-if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+{dev.new(noRStudioGD = TRUE)}
 
 for(i in 1:20){
 hist(p,breaks=seq(xlim[1],xlim[2],by=1/i),freq=F, ylim = ylim, xlim = xlim, main = "", xlab=expression(italic(x)), ylab="Density")

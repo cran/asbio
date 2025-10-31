@@ -2,7 +2,8 @@
 anm.die<-function(reps=300,interval=0.1,show.die=TRUE,p=c(1/6,1/6,1/6,1/6,1/6,1/6),cl=TRUE){
 
 old.par <- par(no.readonly = TRUE)
-if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+{dev.new(noRStudioGD = TRUE)}
 
 if(sum(p)!=1)stop("sum of die probabilities must = 1")
 p<-p*100

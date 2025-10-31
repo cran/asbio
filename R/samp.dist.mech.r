@@ -1,4 +1,6 @@
 samp.dist.mech <- function(rep, int=.05){
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+  {dev.new(noRStudioGD = TRUE)} 
 old.par <- par(no.readonly = TRUE)
 
 g1 <- NULL; rm(g1)
@@ -51,7 +53,7 @@ for(i in 1:rep){
 dev.hold()
 sub(wt1[,i])
 mtext(side = 3, outer=TRUE,"", line = -26, cex = 1.3)
-Sys.sleep(int*10)
+Sys.sleep(int*2)
 mtext(side = 3, outer=TRUE,bquote(paste(italic(bar(x))[.(i)], " = ", .(round(all.wt[i],1)))), line = -24, cex = 1.3)
 
 par(mar=c(6,5.5,5,1))

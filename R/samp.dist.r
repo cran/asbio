@@ -94,6 +94,8 @@ if(is.null(biv.parent)){
         brks <- seq(min(func.res),max(func.res),length.out=nbreaks)
         
         if (anim == TRUE) {
+          if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+          {dev.new(noRStudioGD = TRUE)}
             for (i in 1:R) {
                 dev.hold()
                 hist(func.res, xlab = xlab,  

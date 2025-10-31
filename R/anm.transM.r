@@ -7,7 +7,8 @@ m[,i]<-A%*%m[,i-1]
 }
 n<-apply(m,2,sum)
 
-if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+{dev.new(noRStudioGD = TRUE)}
 
 for(i in 1:inter){
 dev.hold()

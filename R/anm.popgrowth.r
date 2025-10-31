@@ -4,10 +4,10 @@
 anm.geo.growth<-function(n0,lambda,time=seq(0,20),ylab="Abundance",xlab="Time",interval=0.1,...){
 n<-n0*lambda^time
 
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") {dev.new(noRStudioGD = TRUE)}
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 lambda.lab<-bquote(paste(lambda,"=",.(lambda)))
 old.par <- par(no.readonly = TRUE)
-if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
 
 for(i in min(time):max(time)){
     dev.hold()
@@ -44,8 +44,10 @@ func<-function(time=time,xstart=xstart,pars=pars){
 out<-as.data.frame(rk4(xstart,time,func,pars))
 rmax.lab<-bquote(paste(r[max],"=",.(pr$rmax)))
 
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") {dev.new(noRStudioGD = TRUE)}
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 old.par <- par(no.readonly = TRUE)
+
 for(i in min(time):max(time)){
     dev.hold()
     par(mar=c(0,0,0,0))
@@ -81,8 +83,12 @@ func<-function(time=time,xstart=xstart,pars=pars){
 out<-as.data.frame(rk4(xstart,time,func,pars))
 rmax.lab<-bquote(paste(r[max],"=",.(pr$rmax)))
 K.lab<-bquote(paste(K,"=",.(pr$K)))
-old.par <- par(no.readonly = TRUE)
+
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+{dev.new(noRStudioGD = TRUE)}
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
+old.par <- par(no.readonly = TRUE)
+
 for(i in min(time):max(time)){
     dev.hold()
     par(mar=c(0,0,0,0))

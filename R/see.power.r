@@ -1,5 +1,6 @@
 see.power<-function(alpha=NULL,sigma=NULL,n=NULL,effect=NULL,test="lower",xlim=c(-3,3),strict=FALSE){
-  old.par <- par(no.readonly = TRUE)
+#  old.par <- par(no.readonly = TRUE)
+   
     upper.titlel<-bquote(paste("Distribution assuming ",H[0],": ",mu >= 0))
     upper.titleu<-bquote(paste("Distribution assuming ",H[0],": ",mu <= 0))
     upper.titleb<-bquote(paste("Distribution assuming ",H[0],": ",mu," = 0"))
@@ -8,12 +9,7 @@ see.power<-function(alpha=NULL,sigma=NULL,n=NULL,effect=NULL,test="lower",xlim=c
     lower.titleb<-bquote(paste("Distribution assuming ",H[A],": ",mu != 0))
 
     effect=abs(effect)
-
-    layout(matrix(c(1,rep(2,2),rep(3,2)), 5, 1, byrow = TRUE))
-    par(mar=c(4, 4, 2, 1))
-
-
-
+    
 if(test == "lower"){
     dev.hold()
     powerp<-power.z.test(alpha=alpha,sigma=sigma,effect=effect,power=NULL,n=n,test="one.tail")$power
@@ -83,14 +79,13 @@ if(test == "two"){
     text(-qpower,0.5*dnorm(0,mean=0,sd=sigma/sqrt(n)),"rejection region \u2190", adj = 1)
     dev.flush()
     }
-    on.exit(par(old.par))
+#    on.exit(par(old.par))
     }
 
 
 
 see.power.tck<-function ()
 {
-
     if (!exists("slider.env"))
         slider.env <- NULL; suppressWarnings(rm(slider.env)); slider.env <<- new.env()# Dummy to trick R CMD check
     alpha <- 0.05
@@ -110,7 +105,9 @@ see.power.tck<-function ()
     xmax <- 3
     assign("xmax", tclVar(xmax),envir= slider.env)
 
-    if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+    if(Sys.info()[['sysname']] != "Linux") {dev.new(noRStudioGD = TRUE)}
+    layout(matrix(c(1,rep(2,2),rep(3,2)), 5, 1, byrow = TRUE))
+    par(mar=c(4, 4, 2, 1))
 
    norm.refresh <- function(...) {
         alpha <- as.numeric(evalq(tclvalue(alpha),envir= slider.env))
@@ -149,8 +146,6 @@ see.power.tck<-function ()
             }
 
 
-
-
     tkpack(fr <- tkframe(m), side = "top")
     tkpack(tklabel(fr, text = '\u03b1',font=c("Helvetica","10","italic"), width = "20"),
         side = "right")
@@ -183,7 +178,6 @@ see.power.tck<-function ()
         side = "left")
     assign("sc", sc,envir= slider.env)
     evalq(tkconfigure(sc, variable = effect),envir= slider.env)
-
 
 
     tkpack(tklabel(m,text="            "))

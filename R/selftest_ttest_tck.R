@@ -517,7 +517,7 @@ selftest.ttest.tck <- function(){
   r14 <- gcheckboxgroup(ans14, container = gp14, checked = FALSE, where = "beginning", handler = f14)
   
   #------------- Question 15 -----------#
-  
+  OS <- Sys.info()[['sysname']]
   gp15 <- gframe(container = g, spacing = 2, pos = 0, horizontal = FALSE)
   gp15.1 <- ggroup(container = gp15, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("15) ", container = gp15.1, horizontal = TRUE)
@@ -529,7 +529,7 @@ selftest.ttest.tck <- function(){
   gp15.1a <- getWidget(gp15)
   img <- tkrplot::tkrplot(gp15.1a, function(){ 
     par(bg = "white", mar = c(4.5,4.1,1,1))
-    qqnorm(x, cex.lab =.9, main = "")
+    qqnorm(x, cex.lab = ifelse(OS == "Linux", 1,.9), main = "")
     qqline(x, col = 2, lty = 2)
   }
   )
