@@ -47,4 +47,5 @@ tkpack(sc <- tkscale(fr, command = refresh, from = 0,
 assign("sc", sc, envir = slider.env)
 evalq(tkconfigure(sc, variable = p), envir = slider.env)
 tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)))
+refresh()
  }

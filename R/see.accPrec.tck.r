@@ -73,5 +73,7 @@ norm.refresh <- function(...){
 
  #   on.exit(par(old.par))
 
+    norm.refresh()
+
     }
 

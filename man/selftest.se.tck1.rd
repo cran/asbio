@@ -5,6 +5,7 @@
 \alias{selftest.ANVOVA_design_review.tck}
 \alias{selftest.corr.tck1}
 \alias{selftest.conf.tck1}
+\alias{selftest.comb.tck}
 \alias{selftest.bayes4.tck}
 \alias{selftest.bayes5.tck}
 \alias{selftest.H0.tck}
@@ -33,9 +34,9 @@
 
 \title{
 Interactive self-testing questions
-}                                            
+}
 \description{
-These functions provide interactive multiple-choice questions. 
+These functions provide interactive multiple-choice questions.
 }
 \usage{
 selftest.se.tck1()

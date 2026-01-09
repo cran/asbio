@@ -66,6 +66,7 @@ see.unif.tck<-function ()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
+    norm.refresh()
 }
 
 
@@ -139,5 +140,6 @@ see.unifcdf.tck<-function ()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
+    norm.refresh()
 #    on.exit(par(old.par))
 }

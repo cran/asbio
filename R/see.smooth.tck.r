@@ -67,7 +67,7 @@ dialog.ci <- function(){
 
 }
 
-
+    replot()
 
     ## Three left frames:
     #LOWESS
@@ -137,6 +137,7 @@ dialog.ci <- function(){
         Ylab <- tclVar("Y")
         Xl <- parse(text = tclvalue(X))[[1]]; n <- length(Xl)
         dialog.ci()
+
 })
 #on.exit(par(old.par))
 }

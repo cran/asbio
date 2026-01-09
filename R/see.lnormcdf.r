@@ -63,6 +63,7 @@ see.lnorm.tck<-function ()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
+    norm.refresh()
 }
 
 
@@ -132,4 +133,5 @@ see.lnormcdf.tck<-function (){
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
 #    on.exit(par(old.par))
+    norm.refresh()
   }

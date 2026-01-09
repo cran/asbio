@@ -61,6 +61,7 @@ see.logis.tck<-function ()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
+    norm.refresh()
 }
 
 
@@ -129,4 +130,5 @@ see.logiscdf.tck<-function (){
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
  #   on.exit(par(old.par))
+    norm.refresh()
   }

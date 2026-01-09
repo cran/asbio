@@ -53,6 +53,7 @@ see.exp.tck<-function ()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
+    norm.refresh()
 }
 
 see.expcdf.tck<-function (){
@@ -109,6 +110,6 @@ see.expcdf.tck<-function (){
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
-
+norm.refresh()
  #   on.exit(par(old.par))
   }

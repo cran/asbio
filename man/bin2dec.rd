@@ -3,10 +3,10 @@
 \alias{dec2bin}
 
 \title{
-Conversion between binary digits and decimal numbers 
+Conversion between binary digits and decimal numbers
 }
 \description{
-The function \code{bin2dec} Converts binary representations to digital numbers (e.g., 10101011 = 171).  Fractions, (e.g., 0.11101) will be evaluated to the number of bits provided. The function will not handle codification of whole numbers with fractional parts. The function \code{dec2bin} Converts decimal representations to binary and can handle whole numbers, fractional, and numbers with both whole and fractional parts.   
+The function \code{bin2dec} converts binary representations of positive digital numbers (e.g., 10101011 = 171).  Fractions, (e.g., 0.11101) will be evaluated to the number of bits provided. The function will not handle codification of whole numbers with fractional parts. The function \code{dec2bin} converts positive decimal representations to binary and can handle whole numbers, fractional, and numbers with both whole and fractional parts.
 }
 \usage{
 bin2dec(digits, round = 4)
@@ -33,7 +33,7 @@ A handler for meaningless repeating zeroes at the end of some binary representat
 }
 }
 \details{
-If a decimal number with fractional, or both whole and fractional parts is provided to \code{dec2bin}, a vector with seperate binary expressions for each of these components is returned. 
+If a decimal number with fractional, or both whole and fractional parts is provided to \code{dec2bin}, a vector with seperate binary expressions for each of these components is returned.
 }
 \author{
 Ken Aho

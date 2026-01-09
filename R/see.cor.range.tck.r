@@ -1,6 +1,7 @@
 see.cor.range.tck <-function(sd = .5){
 
-if(names(dev.cur()) == "RStudioGD") dev.new(noRStudioGD = TRUE)
+old.par <- par(no.readonly = TRUE)
+ if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") {dev.new(noRStudioGD = TRUE)}
 draw.cor.range <- function(y1, y2, a = 0, b = 2, col.arg = TRUE){
 dev.hold()
 plot(y1, y2, xlab=expression(italic(Y)[1]),ylab=expression(italic(Y)[2]), type = "n")
@@ -63,4 +64,7 @@ y2[i] <- y1[i] + rnorm(1,sd = sd)}
 
 
     tkpack(col.cbut)
+    norm.refresh()
+    on.exit(par(old.par))
+    invisible()
         }

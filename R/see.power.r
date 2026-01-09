@@ -1,6 +1,6 @@
 see.power<-function(alpha=NULL,sigma=NULL,n=NULL,effect=NULL,test="lower",xlim=c(-3,3),strict=FALSE){
 #  old.par <- par(no.readonly = TRUE)
-   
+
     upper.titlel<-bquote(paste("Distribution assuming ",H[0],": ",mu >= 0))
     upper.titleu<-bquote(paste("Distribution assuming ",H[0],": ",mu <= 0))
     upper.titleb<-bquote(paste("Distribution assuming ",H[0],": ",mu," = 0"))
@@ -9,7 +9,7 @@ see.power<-function(alpha=NULL,sigma=NULL,n=NULL,effect=NULL,test="lower",xlim=c
     lower.titleb<-bquote(paste("Distribution assuming ",H[A],": ",mu != 0))
 
     effect=abs(effect)
-    
+
 if(test == "lower"){
     dev.hold()
     powerp<-power.z.test(alpha=alpha,sigma=sigma,effect=effect,power=NULL,n=n,test="one.tail")$power
@@ -195,6 +195,7 @@ see.power.tck<-function ()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
+    norm.refresh()
 }
 
 

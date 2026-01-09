@@ -156,7 +156,7 @@ selftest.sampd.tck1 <- function(){
   gp5.1 <- ggroup(container = gp5, spacing = 2, pos = 0, horizontal = TRUE)
   q <- glabel("5) ", container = gp5.1, horizontal = TRUE)
   font(q) <- list(weight = "bold")
-  qq <- glabel("We sample from a normal parent distribution we to make inference to, Y, with sample size n.  \nAssume that \u03bc\u2080 is equal to the mean of Y, \u03bc. That is, assume \u03bc = \u03bc\u2080.  \nWhat is the sampling distribution of \u221an(\u0232 - \u03bc\u2080)/S,  where S is the sample standard deviation. 
+  qq <- glabel("We sample from a normal parent distribution to make inference to Y, with sample size n.  \nAssume that \u03bc\u2080 is equal to the mean of Y, \u03bc. That is, assume \u03bc = \u03bc\u2080.  \nWhat is the sampling distribution of \u221an(\u0232 - \u03bc\u2080)/S,  where S is the sample standard deviation. 
          ",  container = gp5.1, anchor = c(-1,1))
   font(qq) <- list(family = "cambria", size = 11)
   

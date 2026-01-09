@@ -54,6 +54,7 @@ tkpack(fr <- tkframe(m), side = "top")
         side = "left")
     assign("sc", sc, envir= slider.env)
     evalq(tkconfigure(sc, variable = N), envir= slider.env)
+    norm.refresh()
 }
 
 
@@ -118,4 +119,5 @@ tkpack(fr <- tkframe(m), side = "top")
     assign("sc", sc, envir= slider.env)
     evalq(tkconfigure(sc, variable = N), envir= slider.env)
 #    on.exit(par(old.par))
+    norm.refresh()
 }

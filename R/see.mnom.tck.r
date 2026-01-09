@@ -11,7 +11,7 @@ see.mnom.tck <- function ()
     assign("n", tclVar(n), envir = slider.env)
     assign("p1", tclVar(p1), envir = slider.env)
 
-    if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows")  {dev.new(noRStudioGD = TRUE)} 
+    if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows")  {dev.new(noRStudioGD = TRUE)}
 
     norm.refresh <- function(...) {
         n <- as.numeric(evalq(tclvalue(n), envir = slider.env))
@@ -51,5 +51,7 @@ see.mnom.tck <- function ()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
+    norm.refresh()
     on.exit(par(old.par))
+
 }

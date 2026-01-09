@@ -150,4 +150,6 @@ see.anova.tck <- function ()
         side = "left")
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
+
+    norm.refresh()
 }

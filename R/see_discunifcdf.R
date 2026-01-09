@@ -58,6 +58,7 @@ see.disc.unif.tck <-function ()
          side = "left")
   tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
          side = "right")
+  norm.refresh()
 }
 
 
@@ -134,4 +135,5 @@ see.disc.unifcdf.tck <- function ()
   tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
          side = "right")
   #    on.exit(par(old.par))
+  norm.refresh()
 }

@@ -119,5 +119,5 @@ tclServiceMode(TRUE)
     tkpack(tkbutton(m, text = "Exit", command = function() tkdestroy(m)),
         side = "right")
     on.exit(par(old.par))
-
+    plot_it()
 }
