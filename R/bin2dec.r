@@ -1,18 +1,24 @@
-bin2dec <- function(digits, round = 4){
-x <- as.character(as.numeric(digits))
-if(as.numeric(x)!= 0 & as.numeric(x) < 1){
-h <- unlist(strsplit(x, ""))
-b <- c(0, as.numeric(unlist(h[-c(1, 2)])))
-if(any(b != "0" & b != "1")) stop("Digits must be binary")
-pow <- -1*(1:length(b))[-(length(b))]
-res <- round(sum(c(0,2^pow)*b),round)
-}
-if(as.numeric(x) == 0 | as.numeric(x) >= 1){
-b <- as.numeric(unlist(strsplit(x, "")))
-if(any(b != "0" & b != "1")) stop("Digits must be binary")
-pow <- (length(b) - 1):0
-res <- round(sum((2^pow)*b),round)
-}
-res
-}
+bin2dec <- function(digits, sign.bit = FALSE){
+  digits <- as.numeric(digits)
+  if(digits < 0) stop("digits must be >= 0")
+  x <- as.character(digits)
+  h <- unlist(strsplit(x, ""))
+  if(!all(h == "1" | h == "0" | h == ".")) stop("digits must be binary")
 
+  if(any(h == ".")){
+    w <- which(h == ".")
+    len <- length(h)
+    mkappa <- w - len; Mkappa <- w - 2
+    kappa <- seq(Mkappa, mkappa)
+    noradix <- paste(gsub(x = h,".","", fixed = TRUE), collapse = "")
+    mantissa <- as.numeric(unlist(strsplit(noradix, "")))
+  } else {
+    mkappa <- 0; Mkappa <- length(h) - 1
+    kappa <- seq(Mkappa, mkappa)
+    mantissa <- as.numeric(h)
+  }
+  if(sign.bit){
+    mantissa[1] <- -mantissa[1]
+  }
+  sum(mantissa * 2^kappa)
+}

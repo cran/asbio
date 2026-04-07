@@ -1,7 +1,8 @@
-dec2bin <- function(num, max.bits = 10, max.rep0 = 6){ 
+dec2bin <- function(num, max.bits = 10, max.rep0 = 6){
+  if(num < 0) stop("num must be >= 0. You can obtain binary expressions for negative decimal numbers with two's complement formatting using dec2bin.twos().")
   frac <- NULL
   numc <- as.character(num)
-  
+
   if(grepl("\\.", numc)){
     ss <- unlist(strsplit(numc, "\\."))
     whole <- ss[1]; frac <- paste0("0.",ss[2])
@@ -23,7 +24,7 @@ dec2bin <- function(num, max.bits = 10, max.rep0 = 6){
     }
     out
   }
-  
+
   fnd2cf <- function(num, max.bit = max.bits){
     i <- 0; iq <- num; out <- "0."
       for(i in 1:max.bits){
@@ -36,7 +37,6 @@ dec2bin <- function(num, max.bits = 10, max.rep0 = 6){
     out
     }
 
-  
 if(!is.null(frac)) {
   if(whole == "0"){out <- fnd2cf(as.numeric(frac))}
   else {
@@ -50,12 +50,12 @@ if(!is.null(frac)) {
       u <- unlist(strsplit(out, NULL))
       runs <- rle(u)
       ss <- subset(u, u %in% runs$values[runs$lengths >= max.rep0])
-      if(length(ss > 0) && all(tail(u) == tail(ss))){ 
+      if(length(ss > 0) && all(tail(u) == tail(ss))){
         w <- which(runs$values == "0" & runs$length >= max.rep0)
         id <- paste(rep("0", runs$length[w]), collapse="")
         out <- unlist(strsplit(x = out, id))
         }
-    }
+  }
 noquote(out)
 }
 

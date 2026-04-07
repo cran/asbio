@@ -1,4 +1,4 @@
-6e24c50a74f1aa3064ed1fcb3c2972fe *DESCRIPTION
+db995f87a803f6d76a9ed7e1a4a6cf40 *DESCRIPTION
 d0603b6d1dfb9a224d886619b5c3967e *NAMESPACE
 45a25a74a3b6286e150292f0449adc68 *R/AP.test.R
 1206fc5923286f82354ba1938bb135de *R/BDM.test.R
@@ -51,7 +51,7 @@ de5920ef2d01e2ad0a73f5c81f69bc8c *R/anm.transM.r
 ab187d7f7aae31d9e701f488c76ec9c6 *R/auc.r
 8ff5b6d27e4b62261e6b2c3934c3c7f5 *R/bayes.lm.r
 1fa7d4a9199ded9a6f0afbc8fc3b247e *R/best_agreement.R
-f2f6f8cf482fe063602adc3db17b2980 *R/bin2dec.r
+0f0ae788b2e6110f15178ca1591920b7 *R/bin2dec.r
 9ab4c926855e0eca682b0959d3f81fd1 *R/book.menu.r
 976c2f135bc143caf48d5ae299022e5d *R/boot.ci.M.R
 57fccc8b2bed68bb5bf48a7b67d1f580 *R/bootstrap.r
@@ -70,7 +70,8 @@ e54e14db22adcd2a0db8e9200340dc63 *R/ci.mu.oneside.R
 e19ff007a30e1d4b6b88c8b55a509c6a *R/ci.prat.r
 0e4c7438a4fca0250f0215548576908b *R/ci.sigma.r
 64c5acf983d6b80ac7c0603e8dc508d2 *R/ci.strat.R
-ca300ee6ea85821326e7d77de2e28220 *R/dec2bin.R
+4d7b0ae3689a6be94cab9d594ecd1818 *R/dec2bin.R
+5a019dd5fb4064d0c819238f81d037e5 *R/dec2bin.twos.R
 5fd106b8aa0c6115e51aa02dcee51308 *R/eff.rbd.r
 6f8d33e5f02e45e3631c45c6f5d8bd6a *R/g.test.r
 dadc78581a9c9ce0b834a455dafe196c *R/huber.NR.R
@@ -164,12 +165,12 @@ e61eff7235aa7134e57c1a6e2c0f259a *R/selftest.H0.R
 9b9f75f2a41bbf5e609d1b00cd60bf24 *R/selftest.conf.r
 d5d6305feb666a12dae366268a8cc46a *R/selftest.corr.R
 eaa94a20a04539a7592e902c29de32f5 *R/selftest.pdfs.r
-ec6cf6e7d419befd4db726b278439add *R/selftest.prob.r
+a94dceae3e6924740161cfdd5b318bc3 *R/selftest.prob.r
 272314bc770b48fa705b43ff39c10ffc *R/selftest.regGLM.R
 aa0213c4e08bdc2ed2bad1cd68e86d56 *R/selftest.regapproaches.R
 1f993e90f4d4aa44684a61231890b5b8 *R/selftest.regdiag.R
 dfb96c9ee5053a754b4bcf259279086f *R/selftest.sampd.r
-5507bf234c0b49db258557e3e65809a0 *R/selftest.stats.tck.R
+4bb4e0a55eebf1f86e1830f8a606b4ac *R/selftest.stats.tck.R
 09702351c032023b01174929dd9bdbdd *R/selftest.typeIISS.R
 f09a2615a5cfd41eaa886e8d6e90114a *R/selftestANOVAdesign.R
 dcfe31de212482d583f83ab9f36404c0 *R/selftest_Bayes4.R
@@ -196,7 +197,7 @@ a8ca07289bf7b5819d8ff85e2242eca0 *R/stan.error.R
 9728b2a19d069ec869cce60d0efb89b7 *R/trim.test.R
 1fbdad871e13114cc5b53b7fd2fe0733 *R/tukey.add.test.r
 48d2a2c418b557b94625d7058049ab14 *R/win.R
-560c6a542582db62adb1ba8c80904ede *build/vignette.rds
+a83dcb19a9ffd11a46a2418ff3e69553 *build/vignette.rds
 5d5373febbd5e587ed3578edc8dee1cb *data/BCI.count.rda
 27fb884c08cfb11676654a1edf238061 *data/BCI.plant.rda
 2e2a3befcd99adbc086338efb2bd1615 *data/C.isotope.rda
@@ -301,11 +302,11 @@ ada771ca1b87264108e32791a7fa8ad4 *data/wine.rda
 c9a930b0c172af2cb9557d5ac68fdcb8 *data/world.emissions.rda
 2a2bb19db449069d2935266faa04e1ae *data/world.pop.rda
 5ec2e0ec222b924f04e6b73dfc6f6dc4 *inst/doc/ranefCov.Rnw
-2dc6eab2c5a91b015df16b6d68756989 *inst/doc/ranefCov.pdf
+5d029669aa15caa82d2725ed9a26ba52 *inst/doc/ranefCov.pdf
 3b6a70f4ceaac8968e1a379381f83697 *inst/doc/simpson.Rnw
-12de317e542fb2838a90444035094bf1 *inst/doc/simpson.pdf
+26ab839b1b741d00aa03dd23dd0287e5 *inst/doc/simpson.pdf
 48a9643250ee4618644714b7eb0f7c5b *inst/doc/typeISS_key.Rnw
-c19e39dad77504c8a07907d2501e53a0 *inst/doc/typeISS_key.pdf
+b004d31832127a3f40d3ecb0641a1650 *inst/doc/typeISS_key.pdf
 0bf33f6b3b89c1650d81a9d8959a1d7c *inst/pictures/goat1.pgm
 b4a97a18ffc76072a4fc53f3bdc0bd41 *inst/pictures/goat3.pgm
 e0ca3da18dda2664def9f46da3711774 *man/AP.test.rd
@@ -367,7 +368,7 @@ e9d9f8a84298e1176c3375b95cd45310 *man/bats.rd
 8492c2e8f5f9ec60939c0b3184c24edb *man/bear.Rd
 2ea71650d545b2eaa5dcd3097cc83ea7 *man/beetle.rd
 a526e13a19118dfee8ad9dbbafb02fb2 *man/best.agreement.Rd
-8d5fcfaa2eb1a83acc9749c0323dc175 *man/bin2dec.rd
+4eea1e9fa8c1678a6143c8f24cf50e12 *man/bin2dec.rd
 a13696276c2d5770770538d60c5f29dc *man/bombus.rd
 4af8317539b19110a66c707f81b08fb7 *man/bone.rd
 d0eb9b21f02f0e345ea28c5e13ca051b *man/book.menu.rd
