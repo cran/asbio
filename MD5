@@ -1,4 +1,4 @@
-db995f87a803f6d76a9ed7e1a4a6cf40 *DESCRIPTION
+87d39c2f1b24fea780de8f2051a54082 *DESCRIPTION
 d0603b6d1dfb9a224d886619b5c3967e *NAMESPACE
 45a25a74a3b6286e150292f0449adc68 *R/AP.test.R
 1206fc5923286f82354ba1938bb135de *R/BDM.test.R
@@ -24,7 +24,7 @@ e860e497beba39fd4d2d3c491618856b *R/R.hat.r
 bce86a7863af019c797135d9d0861277 *R/alpha.div.r
 e03e07dd75cdaa4f5c0c2c76d4585e0f *R/anm.ExpDesign.r
 daf6c9d4e918d3a7c5a56191a8976b24 *R/anm.ExpDesign.tck.r
-0815bb1bfc56abf9d93238a6e0e7e8de *R/anm.LV.r
+6fecb16d065c0cc86e1211465e568723 *R/anm.LV.r
 fca888756fe047ea61b0fb7e7e1c92c4 *R/anm.LVc.tck.r
 2c199f28153c378a894a5469b545da6c *R/anm.LVe.tck.r
 b52d3b0ef6edb2c9b50a03a99073a013 *R/anm.TM.tck.r
@@ -90,7 +90,7 @@ c7e6b47d731c30bb645ec287cd96a3fe *R/near.bound.r
 ac4435e169419fbe1d656a42bb6e8e74 *R/one.sample.z.R
 eca8d3fb019467bb8e37aa6a13faaba0 *R/paik.r
 b1e1dc35750087969200211f150e66f6 *R/pairs.panel.functions.R
-82369fab05325801810c109c60c3aeac *R/pairw.anova.R
+1b0fcb7317e7701554e7ffdc6e0c8eba *R/pairw.anova.R
 e34f180bf820b7068af6dc114ffe709d *R/pairw.fried.R
 3a669f9c8be293ca7780ca7d9efc5a0f *R/pairw.kw.R
 842a86639bfb05e4a843be917f808a9b *R/pairw_oneway.R
@@ -302,11 +302,11 @@ ada771ca1b87264108e32791a7fa8ad4 *data/wine.rda
 c9a930b0c172af2cb9557d5ac68fdcb8 *data/world.emissions.rda
 2a2bb19db449069d2935266faa04e1ae *data/world.pop.rda
 5ec2e0ec222b924f04e6b73dfc6f6dc4 *inst/doc/ranefCov.Rnw
-5d029669aa15caa82d2725ed9a26ba52 *inst/doc/ranefCov.pdf
+81472a1298bc17eb99fade58b9911626 *inst/doc/ranefCov.pdf
 3b6a70f4ceaac8968e1a379381f83697 *inst/doc/simpson.Rnw
-26ab839b1b741d00aa03dd23dd0287e5 *inst/doc/simpson.pdf
+de985c9b49667fa0ecd5b06fa976ab98 *inst/doc/simpson.pdf
 48a9643250ee4618644714b7eb0f7c5b *inst/doc/typeISS_key.Rnw
-b004d31832127a3f40d3ecb0641a1650 *inst/doc/typeISS_key.pdf
+b6801f0d08df0a699e544d27396fb901 *inst/doc/typeISS_key.pdf
 0bf33f6b3b89c1650d81a9d8959a1d7c *inst/pictures/goat1.pgm
 b4a97a18ffc76072a4fc53f3bdc0bd41 *inst/pictures/goat3.pgm
 e0ca3da18dda2664def9f46da3711774 *man/AP.test.rd

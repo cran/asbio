@@ -6,7 +6,7 @@ y<-xstart<-c(n1=n1,n2=n2)
 pars<-c(r1=r1,r2=r2,K1=K1,K2=K2,a2.1=a2.1,a1.2=a1.2)
 if(n1 >= K1 | n2 >= K2) stop("Initial population size cannot equal or exceed carrying capacity")
 
-time=seq(0,200); ylab="Abundance"; xlab="Time"; interval=0.1
+time=time; ylab=ylab; xlab=xlab; interval=interval
 
 pr <- as.list(pars)
 func<-function(time=time,xstart=xstart,pars=pars){
@@ -35,7 +35,7 @@ K1.lab <- bquote(paste(K[1],"=",.(pr$K1))); K2.lab <- bquote(paste(K[2],"=",.(pr
 a21.lab <- bquote(paste(alpha[21],"=",.(pr$a2.1))); a12.lab<-bquote(paste(alpha[12],"=",.(pr$a1.2)))
 
 old.par <- par(no.readonly = TRUE)
-if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows") 
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows")
 {dev.new(noRStudioGD = TRUE)}
 
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
@@ -84,6 +84,8 @@ p.lab<-bquote(paste(p,"=",.(pr$p)));dp.lab<-bquote(paste(d[p],"=",.(pr$d.p)))
 ccol<-rainbow(max(time)-min(time)+1)
 
 old.par <- par(no.readonly = TRUE)
+if(names(dev.cur()) == "RStudioGD" | Sys.info()[['sysname']] == "Darwin" | Sys.info()[['sysname']] == "Windows")
+{dev.new(noRStudioGD = TRUE)}
 
 layout(matrix(c(1,1,0,2,2,rep(3,20)),5,5,byrow=TRUE))
 for(i in min(time):max(time)){

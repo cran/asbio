@@ -53,7 +53,7 @@ res$method <- "Fisher LSD"
 class(res)<-"pairw"
 res
 }
- 
+
 
 bonfCI<-function(y,x, conf.level=0.95,MSE=NULL,df.err=NULL){
 fitted<-tapply(y,factor(x),mean)
@@ -108,7 +108,7 @@ diffs<-dif.mat[upper.tri(dif.mat)]
 SE.diff.mat<-sqrt(MSE*outer(1/nis,1/nis,"+"))
 SE.diff<-SE.diff.mat[upper.tri(SE.diff.mat)]
 
-Q.star<-abs((sqrt(2)*diffs)/ SE.diff) 
+Q.star<-abs((sqrt(2)*diffs)/ SE.diff)
 p.val<-round(ptukey(Q.star,r,df=df.error,lower.tail=FALSE),6)
 T<-qtukey(conf.level,r,df.error)/sqrt(2)
 hwidths<-T*SE.diff
@@ -130,12 +130,12 @@ res$band <- cbind(diffs-hwidths, diffs+hwidths)
 res$fitted <- fitted
 res$x <- x
 res$y <- y
-res$method <- "Tukey HSD" 
+res$method <- "Tukey HSD"
 class(res)<-"pairw"
 res
 }
 
- 
+
 scheffeCI<-function(y,x, conf.level=0.95,MSE=NULL,df.err=NULL){
 fitted<-tapply(y,factor(x),mean)
 nis<-tapply(y,factor(x),length)
@@ -179,14 +179,14 @@ x <- factor(x)
 if(is.null(control)) stop(call. = FALSE, "Please specify the control")
 nis <- tapply(y, x, length)
 nu <- sum(nis) - nlevels(x)
-    
+
     p.sd <- function(y, x){
         rs <- seq(1, nlevels(x))
         for(i in levels(x)) rs[i] <- sum((y[x == i] - mean(y[x == i]))^2)
         rs <- rs[-c(1:nlevels(x))]
         sqrt(sum(rs)/nu)
     }
-                                                  
+
 s <- p.sd(y, x)
 controlm <- mean(y[x == control])
 fittedm <- tapply(y[x != control], factor(x)[x != control], mean)
@@ -198,12 +198,12 @@ diffs <- fittedm - controlm
 
     Dj <- seq(1, (nlevels(x) - 1))
     for(i in 1 : (nlevels(x)-1)) Dj[i] <- diffs[i]/(s*sqrt((1/fittedn[i]) + (1/controln)))
-    
+
     Rij <- seq(1, (nlevels(x) - 1))
     for(i in 1 : (nlevels(x)-1)) Rij[i] <- sqrt(fittedn[i]/(fittedn[i] + controln))
     R <- outer(Rij, Rij, "*")
     diag(R) <- rep(1, (nlevels(x) - 1))
-    
+
     upper <- seq(1, (nlevels(x) - 1))
     for(i in 1 : (nlevels(x)-1)) upper[i] <-  diffs[i] + s*sqrt((1/fittedn[i])+ (1/controln))*qmvt((1 - (1 - conf.level)/2), df = nu, sigma = R, tail="lower.tail")$quantile
     lower <- seq(1, (nlevels(x) - 1))
@@ -297,6 +297,7 @@ plot.pairw <- function(x, type = 1, lcol = 1, lty = NULL, lwd = NULL, cap.length
 if(!inherits(x, "pairw")) stop("Requires object of class pairw")
     if(type == 1){
         levels <- factor(names(x$fitted))
+        levels <- gsub("-"," ", x = levels)
         cont <- outer(levels, levels, function(x1,x2)paste(x1,x2,sep="-"))
         cont1 <- cont[upper.tri(cont)]
         dec <- x$summary$Decision
